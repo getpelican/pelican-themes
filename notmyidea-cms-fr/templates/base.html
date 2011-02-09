@@ -4,9 +4,9 @@
         <title>{% block title %}{{ SITENAME }}{%endblock%}</title>
         <meta charset="utf-8" />
         <link rel="stylesheet" href="{{ SITEURL }}/theme/css/{{ CSS_FILE }}" type="text/css" />
-        <link href="{{ SITEURL }}/{{ FEED }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} ATOM Feed" />
+        <link href="{{ SITEURL }}/{{ FEED }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Flux ATOM" />
         {% if FEED_RSS %}
-        <link href="{{ SITEURL }}/{{ FEED_RSS }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} RSS Feed" />
+        <link href="{{ SITEURL }}/{{ FEED_RSS }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Flux RSS" />
         {% endif %}
 
 
@@ -31,7 +31,7 @@
                     <li><a href="{{ link }}">{{ title }}</a></li>
                 {% endfor %}
                 {% if DISPLAY_PAGES_ON_MENU != False %}
-                <li><a href="{{ SITEURL }}/index.html">Home</a></li>
+                <li><a href="{{ SITEURL }}/index.html">Accueil</a></li>
                 {% for p in PAGES %}
                     <li {% if p == page %}class="active"{% endif %}><a href="{{ SITEURL }}/pages/{{ p.url }}">{{ p.title }}</a></li>
                 {% endfor %}
@@ -47,7 +47,7 @@
 
         <aside id="sidebar">
                 <div class="widget">
-                        <h2>Categories</h2>
+                        <h2>Catégorie</h2>
                         <ul>
                         {% for cat, null in categories %}
                            <li {% if cat == category %}class="active"{% endif %}><a href="{{ SITEURL }}/category/{{ cat }}.html">{{ cat }}</a></li>
@@ -56,7 +56,7 @@
                 </div>
         {% if LINKS %}
                 <div class="widget blogroll">
-                        <h2>Blogroll</h2>
+                        <h2>Lien</h2>
                         <ul>
                         {% for name, link in LINKS %}
                             <li><a href="{{ link }}">{{ name }}</a></li>
@@ -66,7 +66,7 @@
         {% endif %}
         {% if SOCIAL %}
                 <div class="widget social">
-                        <h2>Social</h2>
+                        <h2>Réseaux sociaux</h2>
                         <ul>
                             <li><a href="{{ SITEURL }}/{{ FEED }}" rel="alternate">atom feed</a></li>
                             {% if FEED_RSS %}
@@ -83,10 +83,10 @@
 
         <footer id="footer" class="body">
                 <address id="about" class="vcard body">
-                Proudly powered by <a href="http://alexis.notmyidea.org/pelican/">pelican</a>, which takes great advantages of <a href="http://python.org">python</a>.
+                Ce site est généré par <a href="http://alexis.notmyidea.org/pelican/">Pelican</a>, un CMS réalisé en <a href="http://python.org">Python</a>.
                 </address><!-- /#about -->
 
-                <p>The theme is «notmyidea-cms», a modified version of «notmyidea», the default theme.</p>
+                <p>Le thème utilisé est «NotMyIdea-CMS», une version modifiée de «NotMyIdea», le thème par défaut.</p>
         </footer><!-- /#footer -->
 
 {% include 'analytics.html' %}
