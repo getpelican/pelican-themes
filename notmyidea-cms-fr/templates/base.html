@@ -32,6 +32,7 @@
                 {% endfor %}
                 {% if DISPLAY_PAGES_ON_MENU != False %}
                 <li><a href="{{ SITEURL }}/index.html">Accueil</a></li>
+                <li><a href="{{ SITEURL }}/archives.html">Archives</a></li>
                 {% for p in PAGES %}
                     <li {% if p == page %}class="active"{% endif %}><a href="{{ SITEURL }}/pages/{{ p.url }}">{{ p.title }}</a></li>
                 {% endfor %}
@@ -47,7 +48,7 @@
 
         <aside id="sidebar">
                 <div class="widget">
-                        <h2>Catégorie</h2>
+                        <h2>Catégories</h2>
                         <ul>
                         {% for cat, null in categories %}
                            <li {% if cat == category %}class="active"{% endif %}><a href="{{ SITEURL }}/category/{{ cat }}.html">{{ cat }}</a></li>
@@ -56,7 +57,7 @@
                 </div>
         {% if LINKS %}
                 <div class="widget blogroll">
-                        <h2>Lien</h2>
+                        <h2>Liens</h2>
                         <ul>
                         {% for name, link in LINKS %}
                             <li><a href="{{ link }}">{{ name }}</a></li>
