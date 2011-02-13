@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}{{ SITENAME }} - {{ article.title }}{% endblock %}
+
+{% block content %}
+    <article class="post">
+      <h2 class="page_title"><a href="{{ SITEURL }}/{{ article.url}}">{{ article.title }}</a></h2>
+      <details class="meta">
+        <p>
+        Posté{%if article.date %} le <time pubdate="pubdate" datetime="{{ article.date }}">{{ article.locale_date }}</time>{% endif %}{% if article.author %} par {{ article.author }}{% endif %} dans «<a href="{{ SITEURL }}/category/{{ article.category }}.html">{{ article.category }}</a>».
+        {% if articles.tags %}<br />Tags : {% for tag in article.tags %}{% if loop.index > 1%}, {% endif %}<span class="tag"><a href="{{ SITEURL }}/tag/{{ tag }}.html">{{ tag }}</a></span>{% endfor %}{%endif%}
+        </p>
+      </details>
+      <section class="post_content">
+        {{ article.content }}
+      </section>
+    </article>
+{% endblock %}
