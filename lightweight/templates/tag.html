@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}{{ SITENAME }} - «{{ tag }}»{% endblock %}
+
+{% block content %}
+ <h2 class="page_title">Articles avec le mot-clé «{{ tag }}»</h2>
+ {% if articles %}
+  {% for article in articles %} 
+    <article class="post">
+      <h2 class="title"><a href="{{ SITEURL }}/{{ article.url}}">{{ article.title }}</a></h2>
+      {%include 'meta.html'%}
+
+      <section class="post_content">
+        {{ article.summary }}<br />
+        <a class="more" href="{{ SITEURL }}/{{ article.url }}">Lire la suite...</a>
+      </section>
+    </article>
+  {% endfor %}
+ {% endif %}
+{% endblock %}

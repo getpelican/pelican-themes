@@ -6,7 +6,18 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <link rel="stylesheet" href="{{ SITEURL }}/theme/css/main.css" type="text/css" />
   <link href="{{ SITEURL }}/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} - Flux ATOM" />
-</html>
+  {% if GOOGLE_ANALYTICS %}
+  <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+    try {
+        var pageTracker = _gat._getTracker("{{GOOGLE_ANALYTICS}}");
+    pageTracker._trackPageview();
+    } catch(err) {}</script>
+  {% endif %}
+</head>
 <body>
 <div id="page">
 

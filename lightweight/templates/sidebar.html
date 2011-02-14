@@ -1,5 +1,59 @@
 <aside id="sidebar">
-  <h2>Sidebar</h2>
-{% block sidebar %}
+{% block sidebar_header %}
 {% endblock %}
+
+  <div class="widget" id="categories">
+    <h2>Catégories</h2>
+    <ul>
+    {% for cat, null in categories %}
+      <li {% if cat == category %}class="active"{% endif %}><a href="{{ SITEURL }}/category/{{ cat }}.html">{{ cat }}</a></li>
+    {% endfor %}
+    </ul>
+  </div>
+
+  {% if article  and article.tags %}
+  <div class="widget" id="tags">
+    <h2>Mots-clés:</h2>
+    <ul>
+    {% for tag in article.tags %}
+      <li><a href="{{SITEURL}}/tag/{{tag}}.html">{{ tag }}</a></li>
+    {% endfor %}
+      <li><a class="more" href="{{SITEURL}}/tags.html">Plus...</a></li>
+    </ul>
+  </div>
+  {%endif%}
+  
+  {% if LINKS %}
+  <div class="widget" id="blogroll">
+    <h2>Liens</h2>
+    <ul>
+    {% for name, link in LINKS %}
+      <li><a href="{{ link }}">{{ name }}</a></li>
+    {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+
+  {% if SOCIAL %}
+    <div class="widget" id="social">
+      <h2>Réseaux sociaux</h2>
+      <ul>
+        {% for name, link in SOCIAL %}
+        <li><a href="{{ link }}">{{ name }}</a></li>
+        {% endfor %}
+       </ul>
+    </div>
+ {% endif %}
+
+ {% if FEED or FEED_RSS %}
+    <div class="widget" id="subscribe">
+    <h2>S'abonner</h2>
+      <ul>
+        <li><a href="{{ SITEURL }}/{{ FEED }}" rel="alternate">Flux ATOM</a></li>
+        {% if FEED_RSS %}
+        <li><a href="{{ SITEURL }}/{{ FEED_RSS }}" rel="alternate">Flux RSS</a></li>
+        {% endif %}
+      </ul>
+    </div>
+  {% endif %}
 </aside>
