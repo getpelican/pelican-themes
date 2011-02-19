@@ -184,6 +184,10 @@ div#page {
     	width: 75%;
         border-right: 1px solid grey;
     }
+        section#content img {
+            max-width: 98%;
+            max-height: 98%;
+        }
 
 	    section#content article.post {
             margin: 10px;
@@ -226,6 +230,19 @@ div#page {
         }
         #content dl#archives dd {
             text-align: center;
+        }
+
+        #content>nav.pagination {
+           width: 100%;
+           //font-weight: bolder;
+           font-size: 14px;
+           font-family: 'Goudy Bookletter 1911';
+           border-top: 1px solid grey;
+           text-align: center; 
+        }
+        nav.pagination a {
+            text-decoration: none;
+            font-weight: bolder;
         }
 
     aside#sidebar {
