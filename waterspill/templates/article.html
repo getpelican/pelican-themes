@@ -6,7 +6,7 @@
 <div class="blogItem">
     
       <h2><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h2>
-      <h3>Le {{ article.date.strftime('%a %d %B %Y') }}</h3>
+      <h3>Le {{ article.locale_date }}</h3>
       
   {{ article.content }}	
   {% include 'twitter.html' %}
