@@ -17,7 +17,7 @@ body {
   font-size: .8em; 
   line-height: 1.3;
   color: #111; 
-  background: white; 
+  background: white url(../images/bg.png) repeat scroll;
 } 
  
 h1, h2, h3, h4, h5, h6 { 
