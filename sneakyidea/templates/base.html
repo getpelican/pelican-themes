@@ -27,16 +27,18 @@
         <header id="banner" class="body">
                 <h1><a href="{{ SITEURL }}">{{ SITENAME }} {% if SITESUBTITLE %} <strong>{{ SITESUBTITLE }}</strong>{% endif %}</a></h1>
                 <nav><ul>
-                {% for title, link in MENUITEMS %}
-                    <li><a href="{{ link }}">{{ title }}</a></li>
-                {% endfor %}
                 {% if DISPLAY_PAGES_ON_MENU %}
-                {% for page in PAGES %}
-                    <li><a href="{{ SITEURL }}/pages/{{ page.url }}">{{ page.title }}</a></li>
-                {% endfor %}
+                    {% for current_page in PAGES %}
+                        <li {% if page %}{% if page == current_page%}class="active"{% endif %}{% endif %}>
+                            <a href="{{ SITEURL }}/pages/{{ current_page.url }}">{{ current_page.title }}</a>
+                        </li>
+                    {% endfor %}
                 {% endif %}
                 {% for cat, null in categories %}
-                    <li {% if cat == category %}class="active"{% endif %}><a href="{{ SITEURL }}/category/{{ cat }}.html">{{ cat }}</a></li>
+                    <li {% if cat == category and not article %}class="active"{% endif %}><a href="{{ SITEURL }}/category/{{ cat }}.html">{{ cat }}</a></li>
+                {% endfor %}
+                {% for title, link in MENUITEMS %}
+                    <li><a href="{{ SITEURL }}/{{ link }}">{{ title }}</a></li>
                 {% endfor %}
                 </ul></nav>
         </header><!-- /#banner -->
