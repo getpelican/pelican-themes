@@ -3,7 +3,7 @@
 
 {% block content %}
  {% if articles %}
-  {% for article in articles %} 
+  {% for article in (articles_page.object_list if articles_page else articles) %}  
     <article class="post">
       <h2 class="title"><a href="{{ SITEURL }}/{{ article.url}}">{{ article.title }}</a></h2>
       {%include 'meta.html'%}
@@ -14,5 +14,22 @@
       </section>
     </article>
   {% endfor %}
+
+      {% if articles_page %}
+      <nav class="pagination">
+      {% if articles_page.has_previous() %}
+        {% if articles_page.previous_page_number() == 1 %}
+            <a href="{{ SITEURL }}/{{ page_name }}.html">&#60;&#60;</a>
+        {% else %}
+            <a href="{{ SITEURL }}/{{ page_name }}{{ articles_page.previous_page_number() }}.html">&#60;&#60;</a>
+        {% endif %}
+      {% endif %}
+      Page <b>{{ articles_page.number }}</b> sur <b>{{ articles_paginator.num_pages }}</b>
+      {% if articles_page.has_next() %}
+        <a href="{{ SITEURL }}/{{ page_name }}{{ articles_page.next_page_number() }}.html">&#62;&#62;</a>
+      {% endif %}
+      </nav>
+    {% endif%}
+
  {% endif %}
 {% endblock %}
