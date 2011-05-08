@@ -1,6 +1,16 @@
-{% if article.translations %}
-Translations: 
-    {% for translation in article.translations %}
-        <a href="{{ SITEURL }}/{{ translation.url }}">{{ translation.lang }}</a>
-    {% endfor %}
-{% endif %}
+<!-- Takes a content (page, article,...) and translate it if possible-->
+{% macro translate(content, sub_destination=None) -%}
+    {% if content.translations %}
+    Translations: 
+        {% for translation in content.translations %}
+            {% if sub_destination %}
+                {% if sub_destination.endswith('/') %}
+                    sub_destination = sub_destination[:-1]
+                {% endif %}
+                <a href="{{ SITEURL }}/{{ sub_destination }}/{{ translation.url }}">{{ translation.lang }}</a>
+            {% else %}
+                <a href="{{ SITEURL }}/{{ translation.url }}">{{ translation.lang }}</a>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+{%- endmacro %}

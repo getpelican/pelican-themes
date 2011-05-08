@@ -1,3 +1,4 @@
+{% import 'translations.html' as translations with context %}
 <footer class="post-info">
         <abbr class="published" title="{{ article.date.isoformat() }}">
                 {{ article.locale_date }}
@@ -10,5 +11,5 @@
         {% endif %}
 <p>In <a href="{{ SITEURL }}/category/{{ article.category }}.html">{{ article.category }}</a>. {% if PDF_PROCESSOR %}<a href="{{ SITEURL }}/pdf/{{ article.slug }}.pdf">get the pdf</a>{% endif %}</p>
 {% include 'taglist.html' %}
-{% include 'translations.html' %}
+{{ translations.translate(article) }}
 </footer><!-- /.post-info -->
