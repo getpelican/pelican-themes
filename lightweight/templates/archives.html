@@ -12,7 +12,7 @@
       </tr>
   {% for article in dates %}
       <tr>
-        <td>{{ article.date.strftime(DEFAULT_DATE_FORMAT or '%a %d %B %Y') }}</td>
+        <td>{{ article.date.locale_date }}</td>
         <td><a href='{{ article.url }}'>{{ article.title }}</a></td>
       </tr>
   {% endfor %}
