@@ -137,6 +137,11 @@ aside, nav, article, figure {
 	display: block;
 }
 
+/* Google +1 button positionning bug workaround */
+iframe {
+	position:static !important;
+}
+
 /***** Layout *****/
 .body {clear: both; margin: 0 auto; width: 800px;}
 img.right figure.right {float: right; margin: 0 0 2em 2em;}
