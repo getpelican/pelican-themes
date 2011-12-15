@@ -8,7 +8,7 @@
 		<div>
 			<h2>Comments</h2>
 		 	{% include "twitter.html" %}
-			{% if FACEBOOK_APPID %}<div id="disqus_thread"></div>{% endif %}
+			{% if DISQUS_SITENAME %}<div id="disqus_thread"></div>{% endif %}
 			{% if FACEBOOK_APPID %}<div class="fb-comments" data-href="{{ FQ_SITEURL }}/{{ article.url }}" data-num-posts="10" data-width="760"></div>{% endif %}
 		<div>
 	</div>	
