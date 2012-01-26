@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class='article'>
+        <div class="content-title">
+            <h2>{{ article.title }}</h2>
+            {% include "metadata.html" %}
+        </div>
+	
+        <div>{{ article.content }}</div>
+	
+        <hr>
+    	   
+        <h2>Comments</h2>
+	{% include "twitter.html" %}
+	{% if DISQUS_SITENAME %}<div id="disqus_thread"></div>{% endif %}
+    </div>
+{% endblock %}
