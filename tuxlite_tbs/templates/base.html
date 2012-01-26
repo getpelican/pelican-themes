@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>{% block windowtitle %}{{ SITENAME }}{% endblock %}</title>
+    <meta name="description" content="">
+    <meta name="author" content="{{ AUTHOR }}">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="{{ SITEURL }}/theme/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="{{ SITEURL }}/theme/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ SITEURL }}/theme/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="{{ SITEURL }}/theme/local.css" rel="stylesheet">
+    <link href="{{ SITEURL }}/theme/pygments.css" rel="stylesheet">
+
+</head>
+
+<body>
+    {% include "github.html" %} 
+
+<div class="navbar navbar-static">
+    <div class="navbar-inner">
+    <div class="container">
+
+        <a class="brand" href="{{ SITEURL }}">{{ SITENAME }}</a>
+
+        <ul class="nav">
+        {% for title, link in MENUITEMS %}
+            <li><a href="{{ link }}">{{ title }}</a></li>
+        {% endfor %}
+            
+        {% if DISPLAY_PAGES_ON_MENU %}
+        {% for page in PAGES %}
+        {% if page.category|lower != "documentation" %}
+            <li><a href="{{ SITEURL }}/pages/{{ page.url }}">{{ page.title }}</a></li>
+        {% endif %}
+        {% endfor %}
+        {% endif %}
+        </ul>
+         
+        <p class="pull-right"><a href="{{ SITEURL }}/archives.html">Archives</a> | <a href="{{ SITEURL }}/tags.html">Tags</a></p>
+        
+    </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="content">
+    <div class="row">
+
+        <div class="span9">
+        {% block content %}{% endblock %}
+        </div>
+        
+        <div class="span3">
+
+            {% if categories %}
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav list">
+                <li class="nav-header"> 
+                Categories
+                </li>
+                
+                {% for cat, null in categories %}
+                <li><a href="{{ SITEURL }}/category/{{ cat }}.html">{{ cat }}</a></li>
+                {% endfor %}                   
+            </ul>
+            </div>
+            {% endif %}
+
+            {% if LINKS %}
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav list">
+                <li class="nav-header"> 
+                Links
+                </li>
+            
+            {% for name, link in LINKS %}
+                <li><a href="{{ link }}">{{ name }}</a></li>
+            {% endfor %}
+            </ul>
+            </div>
+            {% endif %}
+
+            {% if SOCIAL %}
+            <div class="social">
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav list">
+                <li class="nav-header"> 
+                Social
+                </li>
+            
+                <li><a href="{{ SITEURL }}/{{ FEED }}" rel="alternate">atom feed</a></li>
+                {% if FEED_RSS %}
+                <li><a href="{{ SITEURL }}/{{ FEED_RSS }}" rel="alternate">rss feed</a></li>
+                {% endif %}
+ 
+                {% for name, link in SOCIAL %}
+                <li><a href="{{ link }}">{{ name }}</a></li>
+                {% endfor %}
+            </ul>
+            </div>
+            </div>
+            {% endif %}
+
+            {# <h3>Documentation</h3> #}
+            {# <ul> #}
+            {# {% for page in PAGES %} #}
+            {# {% if page.category|lower == "documentation" %} #}
+            {#     <li><a href="{{ SITEURL }}/pages/{{ page.url }}">{{ page.title }}</a></li> #}
+            {# {% endif %} #}
+            {# {% endfor %} #}
+            {# </ul> #}
+
+        </div> {# End span3 #} 
+    </div> {# End row #}
+    </div> {# End content #}
+
+<footer>
+<br />
+<p>{{ SITENAME }} &copy; {{ AUTHOR }} 2012</p>
+</footer>
+
+</div> <!-- /container -->
+
+{% include "analytics.html" %}
+{% include "disqus.html" %}
+
+</body>
+</html>
