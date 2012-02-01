@@ -12,6 +12,6 @@
     	   
         <h2>Comments</h2>
 	{% include "twitter.html" %}
-	{% if DISQUS_SITENAME %}<div id="disqus_thread"></div>{% endif %}
+	{% include 'disqus.html' %}
     </div>
 {% endblock %}
