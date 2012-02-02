@@ -26,7 +26,7 @@
 
 /* Styling for elements */
 body { font-size: 14px; }
-p { font-size: 15px; }
+p { font-size: 15px; line-height: 1.6em; }
 
 
 /* Styling for articles */
