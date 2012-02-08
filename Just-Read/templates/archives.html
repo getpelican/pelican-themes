@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}{{ SITENAME }} <small>[archive]</small>{% endblock %}
+{% block content %}
+<div role="main" class="content clearfix">
+<div class="wrapper main">		
+	{% for year, date_year in dates|groupby( 'date.year' ) %}
+	<h2>{{ year }}</h2>
+	{% for month, articles in date_year|groupby( 'date.month' ) %}
+	<h3>{{ articles[ 0 ].date.strftime( '%B' ) }}</h3>
+	
+	<ol class="archive">
+		{% for article in articles %}
+		<li class="clearfix"><a href="{{ article.url }}"><time datetime="{{ article.date.isoformat() }}" pubdate>{{ article.locale_date }}</time> {{ article.title }}</a></li>
+		{% endfor %}
+	</ol>
+	
+	{% endfor %}
+	{% endfor %}
+</div>
+</div>
+{% endblock %}

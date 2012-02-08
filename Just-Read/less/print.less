@@ -1,0 +1,76 @@
+// Credits: [HTML Boilerplate[(https://github.com/h5bp/html5-boilerplate)
+//          [Hartija - Css Print Framework](http://code.google.com/p/hartija/) licensed under [MIT](http://www.opensource.org/licenses/mit-license.php)
+
+* { 
+	background : transparent !important; 
+	box-shadow:none !important;
+	color : black !important; // Black prints faster: h5bp.com/s
+	filter : none !important; 
+	-ms-filter : none !important; 
+	text-shadow : none !important; 
+}
+
+@page { 
+	margin : 0.5cm; 
+}
+
+a, a:visited { 
+	color : @black !important; 
+	text-decoration : underline; 
+}
+
+a[href]:after { 
+	content : " (" attr(href) ")"; 
+}
+
+a[href^="javascript:"]:after, a[href^="#"]:after, .ir a:after { 
+	content : ""; 
+}
+
+abbr[title]:after { 
+	content : " (" attr(title) ")"; 
+}
+
+body{
+	font-size: 12pt;
+}
+
+blockquote, pre{
+	page-break-inside : avoid; 
+}
+
+blockquote, pre { 
+	margin-left: 0.5cm;
+	border-left : 0.2cm solid #999; 
+	padding-left: 0.2cm;
+}
+
+code, pre { 
+	font: 10pt Courier, monospace; 
+} 
+
+h1{
+	font-size: 18pt;
+}
+
+h2, h3 { 
+	page-break-after : avoid;
+	font-size: 16pt;
+}
+
+h2, h3, p { 
+	orphans : 3;  
+	widows : 3; 	
+}
+
+img { 
+	max-width : 100% !important;
+}
+
+img, tr { 
+	page-break-inside : avoid; 
+}
+
+thead { 
+	display : table-header-group; 
+}

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="{{ HTML_LANG }}">	
+<head>
+	<meta charset="utf-8"/>
+	<title>{% block title %}{{ SITENAME }}{%endblock%}</title>	
+	<meta name="author" content="{{ AUTHOR }}">
+	
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320">
+	<meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0">
+	
+	<link href='http://fonts.googleapis.com/css?family=Droid+Sans:700,400|Droid+Sans+Mono' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="{{ SITEURL }}/theme/css/{{ CSS_FILE }}" type="text/css" />
+		
+	<!--[if lt IE 9]>
+		<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	
+	<link href="{{ SITEURL }}/{{ FEED }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} ATOM Feed" />
+	{% if FEED_RSS %}
+	<link href="{{ SITEURL }}/{{ FEED_RSS }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} RSS Feed" />
+	{% endif %}
+</head>
+	
+<body>		
+	<header class="clearfix" role="banner">
+		<div class="wrapper">
+			<h1 class="huge"><a href="{{ SITEURL }}">{{ SITENAME }}</a></h1>
+		</div>
+	</header>
+	
+	{% block content %}
+	{% endblock %}
+	
+		
+	<footer class="clearfix">
+		<div class="wrapper pages">
+			<ul class="nav">
+			{% for p in PAGES %}
+				<li><a href="{{ SITEURL }}/pages/{{ p.url }}">{{ p.title }}</a></li>
+			{% endfor %}
+				<li><a href="{{ SITEURL }}/archives.html">Archive</a></li>
+			{% if FEED_RSS %}
+				<li><a href="{{ SITEURL }}/{{ FEED_RSS }}">RSS Feed</a></li>
+			{% endif %}
+			</ul>
+		</div>
+		
+		<div class="copy wrapper">
+		<a href="https://twitter.com/{{ TWITTER_USERNAME }}" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @{{ TWITTER_USERNAME }}</a>
+			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+			
+			<p role="contentinfo">© 2012 {{ AUTHOR }}<br>
+			Proudly powered by <a href="http://alexis.notmyidea.org/pelican/">Pelican</a>, which takes great advantages of <a href="http://python.org">Python</a>.</p>
+		</div>
+	</footer>
+	
+	<script>
+	  var _gaq=[['_setAccount','{{ GOOGLE_ANALYTICS }}'],['_trackPageview']];
+	  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+	  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+	  s.parentNode.insertBefore(g,s)}(document,'script'));
+	</script>
+</body>
+</html>
