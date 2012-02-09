@@ -52,6 +52,12 @@ img {
 .clearfix {
   *zoom: 1;
 }
+.border-box {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+}
 .sans, .fancy-font {
   font-family: 'Droid Sans', sans-serif;
 }
@@ -60,6 +66,7 @@ img {
 }
 figure {
   position: relative;
+  margin: 0 0 24px 0;
 }
 figure img,
 figure object,
@@ -67,6 +74,10 @@ figure embed,
 figure video {
   max-width: 100%;
   display: block;
+}
+figcaption {
+  margin-top: 24px;
+  color: #999999;
 }
 .video-container {
   position: relative;
@@ -146,6 +157,31 @@ h4, h5, h6 {
 }
 b, strong {
   font-weight: 700;
+}
+.tagcloud li {
+  list-style: none;
+  margin-bottom: 3px;
+}
+.tagcloud a {
+  color: #000000;
+  display: block;
+  background-color: #ffffff;
+  padding: 3px 6px;
+  font-size: 12px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.tagcloud a:hover {
+  text-decoration: none;
+  background-color: #c5efec;
 }
 .wrapper {
   padding: 0 0.75em;
@@ -290,6 +326,18 @@ code {
 .archive time {
   display: inline;
   color: #666666;
+}
+.tag-1 a {
+  width: 100%;
+}
+.tag-2 a {
+  width: 75%;
+}
+.tag-3 a {
+  width: 50%;
+}
+.tag-4 a {
+  width: 25%;
 }
 @media screen and (min-width: 45em) {
   header .wrapper {
