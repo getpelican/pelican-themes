@@ -1,1 +1,17 @@
-<!--must list all the tags. Can be a tag cloud.-->
+{% extends "base.html" %}
+{% block title %}{{ SITENAME }}{% endblock %}
+
+{% block content %}
+<div role="main" class="content clearfix">
+<div class="wrapper main">  	
+	<h2>Tags</h2>
+	
+	<ul class="tagcloud">
+    {% for tag in tag_cloud %}
+        <li class="tag-{{ tag.1 }}"><a href="{{ SITEURL }}/tag/{{ tag.0 }}.html">{{ tag.0 }}</a></li>
+    {% endfor %}
+	</ul>
+
+</div>
+</div>
+{% endblock %}
