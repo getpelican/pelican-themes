@@ -16,11 +16,17 @@
 
 figure {
 	position: relative;
+	margin: 0 0 (@line * 1px) 0;
 }
 
 figure img, figure object, figure embed, figure video {
 	max-width: 100%; 
 	display: block;
+}
+
+figcaption{
+	margin-top: @line * 1px;
+	color: lighten(@black, 60%);
 }
 
 // Elastic Object & Iframe Embedded Videos  http://webdesignerwall.com/tutorials/css-elastic-videos
@@ -102,6 +108,25 @@ b, strong{
 }
 
 
+.tagcloud li{
+	list-style: none;
+	margin-bottom: @line / 8px;
+}
+.tagcloud a{
+	color: @black;
+	display: block;
+	background-color: lighten(@link, 50%);
+	padding: (@line / 8px) (@line / 4px);
+	.small;
+	.rounded();
+	.border-box;
+	
+	&:hover{
+		text-decoration:none;
+		background-color: lighten(@link, 30%);
+	}
+}
+
 // Four-column grid active
 // ----------------------------------------
 // Margin   | #  1   2   3   4   |   Margin
@@ -109,10 +134,7 @@ b, strong{
 
 .wrapper {
 	padding: 0 (@line/2)/@em;
-	-webkit-box-sizing: border-box;
-	   -moz-box-sizing: border-box;
-		 -o-box-sizing: border-box;
-			box-sizing: border-box;
+	.border-box;
 }
 
 
@@ -249,6 +271,19 @@ code{
 .archive time{
 	display: inline;
 	color: lighten(@black, 40%);
+}
+
+.tag-1 a{
+	width: 100%;
+}
+.tag-2 a{
+	width: 75%;
+}
+.tag-3 a{
+	width: 50%;
+}
+.tag-4 a{
+	width: 25%;
 }
 
 
