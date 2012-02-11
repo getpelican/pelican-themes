@@ -30,7 +30,7 @@
 {% else %} 
 
     <div class='article'>
-        <a href="{{ SITEURL }}/{{ article.url }}"><h1>{{ article.title }}</h1></a>
+        <a href="{{ SITEURL }}/{{ article.url }}"><h2>{{ article.title }}</h2></a>
         <div class= "well small"> {% include "metadata.html" %} </div>
         <div class="summary">{{ article.summary }} <a class="btn btn-info xsmall" href="{{ SITEURL }}/{{ article.url }}">read more</a></div>
     </div>	
@@ -45,3 +45,4 @@
 {% endif %} {# If articles #}
 
 {% endblock content %}
+
