@@ -29,6 +29,7 @@ body { font-size: 100%; }
 p { font-size: 100%; line-height: 1.6em; margin-top: 0.8em; margin-bottom: 0.8em; }
 li { line-height: 1.6em; }
 h3 { margin-top: 2.5em; }
+.table th, .table td { line-height: 1.3em; }
 
 /* Styling for articles */
 .article { padding-bottom:20px; padding-right: 40px; }
