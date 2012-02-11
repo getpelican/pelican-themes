@@ -35,9 +35,7 @@
             
         {% if DISPLAY_PAGES_ON_MENU %}
         {% for page in PAGES %}
-        {% if page.category|lower != "documentation" %}
             <li><a href="{{ SITEURL }}/pages/{{ page.url }}">{{ page.title }}</a></li>
-        {% endif %}
         {% endfor %}
         {% endif %}
         </ul>
