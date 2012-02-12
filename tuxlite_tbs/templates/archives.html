@@ -1,15 +1,19 @@
 {% extends "base.html" %}
 {% block title %}{{ SITENAME }} <small>[archive]</small>{% endblock %}
 {% block content %}
-{% for year, date_year in dates|groupby( 'date.year' ) %}
-<h2>{{ year }}</h2>
-{% for month, articles in date_year|groupby( 'date.month' ) %}
-<p><b>{{ articles[ 0 ].date.strftime( '%B' ) }}</b></p>
-<ul>
-{% for article in articles %}
-	<li><a href="{{ article.url }}">{{ article.title }}</a></li>
-{% endfor %}
-</ul>
-{% endfor %}
-{% endfor %}
+
+<h1>Archives</h1>
+
+<table class="table">
+    <tbody>
+    {% for article in dates %}
+        <tr>
+        <td>{{ article.date.strftime("%d %b %Y") }}</td>
+        <td><a href='{{ article.url }}'>{{ article.title }}</a></td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+
 {% endblock %}
