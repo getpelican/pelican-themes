@@ -20,14 +20,20 @@
 </head>
 
 <body>
-    {% include "github.html" %} 
 
 <div class="navbar">
     <div class="navbar-inner">
     <div class="container">
 
+         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+         </a>i
+
         <a class="brand" href="{{ SITEURL }}">{{ SITENAME }}</a>
 
+        <div class="nav-collapse">
         <ul class="nav">
         {% for title, link in MENUITEMS %}
             <li><a href="{{ link }}">{{ title }}</a></li>
@@ -39,12 +45,7 @@
         {% endfor %}
         {% endif %}
         </ul>
-         
-        <ul class="nav pull-right">
-            <li><a href="{{ SITEURL }}/archives.html">Archives</a>
-            <li class="divider-vertical"></li>
-            <li><a href="{{ SITEURL }}/tags.html">Tags</a>
-        </ul>
+        </div>
         
     </div>
     </div>
@@ -60,6 +61,21 @@
         
         <div class="span3">
 
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Site
+                </li>
+                <li><a href="{{ SITEURL }}/archives.html">Archives</a>
+                <li><a href="{{ SITEURL }}/tags.html">Tags</a>
+                <li><a href="{{ SITEURL }}/{{ FEED }}" rel="alternate">Atom feed</a></li>
+                {% if FEED_RSS %}
+                <li><a href="{{ SITEURL }}/{{ FEED_RSS }}" rel="alternate">RSS feed</a></li>
+                {% endif %}
+            </ul>
+            </div>
+
+
             {% if categories %}
             <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
             <ul class="nav nav-list">
@@ -73,6 +89,7 @@
             </ul>
             </div>
             {% endif %}
+
 
             {% if LINKS %}
             <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
@@ -88,6 +105,7 @@
             </div>
             {% endif %}
 
+
             {% if SOCIAL %}
             <div class="social">
             <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
@@ -95,12 +113,7 @@
                 <li class="nav-header"> 
                 Social
                 </li>
-            
-                <li><a href="{{ SITEURL }}/{{ FEED }}" rel="alternate">atom feed</a></li>
-                {% if FEED_RSS %}
-                <li><a href="{{ SITEURL }}/{{ FEED_RSS }}" rel="alternate">rss feed</a></li>
-                {% endif %}
- 
+           
                 {% for name, link in SOCIAL %}
                 <li><a href="{{ link }}">{{ name }}</a></li>
                 {% endfor %}
@@ -115,12 +128,13 @@
 
 <footer>
 <br />
-<p>{{ SITENAME }} &copy; {{ AUTHOR }} 2012</p>
+<p><a href="{{ SITEURL }}">{{ SITENAME }}</a> &copy; {{ AUTHOR }} 2012</p>
 </footer>
 
 </div> <!-- /container -->
-
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-collapse.js"></script>
 {% include "analytics.html" %}
-
+{% include "github.html" %} 
 </body>
 </html>
