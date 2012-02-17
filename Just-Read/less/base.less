@@ -3,7 +3,7 @@
 
 // HTML5 display definitions
 
-article, aside, details, figcaption, figure, footer, header, hgroup, nav, section, time { 
+article, figcaption, figure, footer, header, nav, section, time { 
 	display: block;
 }
 
@@ -11,12 +11,11 @@ article, aside, details, figcaption, figure, footer, header, hgroup, nav, sectio
 
 html {
     font-size: 100%;
-    overflow-y: scroll;
-    -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;    
 }
 
-body{
+body {
     margin: 0;
 }
 
@@ -27,6 +26,7 @@ body{
 	color: #000; 
 	text-shadow: none; 
 }
+
 ::selection { 
 	background: #fd7; 
 	color: #000; 
@@ -39,9 +39,17 @@ a:hover, a:active {
 	outline: 0;
 }
 
+// Code 
+
+pre { 
+	white-space: pre; 
+	white-space: pre-wrap; 
+	word-wrap: break-word; 
+}
+
 // Lists
 
-ul, ol{
+ol, ul{
 	margin: 0;
 	padding: 0;
 }
@@ -65,4 +73,43 @@ img {
 }
 .clearfix { 
 	*zoom: 1; 
+}
+
+// Simple fluid media
+
+figure {
+	margin: 0 0 (@line * 1px) 0;
+	position: relative;	
+}
+
+figure img, figure object, figure embed, figure video {
+	display: block;
+	height: auto;
+	max-width: 100%; 	
+}
+
+figcaption{
+	color: lighten(@black, 60%);
+	margin-top: @line * 1px;
+}
+
+// Elastic Object & Iframe Embedded Videos  http://webdesignerwall.com/tutorials/css-elastic-videos
+
+.video-container {
+	height: 0;	
+	margin-bottom: @line * 1px;	
+	padding-bottom: 56.25%;
+	padding-top: 30px;
+	position: relative;
+	overflow: hidden;
+}
+
+.video-container iframe,  
+.video-container object,  
+.video-container embed {
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;	
+	width: 100%;
 }

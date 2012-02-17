@@ -1,6 +1,6 @@
 <div class="meta wrapper">
 	<time datetime="{{ article.date.isoformat() }}" pubdate>{{ article.locale_date }}</time>
-	<ul class="tags">
+	<ul class="tag clearfix">
 		<li><a href="{{ SITEURL }}/category/{{ article.category }}.html">{{ article.category }}</a></li>
 {% if article.tags %}
 	{% for tag in article.tags %}

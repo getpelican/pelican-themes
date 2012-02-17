@@ -1,18 +1,46 @@
 {% extends "base.html" %}
-{% block title %}{{ SITENAME }}{% endblock %}
+{% block title %}Archivo - {{ SITENAME }}{% endblock %}
+
+{% block scripts %}
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
+{% endblock %}
+
+
 {% block content %}
 <div role="main" class="content clearfix">
-<div class="wrapper main">		
-	{% for year, date_year in dates|groupby( 'date.year' ) %}
+<div id="jquerytabs" class="wrapper main">
+	<ul class="tabmenu clearfix">
+		<li><a href="#fecha">By date</a></li>
+		<li><a href="#etiqueta">By topic</a></li>
+	</ul>
 	
-	<h2>{{ year }}</h2>
-	<ol class="archive">
-		{% for article in date_year %}
-		<li class="clearfix"><a href="{{ article.url }}"><time datetime="{{ article.date.isoformat() }}" pubdate>{{ article.locale_date }}</time> {{ article.title }}</a></li>
-		{% endfor %}
-	</ol>
-	
+	<div id="fecha">	
+	{% for year, date_year in dates|groupby( 'date.year' )|sort(reverse=True) %}	
+		<h2>{{ year }}</h2>
+		<ol class="archive">
+			{% for article in date_year %}
+			<li class="clearfix"><a href="{{ article.url }}"><time datetime="{{ article.date.isoformat() }}" pubdate>{{ article.locale_date }}</time> {{ article.title }}</a></li>
+			{% endfor %}
+		</ol>
 	{% endfor %}
+	</div>
+	
+	<div id="etiqueta">
+		<h2>Tags</h2>
+		<ul class="tag">
+		{% for tag in tag_cloud|sort %}
+		    <li class="tag-{{ tag.1 }}"><a href="{{ SITEURL }}/tag/{{ tag.0 }}.html">{{ tag.0 }}</a></li>
+		{% endfor %}
+		</ul>
+	</div>
+		
 </div>
 </div>
+
+<script>
+	$(function() {
+		$("#jquerytabs").tabs();
+	});
+</script>
 {% endblock %}

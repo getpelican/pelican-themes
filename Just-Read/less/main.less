@@ -6,142 +6,24 @@
 
 // Important numbers
 
-@line: 24;
 @column: 100% / 18;
-@font-size: 16;
 @em: @font-size*1em;
+@font-size: 16;
+@line: 24;
 
-
-// Simple fluid media
-
-figure {
-	position: relative;
-	margin: 0 0 (@line * 1px) 0;
-}
-
-figure img, figure object, figure embed, figure video {
-	max-width: 100%; 
-	display: block;
-}
-
-figcaption{
-	margin-top: @line * 1px;
-	color: lighten(@black, 60%);
-}
-
-// Elastic Object & Iframe Embedded Videos  http://webdesignerwall.com/tutorials/css-elastic-videos
-
-.video-container {
-	position: relative;
-	padding-bottom: 56.25%;
-	padding-top: 30px;
-	height: 0;
-	overflow: hidden;
-	margin-bottom: @line * 1px;
-}
-
-.video-container iframe,  
-.video-container object,  
-.video-container embed {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-}
-
-// Typography settings - Make the text bigger if you dare
-
-.small    {font-size: 12px;}
-.normal   {font-size: 14px;}
-.large    {font-size: 18px;}
-.huge     {font-size: 24px;}
-.massive  {font-size: 36px;}
-.gigantic {font-size: 48px;}
+// Mobile first
 
 body {
-	.normal; 
-	line-height: @line * 1px;
 	background: @white;
 	color: lighten(@black, 25%);
+	line-height: @line * 1px;	
+	.normal; 
 	.sans;
 }
-
-.title{
-	line-height: 1;
-	.fancy-font;
-	font-weight: 700;
-}
-
-h1{
-	.title;
-	.huge;
-	margin: 0 0 (@line * 1.5px) 0;
-}
-
-h2{
-	.title;
-	.large;
-	margin: (@line * 2px) 0 (@line * 1px);
-	
-}
-
-h3{
-	.title;
-	.normal;
-	margin: (@line * 1.5px) 0 (@line * 1px);
-	text-transform: uppercase;
-	color: lighten(@black, 60%);
-	
-}
-
-h4, h5, h6{
-	.title;
-	.normal;
-	margin: (@line * 1px) 0;
-	font-weight: 400;
-	
-}
-
-b, strong{
-	font-weight: 700;
-}
-
-
-.tagcloud li{
-	list-style: none;
-	margin-bottom: @line / 8px;
-}
-.tagcloud a{
-	color: @black;
-	display: block;
-	background-color: lighten(@link, 50%);
-	padding: (@line / 8px) (@line / 4px);
-	.small;
-	.rounded();
-	.border-box;
-	
-	&:hover{
-		text-decoration:none;
-		background-color: lighten(@link, 30%);
-	}
-}
-
-// Four-column grid active
-// ----------------------------------------
-// Margin   | #  1   2   3   4   |   Margin
-// 5.55555% | %  25  50  75  100 | 5.55555%
-
-.wrapper {
-	padding: 0 (@line/2)/@em;
-	.border-box;
-}
-
 
 a{
 	color: @link;
 	text-decoration: none;
-	.transition();
 	
 		&:hover{
 			color: darken(@link, 40%);
@@ -149,21 +31,251 @@ a{
 		}
 }
 
+h1{
+	.huge;
+	margin: 0 0 (@line * 1.5px) 0;
+	.title;	
+}
+
+h2{
+	.large;
+	margin: (@line * 2px) 0 (@line * 1px);
+	.title;	
+}
+
+h3{
+	color: lighten(@black, 60%);
+	margin: (@line * 1.5px) 0 (@line * 1px);
+	.normal;
+	text-transform: uppercase;
+	.title;
+}
+
+h4, h5, h6{
+	font-weight: 400;
+	margin: (@line * 1px) 0;
+	.normal;
+	.title;		
+}
+
+b, strong{
+	font-weight: 700;
+}
+
+blockquote{
+	border-left: (@line / 4px) solid @link;
+	margin-left: -(@line / 2px);	
+	padding-left: (@line / 4px);
+}
+
+code, .codehilite{
+	background: lighten(@black, 15%); // If you don't a dark scheme for code, we can't be friends
+	.box-shadow(inset 0 0 10px @black);
+	color: @white;
+	display: block;
+	margin-left: -(@line * 1px);
+	.mono();
+	padding: (@line * 1px);	
+	.rounded();	
+}
+
+time{
+	.small;
+	text-transform: uppercase;
+}
+
+.post ul li{
+	list-style-image: url('../images/bullet.png'); // or use something less colorful, like list-style-type: square
+}
+
+// Archive
+
+.archive li{
+	list-style: none;
+}
+
+.archive a{
+	border-bottom: 1px dotted lighten(@black, 80%);
+	display: block;
+	padding: (@line / 2px) 0;
+	.transition();
+		
+		&:hover{
+			background-color: lighten(@black, 95%);
+			text-decoration:none;
+		}
+}
+
+.archive time{
+	color: lighten(@black, 40%);
+	display: inline;
+	padding-left: @line / 2px;
+}
+
+// jQuery UI tabs (in the archive)
+
+.tabmenu li{
+	list-style-type: none;
+		
+		a{
+			border: 1px solid @link;
+			.border-box;			
+			display: block;
+			float: left;
+			padding: (@line / 2px) 0;
+			text-align: center;
+			width: 50%;
+			
+				&:hover{
+					text-decoration:none
+				}
+		}
+		
+		&:last-child a{
+			border-left: none;
+		}
+}
+
+// Make jQuery tabs work (because I don't use the themes's CSS)
+
+.ui-tabs-hide{
+	display: none;
+}
+
+.tabmenu li a:hover, .ui-tabs-selected a, .ui-tabs-selected a{
+	background-color: lighten(@black, 95%);
+}
+
+// Push the button
+
+.btn { 
+	color: @white; 
+	background-color: @color;
+	border: none;
+	
+	-webkit-box-shadow: inset 0px -3px 1px rgba(0, 0, 0, 0.45), 0px 2px 2px rgba(0, 0, 0, 0.25);
+	-moz-box-shadow: inset 0px -3px 1px rgba(0, 0, 0, 0.45), 0px 2px 2px rgba(0, 0, 0, 0.25);
+	box-shadow: inset 0px -3px 1px rgba(0, 0, 0, 0.45), 0px 2px 2px rgba(0, 0, 0, 0.25);
+	
+	padding: 8px 14px 10px;  
+	position: relative;
+	.rounded(3px);
+	text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5);	
+	-webkit-user-select: none;
+	
+	&:hover{
+		color: @white;
+		text-decoration: none;		
+	}
+	
+	&:active { 
+		-webkit-box-shadow: inset 0px -3px 1px rgba(255, 255, 255, 1), inset 0 0px 3px rgba(0, 0, 0, 0.9);
+		-moz-box-shadow: inset 0px -3px 1px rgba(255, 255, 255, 1), inset 0 0px 3px rgba(0, 0, 0, 0.9);
+		box-shadow: inset 0px -3px 1px rgba(255, 255, 255, 1), inset 0 0px 3px rgba(0, 0, 0, 0.9);
+		
+		position: relative; 
+		top: 3px;
+	}
+	
+	&:active:after { 
+		content: ""; 
+		background: @white;
+		bottom: -1px; 
+		height: 3px;
+		left: 0;
+		position: absolute;
+		width: 100%; 		 
+	}	
+	
+}
+
+// CSS tags
+
+.tag li{
+	list-style: none;
+	margin-bottom: @line / 8px;
+}
+
+.tag a{
+	.border-box;
+	
+	-moz-border-radius-bottomright: 4px;
+	-webkit-border-bottom-right-radius: 4px;	
+	border-bottom-right-radius: 4px;
+	-moz-border-radius-topright: 4px;
+	-webkit-border-top-right-radius: 4px;	
+	border-top-right-radius: 4px;
+	
+	color: @black;
+	background-color: lighten(@link, 50%);
+	display: block;
+	margin-left: 20px;
+	padding: 0 10px 0 12px;
+	position: relative;
+	.small;
+		
+	&:hover{
+		background-color: lighten(@link, 30%);
+		text-decoration:none;		
+	}
+	
+	&:before{
+		content: "";
+		border-color: transparent lighten(@link, 50%) transparent transparent;
+		border-style: solid;
+		border-width: 12px 12px 12px 0;
+		float: left;
+		height: 0;
+		left: -12px;
+		position: absolute;
+		top: 0;
+		width: 0;	
+	}
+	
+	&:after{
+		content: "";
+		background: @white;
+		.box-shadow(-1px -1px 2px darken(@link, 50%));
+		float: left;
+		height: 4px;
+		left: 0;
+		position: absolute;
+		.rounded(2px);
+		top: 10px;
+		width: 4px;
+	}
+	
+	&:hover:before {
+		border-color: transparent lighten(@link, 30%) transparent transparent;
+	}
+}
+
+// Tagcloud
+.tag-1 a{width: 100%;}
+.tag-2 a{width: 90%;}
+.tag-3 a{width: 80%;}
+.tag-4 a{width: 70%;}
+.tag-5 a{width: 60%;}
+.tag-6 a{width: 50%;}
+.tag-7 a{width: 40%;}
+.tag-8 a{width: 30%;}
+
+// Header
+
 header{
 	.border-image(0 0 2px, 0 0 2, '../images/2px.png', repeat); // It's a very small detail, delete this line if you want different colors and don't want to edit the image file
 	.gradient(@color, darken(@color, 6%));
-	padding: (@line * 2px) @column;
 	margin-bottom: (@line * 2px);
-	
+	padding: (@line * 1px) @column;
+		
 	h1{
 		margin: 0;
 	}
 	
 	a{
-		text-decoration: none;
 		color: fade(@white, 80%);
-		
-		// The 3d effect is kind of silly, so go ahead and delete the following lines xD
+		text-decoration: none;
+		// The 3d effect is kind of silly, so go ahead and delete the following lines xD		
 		text-shadow: 
 			0 1px 0 lighten(@black, 70%), 
 			0 2px 0 lighten(@black, 60%), 
@@ -173,35 +285,81 @@ header{
 			0 6px 0 lighten(@black, 20%), 
 			0px 7px 0 lighten(@black, 10%), 
 			0 8px 7px lighten(@black, 5%);
-			
-			
-			&:hover{
-				color: @white;
-				text-decoration:none;
+				
+				&:hover{
+					color: @white;
+					text-decoration:none;
 				}			
 	}
 }
 
+// Footer
+
 footer{
 	.border-image(20px 0 0, 20 0 0, '../images/pages.png', repeat); // Again, it's a detail. I used border-image to be able to use a gradient or background color for the footer, but now it's white
-	padding: (@line * 2px) @column (@line * 1px);
+	color: fade(@black, 60%);
 	margin-top: (@line * 4px);
-	color: fade(@black, 60%);	
+	padding: (@line * 2px) @column (@line * 1px);	
 }
 
-.pages{
+.nav{
 	margin-bottom: (@line * 1px);
-}
-
-.nav li{
-	list-style: none;
-	display: inline;
-	padding-right: 10px;
+	
+		li{
+			list-style: none;
+			display: inline;
+			padding-right: 10px;
+		}
+		
+		a{
+			.transition();
+		}
 }
 
 p[role="contentinfo"]{
-	margin-top: (@line / 2px); // If you don't use the Twitter button, delete this line
 	.small;
+}
+
+.social{
+	margin-bottom: @line * 1px;
+	
+		li{
+			list-style: none;
+			display: inline;
+			padding-right: @line / 2px;
+		}	
+}
+
+.icon{
+	margin-right: 2px; 
+	vertical-align: -3px;
+}
+
+.social a[href*='behance.net']:before       {content: url('../images/icons/behance.png'); .icon;}
+.social a[href*='delicious.com']:before     {content: url('../images/icons/delicious.png'); .icon;}
+.social a[href*='facebook.com']:before      {content: url('../images/icons/facebook.png'); .icon;}
+.social a[href*='flickr.com']:before        {content: url('../images/icons/flickr.png'); .icon;}
+.social a[href*='forrst.com']:before        {content: url('../images/icons/forrst.png'); .icon;}
+.social a[href*='github.com']:before        {content: url('../images/icons/github.png'); .icon;}
+.social a[href*='plus.google.com']:before   {content: url('../images/icons/google_plus.png'); .icon;}
+.social a[href*='last.fm']:before           {content: url('../images/icons/lastfm.png'); .icon;}
+.social a[href*='linkedin.com']:before      {content: url('../images/icons/linkedin.png'); .icon;}
+.social a[href*='quora.com']:before         {content: url('../images/icons/quora.png'); .icon;}
+.social a[href*='rss.xml']:before           {content: url('../images/icons/rss.png'); .icon;}
+.social a[href*='stackoverflow.com']:before {content: url('../images/icons/stackoverflow.png'); .icon;}
+.social a[href*='twitter.com']:before       {content: url('../images/icons/twitter.png'); .icon;}
+.social a[href*='youtube.com']:before       {content: url('../images/icons/youtube.png'); .icon;}
+
+
+
+// Four-column grid active
+// ----------------------------------------
+// Margin   | #  1   2   3   4   |   Margin
+// 5.55555% | %  25  50  75  100 | 5.55555%
+
+.wrapper {
+	.border-box;
+	padding: 0 (@line/2)/@em;	
 }
 
 .content{
@@ -209,81 +367,31 @@ p[role="contentinfo"]{
 }
 
 .meta{
-	background: lighten(@black, 95%);
-	padding-top: (@line * 1px);
+	background: lighten(@black, 98%);
+	margin-top: @line * 2px;
 	padding-bottom: (@line * 1px);
+	padding-top: (@line * 1px);	
 	.rounded();
+	
+		time{
+			font-weight: 700;
+			margin-left: 20px;
+			margin-bottom: @line * 1px;
+		}
 }
 
-time{
-	.small;
-	text-transform: uppercase;
-}
-
-.tags li{
-	display: inline;
-	list-style: none;
-}
-
-blockquote, code, .post ul, .post ol, p{
-	margin: 0 0 (@line * 1px) 0;
-}
-
-blockquote{
-	margin-left: -(@line / 2px);
-	border-left: (@line / 4px) solid @link;
-	padding-left: (@line / 4px);
-}
-
-code{
+.tag li{
 	display: block;
-	background: lighten(@black, 15%); // If you don't a dark scheme for code, we can't be friends
-	.box-shadow(inset 0 0 10px @black);
-	padding: (@line * 1px);
-	color: @white;
-	.rounded();
-	.mono();
-	margin-left: -(@line * 1px);
+	float: left;
+	width: 50%;
 }
 
-.post ul li{
-	list-style-image: url('../images/bullet.png'); // or use something less colorful, like list-style-type: square
+blockquote, code, .codehilite, .post ul, .post ol, p, .archive{
+	margin: 0 0 (@line * 1px) 0;
 }
 
 .main + .main{
 	margin-top: (@line * 4px);
-}
-
-.archive li{
-	list-style: none;
-}
-
-.archive a{
-	display: block;
-	padding: (@line / 2px) 0;
-	border-bottom: 1px dotted lighten(@black, 80%);
-	
-	&:hover{
-		text-decoration:none;
-	}
-}
-
-.archive time{
-	display: inline;
-	color: lighten(@black, 40%);
-}
-
-.tag-1 a{
-	width: 100%;
-}
-.tag-2 a{
-	width: 75%;
-}
-.tag-3 a{
-	width: 50%;
-}
-.tag-4 a{
-	width: 25%;
 }
 
 
@@ -298,43 +406,43 @@ code{
 	
 	
 	header .wrapper{
-		width: 75%;
 		float: right;
+		width: 75%;		
 	}
 	
 	.meta, .pages{
-		width: 25%;
 		float: left;
 		text-align: right;
-	}
-	
-	.pages{
-		padding-top: 28px + (@line * 1px); // Twitter button size + [role="contentinfo"] margin-top. If you don't use the Twitter button, delete this line
+		width: 25%;		
 	}
 	
 	.meta{
 		background: @white;
+		margin-top: 0;
 		padding-top: 24px + (@line * 1.5px); // h1 font-size + margin-bottom
 		
 			time{
 				margin-bottom: (@line * 1px);
+				margin-left: 0;
+				font-weight: 400;
 			}
 	}
 	
 	.post, .copy, .main{
-		width: 75%;
 		float: right;
+		width: 75%;		
 	}
 	
-	.tags li{
-		display: block;
+	.tag li{
+		float: none;
+		width: 100%;
 	}
 	
-	.tags a:hover, .nav a:hover{
+	.nav a:hover{
 		padding-right: (@line / 4px); // If prefer your links to remain still, delete this nonsense
 	}
 	
-	.tags a:hover:after, .nav a:hover:after, .more:hover:after{
+	.nav a:hover:after{
 		content:  "\2192 ";
 	}
 	
@@ -344,9 +452,10 @@ code{
 	}
 	
 	.archive time{
+		.border-box;
 		display: block;
-		width: 100/4%; // target 1 columns, context 4 columns
 		float: left;
+		width: 100/4%; // target 1 columns, context 4 columns
 	}
 }
 
@@ -354,14 +463,14 @@ code{
 // @media screen and (min-width: 888px)
 @media screen and (min-width: 55.5em) {
 	
-	.post p, .post blockquote, .post ul, .post ol{
+	.post > p, .post blockquote, .post ul, .post ol{
 		width: 400/6%; // target 4 columns, context 6 columns
 	}
 	
 	.main{
-		width: 50%;
 		float: none;
 		margin-left: 25%;
+		width: 50%;	
 	}
 }
 
@@ -430,8 +539,8 @@ code{
 	}
 	
 	.meta, .pages{
-		width: 18.75%;
 		padding-left: 6.25%;
+		width: 18.75%;		
 	}
 
 	.meta{
@@ -453,18 +562,16 @@ code{
 		margin-bottom: (@line * 1px);
 	}
 	
-	code{
-		.massive;
+	code, .codehilite{
 		line-height: 1.5;
+		.massive;		
 	}
 	
-	.post p, .post blockquote, .post ul, .post ol{
+	.post > p, .post blockquote, .post ul, .post ol{
 		width: 600/10%; // target 4 columns, context 6 columns
 	}
 	
 }
-
-
 
 // @media screen and (min-width: 2080px)
 @media screen and (min-width: 130em) {
@@ -478,3 +585,5 @@ code{
 @media print{
 	@import "print.less";
 }
+
+@import "codehilite.less";

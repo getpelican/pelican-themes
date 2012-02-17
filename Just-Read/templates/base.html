@@ -16,6 +16,9 @@
 		<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 	
+	{% block scripts %}
+	{% endblock %}
+	
 	<link href="{{ SITEURL }}/{{ FEED }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} ATOM Feed" />
 	{% if FEED_RSS %}
 	<link href="{{ SITEURL }}/{{ FEED_RSS }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} RSS Feed" />
@@ -33,28 +36,27 @@
 	{% endblock %}
 	
 		
-	<footer class="clearfix">
-		<div class="wrapper pages">
-			<ul class="nav">
-			{% for p in PAGES %}
-				<li><a href="{{ SITEURL }}/pages/{{ p.url }}">{{ p.title }}</a></li>
+<footer class="clearfix">
+	<div class="wrapper pages">
+		<ul class="nav">
+		{% for p in PAGES %}
+			<li><a href="{{ SITEURL }}/pages/{{ p.url }}">{{ p.title }}</a></li>
+		{% endfor %}
+			<li><a href="{{ SITEURL }}/archives.html">Archive</a></li>
+		</ul>
+	</div>
+	
+	<div class="copy wrapper">
+		<ul class="social">
+			{% for name, link in SOCIAL %}
+			<li><a href="{{ link }}">{{ name }}</a></li>
 			{% endfor %}
-				<li><a href="{{ SITEURL }}/archives.html">Archive</a></li>
-				<li><a href="{{ SITEURL }}/tags.html">Tags</a></li>
-			{% if FEED_RSS %}
-				<li><a href="{{ SITEURL }}/{{ FEED_RSS }}">RSS Feed</a></li>
-			{% endif %}
-			</ul>
-		</div>
-		
-		<div class="copy wrapper">
-		<a href="https://twitter.com/{{ TWITTER_USERNAME }}" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @{{ TWITTER_USERNAME }}</a>
-			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-			
-			<p role="contentinfo">© 2012 {{ AUTHOR }}<br>
-			Proudly powered by <a href="http://alexis.notmyidea.org/pelican/">Pelican</a>, which takes great advantages of <a href="http://python.org">Python</a>.</p>
-		</div>
-	</footer>
+		</ul>
+	
+		<p role="contentinfo">© 2012 {{ AUTHOR }}<br>
+		Proudly powered by <a href="http://alexis.notmyidea.org/pelican/">Pelican</a>.</p>
+	</div>
+</footer>
 	
 	<script>
 	  var _gaq=[['_setAccount','{{ GOOGLE_ANALYTICS }}'],['_trackPageview']];

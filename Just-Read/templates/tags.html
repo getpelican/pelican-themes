@@ -6,7 +6,7 @@
 <div class="wrapper main">  	
 	<h2>Tags</h2>
 	
-	<ul class="tagcloud">
+	<ul class="tag">
     {% for tag in tag_cloud %}
         <li class="tag-{{ tag.1 }}"><a href="{{ SITEURL }}/tag/{{ tag.0 }}.html">{{ tag.0 }}</a></li>
     {% endfor %}

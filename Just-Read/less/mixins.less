@@ -46,8 +46,33 @@
 }
 
 .border-box{
--webkit-box-sizing: border-box;
--moz-box-sizing: border-box;
--o-box-sizing: border-box;
-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+		 -o-box-sizing: border-box;
+			box-sizing: border-box;
+}
+
+
+// Typography mixins - Make the text bigger if you dare
+
+// If you modify the fonts, delete/modify the line 12 in base.html
+
+.sans, .fancy-font{
+	font-family: 'Droid Sans', sans-serif;
+}
+.mono{
+	font-family: 'Droid Sans Mono', monospace;
+}
+
+.small    {font-size: 12px;}
+.normal   {font-size: 14px;}
+.large    {font-size: 18px;}
+.huge     {font-size: 24px;}
+.massive  {font-size: 36px;}
+.gigantic {font-size: 48px;}
+
+.title{
+	line-height: 1;
+	.fancy-font;
+	font-weight: 700;
 }
