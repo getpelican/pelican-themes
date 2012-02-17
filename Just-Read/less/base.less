@@ -1,0 +1,115 @@
+// Credits: [HTML Boilerplate[(https://github.com/h5bp/html5-boilerplate)
+
+
+// HTML5 display definitions
+
+article, figcaption, figure, footer, header, nav, section, time { 
+	display: block;
+}
+
+// Base
+
+html {
+    font-size: 100%;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;    
+}
+
+body {
+    margin: 0;
+}
+
+// Remove text-shadow in selection highlight: h5bp.com/i
+
+::-moz-selection { 
+	background: #fd7; // This color should play well with any design
+	color: #000; 
+	text-shadow: none; 
+}
+
+::selection { 
+	background: #fd7; 
+	color: #000; 
+	text-shadow: none; 
+}
+
+// Improve readability when focused and hovered in all browsers: h5bp.com/h
+
+a:hover, a:active { 
+	outline: 0;
+}
+
+// Code 
+
+pre { 
+	white-space: pre; 
+	white-space: pre-wrap; 
+	word-wrap: break-word; 
+}
+
+// Lists
+
+ol, ul{
+	margin: 0;
+	padding: 0;
+}
+
+// Embedded content
+
+img { 
+	border: 0; 
+	-ms-interpolation-mode: bicubic; 
+	vertical-align: middle; 
+}
+
+// Contain floats: h5bp.com/q
+
+.clearfix:before, .clearfix:after { 
+	content: ""; 
+	display: table; 
+}
+.clearfix:after { 
+	clear: both; 
+}
+.clearfix { 
+	*zoom: 1; 
+}
+
+// Simple fluid media
+
+figure {
+	margin: 0 0 (@line * 1px) 0;
+	position: relative;	
+}
+
+figure img, figure object, figure embed, figure video {
+	display: block;
+	height: auto;
+	max-width: 100%; 	
+}
+
+figcaption{
+	color: lighten(@black, 60%);
+	margin-top: @line * 1px;
+}
+
+// Elastic Object & Iframe Embedded Videos  http://webdesignerwall.com/tutorials/css-elastic-videos
+
+.video-container {
+	height: 0;	
+	margin-bottom: @line * 1px;	
+	padding-bottom: 56.25%;
+	padding-top: 30px;
+	position: relative;
+	overflow: hidden;
+}
+
+.video-container iframe,  
+.video-container object,  
+.video-container embed {
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;	
+	width: 100%;
+}
