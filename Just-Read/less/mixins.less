@@ -1,0 +1,78 @@
+// Credits: [LESS Elements](http://lesselements.com)
+//          [Twitter Bootstrap](https://github.com/twitter/bootstrap) licensed under [Apache License](http://www.apache.org/licenses/LICENSE-2.0)
+
+.box-shadow(@arguments) {
+	-webkit-box-shadow: @arguments;
+	-moz-box-shadow: @arguments;
+	box-shadow: @arguments;
+}
+
+.gradient(@startColor: #555, @endColor: #333) {
+	background-color: @endColor;
+	background-repeat: repeat-x;
+	background-image: -khtml-gradient(linear, left top, left bottom, from(@startColor), to(@endColor)); // Konqueror
+	background-image: -moz-linear-gradient(top, @startColor, @endColor); // FF 3.6+
+	background-image: -ms-linear-gradient(top, @startColor, @endColor); // IE10
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, @startColor), color-stop(100%, @endColor)); // Safari 4+, Chrome 2+
+	background-image: -webkit-linear-gradient(top, @startColor, @endColor); // Safari 5.1+, Chrome 10+
+	background-image: -o-linear-gradient(top, @startColor, @endColor); // Opera 11.10
+	background-image: linear-gradient(top, @startColor, @endColor); // The standard
+	filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",@startColor,@endColor)); // IE9 and down
+}
+
+.rounded(@radius: 4px) {
+	-webkit-border-radius: @radius;
+	-moz-border-radius: @radius;
+	border-radius: @radius;
+	
+	-moz-background-clip: padding; 
+	-webkit-background-clip: padding-box; 
+	background-clip: padding-box; 
+}
+
+.transition(@duration:0.25s, @ease:linear) {
+	-webkit-transition: all @duration @ease;
+	-moz-transition: all @duration @ease;
+	-o-transition: all @duration @ease;
+	transition: all @duration @ease;
+}
+
+.border-image(@width, @slice, @url, @repeat) {
+	border-width: @width;
+	-moz-border-image: url(@url) @slice @repeat;
+	-webkit-border-image: url(@url) @slice @repeat;
+	-o-border-image: url(@url) @slice @repeat;
+	border-image: url(@url) @slice @repeat;
+}
+
+.border-box{
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+		 -o-box-sizing: border-box;
+			box-sizing: border-box;
+}
+
+
+// Typography mixins - Make the text bigger if you dare
+
+// If you modify the fonts, delete/modify the line 12 in base.html
+
+.sans, .fancy-font{
+	font-family: 'Droid Sans', sans-serif;
+}
+.mono{
+	font-family: 'Droid Sans Mono', monospace;
+}
+
+.small    {font-size: 12px;}
+.normal   {font-size: 14px;}
+.large    {font-size: 18px;}
+.huge     {font-size: 24px;}
+.massive  {font-size: 36px;}
+.gigantic {font-size: 48px;}
+
+.title{
+	line-height: 1;
+	.fancy-font;
+	font-weight: 700;
+}
