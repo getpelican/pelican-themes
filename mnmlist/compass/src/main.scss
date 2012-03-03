@@ -1,0 +1,141 @@
+/*
+	Theme Name: mnmlist
+    Theme URI: http://mathieu.agopian.info/mnmlist/theme.html
+	Description: Theme adapted from http://mnmlist.com/theme/ from Leo Babauta, a very clean minimalist theme, without comments, search, archives or other features.
+	Author: Mathieu Agopian
+	Autor URI: http://mathieu.agopian.info
+
+    This theme is uncopyrighted, free, and offered as is.
+*/
+
+@import url("pygment.css");
+
+body {
+	background: #fff; 
+	color: #333;
+	font: 20px Hoefler Text, bodyfont, serif;
+    line-height: 30px;
+    max-width: 30em;
+	margin: 60px 14px 0 64px;
+}
+	
+h1 {
+    color:#333;
+    font-family: Helvetica, sans-serif;
+    font-size: 1.5em;
+    font-weight: normal;
+    line-height: 26px;
+    margin-bottom: 0;
+}
+
+h2 {
+    color:#666;
+    font-family: Helvetica, sans-serif;
+    font-size: 18px;
+    line-height: 15px;
+    padding-top: 10px;
+}
+
+h3 {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: 1em; color:#000000;
+}
+
+h4 {
+    color:#000000;
+    font-size: 9pt;
+}
+
+time {
+    color: #c0c0c0;
+    font-size: 50%;
+}
+
+img {
+    border: none;
+}
+
+blockquote {
+    border-left: 1px solid #A5ABAB;
+    margin:0px;
+    padding:0 12px 0 12px;
+}
+
+p {
+    line-height: 30px;
+    margin:30px auto;
+    text-indent: 0px;
+    &.caption {
+        font-size: 80%;
+        margin-top: 0;
+    }
+}
+
+a {
+    border-bottom: #999 1px solid;
+    color: #303030;
+    text-decoration: none;
+    &:hover { color: #999; }
+}
+
+ul, ol {
+    padding: .5em 0em 1em 3.2em;
+    li {
+        line-height: 30px;
+        padding: 6px 0 0 0;
+    }
+}
+
+strong {
+    color: #555555;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-weight: bold;
+}
+
+tt, pre {
+    background-color: #fafafa;
+    font-family: Inconsolata, Monaco, monospace;
+    line-height: 1.2em;
+}
+
+pre {
+    font-size: 0.8em;
+    overflow: auto;
+    padding: 10px;
+}
+
+header {
+    padding-bottom: 20px;
+    a {
+        border-bottom: none;
+        &#page-title { font-weight: bold; }
+    }
+}
+
+#article-list {
+    margin-top: 100px;
+    ol li {
+        line-height: 1.2em;
+        list-style-type: none;
+        padding-bottom: 10px;
+    }
+}
+
+footer {
+    background: #fff;
+    color: #666;
+    font-family:helvetica, sans-serif;
+    font-size:13px;
+    letter-spacing:4px;
+    margin-left: 20px;
+    a {
+        border-bottom: none;
+        color: #c0c0c0;
+    }
+    li {
+        display: inline;
+    }
+    p {
+        text-align: right;
+    }
+}
