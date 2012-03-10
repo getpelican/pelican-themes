@@ -2,7 +2,7 @@
 {% block content %}
     <div class='article'>
         <div class="content-title">
-            <h2>{{ article.title }}</h2>
+            <h1>{{ article.title }}</h1>
             {% include "metadata.html" %}
         </div>
 	
@@ -12,6 +12,6 @@
     	   
         <h2>Comments</h2>
 	{% include "twitter.html" %}
-	{% if DISQUS_SITENAME %}<div id="disqus_thread"></div>{% endif %}
+	{% include 'disqus.html' %}
     </div>
 {% endblock %}
