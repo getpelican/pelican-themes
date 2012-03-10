@@ -1,14 +1,21 @@
 <footer class="post-info">
-        <abbr class="published" title="{{ article.date.isoformat() }}">
-                {{ article.locale_date }}
-        </abbr>
+<span class="label">Date</span>
+<abbr class="published" title="{{ article.date.isoformat() }}">
+	{{ article.locale_date }}
+</abbr>
+{% if article.author %}
+<span class="label label-info">By</span>
+<a class="btn btn-primary xsmall" href="{{ SITEURL }}/{{ article.author.url }}">{{ article.author }}</a>
+{% endif %}
+<span class="label label-success">Category</span>
+<a class="btn btn-success xsmall" href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>. 
 
-        {% if article.author %}
-        <address class="vcard author">
-                By <a class="url fn" href="{{ SITEURL }}/{{ article.author.url }}">{{ article.author }}</a>
-        </address>
-        {% endif %}
-<p>In <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>. {% if PDF_PROCESSOR %}<a href="{{ SITEURL }}/pdf/{{ article.slug }}.pdf">get the pdf</a>{% endif %}</p>
+{% if PDF_PROCESSOR %}
+<span class="label">
+<a href="{{ SITEURL }}/pdf/{{ article.slug }}.pdf">PDF</a>
+</span>
+{% endif %}
+	
 {% include 'taglist.html' %}
 {% include 'translations.html' %}
 </footer><!-- /.post-info -->

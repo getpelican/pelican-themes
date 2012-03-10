@@ -1,15 +1,13 @@
 {% extends "base.html" %}
 {% block title %}{{ page.title }}{% endblock %}
-{% block content %}     
-<div class="span12">   
-    <section id="content" class="body">    
-        <h1 class="entry-title">{{ page.title }}</h1>
-        {% if PDF_PROCESSOR %}
-            <a href="{{ SITEURL }}/pdf/{{ page.slug }}.pdf">
-                get the pdf
-            </a>
-        {% endif %}
-        {{ page.content }}
-    </section>
-</div>
+{% block content %}
+<section id="content" class="body">    
+	<h1 class="entry-title">{{ page.title }}</h1>
+	{% if PDF_PROCESSOR %}
+		<a href="{{ SITEURL }}/pdf/{{ page.slug }}.pdf">
+			get the pdf
+		</a>
+	{% endif %}
+	{{ page.content }}
+</section>
 {% endblock %}

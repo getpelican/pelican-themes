@@ -1,15 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="span12">
-    <section id="content">
-    <h1>Archives for {{ SITENAME }}</h1>
+<section id="content">
+<h1>Archives for {{ SITENAME }}</h1>
 
-    <dl>
-    {% for article in dates %}
-        <dt>{{ article.locale_date }}</dt>
-        <dd><a href='{{ article.url }}'>{{ article.title }}</a></dd>
-    {% endfor %}
-    </dl>
-    </section>
-</div>
+<dl>
+{% for article in dates %}
+	<dt>{{ article.locale_date }}</dt>
+	<dd><a href='{{ article.url }}'>{{ article.title }}</a></dd>
+{% endfor %}
+</dl>
+</section>
 {% endblock %}
