@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}{{ SITENAME }}{%endblock%}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/bootstrap.css" type="text/css" />
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+    </style>
+    <link href="{{ SITEURL }}/theme/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="{{ SITEURL }}/theme/images/favicon.ico">
+    <link rel="apple-touch-icon" href="{{ SITEURL }}/theme/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="{{ SITEURL }}/theme/images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="{{ SITEURL }}/theme/images/apple-touch-icon-114x114.png">
+
+    <link href="{{ SITEURL }}/{{ FEED }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} ATOM Feed" />
+    {% if FEED_RSS %}
+    <link href="{{ SITEURL }}/{{ FEED_RSS }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} RSS Feed" />
+    {% endif %}
+
+  </head>
+
+  <body>
+
+    {% include 'github.html' %}
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="{{ SITEURL }}">{{ SITENAME }} {% if SITESUBTITLE %} <strong>{{ SITESUBTITLE }}</strong>{% endif %}</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              {% for title, link in MENUITEMS %}
+                  <li><a href="{{ link }}">{{ title }}</a></li>
+              {% endfor %}
+              {% if DISPLAY_PAGES_ON_MENU %}
+              {% for page in PAGES %}
+                <li><a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a></li>
+              {% endfor %}
+              {% endif %}
+              {% for cat, null in categories %}
+                  <li {% if cat == category %}class="active"{% endif %}>
+                    <a href="{{ SITEURL }}/category/{{ cat }}.html">{{ cat }}</a>
+                  </li>
+              {% endfor %}
+            </ul>
+            <!--<p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>-->
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row-fluid">
+
+        <div class="span9">
+        {% block content %}
+        {% endblock %}
+        </div><!--/span-->
+
+        <div class="span3">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+            {% if LINKS %}
+            <li class="nav-header">blogroll</li>
+            {% for name, link in LINKS %}
+                <li><a href="{{ link }}">{{ name }}</a></li>
+            {% endfor %}
+            {% endif %}
+            {% if SOCIAL %}
+            <li class="nav-header">social</li>
+            <li><a href="{{ SITEURL }}/{{ FEED }}" rel="alternate">atom feed</a></li>
+            {% if FEED_RSS %}
+            <li><a href="{{ SITEURL }}/{{ FEED_RSS }}" rel="alternate">rss feed</a></li>
+            {% endif %}
+            {% for name, link in SOCIAL %}
+                <li><a href="{{ link }}">{{ name }}</a></li>
+            {% endfor %}
+            {% endif %}
+            </ul>
+          </div><!--/.well -->
+        </div><!--/span-->
+
+
+      </div><!--/row-->
+
+      <hr>
+
+      <footer>
+        <address id="about">
+                Proudly powered by <a href="http://pelican.notmyidea.org/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+        </address><!-- /#about -->
+
+        <p>The theme is by <a href="http://twitter.github.com/bootstrap/">Bootstrap from Twitter</a>, thanks!</p>
+      </footer>
+
+    </div><!--/.fluid-container-->
+
+
+    {% include 'analytics.html' %}
+    {% include 'piwik.html' %}
+    {% include 'disqus_script.html' %}    
+
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{{ SITEURL }}/theme/js/jquery.js"></script>
+    <script src="{{ SITEURL }}/theme/js/bootstrap-transition.js"></script>
+    <script src="{{ SITEURL }}/theme/js/bootstrap-alert.js"></script>
+    <script src="{{ SITEURL }}/theme/js/bootstrap-modal.js"></script>
+    <script src="{{ SITEURL }}/theme/js/bootstrap-dropdown.js"></script>
+    <script src="{{ SITEURL }}/theme/js/bootstrap-scrollspy.js"></script>
+    <script src="{{ SITEURL }}/theme/js/bootstrap-tab.js"></script>
+    <script src="{{ SITEURL }}/theme/js/bootstrap-tooltip.js"></script>
+    <script src="{{ SITEURL }}/theme/js/bootstrap-popover.js"></script>
+    <script src="{{ SITEURL }}/theme/js/bootstrap-button.js"></script>
+    <script src="{{ SITEURL }}/theme/js/bootstrap-collapse.js"></script>
+    <script src="{{ SITEURL }}/theme/js/bootstrap-carousel.js"></script>
+    <script src="{{ SITEURL }}/theme/js/bootstrap-typeahead.js"></script>
+
+  </body>
+</html>
+
