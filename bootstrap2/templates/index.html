@@ -2,10 +2,9 @@
 {% block content_title %}{% endblock %}
 {% block content %}        
 {% if articles %}
-	<h1>Articles</h1>
 	{% for article in (articles_page.object_list if articles_page else articles) %}
 	<div class='article'>
-		<h2><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h2>
+		<h1><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h1>
 		<div class="well small">{% include "article_infos.html" %}</div>
 		<div class="summary">{{ article.summary }} 
 			<a class="btn primary xsmall" href="{{ SITEURL }}/{{ article.url }}">more ...</a>
@@ -13,7 +12,7 @@
 	</div>	
 	<hr />
 	{% endfor %}
-	{%endif%}
+{%endif%}
 
 	{% if articles_page and articles_paginator.num_pages > 1 %}
 	<div class="pagination">

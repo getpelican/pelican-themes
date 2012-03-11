@@ -60,8 +60,6 @@
 
   <body>
 
-    {% include 'github.html' %}
-
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container-fluid">
@@ -70,7 +68,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="{{ SITEURL }}">{{ SITENAME }} {% if SITESUBTITLE %} <strong>{{ SITESUBTITLE }}</strong>{% endif %}</a>
+          <a class="brand" href="{{ SITEURL }}/index.html">{{ SITENAME }} {% if SITESUBTITLE %} <strong>{{ SITESUBTITLE }}</strong>{% endif %}</a>
           <div class="nav-collapse">
             <ul class="nav">
               {% for title, link in MENUITEMS %}
@@ -80,24 +78,19 @@
               {% for page in PAGES %}
                 <li><a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a></li>
               {% endfor %}
+			  <li class="divider-vertical"></li>
               {% endif %}
               {% for cat, null in categories %}
                   <li {% if cat == category %}class="active"{% endif %}>
-                    <a href="{{ SITEURL }}/category/{{ cat }}.html">{{ cat }}</a>
+                    <a href="{{ SITEURL }}/category/{{ cat }}.html">
+						<i class="icon-folder-open icon-large"></i>{{ cat }}
+					</a>
                   </li>
               {% endfor %}
 			  
 			  <li class="divider-vertical"></li>
 			  
-			  <li class="dropdown" id="othermenu">
-				<a class="dropdown-toggle" data-toggle="dropdown">
-				  Others
-				  <b class="caret"></b>
-				</a>
-				<ul class="dropdown-menu">
-				  <li><a href="{{ SITEURL }}/archives.html">Archives</a></li>
-				  <li><a href="{{ SITEURL }}/tags.html">Tags</a></li>
-				</ul>
+			  <li><a href="{{ SITEURL }}/archives.html"><i class="icon-th-list"></i>Archives</a></li>
 			  </li>
 			  
             </ul>
@@ -109,24 +102,33 @@
 
     <div class="container-fluid">
       <div class="row">
-		<div class="span2 well sidebar-nav" id="sidebar">
+		<div class="span3 well sidebar-nav" id="sidebar">
             <ul class="nav nav-list">
             {% if LINKS %}
             <li class="nav-header"><h4><i class="icon-external-link"></i>blogroll</h4></li>
             {% for name, link in LINKS %}
-                <li><a href="{{ link }}">{{ name }}</a></li>
+                <li><i class="icon-external-link"></i><a href="{{ link }}">{{ name }}</a></li>
             {% endfor %}
             {% endif %}
             {% if SOCIAL %}
             <li class="nav-header"><h4><i class="icon-home icon-large"></i> social</h4></li>
-            <li><a href="{{ SITEURL }}/{{ FEED }}" rel="alternate">atom feed</a></li>
+            <li><a href="{{ SITEURL }}/{{ FEED }}" rel="alternate"><i class="icon-bookmark icon-large"></i>atom feed</a></li>
             {% if FEED_RSS %}
-            <li><a href="{{ SITEURL }}/{{ FEED_RSS }}" rel="alternate">rss feed</a></li>
+            <li><a href="{{ SITEURL }}/{{ FEED_RSS }}" rel="alternate"><i class="icon-bookmark icon-large"></i>rss feed</a></li>
             {% endif %}
             {% for name, link in SOCIAL %}
                 <li><a href="{{ link }}"><i class="icon-{{ name }}-sign icon-large"></i>{{ name }}</a></li>
             {% endfor %}
             {% endif %}
+			
+			<li class="nav-header"><h4><i class="icon-folder-close icon-large"></i>Catagories</h4></li>
+			{% for cat, null in categories %}
+			<li>
+			<a href="{{ SITEURL }}/category/{{ cat }}.html">
+				<i class="icon-folder-open icon-large"></i>{{ cat }}
+			</a>
+			</li>
+            {% endfor %}
 			
 			<li class="nav-header"><h4><i class="icon-tags icon-large"></i>Tags</h4></li>
 			{% for tag in tag_cloud %}
@@ -136,17 +138,15 @@
 				</a>
 			</li>
 			{% endfor %}
+			
+			{% include 'twitter_profile.html' %}
             </ul>
         </div><!--/.well -->
 		
-        <div class="span10" id="content">
+        <div class="span9" id="content">
         {% block content %}
         {% endblock %}
         </div><!--/span-->
-
-
-
-
 
       </div><!--/row-->
 
@@ -154,10 +154,12 @@
 
       <footer>
         <address id="about">
-                Proudly powered by <a href="http://pelican.notmyidea.org/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                Proudly powered by <a href="http://pelican.notmyidea.org/">Pelican <i class="icon-external-link"></i></a>,
+				which takes great advantage of <a href="http://python.org">Python <i class="icon-external-link"></i></a>.
         </address><!-- /#about -->
 
-        <p>The theme is from <a href="http://twitter.github.com/bootstrap/">Bootstrap from Twitter</a>, thanks!</p>
+        <p>The theme is from <a href="http://twitter.github.com/bootstrap/">Bootstrap from Twitter <i class="icon-external-link"></i></a>, 
+		   and <a href="http://fortawesome.github.com/Font-Awesome/">Font-Awesome <i class="icon-external-link"></i></a>, thanks!</p>
       </footer>
 
     </div><!--/.fluid-container-->

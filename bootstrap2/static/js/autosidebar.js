@@ -7,20 +7,20 @@ jQuery.fn.justtext = function() {
  
 };
 
-$(document).ready(function(){    
+$(document).ready(function(){
    $("h1").each(function(){
         $("#sidebar").append(
-            "<h4><a href='#'>"+$(this).justtext()+"</a></h4>"
+            "<li class=\"nav-header\"><h4>"+$(this).children()[0].justtext()+"</h4></li>"
         );
         ul = $("<ul>");
         $("h2",$(this).parent().parent()).each(function(){
             ul.append(
-            "<li><a href='#'>"+$(this).justtext()+"</a></li>"
+            "<li class=\"nav-header\"><h5>"+$(this).justtext()+"</h5></li>"
             );
             subul = $("<ul>");
             $("h3",$(this).parent()).each(function(){
                 subul.append(
-                "<li><a href='#'>"+$(this).justtext()+"</a></li>"
+                "<li class=\"nav-header\"><h6>"+$(this).justtext()+"</h6></li>"
                 );
             });
             ul.append(subul);
