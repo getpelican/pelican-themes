@@ -140,6 +140,10 @@
 			{% endfor %}
 			
 			{% include 'twitter_profile.html' %}
+			
+			{% if SIDEBAR_CUSTOM %}
+			    {{ SIDEBAR_CUSTOM }}
+			{% endif %}
             </ul>
         </div><!--/.well -->
 		
