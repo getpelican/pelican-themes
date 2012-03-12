@@ -88,10 +88,12 @@
                   </li>
               {% endfor %}
 			  
-			  <li class="divider-vertical"></li>
+			  <ul class="nav pull-right">
+				<li><a href="{{ SITEURL }}/archives.html"><i class="icon-th-list"></i>Archives</a></li>
+			  </ul>
+
+
 			  
-			  <li><a href="{{ SITEURL }}/archives.html"><i class="icon-th-list"></i>Archives</a></li>
-			  </li>
 			  
             </ul>
             <!--<p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>-->
@@ -140,6 +142,7 @@
 			{% endfor %}
 			
 			{% include 'twitter_profile.html' %}
+			{% include 'search_sidebar.html' %}
 			
 			{% if SIDEBAR_CUSTOM %}
 			    {{ SIDEBAR_CUSTOM }}
