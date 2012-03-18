@@ -3,7 +3,7 @@
 {% block content %}        
 <div id="content">
 {% block content_title %}
-<h1>Blog</h2>
+<h1>Blog</h1>
 {% endblock %}
 
 <ul class="unstyled">
@@ -13,7 +13,7 @@
                 <div class="header">
                     <h2>{{ article.title }}</h2>
                 </div>
-                <p class="meta"><small><span>{% if article.author %}<a href="{{ SITEURL }}author/{{ article.author }}/">{{ article.author }}</a> - {% endif %}</span><span>{{ article.locale_date }}</span> - <span class="tags">{% if article.tags %}{% for tag in article.tags %}<a href="/tag/{{ tag }}/">{{ tag }}</a>{% if not loop.last %}, {% endif %}{% endfor %}{% endif %}</small></p>
+                <p class="meta"><small><span>{% if article.author %}<a href="{{ SITEURL }}author/{{ article.author }}/">{{ article.author }}</a> - {% endif %}</span><span>{{ article.locale_date }}</span> - <span class="tags">{% if article.tags %}{% for tag in article.tags %}<a href="/tag/{{ tag }}/">{{ tag }}</a>{% if not loop.last %}, {% endif %}{% endfor %}{% endif %}</span></small></p>
                 <div class="entry-content">
                     {{ article.summary }}
                 </div><!-- /.entry-content -->
@@ -25,7 +25,7 @@
             </div>
         </li>
         
-        <hr>
+        <li><hr /></li>
         
         
 {% endfor %}
