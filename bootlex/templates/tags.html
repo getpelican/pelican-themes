@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Tags{%endblock%}
+{% block menu_entry_tag %}
+class="active"
+{% endblock %}
+{% block content %}
+	<h1>Tags</h1>
+	{% if tags %}
+	<ul>
+		{% for tag, articles in tags %}
+		<li><a href="{{ SITEURL }}tag/{{ tag }}/">{{ tag }}</a></li>
+		{% endfor %}
+	</ul>
+	{% else %}
+		<p>Sorry, bisher gibt es keine Tags.</p>
+	{% endif %}
+{% endblock %}
