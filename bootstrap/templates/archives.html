@@ -7,7 +7,7 @@
 <h3>{{ articles[ 0 ].date.strftime( '%B' ) }}</h3>
 <ul>
 {% for article in articles %}
-	<li><a href="{{ article.url }}">{{ article.title }}</li>
+	<li><a href="{{ article.url }}">{{ article.title }}</a></li>
 {% endfor %}
 </ul>
 {% endfor %}
