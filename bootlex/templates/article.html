@@ -5,7 +5,7 @@
     <div class="header">
         <h1>{{ article.title }}</h1>
     </div>
-    <p class="meta"><small><span>{% if article.author %}<a href="{{ SITEURL }}author/{{ article.author }}/">{{ article.author }}</a> - {% endif %}</span><span>{{ article.locale_date }}</span> - <span class="tags">{% if article.tags %}{% for tag in article.tags %}<a href="/tag/{{ tag }}/">{{ tag }}</a>{% if not loop.last %}, {% endif %}{% endfor %}{% endif %}</span></small></p>
+    <p class="meta"><small><span>{% if article.author %}<a href="{{ SITEURL }}author/{{ article.author.slug }}/">{{ article.author }}</a> - {% endif %}</span><span>{{ article.locale_date }}</span> - <span class="tags">{% if article.tags %}{% for tag in article.tags %}<a href="/tag/{{ tag }}/">{{ tag }}</a>{% if not loop.last %}, {% endif %}{% endfor %}{% endif %}</span></small></p>
         <div class="entry-content">
         {{ article.content }}
         </div><!-- /.entry-content -->

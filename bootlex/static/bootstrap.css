@@ -133,6 +133,7 @@ textarea {
 }
 body {
   margin: 0;
+  margin-top: 40px;
   font-family: "Arimo", sans-serif;
   font-size: 18px;
   line-height: 23px;
