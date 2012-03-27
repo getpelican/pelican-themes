@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="{{ DEFAULT_LANG }}">
+  <head>
+    {% block head %}
+    <title>{% block title %}{% endblock title %} - {{ SITENAME }}</title>
+    <link href="http://fonts.googleapis.com/css?family=Arimo:400,700|Inika" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="{{ SITEURL }}theme/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="{{ SITEURL }}theme/pastie.css" />
+    {% endblock head %}
+    
+    {% include 'analytics.html' %}
+    
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="span8">
+          {% block content %}
+          {% endblock %}
+        </div>
+        <div class="span3 offset1">
+          <div class="well">
+            <ul class="nav nav-list">
+              <li class="nav-header">Blog</li>
+              <li {% if page_name == 'index' %}class="active"{% endif %}><a href="{{ SITEURL }}">Index</a></li>
+              <li {% block menu_entry_tag %}{% endblock %}><a href="{{ SITEURL }}tags/">Tags</a></li>
+              <li {% block menu_entry_archive %}{% endblock %}><a href="{{ SITEURL }}archives/">Archiv</a></li>
+              {% if DISPLAY_PAGES_ON_MENU %}
+              {% if PAGES %}
+              <li class="nav-header">Seiten</li>
+              {% for p in PAGES %}
+              <li{% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}{{ p.url }}">{{ p.title }}</a></li>
+              {% endfor %}
+              {% endif %}
+              {% else %}
+{#            {% for cat, null in categories %}
+              <li{% if cat == category %} class="active"{% endif %}><a href="{{ SITEURL }}category/{{ cat }}/">{{ cat }}</a></li>
+              {% endfor %}
+#}
+              {% endif %}
+              {% if MENUITEMS %}
+              <li class="nav-header">Anderes</li>
+              {% for title, link in MENUITEMS %}
+              <li><a href="{{ link }}">{{ title }}</a></li>
+              {% endfor %}
+              {% endif %}
+              {% if LINKS %}
+              <li class="nav-header">Links</li>
+              {% for title, link in LINKS %}
+              <li><a href="{{ link }}">{{ title }}</a></li>
+              {% endfor %}
+              {% endif %}
+            </ul>
+          </div><!-- /#menu --> 
+        </div>
+      </div>
+      
+      <hr />
+      
+      <div class="row">
+        <div class="span12">
+          <div id="about">
+            <p>Proudly powered by <a href="http://twitter.github.com/bootstrap/">bootstrap</a>, <a href="http://docs.notmyidea.org/alexis/pelican/">pelican</a>, <a href="http://python.org">python</a> and <a href="http://www.julo.ch/about/">Alex</a>!</p>
+          </div><!-- /#about -->
+        </div><!-- /#contentinfo -->
+      </div>
+    </div>
+  </body>
+</html>
