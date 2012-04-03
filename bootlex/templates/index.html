@@ -18,7 +18,12 @@
                     {{ article.summary }}
                 </div><!-- /.entry-content -->
                 <div class="row">
-                    <div class="span1 offset7">
+                    <div class="span4">
+                        {% if DISQUS_SITENAME %}
+                        <a class="btn btn-small disabled" href="{{ SITEURL }}{{ article.url }}#disqus_thread"></a>
+                        {% endif %}
+                    </div>
+                    <div class="span1 offset3">
                         <a class="btn btn-small" href="{{ SITEURL }}{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title}}">Mehr</a>
                     </div>
                 </div>
