@@ -1,5 +1,5 @@
 {% if article.tags %}
-<span class="label">Tags</span> 
+<span class="label">Tags</span>
 {% for tag in article.tags %}
 	<a href="{{ SITEURL }}/{{ tag.url }}"><i class="icon-tag"></i>{{ tag }}</a>
 {% endfor %}
