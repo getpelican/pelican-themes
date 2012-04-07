@@ -1,4 +1,4 @@
-{{ article.date.strftime("%d %b %Y") }}
+{{ article.locale_date }}
 
 {% if article.author %}
 by <a class="url fn" href="{{ SITEURL }}/author/{{ article.author }}.html">{{ article.author }}</a>
