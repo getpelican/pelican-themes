@@ -1,0 +1,270 @@
+@import        url("pygments.css");
+
+/******************************************************************************/
+/*                               General Style                                */
+/******************************************************************************/
+
+
+article, section,
+header, footer, 
+aside, nav {
+    display: block;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    min-width: 750px;
+
+    background-color: white;
+    color: #101010;
+
+    font-family: helvetica, arial, freesans, clean, sans-serif;
+    font-size: 95%;
+    line-height: 1.35em;
+    letter-spacing: .1em;
+}
+
+h1, h2, h3,
+h4, h5, h6 {
+    color: #333333;
+
+    font-family: "Georgia", "FreeSerif", serif;
+    font-style: italic;
+    font-weight: bolder;
+}
+
+h1 a, h2 a,
+h3 a, h4 a, 
+h5 a, h6 a {
+    color: inherit;
+
+    text-decoration: inherit;
+}
+
+h1 a:hover, h2 a:hover,
+h3 a:hover, h4 a:hover, 
+h5 a:hover, h6 a:hover {
+    text-decoration: inherit;
+}
+
+a {
+    color: #2a6a88;
+
+    font-weight: bold;
+    text-decoration: none;
+}
+
+
+a:hover {
+    text-decoration: underline;
+}
+
+
+pre {
+    margin: 1em .5em;
+    padding: .75em;
+    border: 1px solid silver;
+    background: #111111;
+    color: #ffffff; 
+
+    font-family: monospace;
+    line-height: 1.15em;
+
+    overflow: auto;
+}
+
+
+/******************************************************************************/
+/*                               Page Structure                               */
+/******************************************************************************/
+
+#page-header {
+    width: 60%;
+    margin: 1em auto 1em auto;
+
+    text-align: center;
+}
+
+
+#page-menu {
+    width: 100%;
+    margin: 0 0 2em 0;
+    padding: .2em 0em;
+
+    border-bottom: thin dashed gray;
+
+    text-align: center;
+}
+
+
+#page-content {
+    display: block;
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+#page-footer {
+    width: 100%;
+    margin-top: 2em;
+
+    border-top: thin dashed gray;
+
+    font-size: .7em;
+    font-weight: lighter;
+}
+
+
+/******************************************************************************/
+/*                              Specific Styles                               */
+/******************************************************************************/
+
+
+#page-header h1 {
+    margin: .2em auto .2em auto;
+
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: 2.8em;
+}
+
+#page-menu ul {
+    display: inline;
+    margin: 0;
+    padding: 0;
+
+    list-style-type: none;
+}
+
+#page-menu ul li {
+    display: inline;
+}
+
+#page-menu ul li a {
+    margin: .1em .4em;
+
+    font-size: 0.8em;
+    letter-spacing: 0.2em;
+    text-decoration: none;
+    font-variant: small-caps;
+}
+
+#page-content #page-title {
+    font-size: .9em;
+}
+
+
+.post {
+    clear: both;
+    margin: 1em 0 3em 0;
+}
+
+
+.post .post-header {
+    margin: 0;
+    padding: .1em;
+    font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+
+.post .post-header time {
+    margin: 0;
+    padding: 0;
+
+    font-size: .7em;
+    line-height: 1em;
+    text-transform: uppercase;
+    letter-spacing: .2em;
+    font-weight: lighter;
+}
+
+
+.post .post-header h1 {
+    margin: 0;
+    padding: 0;
+
+    border-bottom: thin dashed silver;
+
+    font-size: 1.5em;
+    font-weight: bolder;
+    font-style: normal;
+    letter-spacing: 0.0em;
+    line-height: 1em;
+}
+
+.post .post-header h1:hover {
+    border-bottom: thin dashed #333;
+}
+
+.post .post-header .meta {
+    font-size: .9em;
+    letter-spacing: 0.2em;
+    text-decoration: none;
+}
+
+
+.post .post-content {
+    clear: both;
+    margin: 0;
+    padding: .5em .1em;
+}
+
+
+.post .post-footer {
+    clear: both;
+    margin: 0;
+    padding: .1em;
+
+    font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+
+.post .post-footer .readmore {
+    font-size: 0.8em;
+    letter-spacing: 0.2em;
+    text-decoration: none;
+    font-variant: small-caps;
+}
+
+
+#page-footer p {
+    display: block;
+    width: 60%;
+
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+/******************************************************************************/
+/*                                    Misc                                    */
+/******************************************************************************/
+
+#github-link {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 100px;
+    background-image: url("../img/corner.png");
+    margin: 0;
+    border: none;
+    text-decoration: none;
+    color: transparent;
+    font-size: 0px;
+    text-decoration: none;
+}
+

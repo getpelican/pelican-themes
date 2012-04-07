@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}{{ super() }} — Mots-clés{% endblock title %}
+
+{%- block content %}
+    <section id="page-content">
+      <h1>Mots-clés</h1>
+      <ul id="tagslist">
+      {% for tag in tag_cloud %}
+        <li class="tag-{{ tag.1 }}"><a href="{{ SITEURL }}/tag/{{ tag.0 }}.html">{{ tag.0 }}</a></li>
+      {% endfor %}
+      </ul>
+    </section>
+{% endblock content -%}

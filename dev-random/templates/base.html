@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="{{ DEFAULT_LANG }}">
+  <head>
+  {% block headers %}
+    <meta charset="utf-8" />
+    <title>{% block title %}{{ SITENAME }}{%endblock%}</title>
+    <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/{{ CSS_FILE }}" />
+    <link rel="shortcut icon" type="text/css" href="{{ SITEURL }}/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml"
+                           title="{{ SITENAME }} — Flux Atom"
+                           href="{{ SITEURL }}/{{ FEED }}" /> 
+    {% if FEED_RSS %}
+    <link rel ="alternate" type="application/rss+xml"
+                           title="{{ SITENAME }} — Flux RSS"
+                           href="{{ SITEURL }}/{{ FEED_RSS }}" /> 
+    {% endif %}
+    <!--[if lte IE 8]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    {% if GOOGLE_ANALYTICS %}
+    <script type="text/javascript">
+      // Google analytics:
+      var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+      function enableGA() {
+          try {
+              var pageTracker = _gat._getTracker("{{ GOOGLE_ANALYTICS }}");
+              pageTracker._trackPageview();
+              _gaq.push(['_setCustomVar',
+                1,                   // This custom var is set to slot #1.  Required parameter.
+                'User-Agent',      
+                navigator.userAgent
+              ]);
+              console.log('GA loaded');
+          } catch(err) {
+              setTimeout(500,'enableGA()');
+              console.log('Waiting GA ...');
+          }
+      }
+      setTimeout('enableGA()', 200);
+    </script>
+    {% endif %}
+  {% endblock headers %}
+  </head>
+  <body> 
+    <!--[if lt IE 7]>
+    <div style="font-size: small; background-color: black; color: white; position: fixed; bottom: 0; left: 0; right: 0;border-bottom: 1px solid gray; padding: 2px 5px;"
+         id="outdated">Il est recommandé d'utiliser un navigateur Web
+         moderne, comme <a href="http://www.mozilla.com/firefox/">Mozilla
+         Firefox</a> ou <a href="http://www.google.com/chrome/">Google
+         Chrome</a> pour voir ce site
+    </div>
+    <![endif]-->
+    <header id="page-header">
+      <h1>
+        <a href="{{ SITEURL }}/index.html">{{ SITENAME }}</a>
+      </h1>
+    </header>
+
+    <nav id="page-menu">
+      <ul>
+      {% for title, link in MENUITEMS %}
+        <li><a href="{{ link|format(SITEURL) }}">{{ title }}</a></li>
+      {% endfor %}
+      {% if DISPLAY_PAGES_ON_MENU %}
+        <li><a href="{{ SITEURL }}/index.html">Accueil</a></li>
+        {% for p in PAGES %}
+        <li {% if p == page %}class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url|e }}">{{ p.title }}</a></li>
+        {% endfor %}
+      {% else %}
+        {% for cat, null in categories %}
+        <li {% if cat == category %}class="active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url|e }}">{{ cat }}</a></li>
+        {% endfor %}
+      {% endif %}
+      </ul>
+    </nav>
+    
+    {% block content %}
+    {% endblock content %}
+
+    <footer id="page-footer">
+      <p> {{ FOOTER_TEXT or 'Powered by <a href="http://docs.notmyidea.org/alexis/pelican/">Pelican</a>' }}</p>
+      {% if GITHUB_URL %}<p><a id="github-link" href="{{ GITHUB_URL}}">Fork me on Github</a></p>{% endif %}
+    </footer>
+  </body>
+</html>
