@@ -1,7 +1,7 @@
 {{ article.locale_date }}
 
 {% if article.author %}
-by <a class="url fn" href="{{ SITEURL }}/author/{{ article.author }}.html">{{ article.author }}</a>
+by <a class="url fn" href="{{ SITEURL }}/{{ article.author.url }}">{{ article.author }}</a>
 {% endif %} 
 
 {# Filed under <a href="{{ SITEURL }}/category/{{ article.category }}.html">{{ article.category }}</a> #}
