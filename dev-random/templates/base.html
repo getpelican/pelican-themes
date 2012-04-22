@@ -62,10 +62,13 @@
       {% endfor %}
       {% if DISPLAY_PAGES_ON_MENU %}
         <li><a href="{{ SITEURL }}/index.html">Accueil</a></li>
+        <li><a href="{{ SITEURL }}/index.html">Archives</a></li>
+        <li><a href="{{ SITEURL }}/index.html">Mots-clés</a></li>
         {% for p in PAGES %}
         <li {% if p == page %}class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url|e }}">{{ p.title }}</a></li>
         {% endfor %}
       {% else %}
+        <li><a href="{{ SITEURL }}/index.html">Accueil</a></li>
         {% for cat, null in categories %}
         <li {% if cat == category %}class="active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url|e }}">{{ cat }}</a></li>
         {% endfor %}
