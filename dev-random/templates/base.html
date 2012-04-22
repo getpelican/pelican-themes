@@ -57,22 +57,22 @@
 
     <nav id="page-menu">
       <ul>
+        <li><a href="{{ SITEURL }}/index.html">Accueil</a></li>
       {% for title, link in MENUITEMS %}
         <li><a href="{{ link|format(SITEURL) }}">{{ title }}</a></li>
       {% endfor %}
       {% if DISPLAY_PAGES_ON_MENU %}
-        <li><a href="{{ SITEURL }}/index.html">Accueil</a></li>
-        <li><a href="{{ SITEURL }}/index.html">Archives</a></li>
-        <li><a href="{{ SITEURL }}/index.html">Mots-clés</a></li>
+        <li><a href="{{ SITEURL }}/categories.html">Catégories</a></li>
         {% for p in PAGES %}
         <li {% if p == page %}class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url|e }}">{{ p.title }}</a></li>
         {% endfor %}
       {% else %}
-        <li><a href="{{ SITEURL }}/index.html">Accueil</a></li>
         {% for cat, null in categories %}
         <li {% if cat == category %}class="active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url|e }}">{{ cat }}</a></li>
         {% endfor %}
       {% endif %}
+        <li><a href="{{ SITEURL }}/archives.html">Archives</a></li>
+        <li><a href="{{ SITEURL }}/tags.html">Mots-clés</a></li>
       </ul>
     </nav>
     
@@ -80,7 +80,7 @@
     {% endblock content %}
 
     <footer id="page-footer">
-      <p> {{ FOOTER_TEXT or 'Powered by <a href="http://docs.notmyidea.org/alexis/pelican/">Pelican</a>' }}</p>
+      <p> {{ FOOTER_TEXT or 'Powered by <a href="http://pelican.readthedocs.org">Pelican</a>' }}</p>
       {% if GITHUB_URL %}<p><a id="github-link" href="{{ GITHUB_URL}}">Fork me on Github</a></p>{% endif %}
     </footer>
   </body>
