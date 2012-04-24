@@ -9,7 +9,7 @@
 {% block title %}{{ article.title }} — {{ super() }}{% endblock %}
 
 {%- block content %}
-     <article class="post" id="page-content">
+     <article class="post content">
       <header class="post-header">
         <time datetime="{{ article.date.isoformat() }}" pubdate="pubdate">
           {{ article.locale_date }}

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {%- block content %}
-    <section id="page-content">
+    <section class="content">
       <h1 id="page-title">{% block index_title %}Tous les articles{% endblock index_title %}</h1>
      
          {% for article in articles_page.object_list %}        

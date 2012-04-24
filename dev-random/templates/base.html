@@ -4,7 +4,8 @@
   {% block headers %}
     <meta charset="utf-8" />
     <title>{% block title %}{{ SITENAME }}{%endblock%}</title>
-    <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/{{ CSS_FILE }}" />
+    <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/skeleton.css" />
+    <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/main.css" />
     <link rel="shortcut icon" type="text/css" href="{{ SITEURL }}/favicon.ico" />
     <link rel="alternate" type="application/atom+xml"
                            title="{{ SITENAME }} — Flux Atom"
@@ -42,47 +43,23 @@
   {% endblock headers %}
   </head>
   <body> 
-    <!--[if lt IE 7]>
-    <div style="font-size: small; background-color: black; color: white; position: fixed; bottom: 0; left: 0; right: 0;border-bottom: 1px solid gray; padding: 2px 5px;"
-         id="outdated">Il est recommandé d'utiliser un navigateur Web
-         moderne, comme <a href="http://www.mozilla.com/firefox/">Mozilla
-         Firefox</a> ou <a href="http://www.google.com/chrome/">Google
-         Chrome</a> pour voir ce site
+    <div class="page">
+      <header class="head">
+        <h1>
+          <a href="{{ SITEURL }}/index.html">{{ SITENAME }}</a>
+        </h1>
+      </header>
+
+      <div class="main">
+        {% include "includes/sidebar.html" %} 
+        {% block content %}
+        {% endblock content %}
+      </div>
+
+      <footer class="foot">
+        <p> {{ FOOTER_TEXT or 'Powered by <a href="http://pelican.readthedocs.org">Pelican</a>' }}</p>
+        {% if GITHUB_URL %}<p><a id="github-link" href="{{ GITHUB_URL}}">Fork me on Github</a></p>{% endif %}
+      </footer>
     </div>
-    <![endif]-->
-    <header id="page-header">
-      <h1>
-        <a href="{{ SITEURL }}/index.html">{{ SITENAME }}</a>
-      </h1>
-    </header>
-
-    <nav id="page-menu">
-      <ul>
-        <li><a href="{{ SITEURL }}/index.html">Accueil</a></li>
-      {% for title, link in MENUITEMS %}
-        <li><a href="{{ link|format(SITEURL) }}">{{ title }}</a></li>
-      {% endfor %}
-      {% if DISPLAY_PAGES_ON_MENU %}
-        <li><a href="{{ SITEURL }}/categories.html">Catégories</a></li>
-        {% for p in PAGES %}
-        <li {% if p == page %}class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url|e }}">{{ p.title }}</a></li>
-        {% endfor %}
-      {% else %}
-        {% for cat, null in categories %}
-        <li {% if cat == category %}class="active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url|e }}">{{ cat }}</a></li>
-        {% endfor %}
-      {% endif %}
-        <li><a href="{{ SITEURL }}/archives.html">Archives</a></li>
-        <li><a href="{{ SITEURL }}/tags.html">Mots-clés</a></li>
-      </ul>
-    </nav>
-    
-    {% block content %}
-    {% endblock content %}
-
-    <footer id="page-footer">
-      <p> {{ FOOTER_TEXT or 'Powered by <a href="http://pelican.readthedocs.org">Pelican</a>' }}</p>
-      {% if GITHUB_URL %}<p><a id="github-link" href="{{ GITHUB_URL}}">Fork me on Github</a></p>{% endif %}
-    </footer>
   </body>
 </html>

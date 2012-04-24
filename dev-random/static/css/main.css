@@ -84,73 +84,21 @@ pre {
 }
 
 
-/******************************************************************************/
-/*                               Page Structure                               */
-/******************************************************************************/
-
-#page-header {
-    width: 60%;
-    margin: 1em auto 1em auto;
-
-    text-align: center;
-}
-
-
-#page-menu {
-    width: 100%;
-    margin: 0 0 2em 0;
-    padding: .2em 0em;
-
-    border-bottom: thin dashed gray;
-
-    text-align: center;
-}
-
-
-#page-content {
-    display: block;
-    width: 75%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-
-#page-footer {
-    width: 100%;
-    margin-top: 2em;
-
-    border-top: thin dashed gray;
-
-    font-size: .7em;
-    font-weight: lighter;
-}
-
 
 /******************************************************************************/
 /*                              Specific Styles                               */
 /******************************************************************************/
 
 
-#page-header h1 {
-    margin: .2em auto .2em auto;
+.page .head h1 {
+    margin: .7em auto;
 
     font-family: Georgia, "Times New Roman", Times, serif;
     font-size: 2.8em;
+    text-align: center;
 }
 
-#page-menu ul {
-    display: inline;
-    margin: 0;
-    padding: 0;
-
-    list-style-type: none;
-}
-
-#page-menu ul li {
-    display: inline;
-}
-
-#page-menu ul li a {
+.widget ul li {
     margin: .1em .4em;
 
     font-size: 0.8em;
@@ -159,12 +107,12 @@ pre {
     font-variant: small-caps;
 }
 
-#page-content #page-title {
+.content #page-title {
     font-size: .9em;
 }
 
 
-.post {
+.content .post {
     clear: both;
     margin: 1em 0 3em 0;
 }
@@ -237,7 +185,7 @@ pre {
 }
 
 
-#page-footer p {
+.page .foot p {
     display: block;
     width: 60%;
 

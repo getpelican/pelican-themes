@@ -1,0 +1,68 @@
+
+.page {
+  display: block;
+  margin-top: 5%;
+}
+
+.page .head,
+.page .main,
+.page .foot {
+  display: block;
+  width: 100%;
+  clear: both;
+}
+
+.page .main {
+  display: table;
+  border-collapse: separate;
+  border-spacing: .5%;
+  width: 75%;
+  margin: .5em auto;
+  clear: both;
+}
+
+.page .main .sidebar {
+  display: table-cell;
+  width: 25%;
+}
+
+.page .main .content {
+  display: table-cell;
+  width: 74%;
+}
+
+@media screen and (max-width: 800px) {
+  .page  .main {
+    width: 100%;
+    clear: both;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .page .main {
+    display: block;
+  }
+
+  .page .main .sidebar,
+  .page .main .content {
+    display: block;
+    margin: 0 .5em;
+    width: 100%;
+    clear: both;
+  }
+
+  .widget {
+    display: block;
+  }
+
+  .widget ul,
+  .widget li {
+    display: inline;
+  } 
+
+  .widget h3 { display: none; }
+}
+
+@media print {
+  .sidebar { display: none; }
+}
