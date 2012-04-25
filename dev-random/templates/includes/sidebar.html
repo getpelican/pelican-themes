@@ -1,0 +1,46 @@
+    <aside class="sidebar">
+      <nav class="widget">
+      <h3>Site</h3>
+        <ul>
+          <li><a href="{{ SITEURL }}">Accueil</a></li>
+          <li><a href="{{ SITEURL }}/archives.html">Archives</a></li>
+          <li><a href="{{ SITEURL }}/tags.html">Mots-clés</a></li>
+        {% if MENUITEMS %}
+          {% for name, uri in MENUITEMS %}
+          <li><a href="{{ uri|format(SITEURL)|e}}">{{ name }}</a></li>
+          {% endfor %}
+        {% endif %}
+        {% if DISPLAY_PAGES_ON_MENU %}
+          {% for p in PAGES %}
+          <li><a href="{{ SITEURL}}/{{ p.url|e }}"{% if p == page %} class="active"{% endif %}>{{ p.title }}</a></li>
+          {% endfor %}
+        {% endif %}
+        </ul>
+      </nav>
+
+     {% if categories %}
+      <nav class="widget">
+        <h3>Catégories</h3>
+        <ul>
+        {% for cat, null in categories %}
+          <li><a href="{{ SITEURL }}/{{ cat.url|e }}">{{ cat }}</a></li>
+        {% endfor %}
+        </ul>
+      </nav>
+      {% endif %}
+
+      {% if SOCIAL %}
+      <nav class="widget">
+        <h3>Social</h3>
+        <ul>
+        {% for url, name in SOCIAL %}
+          <li><a href="{{ url|e }}">{{ name }}</a></li>
+        {% endfor %}
+          <li><a href="{{ SITEURL }}/{{ FEED }}" rel="alternate">Flux Atom</a></li>
+        {% if FEED_RSS %}
+          <li><a href="{{ SITEURL }}/{{ FEED_RSS }}" rel="alternate">Flux RSS</a></li>
+        {% endif %}
+        </ul>
+      </nav>
+      {% endif %}
+    </aside>

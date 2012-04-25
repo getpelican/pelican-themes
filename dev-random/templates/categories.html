@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}{{ super() }} — Catégories{% endblock title %}
+
+{%- block content %}
+    <section class="content">
+      <h1>Catégories</h1>
+      <ul id="category-list">
+      {% for category, n in categories %}
+      <li><a href="{{ SITEURL }}/{{ category.url }}">{{ category }}</a> ({{ n|count }} articles)</li>
+      {% endfor %}
+      </ul>
+    </section>
+{% endblock content -%}

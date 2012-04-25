@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="{{ DEFAULT_LANG }}">
+  <head>
+  {% block headers %}
+    <meta charset="utf-8" />
+    <title>{% block title %}{{ SITENAME }}{%endblock%}</title>
+    <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/skeleton.css" />
+    <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/main.css" />
+    <link rel="shortcut icon" type="text/css" href="{{ SITEURL }}/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml"
+                           title="{{ SITENAME }} — Flux Atom"
+                           href="{{ SITEURL }}/{{ FEED }}" /> 
+    {% if FEED_RSS %}
+    <link rel ="alternate" type="application/rss+xml"
+                           title="{{ SITENAME }} — Flux RSS"
+                           href="{{ SITEURL }}/{{ FEED_RSS }}" /> 
+    {% endif %}
+    <script src="{{ SITEURL }}/theme/js/hex2ascii.js"></script>
+    <!--[if lte IE 8]><script src="{{ SITEURL }}/theme/js/html5shiv.js"></script><![endif]-->
+    {% if GOOGLE_ANALYTICS %}
+    <script type="text/javascript">
+      // Google analytics:
+      var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+      function enableGA() {
+          try {
+              var pageTracker = _gat._getTracker("{{ GOOGLE_ANALYTICS }}");
+              pageTracker._trackPageview();
+              _gaq.push(['_setCustomVar',
+                1,                   // This custom var is set to slot #1.  Required parameter.
+                'User-Agent',      
+                navigator.userAgent
+              ]);
+              console.log('GA loaded');
+          } catch(err) {
+              setTimeout(500,'enableGA()');
+              console.log('Waiting GA ...');
+          }
+      }
+      setTimeout('enableGA()', 200);
+    </script>
+    {% endif %}
+  {% endblock headers %}
+  </head>
+  <body> 
+    <div class="page">
+      <header class="head">
+        <h1>
+          <a href="{{ SITEURL }}/index.html">{{ SITENAME }}</a>
+        </h1>
+      </header>
+
+      <div class="main">
+        {% include "includes/sidebar.html" %} 
+        {% block content %}
+        {% endblock content %}
+      </div>
+
+      <footer class="foot">
+        <p> {{ FOOTER_TEXT or 'Powered by <a href="http://pelican.readthedocs.org">Pelican</a>' }}</p>
+        {% if GITHUB_URL %}<p><a id="github-link" href="{{ GITHUB_URL}}">Fork me on Github</a></p>{% endif %}
+      </footer>
+    </div>
+  </body>
+</html>
