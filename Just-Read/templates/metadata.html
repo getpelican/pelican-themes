@@ -1,10 +1,10 @@
 <div class="meta wrapper">
 	<time datetime="{{ article.date.isoformat() }}" pubdate>{{ article.locale_date }}</time>
 	<ul class="tag clearfix">
-		<li><a href="{{ SITEURL }}/category/{{ article.category }}.html">{{ article.category }}</a></li>
+		<li><a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a></li>
 {% if article.tags %}
 	{% for tag in article.tags %}
-		<li><a href="{{ SITEURL }}/tag/{{ tag }}.html">{{ tag }}</a></li>
+		<li><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a></li>
 	{% endfor %}
 {% endif %}
 	</ul>

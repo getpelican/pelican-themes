@@ -16,7 +16,7 @@
                         Par <a class="url fn" href="#">{{ article.author }}</a>
                 </address>
                 {% endif %}
-                <p>Dans <a href="{{ SITEURL }}/category/{{ article.category }}.html">{{ article.category }}</a>. 
+                <p>Dans <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>. 
         {% include 'taglist.html' %}
         </footer><!-- /.post-info -->
         {{ article.content }}

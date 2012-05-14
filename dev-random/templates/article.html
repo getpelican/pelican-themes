@@ -22,8 +22,8 @@
           </a>
         </h1>
         <div class="meta">
-            Dans «<a href="{{ SITEURL }}/category/{{ article.category }}.html">{{ article.category }}</a>» 
-            par <a href="{{ SITEURL }}/author/{{article.author}}.html">{{ article.author}}</a>
+            Dans «<a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>» 
+            par <a href="{{ SITEURL }}/{{article.author.url}}">{{ article.author}}</a>
         </div>
       </header>
       <div class="post-content"> 
@@ -31,9 +31,9 @@
       </div>
       <footer class="post-footer">
         <div class="meta">
-            Posté dans «<a href="{{ SITEURL }}/category/{{ article.category }}.html">{{ article.category }}</a>» 
-            par <a href="{{ SITEURL }}/author/{{article.author}}.html">{{ article.author}}</a><br />
-            Mots-clés: {% for tag in article.tags %} #<a href="{{ SITEURL }}/tag/{{ tag }}.html">{{ tag }}</a>{% endfor %}
+            Posté dans «<a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>» 
+            par <a href="{{ SITEURL }}/{{article.author.url}}">{{ article.author}}</a><br />
+            Mots-clés: {% for tag in article.tags %} #<a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>{% endfor %}
         </div>
       </footer>
       {% if DISQUS_SITENAME %}

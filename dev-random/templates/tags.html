@@ -7,7 +7,7 @@
       <h1>Mots-clés</h1>
       <ul id="tagslist">
       {% for tag in tag_cloud %}
-        <li class="tag-{{ tag.1 }}"><a href="{{ SITEURL }}/tag/{{ tag.0 }}.html">{{ tag.0 }}</a></li>
+        <li class="tag-{{ tag.1 }}"><a href="{{ SITEURL }}/{{ tag.0.url }}">{{ tag.0 }}</a></li>
       {% endfor %}
       </ul>
     </section>
