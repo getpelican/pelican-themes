@@ -11,9 +11,9 @@
   {{ article.content }}	
   {% include 'twitter.html' %}
       
-      <h3 class="blogMeta">Par <a href="#">{{ article.author }}</a>, Catégorie : <a href="{{ SITEURL }}/category/{{ article.category }}.html">{{ article.category }}</a></h3>
+      <h3 class="blogMeta">Par <a href="#">{{ article.author }}</a>, Catégorie : <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a></h3>
 	<h3 class="blogMeta">Tags : {% for tag in article.tags %}
-<span><a href="{{ SITEURL }}/tag/{{ tag }}.html">{{ tag }}</a> / </span>
+<span><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a> / </span>
 {% endfor %}</h3>
     
     </div><!-- end #blogItem -->

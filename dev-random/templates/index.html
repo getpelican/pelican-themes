@@ -18,8 +18,8 @@
             </a>
           </h1>
           <div class="meta">
-              Dans «<a href="{{ SITEURL }}/category/{{ article.category }}.html">{{ article.category }}</a>» 
-              par <a href="{{ SITEURL }}/author/{{article.author}}.html">{{ article.author}}</a>
+              Dans «<a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>» 
+              par <a href="{{ SITEURL }}/{{article.author.url}}">{{ article.author}}</a>
           </div>
         </header>
         <div class="post-content"> 
