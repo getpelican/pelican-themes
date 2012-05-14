@@ -1,5 +1,5 @@
         <details class="meta">
           Publié le <time datetime="{{ article.date.isoformat() }}" pubdate="pubdate">{{ article.locale_date }}</time>
-          {% if article.author %} par {{ article.author }}{% endif %} dans «<a href="{{ SITEURL }}/category/{{ article.category }}.html">{{ article.category }}</a>».  
-          {% if article.tags %}Mots-clés: {% for tag in article.tags %}{%if loop.index > 1%}, {%endif%}<a href="{{ SITEURL }}/tag/{{ tag }}.html">{{ tag }}</a>{% endfor %}</p>{% endif %}
+          {% if article.author %} par {{ article.author }}{% endif %} dans «<a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>».  
+          {% if article.tags %}Mots-clés: {% for tag in article.tags %}{%if loop.index > 1%}, {%endif%}<a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>{% endfor %}</p>{% endif %}
         </details> 

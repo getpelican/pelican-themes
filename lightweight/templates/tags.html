@@ -6,7 +6,7 @@
 <h2 class="page_title">Liste des mots-clés</h2>
 <ul id="tag_list">
 {% for tag, articles in tags %}
-    <li><h3><a href="{{SITEURL}}/tag/{{tag}}.html">{{ tag }}</a></h3></li>
+    <li><h3><a href="{{SITEURL}}/{{tag.url}}">{{ tag }}</a></h3></li>
 {% endfor %}
 </ul>
 {% endblock %}

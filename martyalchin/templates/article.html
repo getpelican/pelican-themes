@@ -7,7 +7,7 @@
      By <a class="url fn" href="#">{{ article.author }}</a>
     {% endif %}
      on <a>{{ article.date.locale_date }}</a>
-     about <a href="{{ SITEURL }}/category/{{ article.category }}.html">{{ article.category }}</a>
+     about <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>
     </div>
     {{ article.content }}
 {% endblock %}
