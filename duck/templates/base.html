@@ -31,11 +31,11 @@
                 {% endfor %}
                 {% if DISPLAY_PAGES_ON_MENU %}
                 {% for page in PAGES %}
-                    <li><a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a></li>
+                    <li><a href="{{ SITEURL }}/pages/{{ page.url }}">{{ page.title }}</a></li>
                 {% endfor %}
                 {% endif %}
                 {% for cat, null in categories %}
-                    <li {% if cat == category %}class="active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
+                    <li {% if cat == category %}class="active"{% endif %}><a href="{{ SITEURL }}/category/{{ cat }}.html">{{ cat.title() }}</a></li>
                 {% endfor %}
                 </ul></nav>
         </header><!-- /#banner -->
