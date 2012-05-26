@@ -42,21 +42,21 @@
     {% endif %}
   {% endblock headers %}
   </head>
-  <body> 
+  <body>
     <div class="page">
-      <header class="head">
+      <header class="page-head">
         <h1>
           <a href="{{ SITEURL }}/index.html">{{ SITENAME }}</a>
         </h1>
       </header>
 
-      <div class="main">
-        {% include "includes/sidebar.html" %} 
+      <div class="page-content">
         {% block content %}
         {% endblock content %}
       </div>
+      {% include "includes/sidebar.html" %} 
 
-      <footer class="foot">
+      <footer class="page-footer">
         <p> {{ FOOTER_TEXT or 'Powered by <a href="http://pelican.readthedocs.org">Pelican</a>' }}</p>
         {% if GITHUB_URL %}<p><a id="github-link" href="{{ GITHUB_URL}}">Fork me on Github</a></p>{% endif %}
       </footer>

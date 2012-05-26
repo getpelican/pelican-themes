@@ -5,25 +5,7 @@
 /******************************************************************************/
 
 
-article, section,
-header, footer, 
-aside, nav {
-    display: block;
-}
-
-html {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
-
 body {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    min-width: 750px;
 
     background-color: white;
     color: #101010;
@@ -47,7 +29,6 @@ h1 a, h2 a,
 h3 a, h4 a, 
 h5 a, h6 a {
     color: inherit;
-
     text-decoration: inherit;
 }
 
@@ -83,6 +64,30 @@ pre {
     overflow: auto;
 }
 
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    border-radius: 4px;
+}
+
+table th {
+    font-weight: bolder;
+    margin: .6em .5em;
+}
+
+table td {
+    margin: .4em .5em;
+}
+
+table th,
+table td {
+    border: thin dashed silver;
+}
+
+table tr {
+    border: thin solid silver;
+}
+
 
 
 /******************************************************************************/
@@ -90,7 +95,7 @@ pre {
 /******************************************************************************/
 
 
-.page .head h1 {
+.page-head h1 {
     margin: .7em auto;
 
     font-family: Georgia, "Times New Roman", Times, serif;
@@ -107,12 +112,12 @@ pre {
     font-variant: small-caps;
 }
 
-.content #page-title {
+.page-content #page-title {
     font-size: .9em;
 }
 
 
-.content .post {
+.page-content .post {
     clear: both;
     margin: 1em 0 3em 0;
 }
@@ -192,6 +197,12 @@ pre {
     text-align: center;
     margin-left: auto;
     margin-right: auto;
+}
+
+#pagination {
+    display: block;
+    clear: both;
+    text-align: center;
 }
 
 
