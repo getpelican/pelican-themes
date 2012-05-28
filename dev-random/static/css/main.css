@@ -210,20 +210,20 @@ table tr {
 /******************************************************************************/
 /*                                    Misc                                    */
 /******************************************************************************/
-
-#github-link {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 50px;
-    height: 100px;
-    background-image: url("../img/corner.png");
-    margin: 0;
-    border: none;
-    text-decoration: none;
-    color: transparent;
-    font-size: 0px;
-    text-decoration: none;
+@media screen and (min-width: 600px) {
+    #github-link {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50px;
+        height: 100px;
+        background-image: url("../img/corner.png");
+        margin: 0;
+        border: none;
+        text-decoration: none;
+        color: transparent;
+        font-size: 0px;
+        text-decoration: none;
+    }
 }
-
