@@ -15,29 +15,19 @@
                            title="{{ SITENAME }} — Flux RSS"
                            href="{{ SITEURL }}/{{ FEED_RSS }}" /> 
     {% endif %}
-    <script src="{{ SITEURL }}/theme/js/hex2ascii.js"></script>
     <!--[if lte IE 8]><script src="{{ SITEURL }}/theme/js/html5shiv.js"></script><![endif]-->
+    <meta name="viewport" content="initial-scale=1.0, width=device-width, user-scalable=no" />
     {% if GOOGLE_ANALYTICS %}
     <script type="text/javascript">
-      // Google analytics:
-      var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-      function enableGA() {
-          try {
-              var pageTracker = _gat._getTracker("{{ GOOGLE_ANALYTICS }}");
-              pageTracker._trackPageview();
-              _gaq.push(['_setCustomVar',
-                1,                   // This custom var is set to slot #1.  Required parameter.
-                'User-Agent',      
-                navigator.userAgent
-              ]);
-              console.log('GA loaded');
-          } catch(err) {
-              setTimeout(500,'enableGA()');
-              console.log('Waiting GA ...');
-          }
-      }
-      setTimeout('enableGA()', 200);
+      var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', '{{ GOOGLE_ANALYTICS }}']);
+          _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); 
+        ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
     </script>
     {% endif %}
   {% endblock headers %}
