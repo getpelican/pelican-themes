@@ -5,7 +5,7 @@ Svbtle theme is a close copy of [Svbtle.com](http://www.svbtle.com) with a few m
 
 ## DEMO
 
-You can see this theme in action on my [blog](http://williamting.com). The theme code is available [here](https://github.com/wting/pelican-svbtle), or the website code [here](https://github.com/wting/williamting.com).
+You can see the theme in action in this blog [post](http://williamting.com/drafts/this-is-a-theme-testing-post.html). The theme code is available [here](https://github.com/wting/pelican-svbtle), or the website code [here](https://github.com/wting/williamting.com).
 
 ![theme screenshot](https://raw.github.com/wting/pelican-svbtle/master/screenshot.png)
 
