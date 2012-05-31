@@ -18,6 +18,7 @@ You can see the theme in action in this blog [post](http://williamting.com/draft
 
 ## KNOWN ISSUES
 
+- no IE testing (only Chrome / FF / Opera)
 - no pages feature
 - no custom menu
 - header date format is hardcoded in `./templates/header.html` with the exception of articles which uses `DEFAULT_DATE_FORMAT`
