@@ -1,10 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-	<header>
-		<h1>{{ article.author }}'s blog</h1>
-		<h3>Posted {{ article.locale_date }}</h3>
-	</header>
-
+	{% include "header.html" %}
 	<article>
 		<h1 id="title">
 			<a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark"
