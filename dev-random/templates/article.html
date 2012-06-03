@@ -4,7 +4,7 @@
 {% block headers %}
     {{ super() }}
     <meta name="author"   content="{{ article.author }}" />
-    <meta name="keywords" content="{{ articles.tags|join(' ')}}" />
+    <meta name="keywords" content="{{ article.tags|join(', ') }}" />
 {% endblock %}
 
 {% block title %}{{ article.title }} — {{ super() }}{% endblock %}
