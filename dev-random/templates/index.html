@@ -20,6 +20,13 @@
           <div class="meta">
               Dans «<a href="{{ SITEURL }}/category/{{ article.category }}.html">{{ article.category }}</a>» 
               par <a href="{{ SITEURL }}/author/{{article.author}}.html">{{ article.author}}</a>
+              {% if article.translations %}
+              &nbsp;&nbsp; Langues: 
+              <a href="{{ SITEURL }}/{{ article.url }}">{{ article.lang or DEFAULT_LANG }}</a>
+                {% for translation in article.translations %}
+              <a href="{{ SITEURL }}/{{ translation.url }}">{{ translation.lang }}</a>
+                {% endfor %}
+              {% endif %}
           </div>
         </header>
         <div class="post-content"> 
