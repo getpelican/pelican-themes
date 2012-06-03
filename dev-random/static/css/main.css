@@ -190,7 +190,7 @@ table tr {
 }
 
 
-.page .foot p {
+.page-footer p {
     display: block;
     width: 60%;
 
@@ -210,6 +210,9 @@ table tr {
 /******************************************************************************/
 /*                                    Misc                                    */
 /******************************************************************************/
+
+// GitHub button
+
 @media screen and (min-width: 600px) {
     #github-link {
         display: block;
@@ -227,3 +230,35 @@ table tr {
         text-decoration: none;
     }
 }
+
+
+// Tag list
+
+ul#tagslist {
+    display: block;
+    width: 75%;
+    margin: 1em auto;
+    list-style-type: none;
+}
+
+ul#tagslist li {
+    display: inline-block;
+    list-style-type: none;
+    margin: .5em .2em;
+    transition: transform 1s ease 0s;
+    -o-transition: -o-transform 1s ease 0s;
+    -ms-transition: -ms-transform 1s ease 0s;
+    -moz-transition: -moz-transform 1s ease 0s;
+    -webkit-transition: -webkit-transform 1s ease 0s;
+}
+
+
+
+ul#tagslist li:hover {
+    transform: rotate(0deg) scale(1.2, 1.2) !important;
+    -o-transform: rotate(0deg) scale(1.2, 1.2) !important;
+    -ms-transform: rotate(0deg) scale(1.2, 1.2) !important;
+    -moz-transform: rotate(0deg) scale(1.2, 1.2) !important;
+    -webkit-transform: rotate(0deg) scale(1.2, 1.2) !important;
+}
+
