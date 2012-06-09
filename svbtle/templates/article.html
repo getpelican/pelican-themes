@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+	{% include "header.html" %}
+	<article>
+		<h1 id="title">
+			<a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark"
+				title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a>
+		</h1>
+		{{ article.content }}
+
+		<div id="article_meta">
+			{% if not article.category == 'posts' %}
+				Category:
+					<a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>
+			{% endif %}
+			{% if article.tags %}
+				<br />Tags:
+				{% for tag in article.tags %}
+					<a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
+				{% endfor %}
+			{% endif %}
+		</div>
+	</article>
+
+	<footer>
+		<a href="{{ SITEURL }}/" class="button_accent">&larr;&nbsp;&nbsp;&nbsp;Back to blog</a>
+	</footer>
+
+	{% if DISQUS_SITENAME %}
+	<div id="comments">
+		<h2>Comments</h2>
+		<div id="disqus_thread"></div>
+		<script type="text/javascript">
+			var disqus_identifier = "{{ article.url }}";
+			(function() {
+				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+				dsq.src = 'http://{{ DISQUS_SITENAME }}.disqus.com/embed.js';
+				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+			})();
+		</script>
+		<noscript>Please enable JavaScript to view <a href="http://disqus.com/?ref_noscript">comments</a>.</noscript>
+	</div>
+	{% endif %}
+
+{% endblock %}

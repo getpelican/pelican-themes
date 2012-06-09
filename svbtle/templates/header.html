@@ -1,0 +1,20 @@
+{% if article and article.author %}
+	<header>
+		<h1>{{ article.author }}'s blog</h1>
+		<h3>Posted {{ article.locale_date }}</h3>
+	</header>
+{% else %}
+	<header>
+		<h1>{{ AUTHOR }}'s blog</h1>
+		<h3>
+			<script type="text/javascript">
+				var currentDate = new Date();
+				var day = currentDate.getDate();
+				var monthNames = [ "Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec" ];
+				var month = monthNames[currentDate.getMonth()].toUpperCase();
+				var year = currentDate.getFullYear();
+				document.write(month + " " + day + ", " + year);
+			</script>
+		</h3>
+	</header>
+{% endif %}
