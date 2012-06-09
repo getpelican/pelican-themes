@@ -1,5 +1,5 @@
-html{height:100%;width:100%;font-size:100%;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;overflow-y:scroll;}
-body{margin:0;padding:0;background-color:#ffffff;color:#4d4d4d;font-family:'Proxima Nova','Open Sans',sans-serif;font-size:13px;line-height:16px;-webkit-font-smoothing:subpixel-antialiased;height:100%;}
+html{min-height:100%;font-size:100%;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;overflow-y:scroll;}
+body{margin:0;padding:0;background-color:#ffffff;color:#4d4d4d;font-family:'Proxima Nova','Open Sans',sans-serif;font-size:13px;line-height:16px;-webkit-font-smoothing:subpixel-antialiased;}
 a{color:#000000;text-decoration:none;border-bottom:1px dotted #999999;}a:link{color:#000000;}
 a:hover{color:#0e94ec;outline:0;}
 a:active{color:#0e94ec;outline:0;}
