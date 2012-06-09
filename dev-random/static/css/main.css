@@ -45,11 +45,32 @@ a {
     text-decoration: none;
 }
 
-
 a:hover {
     text-decoration: underline;
 }
 
+img, table, pre {
+    margin: 1em .5em;
+    padding: .25em;
+    border: thin solid silver;
+    overflow: auto;
+}
+
+figure {
+    display: block;
+    margin: 1em auto;
+    border: thin solid silver;
+    text-align: center;
+    font-size: .9em;
+}
+
+figure img {
+    margin: .1em;
+    padding: .1em;
+    border: none;
+    max-width: 100%;
+    overflow: auto;
+}
 
 pre {
     margin: 1em .5em;
@@ -213,7 +234,7 @@ table tr {
 
 // GitHub button
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 800px) {
     #github-link {
         display: block;
         position: absolute;
@@ -226,11 +247,9 @@ table tr {
         border: none;
         text-decoration: none;
         color: transparent;
-        font-size: 0px;
-        text-decoration: none;
+        font-size: 0;
     }
 }
-
 
 // Tag list
 

@@ -38,12 +38,6 @@ body, .page {
     float: left;
 }
 
-img, table, pre {
-    max-width: 98%;
-    margin: 1em 1%;
-    overflow: auto;
-}
-
 @media screen and (min-width: 800px) {
     .page { margin: 5% 10%; }
 }
