@@ -77,7 +77,7 @@
               {% endif %}
               {% for cat, null in categories %}
                   <li {% if cat == category %}class="active"{% endif %}>
-                    <a href="{{ SITEURL }}/{{ cat.url.url }}">
+                    <a href="{{ SITEURL }}/{{ cat.url }}">
 						<i class="icon-folder-open icon-large"></i>{{ cat }}
 					</a>
                   </li>
