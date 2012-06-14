@@ -302,6 +302,7 @@ img.left, figure.left {float: right; margin: 0 0 2em 2em;}
 		.social a[href*='rss.xml']:before {content: url('../images/icons/rss.png'); margin-right: 2px; vertical-align: -3px;}
 		.social a[href*='twitter.com']:before {content: url('../images/icons/twitter.png'); margin-right: 2px; vertical-align: -3px;}
 		.social a[href*='linkedin.com']:before {content: url('../images/icons/linkedin.png'); margin-right: 2px; vertical-align: -3px;}
+        .social a[href*='gitorious.org']:before {content: url('../images/icons/gitorious.png'); margin-right: 2px; vertical-align: -3px;}
 
 /*
 	About
