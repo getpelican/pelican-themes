@@ -1,3 +1,6 @@
 [submodule "svbtle"]
 	path = svbtle
 	url = https://github.com/wting/pelican-svbtle.git
+[submodule "chunk"]
+	path = chunk
+	url = git@github.com:tbunnyman/pelican-chunk.git
