@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block title %}Blog{%endblock%}
+{% block content %}        
+<div id="content">
+{% block content_title %}
+<h1>Blog</h1>
+{% endblock %}
+
+<ul class="unstyled">
+{% for article in articles_page.object_list %}        
+        <li>
+            <div>    
+                <div class="header">
+                    <h2>{{ article.title }}</h2>
+                </div>
+                <p class="meta"><small><span>{% if article.author %}<a href="{{ SITEURL }}author/{{ article.author.slug }}/">{{ article.author }}</a> - {% endif %}</span><span>{{ article.locale_date }}</span> - <span class="tags">{% if article.tags %}{% for tag in article.tags %}<a href="/tag/{{ tag }}/">{{ tag }}</a>{% if not loop.last %}, {% endif %}{% endfor %}{% endif %}</span></small></p>
+                <div class="entry-content">
+                    {{ article.summary }}
+                </div><!-- /.entry-content -->
+                <div class="row">
+                    <div class="span4">
+                        {% if DISQUS_SITENAME %}
+                        <a class="btn btn-small disabled" href="{{ SITEURL }}{{ article.url }}#disqus_thread"></a>
+                        {% endif %}
+                    </div>
+                    <div class="span1 offset3">
+                        <a class="btn btn-small" href="{{ SITEURL }}{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title}}">Mehr</a>
+                    </div>
+                </div>
+            </div>
+        </li>
+        
+        <li><hr /></li>
+        
+        
+{% endfor %}
+</ul><!-- /#posts-list -->
+<div class="pagination pagination-centered">
+    <ul>
+    {% if articles_page.has_previous() and (articles_page.previous_page_number() != 1) %}
+        <li><a href="{{ SITEURL }}">1</a></li>
+    {% endif %}
+    {% if articles_page.previous_page_number() - 1 == 2 %}
+        <li><a href="{{ articles_page.previous_page_number() - 1}}">{{ articles_page.previous_page_number() - 1}}</a></li>
+    {% elif articles_page.previous_page_number() - 1 > 1 %}
+        <li class="disabled"><a href="#">...</a></li>
+    {% endif %}
+    {% if articles_page.has_previous() %}
+        <li><a href="{{ SITEURL }}{% if articles_page.previous_page_number() != 1 %}{{ page_name }}{{ articles_page.previous_page_number() }}/{% endif %}">{{ articles_page.previous_page_number() }}</a></li>
+    {% endif %}
+        <li class="active"><a href="#">{{ articles_page.number }}</a></li>
+    {% if articles_page.has_next() %}
+        <li><a href="{{ SITEURL }}{{ page_name }}{{ articles_page.next_page_number() }}/">{{ articles_page.next_page_number() }}</a></li>
+    {% endif %}
+    {% if articles_paginator.num_pages - articles_page.next_page_number() == 2 %}
+        <li><a href="{{ articles_page.next_page_number() + 1}}">{{ articles_page.next_page_number() + 1}}</a></li>
+    {% elif articles_paginator.num_pages - articles_page.next_page_number() > 2 %}
+        <li class="disabled"><a href="#">...</a></li>
+    {% endif %}
+    {% if articles_page.has_next() and (articles_page.next_page_number() != articles_paginator.num_pages) %}
+        <li><a href="{{ SITEURL }}{{ page_name }}{{ articles_paginator.num_pages }}/">{{ articles_paginator.num_pages }}</a></li>
+    {% endif %}
+    </ul>
+</div>
+</div><!-- /#content -->
+{% endblock content %}

@@ -10,29 +10,25 @@
 
     <div class='article'>
         <div class="content-title">
-            <a href="{{ SITEURL }}/{{ article.url }}"><h2>{{ article.title }}</h2></a>
+            <a href="{{ SITEURL }}/{{ article.url }}"><h1>{{ article.title }}</h1></a>
             {% include "metadata.html" %} 
         </div>
+        
         <div>{{ article.content }}</div>
+        <hr />
     </div>
 		
     {% if loop.length == 1 %}
         {% include 'pagination.html' %}
     {% endif %}
 
-    {% if loop.length > 1 %}
-        <hr />
-	<br />
-        <h2>Other Entries</h2>
-    {% endif %}
-
 {# other items #}
 {% else %} 
 
     <div class='article'>
-        <a href="{{ SITEURL }}/{{ article.url }}"><h3>{{ article.title }}</h3></a>
+        <a href="{{ SITEURL }}/{{ article.url }}"><h2>{{ article.title }}</h2></a>
         <div class= "well small"> {% include "metadata.html" %} </div>
-        <div class="summary">{{ article.summary }} <a class="btn primary xsmall" href="{{ SITEURL }}/{{ article.url }}">read more</a></div>
+        <div class="summary">{{ article.summary }} <a class="btn btn-info xsmall" href="{{ SITEURL }}/{{ article.url }}">read more</a></div>
     </div>	
 				
     {% if loop.last and (articles_page.has_previous() or not articles_page.has_previous() and loop.length > 1) %}
@@ -45,3 +41,4 @@
 {% endif %} {# If articles #}
 
 {% endblock content %}
+

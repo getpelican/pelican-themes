@@ -50,7 +50,7 @@ Released   : 20100928
 							<h2>Catégories</h2>
 							<ul>
 							{% for cat, null in categories %}
-								 <li {% if cat == category %}class="active"{% endif %}><a href="{{ SITEURL }}/category/{{ cat }}.html">{{ cat }}</a></li>
+								 <li {% if cat == category %}class="active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
 							{% endfor %}
 							</ul>
 						</li>
@@ -82,7 +82,7 @@ Released   : 20100928
 						        <h2>Tags</h2>
 						        <ul>
 						        {% for tag, articles in tags %}
-                                                                <li><a href="{{ SITEURL }}/tag/{{ tag }}.html">{{ tag }}</a></li>
+                                                                <li><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a></li>
                                                         {% endfor %}
 						        </ul>
 						</li>

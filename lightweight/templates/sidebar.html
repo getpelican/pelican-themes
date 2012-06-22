@@ -6,7 +6,7 @@
     <h2>Catégories</h2>
     <ul>
     {% for cat, null in categories %}
-      <li {% if cat == category %}class="active"{% endif %}><a href="{{ SITEURL }}/category/{{ cat }}.html">{{ cat }}</a></li>
+      <li {% if cat == category %}class="active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
     {% endfor %}
     </ul>
   </div>
@@ -16,7 +16,7 @@
     <h2>Mots-clés:</h2>
     <ul>
     {% for tag in article.tags %}
-      <li><a href="{{SITEURL}}/tag/{{tag}}.html">{{ tag }}</a></li>
+      <li><a href="{{SITEURL}}/{{tag.url}}">{{ tag }}</a></li>
     {% endfor %}
       <li><a class="more" href="{{SITEURL}}/tags.html">Plus...</a></li>
     </ul>
