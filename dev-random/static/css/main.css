@@ -5,25 +5,7 @@
 /******************************************************************************/
 
 
-article, section,
-header, footer, 
-aside, nav {
-    display: block;
-}
-
-html {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
-
 body {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    min-width: 750px;
 
     background-color: white;
     color: #101010;
@@ -47,7 +29,6 @@ h1 a, h2 a,
 h3 a, h4 a, 
 h5 a, h6 a {
     color: inherit;
-
     text-decoration: inherit;
 }
 
@@ -64,11 +45,32 @@ a {
     text-decoration: none;
 }
 
-
 a:hover {
     text-decoration: underline;
 }
 
+img, table, pre {
+    margin: 1em .5em;
+    padding: .25em;
+    border: thin solid silver;
+    overflow: auto;
+}
+
+figure {
+    display: block;
+    margin: 1em auto;
+    border: thin solid silver;
+    text-align: center;
+    font-size: .9em;
+}
+
+figure img {
+    margin: .1em;
+    padding: .1em;
+    border: none;
+    max-width: 100%;
+    overflow: auto;
+}
 
 pre {
     margin: 1em .5em;
@@ -83,6 +85,30 @@ pre {
     overflow: auto;
 }
 
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    border-radius: 4px;
+}
+
+table th {
+    font-weight: bolder;
+    margin: .6em .5em;
+}
+
+table td {
+    margin: .4em .5em;
+}
+
+table th,
+table td {
+    border: thin dashed silver;
+}
+
+table tr {
+    border: thin solid silver;
+}
+
 
 
 /******************************************************************************/
@@ -90,7 +116,7 @@ pre {
 /******************************************************************************/
 
 
-.page .head h1 {
+.page-head h1 {
     margin: .7em auto;
 
     font-family: Georgia, "Times New Roman", Times, serif;
@@ -107,12 +133,12 @@ pre {
     font-variant: small-caps;
 }
 
-.content #page-title {
+.page-content #page-title {
     font-size: .9em;
 }
 
 
-.content .post {
+.page-content .post {
     clear: both;
     margin: 1em 0 3em 0;
 }
@@ -185,7 +211,7 @@ pre {
 }
 
 
-.page .foot p {
+.page-footer p {
     display: block;
     width: 60%;
 
@@ -194,25 +220,64 @@ pre {
     margin-right: auto;
 }
 
+#pagination {
+    display: block;
+    clear: both;
+    text-align: center;
+}
+
 
 
 /******************************************************************************/
 /*                                    Misc                                    */
 /******************************************************************************/
 
-#github-link {
+// GitHub button
+
+@media screen and (min-width: 800px) {
+    #github-link {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50px;
+        height: 100px;
+        background-image: url("../img/corner.png");
+        margin: 0;
+        border: none;
+        text-decoration: none;
+        color: transparent;
+        font-size: 0;
+    }
+}
+
+// Tag list
+
+ul#tagslist {
     display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 50px;
-    height: 100px;
-    background-image: url("../img/corner.png");
-    margin: 0;
-    border: none;
-    text-decoration: none;
-    color: transparent;
-    font-size: 0px;
-    text-decoration: none;
+    width: 75%;
+    margin: 1em auto;
+    list-style-type: none;
+}
+
+ul#tagslist li {
+    display: inline-block;
+    list-style-type: none;
+    margin: .5em .2em;
+    transition: transform 1s ease 0s;
+    -o-transition: -o-transform 1s ease 0s;
+    -ms-transition: -ms-transform 1s ease 0s;
+    -moz-transition: -moz-transform 1s ease 0s;
+    -webkit-transition: -webkit-transform 1s ease 0s;
+}
+
+
+
+ul#tagslist li:hover {
+    transform: rotate(0deg) scale(1.2, 1.2) !important;
+    -o-transform: rotate(0deg) scale(1.2, 1.2) !important;
+    -ms-transform: rotate(0deg) scale(1.2, 1.2) !important;
+    -moz-transform: rotate(0deg) scale(1.2, 1.2) !important;
+    -webkit-transform: rotate(0deg) scale(1.2, 1.2) !important;
 }
 

@@ -1,68 +1,65 @@
 
-.page {
-  display: block;
-  margin-top: 5%;
+article, section,
+header, footer, 
+aside, nav {
+    display: block;
 }
 
-.page .head,
-.page .main,
-.page .foot {
+body, .page {
+    margin: 0;
+    padding: 0;
+}
+
+.page {
+    display: block;
+    margin: 2% 4%;
+}
+
+.page-head,
+.page-footer {
   display: block;
   width: 100%;
   clear: both;
 }
 
-.page .main {
-  display: table;
-  border-collapse: separate;
-  border-spacing: .5%;
-  width: 75%;
-  margin: .5em auto;
-  clear: both;
-}
-
-.page .main .sidebar {
-  display: table-cell;
-  width: 25%;
-}
-
-.page .main .content {
-  display: table-cell;
-  width: 74%;
-}
-
-@media screen and (max-width: 800px) {
-  .page  .main {
-    width: 100%;
-    clear: both;
-  }
-}
-
-@media screen and (max-width: 700px) {
-  .page .main {
+.page-content {
     display: block;
-  }
+    float: right;
+    margin-left: 1%;
+    margin-right: 1%;
+    width: 68%;
+}
 
-  .page .main .sidebar,
-  .page .main .content {
+.page-sidebar {
     display: block;
-    margin: 0 .5em;
-    width: 100%;
-    clear: both;
-  }
+    margin-left: 1%;
+    margin-right: 1%;
+    width: 28%;
+    float: left;
+}
 
-  .widget {
-    display: block;
-  }
+@media screen and (min-width: 800px) {
+    .page { margin: 5% 10%; }
+}
 
-  .widget ul,
-  .widget li {
-    display: inline;
-  } 
-
-  .widget h3 { display: none; }
+@media screen and (max-width: 600px) {
+    .page { margin: 0; }
+    .page-content,
+    .page-sidebar {
+        width: 98%;
+        clear: both;
+    }
 }
 
 @media print {
-  .sidebar { display: none; }
+    .page { margin: 0; }
+    .page-content {
+        width: 98%;
+        clear: both;
+    }
+    .page-head,
+    .page-footer,
+    .page-sidebar {
+        display: none;
+    }
 }
