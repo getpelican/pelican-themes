@@ -1,9 +1,10 @@
+{%- if article.lang %}{% set DEFAULT_LANG = article.lang %}{% endif -%}
 {% extends "base.html" %}
 
 {% block headers %}
     {{ super() }}
     <meta name="author"   content="{{ article.author }}" />
-    <meta name="keywords" content="{{ articles.tags|join(' ')}}" />
+    <meta name="keywords" content="{{ article.tags|join(', ') }}" />
 {% endblock %}
 
 {% block title %}{{ article.title }} — {{ super() }}{% endblock %}
@@ -23,7 +24,14 @@
         </h1>
         <div class="meta">
             Dans «<a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>» 
-            par <a href="{{ SITEURL }}/{{article.author.url}}">{{ article.author}}</a>
+            par <a href="{{ SITEURL }}/{{ article.author.url }}">{{ article.author}}</a>
+            {% if article.translations %}
+            &nbsp;&nbsp; Langues: 
+            <a href="{{ SITEURL }}/{{ article.url }}">{{ article.lang or DEFAULT_LANG }}</a>
+              {% for translation in article.translations %}
+            <a href="{{ SITEURL }}/{{ translation.url }}">{{ translation.lang }}</a>
+              {% endfor %}
+            {% endif %}
         </div>
       </header>
       <div class="post-content"> 
@@ -32,7 +40,7 @@
       <footer class="post-footer">
         <div class="meta">
             Posté dans «<a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>» 
-            par <a href="{{ SITEURL }}/{{article.author.url}}">{{ article.author}}</a><br />
+            par <a href="{{ SITEURL }}/{{ article.author.url }}">{{ article.author}}</a><br />
             Mots-clés: {% for tag in article.tags %} #<a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>{% endfor %}
         </div>
       </footer>
