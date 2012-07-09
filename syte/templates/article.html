@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block title %}{{article.title}} | Samrat Man Singh{% endblock %}
+{% block main_section %}
+<section class="main-section blog-section" id="blog-posts">
+	<h3 class="date">{{article.locale_date}}</h3>
+  <article>
+	<hgroup>
+	
+	<h2><a href="{{SITEURL}}/{{article.url}}">{{article.title}}</a></h2>
+	{% include "twitter.html" %}
+	<a href="http://news.ycombinator.com/submit" class="hn-share-button">Vote on HN</a>
+			<!--<script type="text/javascript" src="http://hnapiwrapper.herokuapp.com/static/js/button.js"></script>-->
+	{% include "hacker_news.html" %}
+	</hgroup>
+	{{article.content}}
+
+	<p>
+	If you liked this post, you should <a href="http://twitter.com/samratmansingh">follow me on Twitter.</a>
+	</p>
+	<br/>	
+	<footer>
+	{% if article.tags %}
+	<h4>TAGS</h4>
+	<ul class="tags">
+	{% for tag in article.tags %}
+	<li><a href="{{ SITEURL }}/tag/{{ tag }}.html" class="tag">{{tag}}</a></li>
+	{% endfor %}
+	</ul>
+	{% endif %}
+
+	<br/>
+	{% if DISQUS_SITENAME %}
+	<div class="comments">
+			<div id="disqus_thread"></div>
+			<script type="text/javascript">
+					var disqus_identifier = "{{ article.url }}";
+					(function() {
+					 var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+					 dsq.src = 'http://{{ DISQUS_SITENAME }}.disqus.com/embed.js';
+					 (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+					 })();
+			 </script>
+	 </div>
+	 {% endif %}
+	</footer>
+	</article>
+</section>
+
+
+{% endblock %}
