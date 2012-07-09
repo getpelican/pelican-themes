@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block main_section %}
+<section class="main-section blog-section" id="blog-posts">
+  {% for article in articles_page.object_list %}
+  <h3 class="date">{{article.locale_date}}</h3>
+    <article>
+	<hgroup>
+	<h2><a href="{{article.url}}" title="Permalink to {{article.title}}">{{article.title}}</a></h2>
+	
+	</hgroup>
+	{{article.content}}
+	</article>
+{% endfor %}
+
+{% include "pagination.html" %}
+
+</section>
+{% endblock %}
