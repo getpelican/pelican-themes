@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{%- block content %}
+      <h1 class="small-title">{% block index_title %}Tous les articles{% endblock index_title %}</h1>
+     
+         {% for article in articles_page.object_list %}        
+      <article class="post">
+        <header class="post-header">
+          <h1>
+            <a rel="bookmark"
+               href="{{ SITEURL }}/{{ article.url }}"
+               title="Lien permanent vers «{{ article.title }}»">
+               {{ article.title }}
+            </a>
+          </h1>
+          <div class="meta">
+            {% include "includes/article_meta.html" %}
+          </div>
+        </header>
+        <div class="post-content"> 
+          {{ article.summary }}
+        </div>
+        <footer class="post-footer">
+          <a class="readmore" href="{{ SITEURL }}/{{ article.url }}">Lire la suite...</a>
+        </footer>
+      </article>
+        {% set article = False %}
+        {% endfor %}
+
+      {%- if articles_page %}
+      <nav id="pagination">
+        {%- if articles_page.has_previous() %}
+        <a id="first_page" href="{{ SITEURL }}/{{ page_name }}.html">&#60;&#60;</a>
+        <a id="prev_page" href="{{ SITEURL }}/{{ page_name }}{{ articles_page.previous_page_number() if articles_page.previous_page_number() != 1 else "" }}.html">&#60;</a>
+        {% else %}
+   <!-- <span id="first_page" class="a inactive">&#60;&#60;</span>
+        <span id="first_page" class="a inactive">&#60;</span> -->
+        {% endif -%}
+
+        {%- for i in range(1,articles_paginator.num_pages+1) %}
+          {%- if articles_page.number - 5 < i < articles_page.number + 5 %}
+            {%- if i == articles_page.number %}
+        <span class="a active">{{loop.index}}</span>
+            {% else %}
+        <a href="{{SITEURL}}/{{ page_name }}{{ ( i if i != 1 else "" ) }}.html">{{loop.index}}</a>
+            {% endif -%} 
+          {% endif -%}
+        {% endfor -%}
+
+        {%- if articles_page.has_next() %}
+        <a id="next_page" href="{{ SITEURL }}/{{ page_name }}{{ articles_page.next_page_number() }}.html">&#62;</a>
+        <a id="last_page" href="{{ SITEURL }}/{{ page_name }}{{ articles_paginator.num_pages }}.html">&#62;&#62;</a>
+        {% else %}
+   <!-- <span id="next_page" class="a inactive">&#62;</span>
+        <span id="next_page" class="a inactive">&#62;&#62;</span> -->
+        {% endif -%}
+      </nav>
+      {%- endif%}
+{% endblock content -%}
