@@ -134,7 +134,7 @@ h1.small-title {
     font-weight: normal;
 }
 
-a, a:link, a:visited {
+a, a:visited {
     text-decoration: underline;
     color: #29476B;
 }
@@ -144,10 +144,14 @@ a:active, a:focus {
     outline-style: dotted;
 }
 
-h1 a, h2 a, h3 a,
-h4 a, h5 a, h6 a {
-    color: inherit !important;
-    text-decoration: none!important;
+h1 a, h1 a:visited,
+h2 a, h2 a:visited,
+h3 a, h3 a:visited,
+h4 a, h4 a:visited,
+h5 a, h5 a:visited,
+h6 a, h6 a:visited {
+    color: #222;
+    text-decoration: none;
 }
 
 a.goto {
