@@ -24,7 +24,7 @@ body {
 
 h1, h2, h3,
 h4, h5, h6,
-header .meta {
+.meta {
     color: #222;
     font-family: "Century Schoolbook L", "Georgia", "Nimbus Roman No9 L", "Norasi", "Rekha", serif;
     line-height: 1.1em;
@@ -69,6 +69,7 @@ article:after {
 article:last-of-type:after {
     content: '';
 }
+
 
 #page-head {
     text-align: center;
@@ -135,8 +136,13 @@ h1.small-title {
 }
 
 a, a:visited {
+    color: #0000C0;
+    text-decoration: none;
+}
+
+a:hover {
+    border: none;
     text-decoration: underline;
-    color: #29476B;
 }
 
 a:active, a:focus {
@@ -161,9 +167,11 @@ a.goto {
     margin: 0em .2em;
 }
 
-pre, img {
+pre, img, figure, table {
+    display: block;
+    margin: 1em auto;
     overflow: auto;
-    max-width: 95%;
+    border: 3px solid silver;
 }
 
 pre {
@@ -171,10 +179,12 @@ pre {
     font-size: 0.95em;
     line-height: 1.15em;
     background-color: #F5F5F5;
-    border: 3px solid silver;
     overflow: auto;
     padding: 0.5em;
+    max-width: 100%;
 }
+
+figure * { border: none; margin: auto; padding: auto; }
 
 @media screen and (max-width: 650px) {
     body {

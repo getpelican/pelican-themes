@@ -8,10 +8,10 @@ html, body {
 }
 
 #page {
-    max-width: 950px;
+    max-width: 900px;
     min-width: 240px;
     margin: 0 auto;
-    padding: 0 1em;
+    padding: 0;
 }
 
 #page-head,
@@ -22,9 +22,15 @@ html, body {
     padding: 0;
 }
 
+#page-body { margin: 0 1em; }
+
+#page-main, #page-side {
+    border-width: 0;
+}
+
 #page-side {
     float: left;
-    width: 30%;
+    width: 25%;
     height: 100%;
     margin-top: 0;
 }
@@ -32,7 +38,7 @@ html, body {
 #page-main {
     float: right;
     height: 100%;
-    width: 67%;
+    width: 74%;
 }
 
 
@@ -42,6 +48,7 @@ html, body {
     #page-side {
         width: auto;
         clear: both;
+        float: none;
     }
 
     #page-side ul {
