@@ -1,11 +1,11 @@
 <!-- includes/article_meta.html -->
-            Le <time datetime="{{ article.date.isoformat() }}" pubdate="pubdate">{{ article.locale_date }}</time>
+            Le <time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time>
             dans «<a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>» 
             par <a href="{{ SITEURL }}/{{ article.author.url }}">{{ article.author }}</a>
             {%- if article.tags %}
               <br />Mots-clés: 
               {%- for tag in article.tags %}
-              <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>{% if not loop.last %}, {% endif %}
+              <a rel="tag" href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>{% if not loop.last %}, {% endif %}
               {% endfor -%}
             {% endif -%}
             {%- if article.translations %}

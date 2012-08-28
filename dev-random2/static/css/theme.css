@@ -1,4 +1,4 @@
-/* vim: ts=4 sw=4 et: */
+/* vim: set ts=4 sw=4 et: */
 
 @import url(normalize.css);
 
@@ -174,10 +174,14 @@ a.goto {
 }
 
 pre, img, figure, table {
-    display: block;
     margin: 1em auto;
-    overflow: auto;
+    overflow-x: auto;
     border: 3px solid silver;
+}
+
+table td, table th {
+    border: 1px solid silver;
+    padding: .15em .3em;
 }
 
 pre {
@@ -185,7 +189,6 @@ pre {
     font-size: 0.95em;
     line-height: 1.15em;
     background-color: #F5F5F5;
-    overflow: auto;
     padding: 0.5em;
     max-width: 100%;
 }
