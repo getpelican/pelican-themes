@@ -31,7 +31,7 @@
               {% if PAGES %}
               <li class="nav-header">Seiten</li>
               {% for p in PAGES %}
-              <li{% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}{{ p.url }}">{{ p.title }}</a></li>
+              <li{% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
               {% endfor %}
               {% endif %}
               {% else %}
