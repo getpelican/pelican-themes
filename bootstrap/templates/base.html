@@ -31,7 +31,7 @@
 				{% endfor %}
 				{% if DISPLAY_PAGES_ON_MENU %}
 					{% for page in PAGES %}
-						<li><a href="{{ SITEURL }}/pages/{{ page.url }}">{{ page.title }}</a></li>
+						<li><a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a></li>
 					{% endfor %}
 				{% endif %}
 				{% for cat, null in categories %}
@@ -43,7 +43,7 @@
 	  </div>
 	</div>
 
-	<div class="container-fluid">	
+	<div class="container-fluid">
 	  <div class="sidebar">
 		<div class="well">
 			<h3>Blogroll</h3>
@@ -70,7 +70,7 @@
 		  <p>&copy; {{ AUTHOR }} 2011</p>
 		</footer>
 	  </div>
-   
+
 	</div>
 </body>
 </html>
