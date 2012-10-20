@@ -9,7 +9,7 @@
       <h2><a href="http://twitter.com/#!/{{ screen_name }}">{{ name }}</a></h2>
       <h3><a href="http://twitter.com/#!/{{ screen_name }}">@{{ screen_name}}</a></h3>
     </div>
-    <p class="profile-description">{{{ f_description }}}</p>
+    <p class="profile-description">{{{ description }}}</p>
     <p class="profile-location-url">
       {{#if location }}
       <span>{{ location }}</span>
@@ -40,7 +40,7 @@
         </a>
         {{/with}}
         <p class="tweet-text">
-        {{{ f_text }}}
+        {{{ text }}}
         </p>
         <p class="tweet-date">
           {{ formated_date }}
