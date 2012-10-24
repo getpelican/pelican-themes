@@ -5,8 +5,8 @@
     {% block head %}
     <title>{% block title %}{% endblock title %} - {{ SITENAME }}</title>
     <link href="http://fonts.googleapis.com/css?family=Arimo:400,700|Inika" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="{{ SITEURL }}theme/bootstrap.css" />
-    <link rel="stylesheet" type="text/css" href="{{ SITEURL }}theme/pastie.css" />
+    <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/pastie.css" />
     {% endblock head %}
     
     {% include 'analytics.html' %}
@@ -25,18 +25,18 @@
             <ul class="nav nav-list">
               <li class="nav-header">Blog</li>
               <li {% if page_name == 'index' %}class="active"{% endif %}><a href="{{ SITEURL }}">Index</a></li>
-              <li {% block menu_entry_tag %}{% endblock %}><a href="{{ SITEURL }}tags/">Tags</a></li>
-              <li {% block menu_entry_archive %}{% endblock %}><a href="{{ SITEURL }}archives/">Archiv</a></li>
+              <li {% block menu_entry_tag %}{% endblock %}><a href="{{ SITEURL }}/tags/">Tags</a></li>
+              <li {% block menu_entry_archive %}{% endblock %}><a href="{{ SITEURL }}/archives/">Archiv</a></li>
               {% if DISPLAY_PAGES_ON_MENU %}
               {% if PAGES %}
               <li class="nav-header">Seiten</li>
               {% for p in PAGES %}
-              <li{% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}{{ p.url }}">{{ p.title }}</a></li>
+              <li{% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
               {% endfor %}
               {% endif %}
               {% else %}
 {#            {% for cat, null in categories %}
-              <li{% if cat == category %} class="active"{% endif %}><a href="{{ SITEURL }}category/{{ cat }}/">{{ cat }}</a></li>
+              <li{% if cat == category %} class="active"{% endif %}><a href="{{ SITEURL }}/category/{{ cat }}/">{{ cat }}</a></li>
               {% endfor %}
 #}
               {% endif %}
