@@ -7,6 +7,10 @@
     <link href="http://fonts.googleapis.com/css?family=Arimo:400,700|Inika" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/pastie.css" />
+    <link href="{{ FEED_DOMAIN }}/{{ FEED_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed" />
+    {% if FEED_RSS %}
+    <link href="{{ FEED_DOMAIN }}/{{ FEED_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS Feed" />
+    {% endif %}
     {% endblock head %}
     
     {% include 'analytics.html' %}
