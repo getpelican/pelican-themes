@@ -4,3 +4,6 @@
 [submodule "chunk"]
 	path = chunk
 	url = git@github.com:tbunnyman/pelican-chunk.git
+[submodule "neat"]
+	path = neat
+	url = git@github.com:BYK/pelican-neat.git
