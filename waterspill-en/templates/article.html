@@ -12,9 +12,9 @@
   {% include 'twitter.html' %}
       
       <h3 class="blogMeta">By <a href="#">{{ article.author }}</a>{% if not SUPPRESS_ITEM_CATEGORIES %}, Category: <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>{% endif %}</h3>
-	<h3 class="blogMeta">Tags: {% for tag in article.tags %}
+	{% if article.tags %}<h3 class="blogMeta">Tags: {% for tag in article.tags %}
 <span><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a> / </span>
-{% endfor %}</h3>
+{% endfor %}</h3>{% endif %}
     
     </div><!-- end #blogItem -->
 {% if DISQUS_SITENAME %}
