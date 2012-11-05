@@ -25,7 +25,7 @@
 <div id="container">
 
   <div id="header">
-  <h1><a href="{{ SITEURL }}">{{ SITENAME }}</h1>
+  <h1><a href="{{ SITEURL }}/index.html">{{ SITENAME }}</h1>
   {% if SITESUBTITLE %}<h2>{{ SITESUBTITLE }}</h2>{% endif %}
   
   </div><!-- end #header -->
@@ -37,7 +37,7 @@
           <li><a href="{{ item.url }}">{{ item.name }}</li>
           <li>&ndash;</li>
         {% endfor %}
-    	<li><a href="{{ SITEURL }}">Home</a></li>
+    	<li><a href="{{ SITEURL }}/index.html">Home</a></li>
         <li>&ndash;</li>
         <li><a href="{{ SITEURL }}/archives.html">Archives</a></li>
         {% for item in AFTER_MENU %}
