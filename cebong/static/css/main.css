@@ -29,6 +29,21 @@ body {
     padding-top:120px;
 }
 
+code{
+    border:1px solid #eaeaea;
+    background-color:#f8f8f8;
+    font-size:11px;
+    font-style:normal;
+    color:#777;
+    -moz-border-radius:7px;
+    -webkit-border-radius:7px;
+    padding-left:3px;
+    padding-right:3px;
+    padding-bottom:0px;
+    font-weight:normal;
+    font-family:Consolas, "Liberation Mono", Courier, monospace;
+}
+
 /* Headings */
 h1 {font-size: 2em }
 h2 {font-size: 1.571em}	/* 22px */
