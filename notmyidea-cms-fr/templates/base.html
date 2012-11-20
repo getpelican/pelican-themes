@@ -34,7 +34,7 @@
                 <li><a href="{{ SITEURL }}/index.html">Accueil</a></li>
                 <li><a href="{{ SITEURL }}/archives.html">Archives</a></li>
                 {% for p in PAGES %}
-                    <li {% if p == page %}class="active"{% endif %}><a href="{{ SITEURL }}/pages/{{ p.url }}">{{ p.title }}</a></li>
+                    <li {% if p == page %}class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
                 {% endfor %}
                 {% endif %}
                 {#{% for cat, null in categories %}
