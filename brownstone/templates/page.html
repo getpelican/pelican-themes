@@ -3,7 +3,7 @@
 {% block content %}        
 <div id="content">
 <div class="post">    
-    <h2 class="title"><a href="{{ SITEURL }}/pages/{{ page.url }}">{{ page.title }}</a></h1>
+    <h2 class="title"><a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a></h1>
     {% if PDF_PROCESSOR %}<a href="{{ SITEURL }}/pdf/{{ page.slug }}.pdf">get
     the pdf</a>{% endif %}
     <div style="clear: both;">&nbsp;</div>

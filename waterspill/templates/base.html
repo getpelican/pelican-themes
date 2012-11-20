@@ -46,7 +46,7 @@
 	<h3>Pages</h3>
 	<ul>
         {% for page in PAGES %}
-            <li><a href="{{ SITEURL }}/pages/{{ page.url }}">{{ page.title }}</a></li>
+            <li><a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a></li>
         {% endfor %}
 	</ul>
         {% endif %}

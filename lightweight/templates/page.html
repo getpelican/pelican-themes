@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block title %}{{ page.title }}{% endblock %}
 {% block content %}        
-    <h2 class="page_title"><a href="{{ SITEURL }}/pages/{{ page.url }}">{{ page.title }}</a></h1>
+    <h2 class="page_title"><a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a></h1>
     {% if PDF_PROCESSOR %}<a href="{{ SITEURL }}/pdf/{{ page.slug }}.pdf">get
     the pdf</a>{% endif %}
     <div style="clear: both;">&nbsp;</div>

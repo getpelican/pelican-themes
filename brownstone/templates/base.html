@@ -40,7 +40,7 @@ Released   : 20100928
 							<li><a href="{{ SITEURL }}/archives.html">Archives</a></li>
 							{% if DISPLAY_PAGES_ON_MENU %}
                                                         {% for page in PAGES %}
-                                                            <li><a href="{{ SITEURL }}/pages/{{ page.url }}">{{ page.title }}</a></li>
+                                                            <li><a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a></li>
                                                         {% endfor %}
                                                         {% endif %}
 						</ul>

@@ -3,7 +3,7 @@
 {% block content %}        
 
 <div class="blogItem">
-    <h2><a href="{{ SITEURL }}/pages/{{ page.url }}">{{ page.title }}</a></h3>
+    <h2><a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a></h3>
 	{{ page.content }}
     {% include 'twitter.html' %}
 
