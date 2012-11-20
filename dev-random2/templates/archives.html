@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content_title %}{{ SITENAME }} — Archives{% endblock %}
+
+{%- block content %}
+      <h1>Archives</h1>
+       <dl>
+       {% for article in articles %}
+          {% if loop.first or article.date.strftime('%Y %m') != articles[loop.index0-1].date.strftime('%Y %m') %}
+          <dt>
+             <h2>{{ article.date.strftime('%B %Y') }}</h2>
+             <ul>
+          {% endif %}
+          
+             <li>
+                <a rel="bookmark"
+                  href="{{ SITEURL }}/{{ article.url }}"
+                  title="Lien permanent vers «{{ article.title }}»">
+                {{ article.title }}
+                </a>
+             </li>
+
+          {% if loop.last or article.date.strftime('%Y %m') != articles[loop.index0+1].date.strftime('%Y %m') %}
+             </ul>
+          </dt>
+          {% endif %}
+       {% endfor %}
+       </dl>
+{% endblock content -%}

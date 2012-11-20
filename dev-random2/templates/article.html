@@ -1,0 +1,53 @@
+{%- if article.lang %}{% set DEFAULT_LANG = article.lang %}{% endif -%}
+{% extends "base.html" %}
+
+{% block headers %}
+    {{ super() }}
+    <meta name="author"   content="{{ article.author or DEFAULT_AUTHOR }}" />
+    <meta name="keywords" content="{{ article.tags|join(', ') }}" />
+    <link rel="stylesheet" media="not print" type="text/css" href="{{ SITEURL }}/theme/css/pygments.css" /> 
+{% endblock %}
+
+{% block title %}{{ article.title }} — {{ super() }}{% endblock %}
+
+{%- block content %}
+      <header class="post-header">
+        <h1>
+          <a rel="bookmark"
+             href="{{ SITEURL }}/{{ article.url }}"
+             title="Lien permanent vers «{{ article.title }}»">
+             {{ article.title }}
+          </a>
+        </h1>
+        <div class="meta">
+          {% include "includes/article_meta.html" %}
+        </div>
+      </header>
+      <div class="post-content"> 
+        {{ article.content}}
+      </div>
+      <footer class="post-footer">
+        <div class="meta">
+            Posté dans «<a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>» 
+            par <a href="{{ SITEURL }}/{{ article.author.url }}">{{ article.author}}</a><br />
+            Mots-clés: {% for tag in article.tags %} #<a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>{% endfor %}
+        </div>
+      </footer>
+      {% if DISQUS_SITENAME %}
+      <hr />
+      <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = '{{ DISQUS_SITENAME }}'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+      {% endif %}
+{% endblock content -%}
