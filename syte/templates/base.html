@@ -1,34 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-{% block head %}
 <head>
   <meta charset="utf-8" />
-  <meta name="description" content="Personal website and blog of Samrat Man Singh. Follow him at @samratmansingh" />
-  <meta name="keywords" content="Samrat Man Singh, python, flask, computers, technology, nepal" />
+  <meta name="description" content="{{ SITE_DESCRIPTION }}" />
+  <meta name="keywords" content="{{ SITE_KEYWORDS }}" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% block title %}{{SITENAME}}{% endblock %}</title>
   <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 
-  <link rel="stylesheet" href="{{SITEURL}}/{{ MEDIA_URL }}css/styles.min.css" type="text/css" media="screen, projection">
-  
+{% assets filters="cssmin", output="css/styles.min.css", "css/styles.css", "css/pygments.css" %}
+    <link rel="stylesheet" href="{{ ASSET_URL }}">
+{% endassets %}
+
+  <link rel="shortcut icon" type="image/png" href="{{ GRAVATAR }}" />
+  {% block head %}{% endblock %}
 </head>
-{% endblock %}
 <body>
 <header class="main-header">
+  {% include 'github.html' %}
   <hgroup>
-    <div class="picture">
-      <a href="/" rel="home"></a>
+    <div>
+      <img src="{{ GRAVATAR }}" style="margin-left: 34px; margin-top: 30px;">
     </div>
-    <h1>{{ SITENAME }}</h1>
-    <h2>18 year-old from Nepal interested in computers and technology.</h2>
+    <h1><a href="/" id="home-link">{{ SITENAME }}</a></h1>
+    <h2>{{ ABOUT }}</h2>
   </hgroup>
   <nav>
     <ul class="main-nav">
-      <li><a href="/" id="home-link">Home</a></li>
-      <li><a href="http://twitter.com/#!/samratmansingh" id="twitter-link">Twitter</a></li>
-      <li><a href="http://github.com/samrat" id="github-link">Github</a></li>
-			<li><a href="http://feeds.feedburner.com/SamratManSingh" id="github-link">Feed</a></li>
-      <li><a href="mailto:samratmansingh@gmail.com?subject=Hello" id="contact-link">Contact</a></li>
+      {% if DISPLAY_HOME_ON_MENU %}
+      <li><a href="{{ SITEURL }}/">Home</a></li>
+      {% endif %}
+
+      {% if DISPLAY_PAGES_ON_MENU %}
+        {% for current_page in PAGES %}
+      <li><a href="{{ SITEURL }}/{{ current_page.url }}">{{ current_page.title }}</a></li>
+        {% endfor %}
+      {% endif %}
+
+      {% for title, url in SOCIAL %}
+      <li><a href="{{ url }}" id="{{ title }}-link">{{ title }}</a></li>
+      {% endfor %}
+
+      <li><a href="{{ SITEURL }}/{{ FEED_RSS }}" id="feed-link">Feed</a></li>
+      <li><a href="mailto:{{ CONTACT }}?subject=Hello" id="contact-link">Contact</a></li>
     </ul>
   </nav>
   <a href="http://pelican.notmyidea.org" class="fork-me">Powered by Pelican.</a>
@@ -41,19 +55,49 @@
     <span class="nav-btn-bar"></span>
     <span class="nav-btn-bar"></span>
   </span>
-  <h3><a href="/">samrat.github.com</a></h3>
+  <h3>
+    <a href="{{ SITEURL }}/" id="mobile-title">{{ SITEURL }}</a>
+  </h3>
 </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script type="text/javascript">
-/*<![CDATA[*/
-var twitter_integration_enabled = {% if TWITTER_INTEGRATION_ENABLED %}true{% else %}false{% endif %},
-    github_integration_enabled = {% if GITHUB_INTEGRATION_ENABLED %}true{% else %}false{% endif %},
-    dribbble_integration_enabled = {% if DRIBBBLE_INTEGRATION_ENABLED %}true{% else %}false{% endif %},
-    instagram_integration_enabled = {% if INSTAGRAM_INTEGRATION_ENABLED %}true{% else %}false{% endif %};
-/*]]>*/
-</script>
 
-<script src="{{ SITEURL }}/{{ MEDIA_URL }}js/min/scripts.min.js"></script>
+{% assets filters="rjsmin", output="gen/packed.js", "js/libs/jquery-1.7.2.min.js", "js/libs/jquery.url.js", "js/libs/bootstrap-modal.js", "js/libs/handlebars.js", "js/libs/spin.min.js", "js/libs/moment.min.js", "js/common.js", "js/libs/github.js", "js/libs/google+.js", "js/libs/twitter.js", "js/libs/instagram.js" %}
+    <script src="{{ ASSET_URL }}"></script>
+{% endassets %}
+
+<script>
+    // Function to get the Maximam value in Array
+    Array.max = function( array ) {
+        return Math.max.apply( Math, array );
+    };
+
+    var heights = [];
+    heights.push($('.main-header').height());
+    heights.push($('.main-section').height());
+    heights.push($(window).height());
+
+    var max_height = Array.max(heights);
+    $('.main-header').height(max_height+80);
+
+    $('#mobile-title').text(window.location.hostname);
+
+{% if GITHUB_INTEGRATION_ENABLED %}
+    var github_username = '{{ GITHUB_USERNAME }}';
+{% endif %}
+
+{% if GPLUS_INTEGRATION_ENABLED %}
+    var google_username = '{{ GPLUS_USERNAME }}';
+    var google_accesskey = '{{ GPLUS_API_ACCESS }}';
+{% endif %}
+
+{% if TWITTER_INTEGRATION_ENABLED %}
+    var twitter_username = '{{ TWITTER_USERNAME }}';
+{% endif %}
+
+{% if INSTAGRAM_INTEGRATION_ENABLED %}
+    var instagram_username = '{{ INSTAGRAM_USERNAME }}';
+    var instagram_accesskey = '{{ INSTAGRAM_API_ACCESS }}';
+{% endif %}
+</script>
 
 {% include "analytics.html" %}
 </body>

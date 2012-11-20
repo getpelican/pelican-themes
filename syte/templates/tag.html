@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}Posts tagged '{{tag}}' | Samrat Man Singh {% endblock %}
+{% block title %}Posts tagged '{{tag}}' | {{ SITENAME }} {% endblock %}
 {% block main_section %}
 <section class="main-section blog-section" id="blog-posts">
   {% for article in articles[:5] %}
@@ -9,7 +9,7 @@
 	<h2><a href="{{article.url}}" title="Permalink to {{article.title}}">{{article.title}}</a></h2>
 	
 	</hgroup>
-	{{article.content}}
+	{{article.summary}}
 	</article>
 {% endfor %}
 </section>

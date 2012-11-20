@@ -1,5 +1,14 @@
+{% import 'translations.html' as translations with context %}
 {% extends 'base.html' %}
-{% block title %}{{article.title}} | Samrat Man Singh{% endblock %}
+
+{% block title %}{{article.title}}{% endblock %}
+
+{% block head %}
+  {% if GOOGLE_PLUSONE %}
+  <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+  {% endif %}
+{% endblock %}
+
 {% block main_section %}
 <section class="main-section blog-section" id="blog-posts">
 	<h3 class="date">{{article.locale_date}}</h3>
@@ -8,15 +17,11 @@
 	
 	<h2><a href="{{SITEURL}}/{{article.url}}">{{article.title}}</a></h2>
 	{% include "twitter.html" %}
-	<a href="http://news.ycombinator.com/submit" class="hn-share-button">Vote on HN</a>
-			<!--<script type="text/javascript" src="http://hnapiwrapper.herokuapp.com/static/js/button.js"></script>-->
-	{% include "hacker_news.html" %}
+	{% include "google_plusone.html" %}
+    {{ translations.translate(article) }}
 	</hgroup>
 	{{article.content}}
 
-	<p>
-	If you liked this post, you should <a href="http://twitter.com/samratmansingh">follow me on Twitter.</a>
-	</p>
 	<br/>	
 	<footer>
 	{% if article.tags %}
