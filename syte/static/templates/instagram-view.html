@@ -22,6 +22,9 @@
     <li><span><strong>{{ followed_by }}</strong> followers</span></li>
     {{/with}}
   </ul>
+  <div class="profile-info-footer">
+    <a href="{{ url }}" class="btn">Follow on Instagram</a>
+  </div>
   {{/with}}
   <ul class="profile-shots">
     {{#each media}}
@@ -49,10 +52,5 @@
     </li>
     {{/each}}
   </ul>
-  {{#if pagination}}
-  {{#with pagination}}
-  <button class="load-more-button" id="load-more-pics" data-control-next="{{ next_max_id }}">Load more...</button>
-  {{/with}}
-  {{/if}}
 </div>
 
