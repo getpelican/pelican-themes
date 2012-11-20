@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="{{ article.lang if article and article.lang else DEFAULT_LANG }}">
+  <head>
+  {% block headers %}
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=endge, chrome=IE8" />
+    <meta name="viewport" content="initial-scale=1.0, width=device-width, user-scalable=no" />
+    <title>{% block title %}{{ SITENAME }}{%endblock%}</title>
+    <!--[if lte IE 8]><script type="text/javascript" src="{{ SITEURL }}/theme/js/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/skeleton.css" />
+    <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/theme.css" />
+    <link rel="shortcut icon" type="image/png" href="{{ SITEURL }}/favicon.png" />
+    <!--[if lte IE 8]><link rel="shortcut icon" type="image/x-icon" href="{{ SITEURL }}/favicon.ico" /><![endif]-->
+    <link rel="alternate" type="application/atom+xml"
+                           title="{{ SITENAME }} — Flux Atom"
+                           href="{{ SITEURL }}/{{ FEED_ATOM }}" /> 
+    {% if FEED_RSS %}
+    <link rel ="alternate" type="application/rss+xml"
+                           title="{{ SITENAME }} — Flux RSS"
+                           href="{{ SITEURL }}/{{ FEED_RSS }}" /> 
+    {% endif %}
+  {% endblock headers %}
+  </head>
+  <body>
+    <div id="page">
+      <header id="page-head">
+        <h1>
+          <a href="{{ SITEURL }}/index.html">{{ SITENAME }}</a>
+        </h1>
+      </header>
+      
+      <div id="page-body">
+        <{%- if article %}article class="post" {% else %}section {% endif -%}id="page-main" role="main">
+{% block content %}
+{% endblock content %}
+      </{%- if article %}article{% else %}section{% endif -%}> <!-- /#page-main -->
+
+        <aside id="page-side">
+          {%- include "includes/sidebar.html" -%}
+        </aside> <!-- /#page-side -->
+      </div>  <!-- /#page-body -->
+
+      <footer id="page-foot">
+        <p> {{ FOOTER_TEXT or 'Powered by <a href="http://pelican.readthedocs.org">Pelican</a>' }}</p>
+        {% if GITHUB_URL %}<p><a id="github-link" href="{{ GITHUB_URL}}">Fork me on Github</a></p>{% endif %}
+      </footer>
+    </div> <!-- /#page -->
+    {% if GOOGLE_ANALYTICS %}
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', '{{ GOOGLE_ANALYTICS }}']);
+          _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); 
+        ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+    {% endif %}
+  </body>
+</html>

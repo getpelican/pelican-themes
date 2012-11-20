@@ -1,0 +1,212 @@
+/* vim: set ts=4 sw=4 et: */
+
+@import url(normalize.css);
+
+@-webkit-keyframes fade {from {opacity: 0;} to { opacity: 1;}}
+@-moz-keyframes    fade {from {opacity: 0;} to { opacity: 1;}}
+@-ms-keyframes     fade {from {opacity: 0;} to { opacity: 1;}}
+@-o-keyframes      fade {from {opacity: 0;} to { opacity: 1;}}
+@keyframes         fade {from {opacity: 0;} to { opacity: 1;}}
+
+
+body {
+    font-family: "Lucida Grande", "Gargi_1.7", "Garuda", "Jamrul", "Loma", "Malayalam", "Mukti Narrow", sans-serif;
+    font-size: 16px;
+    line-height: 1.5em;
+    color: #444;
+    background-color: #FAFAFA;
+    -webkit-animation: fade 600ms 1 ease-in-out;
+    -moz-animation: fade 600ms 1 ease-in-out;
+    -ms-animation: fade 600ms 1 ease-in-out;
+    -o-animation: fade 600ms 1 ease-in-out;
+    animation: fade 600ms 1 ease-in-out;
+}
+
+h1, h2, h3,
+h4, h5, h6,
+.meta {
+    color: #222;
+    font-family: "Century Schoolbook L", "Georgia", "Nimbus Roman No9 L", "Norasi", "Rekha", serif;
+    line-height: 1.1em;
+}
+
+hr {
+    visibility: hidden;
+    padding-bottom: 1em; 
+}
+
+hr:after,
+#page-foot:before {
+    visibility: visible;
+    content: '\2042';
+    display: block;
+    text-align: center;
+}
+
+article {
+    margin-bottom: 4em;
+}
+
+article header h1 {
+    padding: .1em 0;
+    margin: 0;
+}
+
+article header .meta {
+    font-size: .9em; 
+}
+
+article header .meta a { text-decoration: none; }
+
+article:after {
+    content: '\00A7';
+    display: block;
+    text-align: center;
+    font-weight: lighter;
+    font-size: 1.5em;
+}
+
+article:last-of-type:after {
+    content: '';
+}
+
+
+#page-head {
+    text-align: center;
+    padding-top: .5em;
+}
+
+#page-head h1 {
+    font-size: 4em;
+}
+
+#page-head h1 a:hover {
+    text-decoration: none;
+}
+
+#page-side {
+    line-height: 1.2em;
+}
+
+#page-side ul {
+    padding: 0 0 0 1.3em;
+    margin: .4em 0 .6em .4em;
+    list-style-type: square;
+}
+
+#page-side li a {
+    color: #555;
+}
+
+#page-side li.active {
+    color: firebrick;
+}
+
+#page-side li.active a {
+    color: #222;
+}
+
+#page-foot {
+    font-size: .8em;
+    text-align: center;
+}
+
+#pagination {
+    display: block;
+    margin-bottom: 4em;
+    text-align: center;
+}
+
+#tag-cloud li {
+    margin: .2em 1em;
+    transition: transform 200ms linear;
+}
+
+#tag-cloud li a {
+    text-decoration: none;
+    color: #222;
+}
+
+#tag-cloud li:hover {
+    transform: rotate(0deg) scale(1.3, 1.3)!important;
+}
+
+#tag-cloud li:hover a {
+    color: black;
+}
+
+h1.small-title {
+    font-size: 1em;
+    font-style: italic;
+    font-weight: normal;
+}
+
+a, a:visited {
+    color: #0000C0;
+    text-decoration: none;
+}
+
+a:hover {
+    border: none;
+    text-decoration: underline;
+}
+
+a:active, a:focus {
+    outline-width: 1px;
+    outline-style: dotted;
+}
+
+h1 a, h1 a:visited,
+h2 a, h2 a:visited,
+h3 a, h3 a:visited,
+h4 a, h4 a:visited,
+h5 a, h5 a:visited,
+h6 a, h6 a:visited {
+    color: #222;
+    text-decoration: none;
+}
+
+a.goto {
+    font-size: .8em;
+    color: #444;
+    padding: 0;
+    margin: 0em .2em;
+}
+
+pre, img, figure, table {
+    margin: 1em auto;
+    overflow-x: auto;
+    border: 3px solid silver;
+}
+
+table td, table th {
+    border: 1px solid silver;
+    padding: .15em .3em;
+}
+
+pre {
+    font-family: monospace;
+    font-size: 0.95em;
+    line-height: 1.15em;
+    background-color: #F5F5F5;
+    padding: 0.5em;
+    max-width: 100%;
+}
+
+figure * { border: none; margin: auto; padding: auto; }
+
+@media screen and (max-width: 650px) {
+    body {
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    body {
+        font-size: 14px;
+    }
+
+    #page-head h1 {
+        font-size: 2.5em;
+    }
+}

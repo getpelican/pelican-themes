@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block headers %}
+{{ super() }}
+    <script type="text/javascript" src="{{ SITEURL }}/theme/js/microTags.js"></script>
+    <script>
+      function tag_cloud_init() {
+        var ul = document.getElementById("tag-cloud");
+        window.tagCloud = new microTags(ul, {
+          'min-size': .95,
+          'max-size': 3.5,
+          'min-angle': -8,
+          'max-angle': 8
+        });
+      }
+      if (window.addEventListener) window.addEventListener("load", tag_cloud_init, false);
+      else if (window.attachEvent) window.attachEvent("onload", tag_cloud_init);
+      else window.onload = tag_cloud_init;
+    </script>
+{% endblock headers %}
+
+{% block title %}{{ super() }} — Mots-clés{% endblock title %}
+
+{%- block content %}
+      <h1>Mots-clés</h1>
+      <ul id="tag-cloud">
+      {% for tag, articles in tags %}
+      <li data-count="{{ articles|count }}" title="{{ articles|count }} article(s)"><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a></li>
+      {% endfor %}
+      </ul>
+{% endblock content -%}

@@ -1,0 +1,55 @@
+
+          <!-- begin includes/sidebar.html -->
+          <nav>
+            <h3>Pages</h3>
+            <ul>
+              <li><a href="{{ SITEURL }}">Accueil</a></li>
+              <li><a href="{{ SITEURL }}/categories.html">Catégories</a></li>
+              <li><a href="{{ SITEURL }}/archives.html">Archives</a></li>
+              <li><a href="{{ SITEURL }}/tags.html">Mots-clés</a></li>
+            {% if MENUITEMS %}
+              {% for name, uri in MENUITEMS %}
+              <li><a href="{{ uri|format(SITEURL)}}">{{ name }}</a></li>
+              {% endfor %}
+            {% endif %}
+            {% if DISPLAY_PAGES_ON_MENU %}
+              {% for p in PAGES %}
+              <li><a href="{{ SITEURL}}/{{ p.url }}"{% if p == page %} class="active"{% endif %}>{{ p.title }}</a></li>
+              {% endfor %}
+            {% endif %}
+            </ul>
+          </nav>
+
+          {% if categories %}
+          <nav>
+            <h3>Catégories</h3>
+            <ul>
+            {% for cat, null in categories %}
+              <li{%- if cat == category %} class="active"{% endif -%}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
+            {% endfor %}
+            </ul>
+          </nav>
+          {% endif %}
+
+          <nav>
+            <h3>Liens</h3>
+            <ul>
+            {% if FEED_ATOM %}
+              <li><a href="{{ FEED_DOMAIN }}/{{ FEED_ATOM }}">Flux ATOM</a></li>
+            {% endif %}
+            {% if FEED_RSS %}
+              <li><a href="{{ FEED_DOMAIN }}/{{ FEED_RSS }}">Flux RSS</a></li>
+            {% endif %}
+            {% if SOCIAL %}
+              {% for name, url in SOCIAL %}
+              <li><a href="{{ url }}">{{ name }}</a></li>
+              {% endfor %}
+            {% endif %}
+            {% if LINKS %}
+              {% for name, url in LINKS %}
+              <li><a href="{{ url }}">{{ name }}</a></li>
+              {% endfor %}
+            {% endif %}
+            </ul>
+          </nav>
+          <!-- end includes/sidebar.html -->
