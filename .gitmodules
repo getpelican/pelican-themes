@@ -4,3 +4,6 @@
 [submodule "chunk"]
 	path = chunk
 	url = git@github.com:tbunnyman/pelican-chunk.git
+[submodule "relapse"]
+	path = relapse
+	url = git@github.com:wamonite/relapse.git
