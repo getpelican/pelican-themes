@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content_title %}{% endblock %}
+{% block content %} 
+                        {% if articles %}
+                        {% for article in articles %}        
+                            {% if loop.index == 1 %}
+  	
+    <div class="blogItem">
+    
+      <h2><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h2>
+      <h3>{{ article.locale_date }}</h3>
+      
+      {{ article.content }}	
+
+      
+      <h3 class="blogMeta">By <a href="#">{{ article.author }}</a>{% if not SUPPRESS_ITEM_CATEGORIES %}, Category: <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>{% endif %}</h3>
+	{% if article.tags %}<h3 class="blogMeta">Tags: {% for tag in article.tags %}
+<span><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a> / </span>
+{% endfor %}</h3>{% endif %}
+    
+    </div><!-- end #blogItem -->
+ {% if loop.length  > 1 %}	
+        <div class="blogItem">
+                <h2>Other articles</h2>
+        </div>
+{% endif %}
+{% else %}    
+    <div class="blogItem">
+    
+      <h2><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h2>
+      <h3>{{ article.locale_date }}</h3>
+      
+      {{ article.summary }}	
+<h3 class="blogMeta">By <a href="#">{{ article.author }}</a>{% if not SUPPRESS_ITEM_CATEGORIES %}, Category: <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>{% endif %}</h3>
+	<a href="{{ SITEURL }}/{{ article.url }}">Continue reading …</a>
+      
+      
+	
+    
+    </div><!-- end #blogItem -->
+  {% endif %}
+{% endfor %}
+{% else %}
+       
+{% endif %}
+{% endblock content %}
