@@ -1,0 +1,18 @@
+<ul class="post-footer">
+    <li class="tags">Tags: <ul>
+        {% for tag in article.tags %}
+        <li><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a></li>
+        {% endfor %}
+    </ul></li>
+
+    {% if article.translations %}
+    <li class="tags">{{ _('Translations') }}: <ul>
+        {% for translation in article.translations %}
+        <li><a href="{{ SITEURL }}/{{ translation.url }}">{{ translation.lang }}</a></li>
+        {% endfor %}
+    </ul></li>
+    {% endif %}
+
+    <li class="date"><h3>{{ article.locale_date }}</h3></li>
+    {% if not DISQUS %}<li><a href="{{ SITEURL }}/{{ article.url }}#disqus_thread" class="permalink">{{ _('Comments') }}</a></li>{% endif %}
+</ul>

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class='article'>
+        <div class="content-title">
+            <h1>{{ article.title }}</h1>
+        </div>
+	
+        <div>{{ article.content }}</div>
+
+        {% include 'post_footer.html' %}
+
+        <hr>
+    	   
+        <h2>{% trans %}Comments{% endtrans %}</h2>
+	{% include "twitter.html" %}
+	{% include 'disqus.html' %}
+    </div>
+{% endblock %}

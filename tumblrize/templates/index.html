@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div id="posts">
+
+{% if articles %}
+{% for article in articles_page.object_list %}
+
+    <div class="text">
+    <a href="{{ SITEURL }}/{{ article.url }}"><h2>{{ article.title }}</h2></a>
+
+    {{ article.content }}
+
+    {% include 'post_footer.html' %}
+
+    </div> <!-- end single post -->
+
+{#    {% block Permalink %}
+        {% block IfDisqusShortname %}
+            <div id="disqus_thread"></div>
+            <script type="text/javascript" src="http://disqus.com/forums/{{ DISQUS_SITENAME }}/embed.js"></script>
+            <noscript><a href="http://{{ DISQUS_SITENAME }}.disqus.com/?url=ref">{{ _('View the discussion thread') }}</a></noscript>
+        {% endblock %}
+    {% endblock %}
+#}
+
+
+{% endfor %} {# For article #}
+{% endif %} {# If articles #}
+
+</div> <!-- end posts -->
+
+<div id="pagination">
+
+
+{% if articles_page.has_previous() %}
+    {% if articles_page.previous_page_number() == 1 %}
+        <a href="{{ SITEURL }}/{{ page_name }}.html">&larr; {{ _('Older entries') }}</a>
+    {% else %}
+        <a href="{{ SITEURL }}/{{ page_name }}{{ articles_page.previous_page_number() }}.html">&larr; {{ _('Older entries') }}</a>
+    {% endif %}
+{% endif %}
+
+Page {{ articles_page.number }} / {{ articles_paginator.num_pages }}
+{#  <span id="pagecount">{{ _('Page %(curr)d of %(total)')|format(curr=articles_page.number, total=articles_paginator.num_pages) }}</span>  #}
+
+{% if articles_page.has_next() %}
+    <a href="{{ SITEURL }}/{{ page_name }}{{ articles_page.next_page_number() }}.html">{{ _('Newer Entries') }} &rarr;</a>
+{% endif %}
+</div>
+
+{% endblock %}

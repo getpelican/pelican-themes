@@ -1,0 +1,58 @@
+# Portuguese (Brazil) translations for tumblrize.
+# Copyright Flávio Caetano © 2012
+# This file is distributed under the same license as the Pelican project.
+# Flávio Caetano <flavio@vieiracaetano.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version:  3.1\n"
+"Report-Msgid-Bugs-To: flavio@vieiracaetano.com\n"
+"POT-Creation-Date: 2012-11-22 17:47-0200\n"
+"PO-Revision-Date: 2012-11-22 17:56-0200\n"
+"Last-Translator: Flávio Caetano <flavio@vieiracaetano.com>\n"
+"Language-Team: pt_BR <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n > 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 0.9.6\n"
+
+#: templates/article.html:14 templates/post_footer.html:17
+msgid "Comments"
+msgstr "Comentários"
+
+#: templates/base.html:37 templates/base.html:67
+msgid "About"
+msgstr "Sobre"
+
+#: templates/base.html:38
+msgid "Archive"
+msgstr "Arquivo"
+
+#: templates/base.html:39
+msgid "Atom feed"
+msgstr "Atom feed"
+
+#: templates/base.html:41
+msgid "RSS feed"
+msgstr "RSS feed"
+
+#: templates/base.html:72
+msgid "Blogroll"
+msgstr "Blogroll"
+
+#: templates/base.html:81
+msgid "Search"
+msgstr "Buscar"
+
+#: templates/index.html:39 templates/index.html:41
+msgid "Older entries"
+msgstr "Older entries"
+
+#: templates/index.html:49
+msgid "Newer Entries"
+msgstr "Newer Entries"
+
+#: templates/post_footer.html:9
+msgid "Translations"
+msgstr "Traduções"
+

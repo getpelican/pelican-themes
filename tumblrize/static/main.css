@@ -1,0 +1,81 @@
+html{font-size:87.5%}
+body{background:#202020;border-top:7px solid #76a34c;color:#aaaaaa;font:normal 1em/1.5 "Lucida Grande","Lucida Sans Unicode", "Lucida Sans",Tahoma,sans-serif;margin:0;padding:3em 0 0}
+a,a:visited,a:active{color:#76a34c}
+a:hover{color:#aaaaaa}
+h1,h2,h3,h4,h5,h6{color:#e0e0e0;font-family:Georgia,serif;font-weight:normal}
+p{margin:0 0 1.5em}
+ul,ol{margin:0 0 1.5em;padding-left:2.5em}
+blockquote{border-left:2px solid #c0c0c0;color:#c0c0c0;margin:0 1em 1.5em;padding:0 1em}
+/* LAYOUT */
+#container{margin:0 auto;margin-bottom:50px;min-width:500px;width:37em}
+
+/* HEADER */
+#header h1{margin:0 0 3em;padding:0;}
+#header h1 a{border:0;color:#e0e0e0;text-decoration:none;}
+#header h1 a:hover{color:#76a34c;}
+#header #navigation{float:right;list-style:none;margin:0.75em 0 3.75em;padding:0}
+#header #navigation li{display:inline-block;margin:0 0.25em}
+#header #navigation a{border-bottom:2px solid #202020;font-size:1.2em;line-height:1.8em;padding:0.25em;text-decoration:none}
+#header #navigation a:hover{border-bottom-color:#76a34c;text-decoration:none}
+
+/* POSTS */
+#posts { clear: left; }
+.text,.link,.quote,.photo,.video,.audio,.chat,.photoset-post{border-bottom:1px dotted #bbb;margin-bottom:4.5em;}
+.link .link-description{margin:0 0 1.5em}
+.quote .words{border:0;color:#aaaaaa;font:normal 1.2em/1.3 "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Tahoma,sans-serif;margin:0 0 1em;padding:0}
+.quote .source{color:#c0c0c0;font-style:italic}
+.photo,.video, .photoset-post{text-align:center}
+.photo .caption,.video .caption,.audio .caption,.quote .source,.photoset-post .caption{clear: right;margin-bottom:1.5em;margin-top:0.75em;text-align:left}
+.photo a img{border:0;}
+.chat ul.convo{list-style-type:none;padding:0;}
+.chat ul.convo li{line-height:2;}
+.chat ul.convo li .person { font-weight: bold; }
+.chat ul.convo li.even .person{color:#76a34c;}
+.audio .playcount { float: right; }
+
+/* POST FOOTERS */
+.post-footer{list-style:none;font-size:0.857em;margin:3em 0;padding:0;text-align:right;}
+.post-footer li{display:inline;margin-left:1em;padding:0}
+
+/* REBLOG */
+.post-footer li.reblog{color:#c0c0c0;display:block;font-style:italic;margin-bottom:0.25em}
+.post-footer li.date h3{coloar:#c0c0c0;display:inline;font-family:Helvetica,Arial,sans-serif;font-size:1em}
+
+/* TAGS */
+.post-footer li.tags ul, .post-footer li.tags ul li{display:inline; padding: 0;}
+.post-footer li.tags ul li {margin-left: 0.4em;}
+
+/* NOTES */
+ol.notes { margin: 0; padding: 0; }
+ol.notes li.note { margin: 0 0 0.75em 0; padding: 0 0 0.75em 0 }
+ol.notes img.avatar { display: none; }
+
+/* PAGINATION */
+#pagination{margin:3em 0}
+#pagination #pagecount{color:#c0c0c0;margin:0 1.5em}
+
+/* FOOTER */
+#footer{border-top:5px solid #76a34c;background:#101010;color:#c0c0c0;float:left;overflow:visible;padding:0 0 1.5em;width:100%}
+#footer a{text-decoration:none}
+#footer a:hover{color:#c0c0c0;}
+#footer h3{border-bottom:1px solid #c0c0c0;color:#c0c0c0;font-size:1.5em;margin:2em 0 0.25em}
+#footer ul{list-style:none;padding:0}
+#footer ul li{line-height:2}
+
+/* FOLLOWING LIST */
+#footer #following li { line-height: 30px; display: inline; }
+
+/* FOOTER LAYOUT */
+#footer-contain{margin:0 auto;padding:0;width:50em}
+#footer-left{float:left;width:15em}
+#footer-middle{float:left;margin-left:2.5em;width:15em}
+#footer-right{float:left;margin-left:2.5em;width:15em}
+
+/* SEARCH */
+#search input{display:inline;}
+#searchresultcount{font-style:italic;margin: 3em 0;text-align: center;}
+#searchresultcount .query{font-weight:bold;}
+
+.search_query, .tag {
+    font-weight: bold;
+}
