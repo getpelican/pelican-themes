@@ -35,7 +35,7 @@
         {% endfor %}
 
         <li><a href="#footer">{{ _('About') }}</a></li>
-        <li><a href="{{ SITEURL }}/archives.html">{{ _('Archive') }}</a></li>
+        <li><a href="{{ SITEURL }}/archives.html">{{ _('Archives') }}</a></li>
         <li><a href="{{ FEED_DOMAIN }}/{{ FEED_ATOM }}" rel="alternate">{{ _('Atom feed') }}</a></li>
         {% if FEED_RSS %}
         <li><a href="{{ FEED_DOMAIN }}/{{ FEED_RSS }}" rel="alternate">{{ _('RSS feed') }}</a></li>
@@ -82,7 +82,7 @@
             <div id="search">
                 <form action="/search" method="get">
                     <input type="text" name="q" value="" size="17"/>
-                    <input type="submit" value="Search"/>
+                    <input type="submit" value="{{ _('Search') }}"/>
                 </form>
             </div>
 

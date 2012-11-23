@@ -42,8 +42,8 @@
     {% endif %}
 {% endif %}
 
-Page {{ articles_page.number }} / {{ articles_paginator.num_pages }}
-{#  <span id="pagecount">{{ _('Page %(curr)d of %(total)')|format(curr=articles_page.number, total=articles_paginator.num_pages) }}</span>  #}
+<span id="pagecount">{{ gettext('Page %(curr)s of %(total)s', curr=articles_page.number, total=articles_paginator.num_pages) }}</span>
+{#  <span id="pagecount">{{ _('Page 1 of 1') }}</span>  #}
 
 {% if articles_page.has_next() %}
     <a href="{{ SITEURL }}/{{ page_name }}{{ articles_page.next_page_number() }}.html">{{ _('Newer Entries') }} &rarr;</a>

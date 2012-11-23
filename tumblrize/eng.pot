@@ -1,17 +1,17 @@
-# Portuguese (Brazil) translations for tumblrize.
+# Translations template for tumblrize.
 # Copyright Flávio Caetano © 2012
 # This file is distributed under the same license as the pelican project.
 # Flávio Caetano <flavio@vieiracaetano.com>, 2012.
 #
+
 msgid ""
 msgstr ""
-"Project-Id-Version:  3.1\n"
+"Project-Id-Version: 3.1\n"
 "Report-Msgid-Bugs-To: flavio@vieiracaetano.com\n"
 "POT-Creation-Date: 2012-11-22 23:13-0200\n"
-"PO-Revision-Date: 2012-11-22 23:52-0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Flávio Caetano <flavio@vieiracaetano.com>\n"
-"Language-Team: pt_BR <LL@li.org>\n"
-"Plural-Forms: nplurals=2; plural=(n > 1)\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,58 +19,59 @@ msgstr ""
 
 #: templates/archives.html:4 templates/base.html:38
 msgid "Archives"
-msgstr "Arquivos"
+msgstr ""
 
 #: templates/article.html:14 templates/post_footer.html:17
 msgid "Comments"
-msgstr "Comentários"
+msgstr ""
 
 #: templates/base.html:37 templates/base.html:67
 msgid "About"
-msgstr "Sobre"
+msgstr ""
 
 #: templates/base.html:39
 msgid "Atom feed"
-msgstr "Atom feed"
+msgstr ""
 
 #: templates/base.html:41
 msgid "RSS feed"
-msgstr "RSS feed"
+msgstr ""
 
 #: templates/base.html:72
 msgid "Blogroll"
-msgstr "Blogroll"
+msgstr ""
 
 #: templates/base.html:81
 msgid "Search"
-msgstr "Buscar"
+msgstr ""
 
 #: templates/categories.html:2
 msgid "categories"
-msgstr "categorias"
+msgstr ""
 
 #: templates/index.html:39 templates/index.html:41
 msgid "Older entries"
-msgstr "Mais antigas"
+msgstr ""
 
 #: templates/index.html:46
 #, python-format
 msgid "Page %(curr)s of %(total)s"
-msgstr "Página %(curr)s de %(total)s"
+msgstr ""
 
 #: templates/index.html:49
 msgid "Newer Entries"
-msgstr "Mais recentes"
+msgstr ""
 
 #: templates/post_footer.html:9
 msgid "Translations"
-msgstr "Traduções"
+msgstr ""
 
 #: templates/post_footer.html:11
 msgid "en"
-msgstr "Inglês"
+msgstr "English"
+
 
 #: templates/post_footer.html:11
 msgid "br"
-msgstr "Português"
+msgstr "Portuguese"
 

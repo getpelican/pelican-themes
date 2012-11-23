@@ -8,7 +8,7 @@
     {% if article.translations %}
     <li class="tags">{{ _('Translations') }}: <ul>
         {% for translation in article.translations %}
-        <li><a href="{{ SITEURL }}/{{ translation.url }}">{{ translation.lang }}</a></li>
+        <li><a href="{{ SITEURL }}/{{ translation.url }}">{{ _(translation.lang) }}</a></li>
         {% endfor %}
     </ul></li>
     {% endif %}
