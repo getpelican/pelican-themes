@@ -8,7 +8,7 @@
 {% for article in articles_page.object_list %}
 
     <div class="text">
-    <a href="{{ SITEURL }}/{{ article.url }}"><h2>{{ article.title }}</h2></a>
+    <a href="{{ SITEURL }}/{{ article.url }}" target="_self"><h2>{{ article.title }}</h2></a>
 
     {{ article.content }}
 
@@ -36,17 +36,16 @@
 
 {% if articles_page.has_previous() %}
     {% if articles_page.previous_page_number() == 1 %}
-        <a href="{{ SITEURL }}/{{ page_name }}.html">&larr; {{ _('Older entries') }}</a>
+        <a href="{{ SITEURL }}/{{ page_name }}.html" target="_self">&larr; {{ _('Older entries') }}</a>
     {% else %}
-        <a href="{{ SITEURL }}/{{ page_name }}{{ articles_page.previous_page_number() }}.html">&larr; {{ _('Older entries') }}</a>
+        <a href="{{ SITEURL }}/{{ page_name }}{{ articles_page.previous_page_number() }}.html" target="_self">&larr; {{ _('Older entries') }}</a>
     {% endif %}
 {% endif %}
 
 <span id="pagecount">{{ gettext('Page %(curr)s of %(total)s', curr=articles_page.number, total=articles_paginator.num_pages) }}</span>
-{#  <span id="pagecount">{{ _('Page 1 of 1') }}</span>  #}
 
 {% if articles_page.has_next() %}
-    <a href="{{ SITEURL }}/{{ page_name }}{{ articles_page.next_page_number() }}.html">{{ _('Newer Entries') }} &rarr;</a>
+    <a href="{{ SITEURL }}/{{ page_name }}{{ articles_page.next_page_number() }}.html" target="_self">{{ _('Newer Entries') }} &rarr;</a>
 {% endif %}
 </div>
 

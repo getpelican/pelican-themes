@@ -3,7 +3,7 @@
 {% block content %}
 <ul>
 {% for tag, articles in tags %}
-    <li><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a></li>
+    <li><a href="{{ SITEURL }}/{{ tag.url }}" target="_self">{{ tag }}</a></li>
 {% endfor %}
 </ul>
 {% endblock %}

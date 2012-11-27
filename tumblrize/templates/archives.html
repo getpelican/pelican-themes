@@ -8,7 +8,7 @@
     {% for article in dates %}
         <tr>
         <td>{{ article.date.strftime("%d %b %Y") }}</td>
-        <td><a href='{{ article.url }}'>{{ article.title }}</a></td>
+        <td><a href='{{ article.url }}' target="_self">{{ article.title }}</a></td>
         </tr>
     {% endfor %}
     </tbody>

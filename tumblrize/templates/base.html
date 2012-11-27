@@ -13,6 +13,7 @@
 
 <html lang="en">
 <head>
+    <base target="_blank" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>{% block title %}{{ SITENAME }}{% endblock %}</title>
     <meta name="author" content="{{ AUTHOR }}">
@@ -31,18 +32,18 @@
     <ul id="navigation">
 
         {% for title, link in MENUITEMS %}
-        <li><a href="{{ link }}">{{ title }}</a></li>
+        <li><a href="{{ link }}" target="_self">{{ title }}</a></li>
         {% endfor %}
 
-        <li><a href="#footer">{{ _('About') }}</a></li>
-        <li><a href="{{ SITEURL }}/archives.html">{{ _('Archives') }}</a></li>
-        <li><a href="{{ FEED_DOMAIN }}/{{ FEED_ATOM }}" rel="alternate">{{ _('Atom feed') }}</a></li>
+        <li><a href="#footer" target="_self">{{ _('About') }}</a></li>
+        <li><a href="{{ SITEURL }}/archives.html" target="_self">{{ _('Archives') }}</a></li>
+        <li><a href="{{ FEED_DOMAIN }}/{{ FEED_ATOM }}" rel="alternate" target="_self">{{ _('Atom feed') }}</a></li>
         {% if FEED_RSS %}
-        <li><a href="{{ FEED_DOMAIN }}/{{ FEED_RSS }}" rel="alternate">{{ _('RSS feed') }}</a></li>
+        <li><a href="{{ FEED_DOMAIN }}/{{ FEED_RSS }}" rel="alternate" target="_self">{{ _('RSS feed') }}</a></li>
         {% endif %}
     </ul>
 
-    <h1><a href="/">{{ SITENAME }}</a></h1>
+    <h1><a href="/" target="_self">{{ SITENAME }}</a></h1>
 </div> <!-- end #header -->
 
 {% block content %}{% endblock %}
@@ -72,10 +73,14 @@
             <h3 id="blogroll">{{ _('Blogroll') }}</h3>
             <ul id="following">
                 {% for name, link in LINKS %}
-                    <li><a href="{{ link }}" title="{{ name }}">{{ name }}</li>
+                    <li><a href="{{ link }}" title="{{ name }}">{{ name }}</a></li>
                 {% endfor %}
             </ul>
         </div>
+
+
+<!--
+        Search coming soon
 
         <div id="footer-right">
             <h3 id="search-title">{{ _('Search') }}</h3>
@@ -87,9 +92,12 @@
             </div>
 
         </div>
+-->
 
     </div> <!-- end footer contain -->
 </div> <!-- end footer -->
+
+{% include "analytics.html" %}
 
 {% block IfDisqusShortname %}
 <script type="text/javascript">

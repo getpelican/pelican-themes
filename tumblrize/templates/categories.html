@@ -3,7 +3,7 @@
 {% block content %}
 <ul>
 {% for category, articles in categories %}
-	<li><a href="{{ SITEURL }}/{{ category.url }}">{{ category }}</li>
+	<li><a href="{{ SITEURL }}/{{ category.url }}" target="_self">{{ category }}</li>
 {% endfor %}
 </ul>
 
