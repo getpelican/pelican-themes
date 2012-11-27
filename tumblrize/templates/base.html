@@ -37,7 +37,7 @@
 
         <li><a href="#footer" target="_self">{{ _('About') }}</a></li>
         <li><a href="{{ SITEURL }}/archives.html" target="_self">{{ _('Archives') }}</a></li>
-        <li><a href="{{ FEED_DOMAIN }}/{{ FEED_ATOM }}" rel="alternate" target="_self">{{ _('Atom feed') }}</a></li>
+        <li><a href="{{ FEED_DOMAIN }}/{{ TRANSLATION_FEED_ATOM | format(DEFAULT_LANG) }}" rel="alternate" target="_self">{{ _('Atom feed') }}</a></li>
         {% if FEED_RSS %}
         <li><a href="{{ FEED_DOMAIN }}/{{ FEED_RSS }}" rel="alternate" target="_self">{{ _('RSS feed') }}</a></li>
         {% endif %}
