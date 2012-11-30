@@ -1,9 +1,9 @@
 /*
-	Theme Name: mnmlist
+    Theme Name: mnmlist
     Theme URI: http://mathieu.agopian.info/mnmlist/theme.html
-	Description: Theme adapted from http://mnmlist.com/theme/ from Leo Babauta, a very clean minimalist theme, without comments, search, archives or other features.
-	Author: Mathieu Agopian
-	Autor URI: http://mathieu.agopian.info
+    Description: Theme adapted from http://mnmlist.com/theme/ from Leo Babauta, a very clean minimalist theme, without comments, search, archives or other features.
+    Author: Mathieu Agopian
+    Autor URI: http://mathieu.agopian.info
 
     This theme is uncopyrighted, free, and offered as is.
 */
@@ -11,39 +11,36 @@
 @import url("pygment.css");
 
 body {
-	background: #fff; 
-	color: #333;
-	font: 20px Hoefler Text, bodyfont, serif;
+    background: #fff;
+    color: #333;
+    font: 20px Hoefler Text, bodyfont, serif;
     line-height: 30px;
     max-width: 30em;
-	margin: 60px 14px 0 64px;
+    margin: 60px 14px 0 64px;
 }
-	
-h1 {
-    color:#333;
+
+@mixin heading ($font-size, $color: #666) {
+    color: $color;
     font-family: Helvetica, sans-serif;
-    font-size: 1.5em;
+    font-size: $font-size;
+}
+
+h1 {
+    @include heading(1.5em, #333);
     font-weight: normal;
-    line-height: 26px;
     margin-bottom: 0;
 }
 
 h2 {
-    color:#666;
-    font-family: Helvetica, sans-serif;
-    font-size: 18px;
-    line-height: 15px;
-    padding-top: 10px;
+    @include heading(1.3em);
 }
 
 h3 {
-    font-family: Georgia, "Times New Roman", Times, serif;
-    font-size: 1em; color:#000000;
+    @include heading(1em);
 }
 
 h4 {
-    color:#000000;
-    font-size: 9pt;
+    @include heading(0.9em);
 }
 
 time {
