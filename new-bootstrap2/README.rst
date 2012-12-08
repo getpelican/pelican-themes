@@ -17,12 +17,12 @@ Feel free to use it.
 New features
 ============
 
- * Yandex.metrica - analytica from yandex. Use **"YANDEX_METRYKA"**
+* Yandex.metrica - analytica from yandex. Use **"YANDEX_METRYKA"**
 
- * Shortmail - shortmail widget. Use **"SHORT_MAIL"**
+* Shortmail - shortmail widget. Use **"SHORT_MAIL"**
 
- * Footer note template - you can set your footer note from config with **"FOOTER_NOTE"** variable or just simple edit **"footer.html"** file.
+* Footer note template - you can set your footer note from config with **"FOOTER_NOTE"** variable or just simple edit **"footer.html"** file.
 
- * Add Twitter share button to post title.
+* Add Twitter share button to post title.
 
- * etc.
+* etc.
