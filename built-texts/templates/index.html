@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block content_title %}{% endblock %}
+{% block content %}        
+
+{% if articles %}
+{% for article in articles_page.object_list %}        
+
+{% if loop.first and not articles_page.has_previous() %}
+    <div class='row-fluid''>
+        <div class="article-title span9">
+            <a href="{{ SITEURL }}/{{ article.url }}"><h1>{{ article.title }}</h1></a>
+        </div>
+    </div>
+    <div class="row-fluid">
+      <div class="span2">
+	{% include "article-sidebar.html" %}
+      </div>
+      <div class="article-content span8">
+	{{ article.content}} 
+	<a class="btn btn-mini xsmall" href="{{ SITEURL }}/{{ article.url }}">
+          <i class="icon-comment"></i> Comment </a>
+	<hr />
+      </div>
+      
+    </div>
+    
+    {% if loop.length == 1 %}
+        {% include 'pagination.html' %}
+    {% endif %}
+
+{# other items #}
+{% else %}
+
+
+    <div class='row-fluid'>
+      <div class='article-title span9'> 
+        <a href="{{ SITEURL }}/{{ article.url }}"><h1>{{ article.title }}</h1></a>
+      </div>
+    </div>
+    <div class="row-fluid">
+      <div class="span2">
+	{% include "article-sidebar.html" %}
+      </div>
+      <div class="summary span8">
+	{{ article.summary }} 
+	<a class="btn btn-mini xsmall" href="{{ SITEURL }}/{{ article.url }}">
+          <i class="icon-plus-sign"></i> Read More </a>
+	<hr />
+      </div>
+      
+    </div>
+      
+    {% if loop.last and (articles_page.has_previous() or not articles_page.has_previous() and loop.length > 1) %}
+        {% include 'pagination.html' %}
+    {% endif %}
+
+{% endif %} {# First item if #}
+
+{% endfor %} {# For article #}
+{% endif %} {# If articles #}
+
+{% endblock content %}
+

@@ -1,0 +1,14 @@
+<p>{{ article.locale_date }} </p>
+
+<p style="text-align: left;">
+Filed under <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>
+</p>
+<p style="text-align: left;">
+{% if article.tags %} 
+    Tags {% for tag in article.tags %}<a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a> {% endfor %}
+{% endif %}
+</p>
+<p>
+{% include "twitter.html" %}
+</p>
+
