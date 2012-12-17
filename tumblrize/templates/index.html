@@ -2,29 +2,33 @@
 
 {% block content %}
 
-<div id="posts">
+<div id="posts" xmlns="http://www.w3.org/1999/html">
 
 {% if articles %}
 {% for article in articles_page.object_list %}
 
-    <div class="text">
-    <a href="{{ SITEURL }}/{{ article.url }}" target="_self"><h2>{{ article.title }}</h2></a>
+    {% if loop.index == 1 %}
+        <div class="text">
+        <a href="{{ SITEURL }}/{{ article.url }}" target="_self"><h2>{{ article.title }}</h2></a>
 
-    {{ article.content }}
+        {{ article.content }}
 
-    {% include 'post_footer.html' %}
+        {% include 'post_footer.html' %}
 
-    </div> <!-- end single post -->
+        </div> <!-- end single post -->
 
-{#    {% block Permalink %}
-        {% block IfDisqusShortname %}
-            <div id="disqus_thread"></div>
-            <script type="text/javascript" src="http://disqus.com/forums/{{ DISQUS_SITENAME }}/embed.js"></script>
-            <noscript><a href="http://{{ DISQUS_SITENAME }}.disqus.com/?url=ref">{{ _('View the discussion thread') }}</a></noscript>
-        {% endblock %}
-    {% endblock %}
-#}
+    {% else %}
+        <div class="text">
+            <a href="{{ SITEURL }}/{{ article.url }}" target="_self"><h2>{{ article.title }}</h2></a>
 
+            {{ article.summary }}
+
+            <p><a class="readmore" href="{{ SITEURL }}/{{ article.url }}">{{ _('read more') }}</a></p>
+
+            {% include 'post_footer.html' %}
+
+        </div> <!-- end single post -->
+    {% endif %}
 
 {% endfor %} {# For article #}
 {% endif %} {# If articles #}

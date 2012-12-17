@@ -49,6 +49,10 @@ msgstr ""
 msgid "categories"
 msgstr ""
 
+#: templates/index.html:26
+msgid "read more"
+msgstr ""
+
 #: templates/index.html:39 templates/index.html:41
 msgid "Older entries"
 msgstr ""
@@ -71,6 +75,14 @@ msgid "en"
 msgstr "English"
 
 #: templates/post_footer.html:11
+msgid "en_US"
+msgstr "English"
+
+#: templates/post_footer.html:11
 msgid "br"
+msgstr "Portuguese"
+
+#: templates/post_footer.html:11
+msgid "pt_BR"
 msgstr "Portuguese"
 
