@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+        "http://www.w3.org/TR/html4/strict.dtd">
+
+
+<!--
+  Simplification Tumblr Theme v1.1
+  by Bill Israel [http://cubicle17.com/]
+  Available for free. Feel free to use and alter, but please give credit.
+
+  Migration to Jinja2
+  by Flávio Caetano [http://flaviocaetano.com]
+-->
+
+<html lang="en">
+<head>
+    <base target="_blank" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>{% block title %}{{ SITENAME }}{% endblock %}</title>
+    <meta name="author" content="{{ AUTHOR }}">
+    <meta name="description" content="{{ ABOUT_ME }}"/>
+
+    <link rel="shortcut icon" href="{{ FAVICON }}"/>
+
+    <link rel="alternate" type="application/rss+xml" name="RSS" href="{{ SITEURL }}/{{ FEED_RSS }}"/>
+
+    <link rel="stylesheet" media="screen" href="{{ SITEURL }}/theme/{{ CSS_FILE }}" type="text/css" />
+
+    {% block extra_heads %}{% endblock %}
+</head>
+
+<body>
+
+{% if FACEBOOK_APP_ID %}
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId={{ FACEBOOK_APP_ID }}";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+{% endif %}
+
+<div id="container">
+<div id="header">
+    <ul id="navigation">
+
+        {% for title, link in MENUITEMS %}
+        <li><a href="{{ link }}" target="_self">{{ title }}</a></li>
+        {% endfor %}
+
+        <li><a href="#footer" target="_self">{{ _('About') }}</a></li>
+        <li><a href="{{ SITEURL }}/archives.html" target="_self">{{ _('Archives') }}</a></li>
+        <li><a href="{{ FEED_DOMAIN }}/{{ TRANSLATION_FEED_ATOM | format(DEFAULT_LANG) }}" rel="alternate" target="_self">{{ _('Atom feed') }}</a></li>
+        {% if FEED_RSS %}
+        <li><a href="{{ FEED_DOMAIN }}/{{ FEED_RSS }}" rel="alternate" target="_self">{{ _('RSS feed') }}</a></li>
+        {% endif %}
+    </ul>
+
+    <h1><a href="/" target="_self">{{ SITENAME }}</a></h1>
+</div> <!-- end #header -->
+
+{% block content %}{% endblock %}
+
+
+</div> <!-- end container -->
+
+<div id="footer">
+    <div id="footer-contain">
+
+        <div id="footer-left">
+            <!-- Twitter Badge -->
+            <!-- Uncomment and change username to use -->
+            <!--
+            <h3 id="twitter">Latest Tweet</h3>
+            <ul id="twitter_update_list">
+              <script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script>
+              <script type="text/javascript" src="http://twitter.com/statuses/user_timeline/username.json?count=1&amp;callback=twitterCallback2"></script>
+            </ul>
+            -->
+
+            <h3 id="about">{{ _('About') }}</h3>
+            {{ ABOUT_ME }}
+        </div>
+
+        <div id="footer-middle">
+            <h3 id="blogroll">{{ _('Blogroll') }}</h3>
+            <ul id="following">
+                {% for name, link in LINKS %}
+                    <li><a href="{{ link }}" title="{{ name }}">{{ name }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+
+
+<!--
+        Search coming soon
+
+        <div id="footer-right">
+            <h3 id="search-title">{{ _('Search') }}</h3>
+            <div id="search">
+                <form action="/search" method="get">
+                    <input type="text" name="q" value="" size="17"/>
+                    <input type="submit" value="{{ _('Search') }}"/>
+                </form>
+            </div>
+
+        </div>
+-->
+
+    </div> <!-- end footer contain -->
+</div> <!-- end footer -->
+
+{% include "analytics.html" %}
+
+{% block IfDisqusShortname %}
+<script type="text/javascript">
+    //<![CDATA[
+    (function() {
+        var links = document.getElementsByTagName('a');
+        var query = '?';
+        for(var i = 0; i < links.length; i++) {
+            if(links[i].href.indexOf('#disqus_thread') >= 0) {
+                query += 'url' + i + '=' + encodeURIComponent(links[i].href) + '&';
+            }
+        }
+        document.write('<script charset="utf-8" type="text/javascript" src="http://disqus.com/forums/{{ DISQUS_SITENAME }}/get_num_replies.js' + query + '"></' + 'script>');
+    })();
+    //]]>
+</script>
+{% endblock %}
+</body>
+</html>

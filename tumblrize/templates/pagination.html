@@ -1,0 +1,21 @@
+<div class="pagination">
+<ul>
+{% if articles_page.has_previous() %}
+{% set num = articles_page.previous_page_number() %}
+    <li class="prev"><a href="{{ SITEURL }}/{{ page_name }}{{ num if num > 1 else '' }}.html target="_self"">&larr; Previous</a></li>
+{% else %}
+    <li class="prev disabled"><a href="#" target="_self">&larr; Previous</a></li>
+{% endif %}
+
+{% for num in range( 1, 1 + articles_paginator.num_pages ) %}
+    <li class="{{ 'active' if num == articles_page.number else '' }}"><a href="{{ SITEURL }}/{{ page_name }}{{ num if num > 1 else '' }}.html" target="_self">{{ num }}</a></li>
+{% endfor %}
+
+{% if articles_page.has_next() %}
+    <li class="next"><a href="{{ SITEURL }}/{{ page_name }}{{ articles_page.next_page_number() }}.html" target="_self">Next &rarr;</a></li>
+{% else %}
+    <li class="next disabled"><a href="#" target="_self">&rarr; Next</a></li>
+{% endif %}
+
+</ul>
+</div>

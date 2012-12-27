@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}{{ SITENAME }} <small>[{{ _('categories') }}]</small>{% endblock %}
+{% block content %}
+<ul>
+{% for category, articles in categories %}
+	<li><a href="{{ SITEURL }}/{{ category.url }}" target="_self">{{ category }}</li>
+{% endfor %}
+</ul>
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block extra_heads %}
+    <meta property="og:title" content="{{ article.title }}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="{{ SITEURL }}/{{ article.url }}" />
+    <meta property="og:site_name" content="{{ SITENAME }}" />
+    <meta property="fb:app_id" content="{{ FACEBOOK_APP_ID }}" />
+{% endblock %}
+
+{% block content %}
+    <div class='article'>
+        <div class="content-title">
+            <h1>{{ article.title }}</h1>
+        </div>
+	
+        <div>{{ article.content }}</div>
+
+        {% include 'post_footer.html' %}
+
+        <hr>
+    	   
+        <h2>{{ _('Comments') }}</h2>
+	{% include "twitter.html" %}
+    {% include "facebook.html" %}
+	{% include 'disqus.html' %}
+    </div>
+{% endblock %}
