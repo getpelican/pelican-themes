@@ -3,7 +3,7 @@ body{background:#202020;border-top:7px solid #76a34c;color:#aaaaaa;font:normal 1
 a,a:visited,a:active{color:#76a34c}
 a:hover{color:#aaaaaa}
 h1,h2,h3,h4,h5,h6{color:#e0e0e0;font-family:Georgia,serif;font-weight:normal}
-p{margin:0px 10px; text-align:justify;}
+p{margin:0px 10px; text-align:justify; text-indent: 25px;}
 ul,ol{margin:0 0 1.5em;padding-left:2.5em}
 blockquote{border-left:2px solid #c0c0c0;color:#c0c0c0;margin:0 1em 1.5em;padding:0 1em}
 /* LAYOUT */
