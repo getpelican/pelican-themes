@@ -9,7 +9,7 @@
   <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 
 {% assets filters="cssmin", output="css/styles.min.css", "css/styles.css", "css/pygments.css" %}
-    <link rel="stylesheet" href="{{ ASSET_URL }}">
+    <link rel="stylesheet" href="{{ SITE_URL }}/{{ ASSET_URL }}">
 {% endassets %}
 
   <link rel="shortcut icon" type="image/png" href="{{ GRAVATAR }}" />
