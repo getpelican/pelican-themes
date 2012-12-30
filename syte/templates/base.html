@@ -61,7 +61,7 @@
 </div>
 
 {% assets filters="rjsmin", output="gen/packed.js", "js/libs/jquery-1.7.2.min.js", "js/libs/jquery.url.js", "js/libs/bootstrap-modal.js", "js/libs/handlebars.js", "js/libs/spin.min.js", "js/libs/moment.min.js", "js/common.js", "js/libs/github.js", "js/libs/google+.js", "js/libs/twitter.js", "js/libs/instagram.js" %}
-    <script src="{{ ASSET_URL }}"></script>
+<script src="{{ SITE_URL }}/{{ ASSET_URL }}"></script>
 {% endassets %}
 
 <script>
