@@ -10,3 +10,6 @@
 [submodule "relapse"]
 	path = relapse
 	url = git@github.com:wamonite/relapse.git
+[submodule "neat"]
+	path = neat
+	url = git@github.com:BYK/pelican-neat.git
