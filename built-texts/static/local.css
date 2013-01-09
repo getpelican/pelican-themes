@@ -1,0 +1,93 @@
+/* Styling for Nav bar. Bg color, link color etc */
+
+.blog-header {
+  position: relative;
+  padding: 16px 0;
+  background-color:#EEE;
+}
+
+.navbar .nav > li > a { color: #FF0F00; }
+.navbar .divider-vertical { border-right: 1px solid #4D4D4D; }
+.navbar { margin-bottom: 4em; background-color: rgba(0,0,0,0)} 
+
+.nav-pills > .active > a,
+.nav-pills > .active > a:hover {
+    color: #0A5693;
+    background-color:#bbb; 
+/*    background-color:#E9EFF6; Initial colour to match bottom */
+}
+
+
+#blog-nav{
+    padding: 5px 0;
+    font-size:16px;
+    margin-top: 10px;
+}
+
+ul#sitelinks.nav.nav-list > li > a >i {
+    color: #1f334b;}
+/* Styling for elements */
+a {color: #0A5693} 
+body {font-family: 'Gudea', 'Gill Sans', 'Arial'; font-size: 16px; line-height: 1.2em}
+p { font-family: 'Gudea', 'Gill Sans', 'Arial'; font-size: 16px; line-height: 1.2em; margin-top: 0.8em; margin-bottom: 0.8em; text-align: justify}
+li { line-height: 1.6em; }
+h3 { font-family: 'Alegreya SC', 'Garamond', 'Georgia'; font-weight: normal}
+h2 { font-family: 'Alegreya SC', 'Garamond', 'Georgia' ; font-weight: normal;}
+h1 { font-family: 'Alegreya SC', 'Garamond', 'Georgia' ; font-weight: normal;}
+h1,h2,h3,h4,h5,h6 { color: #000001; margin-bottom: 0px}
+.table th, .table td { line-height: 1.3em; }
+
+.brand { font-family: 'Alegreya SC', 'Garamond', 'Georgia'; font-weight: normal; font-size: 42px; line-height:40px; margin-top: 10px; display: block; color:#000001; }
+
+/* Styling for articles */
+.article { padding-bottom:15px; padding-right: 40px; }
+.content-title { margin-bottom: 30px; }
+.article a:hover { text-decoration: none; } 
+
+
+
+/* Styling for the "other entries" section */
+/* Metadata */
+.well.small { padding: 6px 6px 4px; }
+
+/* Read more button */
+.btn-info.xsmall {
+    padding: 1px 3px 1px;
+    font-size: 11px;
+    float: right;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
+
+/* Article summary */
+.summary { margin-bottom: 2em; margin-top: 0.8em; font-size: 16px; line-height: 1.2em }
+.summary pre { display: none; }
+
+/* Styling for Sidebar 
+.social a[href*='activestate.com']:before {content: url('./images/icons/activestate.png'); margin-right: 2px; vertical-align: -3px;}
+.social a[href*='atom.xml']:before {content: url('./images/icons/rss.png'); margin-right: 2px; vertical-align: -3px;}
+.social a[href*='bitbucket.org']:before {content: url('./images/icons/bitbucket.png'); margin-right: 2px; vertical-align: -3px;}
+.social a[href*='code.google.com']:before {content: url('./images/icons/phosting.png'); margin-right: 2px; vertical-align: -3px;}
+.social a[href*='delicious.com']:before {content: url('./images/icons/delicious.png'); margin-right: 2px; vertical-align: -3px;}
+.social a[href*='digg.com']:before {content: url('./images/icons/digg.png'); margin-right: 2px; vertical-align: -3px;}
+.social a[href*='facebook.com']:before {content: url('./images/icons/facebook.png'); margin-right: 2px; vertical-align: -3px;}
+.social a[href*='github.com']:before {content: url('./images/icons/github.png'); margin-right: 2px; vertical-align: -3px;}
+.social a[href*='google.com/reader']:before {content: url('./images/icons/reader.png'); margin-right: 2px; vertical-align: -3px;}
+.social a[href*='jamendo.com']:before {content: url('./images/icons/jamendo.png'); margin-right: 2px; vertical-align: -3px;}
+.social a[href*='last.fm']:before {content: url('./images/icons/lastfm.png'); margin-right: 2px; vertical-align: -3px;}
+.social a[href*='linkedin.com']:before {content: url('./images/icons/linkedin.png'); margin-right: 2px; vertical-align: -3px;}
+.social a[href*='rss.xml']:before {content: url('./images/icons/rss.png'); margin-right: 2px; vertical-align: -3px;}
+.social a[href*='stackoverflow.com']:before {content: url('./images/icons/stackoverflow.png'); margin-right: 2px; vertical-align: -3px;}
+.social a[href*='twitter.com']:before {content: url('./images/icons/twitter.png'); margin-right: 2px; vertical-align: -3px;}
+*/
+
+#blog-footer{ display: table; width: 100%}
+
+@media(max-width: 768px){
+#socialist { display: table-footer-group;}
+#colophon { display: table-header-group;}
+#sitelinks { display: table-footer-group;}
+}
+
+
