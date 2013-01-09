@@ -7,3 +7,6 @@
 [submodule "iris"]
 	path = iris
 	url = https://github.com/slok/iris.git
+[submodule "relapse"]
+	path = relapse
+	url = git@github.com:wamonite/relapse.git
