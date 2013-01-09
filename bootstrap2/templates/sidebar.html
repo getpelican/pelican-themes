@@ -2,7 +2,7 @@
 {% if LINKS %}
 <li class="nav-header"><h4><i class="icon-external-link"></i>blogroll</h4></li>
 {% for name, link in LINKS %}
-    <li><i class="icon-external-link"></i><a href="{{ link }}">{{ name }}</a></li>
+    <li><a href="{{ link }}"><i class="icon-external-link"></i>{{ name }}</a></li>
 {% endfor %}
 {% endif %}
 {% if SOCIAL %}
