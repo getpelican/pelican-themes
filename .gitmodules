@@ -13,3 +13,6 @@
 [submodule "neat"]
 	path = neat
 	url = git@github.com:BYK/pelican-neat.git
+[submodule "pelican-mockingbird"]
+	path = pelican-mockingbird
+	url = git://github.com/wrl/pelican-mockingbird.git
