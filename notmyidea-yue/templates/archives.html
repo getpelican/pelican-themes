@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block menuitem_active %}
+{% if link == 'archives.html' %}class="active"{% endif %}
+{% endblock %}
+
+{% block content %}
+{% if dates %}
+    <section id="content" class="body">
+    {% set month = None %}
+    {% for article in dates %}
+        {% if loop.first %}
+        {% endif %}
+        {% set cmonth = article.date.date().replace(day=1) %}
+        {% if not loop.first and cmonth < month %}
+        </ul>
+        {% endif %}
+        {% if loop.first or cmonth < month %}
+        <h1>{{ article.date.strftime("%Y %B") }}</h1>
+        <ul>
+        {% endif %}
+            <li>{{ article.date.strftime("%b %d") }}: <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
+        {% if loop.last %}
+            </ul>
+        {% endif %}
+        {% set month = cmonth %}
+    {% endfor %}
+{% endif %}
+</section>
+{% endblock %}

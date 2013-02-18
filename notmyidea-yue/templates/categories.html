@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block menuitem_active %}
+{% if link == 'categories.html' %}class="active"{% endif %}
+{% endblock %}
+
+{% block content %}
+{% if categories %}
+    <section id="content" class="body">
+        <ul>
+    {% for category, dates in categories %}
+        <li><h1><a href="{{ SITEURL }}/category/{{ category }}.html">{{ category }} ({{ articles.__len__() }})</a></h1></li>
+    {% endfor %}
+        </ul>
+    </section>
+{% endif %}
+{% endblock %}

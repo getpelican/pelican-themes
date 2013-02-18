@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}{{ SITENAME }} - {{ category }}{% endblock %}
+
+{% block menuitem_active %}
+{% if link == "{{ page_name}}.html" %}class="active"{% endif %}
+{% endblock %}
+
+{% block content %}
+{% if category and dates %}
+    <section id="content" class="body">
+        <h1>{{ category }} ({{ dates.__len__() }})</h1>
+        <ul>
+
+        {% for article in dates %}
+            <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
+        {% endfor %}
+
+        </ul>
+    </section>
+{% endif %}
+{% endblock %}
