@@ -1,5 +1,5 @@
 <footer class="post-info">
-    <time datetime="{{ article.date.isoformat() }}" class="published">{{ article.locale_date }}</time>
+    <time datetime="{{ article.date.isoformat()[:-7] }}" class="published">{{ article.locale_date }}</time>
     {% if article.author %}
     <address class="vcard author">
         By <a class="url fn" href="{{ SITEURL }}/{{ article.author.url }}">{{ article.author }}</a>
