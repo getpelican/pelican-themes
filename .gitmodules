@@ -16,3 +16,6 @@
 [submodule "pelican-mockingbird"]
 	path = pelican-mockingbird
 	url = git://github.com/wrl/pelican-mockingbird.git
+[submodule "bluegrasshopper"]
+	path = bluegrasshopper
+	url = git@github.com:gregseth/pelican-bgh.git
