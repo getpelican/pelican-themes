@@ -7,11 +7,21 @@
 {% block content %}
 {% if categories %}
     <section id="content" class="body">
-        <ul>
     {% for category, dates in categories %}
-        <li><h1><a href="{{ SITEURL }}/category/{{ category }}.html">{{ category }} ({{ articles.__len__() }})</a></h1></li>
+        <article class="hentry">
+            <header>
+                <h1 class="entry-title"><a href="{{ SITEURL }}/category/{{ category }}.html">{{ category }} ({{ dates.__len__() }})</a></h1>
+            </header>
+
+            <div class="entry-content">
+                <ul>
+                {% for article in dates %}
+                    <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
+                {% endfor %}
+                </ul>
+            </div>
+        </article>
     {% endfor %}
-        </ul>
     </section>
 {% endif %}
 {% endblock %}

@@ -64,7 +64,10 @@ p {margin: 1.5rem 0;}
 
 strong, b {font-weight: bold;}
 em, i {font-style: italic;}
-sup { vertical-align: super;}
+sup { 
+    vertical-align: super;
+    font-size: 1.2rem;
+    }
 
 /* Lists */
 ul {
@@ -130,11 +133,6 @@ blockquote {
 
 code {
     font-family: Monospace;
-    background-color: lightgrey;
-
-    border-radius: .3rem;
-    -moz-border-radius: .3rem;
-    -webkit-border-radius: .3rem;
     }
 
 cite {}
@@ -364,14 +362,12 @@ table {
 .hentry {
     display: block;
     clear: both;
-    padding: 1rem 0;
+    padding: 0;
 }
 li:last-child .hentry, #content > .hentry {border: 0; margin: 0;}
 .hentry img{display : none ;}
 .entry-content {
-    padding-bottom: 1rem;
-    margin-bottom: 1rem;
-    border-bottom: 2px solid #eee;
+    margin: 2rem;
 }
 
 .entry-title {font-size: 4.2rem; margin-bottom: 1rem; margin-top: 0;}
@@ -385,5 +381,5 @@ li:last-child .hentry, #content > .hentry {border: 0; margin: 0;}
 	article footer * {display: inline;}
     
 	/* Blog Index */
-	#posts-list {list-style: none; margin: 0;}
-	#posts-list .hentry {padding-left: 1rem; position: relative;}
+	#posts-list, #posts-list li {list-style: none; margin: 0; padding: 0;}
+	#posts-list .hentry {position: relative;}

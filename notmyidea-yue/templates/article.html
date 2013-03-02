@@ -4,15 +4,14 @@
 <section id="content" class="body">
   <article>
     <header>
-      <h1 class="entry-title">
-        <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark"
-           title="Permalink to {{ article.title|striptags }}">{{ article.title}}</a></h1>
+      <h1 class="entry-title">{{ article.title }}</h1>
       {% include 'twitter.html' %}
     </header>
 
     <div class="entry-content">
       {{ article.content }}
     </div><!-- /.entry-content -->
+    <hr>
     {% include 'article_infos.html' %}
     {% if DISQUS_SITENAME %}
     <div class="comments">

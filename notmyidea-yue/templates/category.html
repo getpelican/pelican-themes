@@ -9,14 +9,19 @@
 {% block content %}
 {% if category and dates %}
     <section id="content" class="body">
-        <h1>{{ category }} ({{ dates.__len__() }})</h1>
-        <ul>
+        <article>
+            <header>
+                <h1 class="entry-title">{{ category }} ({{ dates.__len__() }})</h1>
+            </header>
 
-        {% for article in dates %}
-            <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
-        {% endfor %}
-
-        </ul>
+            <div class="entry-content">
+                <ul>
+                    {% for article in dates %}
+                        <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </article>
     </section>
 {% endif %}
 {% endblock %}
