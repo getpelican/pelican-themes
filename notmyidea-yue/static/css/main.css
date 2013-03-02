@@ -16,7 +16,7 @@ body {
     color: #000305;
     font-size: 1.4rem;
     font-family: 'Trebuchet MS', Trebuchet, 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    line-height: 1.1;
+    line-height: 1.4;
     margin: 0;
     padding: 0;
     text-align: left;
@@ -377,9 +377,13 @@ li:last-child .hentry, #content > .hentry {border: 0; margin: 0;}
 .hentry .post-info {font-style: normal;}
 
 	/* Content */
-	article footer {text-align: right; margin-bottom: 0;}
+	article footer {text-align: right; margin-bottom: 2rem;}
 	article footer * {display: inline;}
     
 	/* Blog Index */
-	#posts-list, #posts-list li {list-style: none; margin: 0; padding: 0;}
+	#posts-list, #posts-list.li {
+        list-style: none; 
+        margin: 0;
+        padding: 0;
+        }
 	#posts-list .hentry {position: relative;}
