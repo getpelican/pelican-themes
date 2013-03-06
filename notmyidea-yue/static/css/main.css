@@ -132,7 +132,15 @@ blockquote {
         }
 
 code {
+    background-color: rgb(238, 238, 238);
+    padding: .2rem .5rem;
+    margin: 0 .5rem;
     font-family: Monospace;
+    border: 1px solid lightgrey;
+
+    border-radius: .5rem;
+    -moz-border-radius: .5rem;
+    -webkit-border-radius: .5rem;
     }
 
 cite {}
