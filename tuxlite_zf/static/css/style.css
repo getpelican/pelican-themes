@@ -1,6 +1,7 @@
 /* Misc */
 .button { background-color: #0090d3; } 
 a { color: #0090d3; }
+body { word-wrap:break-word; }
 
 /* Base.html - top navigation */
 .top-bar { 
