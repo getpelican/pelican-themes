@@ -1,0 +1,9 @@
+<h6 class="subheader" title="{{ article.date.isoformat() }}">{{ article.locale_date }}
+    {# {% if article.author %}
+    By <a href="{{ SITEURL }}/{{ article.author.url }}">{{ article.author }}</a>
+    {% endif %} #}
+</h6>
+
+{% import 'translations.html' as translations with context %}
+{{ translations.translations_for(article) }}
+
