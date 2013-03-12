@@ -8,4 +8,4 @@ Customization is all done and documented in style.css.
 
 Screenshot below.
 
-![Screenshot](https://raw.github.com/mins/pelican-themes/master/tuxlite_zf/screenshot.png)
+![Screenshot](https://raw.github.com/mins/pelican-themes/master/tuxlite_zf/Screenshot.png)
