@@ -14,7 +14,7 @@
 
 /* line 13, ../../compass/src/main.scss */
 body {
-  background: #111;
+  background: #1E1E1E;
   color: #EEE;
   font: 20px Hoefler Text, bodyfont, serif;
   line-height: 30px;
@@ -125,7 +125,7 @@ strong {
 
 /* line 92, ../../compass/src/main.scss */
 tt, pre {
-  background-color: #222;
+  background-color: #2A2A2A;
   font-family: Inconsolata, Monaco, monospace;
   line-height: 1.2em;
 }
@@ -166,7 +166,7 @@ header a#page-title {
 
 /* line 121, ../../compass/src/main.scss */
 footer {
-  background: #222;
+  background: #2A2A2A;
   color: #CCC;
   font-family: helvetica, sans-serif;
   font-size: 13px;
