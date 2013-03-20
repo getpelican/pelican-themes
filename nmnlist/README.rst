@@ -1,7 +1,7 @@
-mnmlist
+nmnlist
 #######
 
-This is the `mnmlist theme <http://mnmlist.com/theme>`_ adapted for Pelican.
+This is an inverted colors (white on black) variant of the `mnmlist theme <http://mnmlist.com/theme>`_.
 
 
 Settings
