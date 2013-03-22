@@ -21,7 +21,9 @@ All these settings are optional, not using them will simply not enable the socia
 
 ###### Not so optional
 
-Pelican-syte uses the webassets module integrated into Pelican, so you will also need to install it ( `pip install webassets` ) and add the `WEBASSETS = True` setting.
+Pelican-syte uses the webassets module integrated into Pelican, so you
+will also need to install it ( `pip install webassets` ) and add the
+`pelican.plugins.assets` plugin to `PLUGINS` setting.
 
 #### Links
 
