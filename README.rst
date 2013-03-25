@@ -1,61 +1,51 @@
-Pelican themes
+Pelican Themes
 ##############
 
-This repository contains themes for Pelican. Feel free to clone, add you own
-and make a pull request. It's community-managed!
+This repository contains themes for Pelican. Feel free to clone, add your own
+theme, and submit a pull request. It's community-managed!
 
+Using Themes
+############
 
-How to install a new Pelican theme
-##############
+These instructions assume you have already completed the `Getting Started`_
+guide, have a working site, and would now like to apply a non-default theme.
 
-These instructions assume you have already completed the Pelican Quick Start 
-guide at http://docs.getpelican.com/en/3.1.1/getting_started.html, have a 
-working blog, and would now like to apply a non-default theme.
+.. _Getting Started: http://docs.getpelican.com/en/latest/getting_started.html
 
-First, choose a directory to hold your themes.  For this example, I'll use the 
-directory :code:`path_to_themes`, but yours could be different.  Then clone 
-the :code:`pelican-themes` repository to your local machine.  
+First, choose a location to hold your themes. For this example, we'll use the
+directory ``~/pelican-themes``, but yours could be different. Clone the
+``pelican-themes`` repository to that location on your local machine:
 
-.. code-block:: none
-	
-	$ mkdir ~/path_to_themes # or whatever
-	$ cd ~/path_to_themes
-	$ git clone git://github.com/getpelican/pelican-themes.git
-	
-Now you should have your :code:`pelican-themes` repository stored at 
-:code:`~/path_to_themes/pelican-themes/`.  
+.. code-block:: sh
 
-Next use :code:`cd` to move to the directory where you are storing your Pelican 
-site.  To use one of the themes, you simply have to edit your 
-:code:`pelicanconf.py` file to include this line:
+	git clone https://github.com/getpelican/pelican-themes ~/pelican-themes
+
+Now you should have your ``pelican-themes`` repository stored at
+``~/pelican-themes/``.
+
+To use one of the themes, edit your Pelican settings file to include this line:
 
 .. code-block:: python
 
-	# Add this to pelicanconf.py
-	THEME = '~/path_to_themes/pelican-themes/theme_folder'
+	THEME = "~/pelican-themes/theme-name"
 
-So, for instance, to use the :code:`mnmlst` theme, you would edit your config 
-file to include
+So, for instance, to use the ``mnmlst`` theme, you would edit your settings
+file to include:
 
 .. code-block:: python
 
-	THEME = '~/path_to_themes/pelican-themes/mnmlst'
+	THEME = "~/pelican-themes/mnmlst"
 
-Save :code:`pelicanconf.py`.  To see the changes, regenerate your site by using 
-the Makefile you should already have set up using :code:`pelican-quickstart`:
+Save the changes to your settings file and then regenerate your site by using
+the Makefile you should already have set up using ``pelican-quickstart``:
 
-.. code-block:: none
-	
-	$ make html
+.. code-block:: sh
 
-Themes can also be specified directly using the 
-:code:`pelican -t ~/path_to_themes/pelican-themes/theme_folder` option.  If you 
-want to edit your theme, make sure that any edits you make are made to the copy 
-stored in :code:`~/path_to_themes/pelican-themes/theme_folder`.  Any changes
-made to files stored in your site's :code:`output` directory will be deleted 
-the next time you generate your site.
+	make html
 
-
-
-
-
+Themes can also be specified directly via the ``-t ~/pelican-themes/theme-name``
+parameter to the ``pelican`` command. If you want to edit your theme, make sure
+that any edits you make are made to the copy stored in
+``~/pelican-themes/theme-name``. Any changes made to
+files stored in your site's ``output`` directory will be deleted the next
+time you generate your site.
