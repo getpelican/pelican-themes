@@ -16,3 +16,6 @@
 [submodule "pelican-mockingbird"]
 	path = pelican-mockingbird
 	url = git://github.com/wrl/pelican-mockingbird.git
+[submodule "svbhack"]
+	path = svbhack
+	url = git://github.com/giulivo/pelican-svbhack.git
