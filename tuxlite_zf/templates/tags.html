@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+
+<ul class="circle">
+    {% for tag, articles in tags|sort %}
+	<li><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a></li>
+	<ul class="square">
+	{% for article in articles|sort %}
+	<li><a href="{{ SITEURL }}/{{ article.url }}"><small>{{ article.title }}</small></li>
+	{% endfor %}
+	</ul>
+    {% endfor %}
+</ul>
+
+{% endblock %}
