@@ -1,0 +1,397 @@
+/* Imports */
+@import url("reset.css");
+@import url("pygment.css");
+@import url("typogrify.css");
+@import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz&subset=latin);
+
+/***** Global *****/
+/* Html */
+html {
+    font-size: 62.5%; /* Base font size: 16px * 62.5% = 10px*/
+    }
+
+/* Body */
+body {
+    background: #F5F4EF;
+    color: #000305;
+    font-size: 1.4rem;
+    font-family: 'Trebuchet MS', Trebuchet, 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    line-height: 1.4;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    word-wrap: break-word;
+    }
+
+/* Headings */
+h1 {font-size: 3.6rem }
+h2 {font-size: 3.0rem}	/* 22px */
+h3 {font-size: 2.4rem}	/* 20px */
+h4 {font-size: 1.8rem}	/* 18px */
+h5 {font-size: 1.6rem}	/* 16px */
+h6 {font-size: 1.4rem}	/* 14px */
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+    line-height: 1.1;
+    margin: 1rem 0rem;
+    font-family: 'Yanone Kaffeesatz', arial, serif;
+    }
+
+h1 a:hover {
+    background-color: inherit
+    }
+
+hr { border: 1px solid #EEEEEE; }
+
+/* Anchors */
+a {outline: 0;}
+    a img {border: 0; text-decoration: none;}
+    a:link, a:visited {
+        color: #C74350;
+        padding: 0 .1rem;
+        text-decoration: underline;
+        }
+    a:hover, a:active {
+        background-color: #C74350;
+        color: #fff;
+        text-decoration: none;
+        text-shadow: .1rem .1rem .1rem #333;
+        }
+
+/* Paragraphs */
+p {margin: 1.5rem 0;}
+
+strong, b {font-weight: bold;}
+em, i {font-style: italic;}
+sup { 
+    vertical-align: super;
+    font-size: 1.2rem;
+    }
+
+/* Lists */
+ul {
+	list-style: outside disc;
+	margin: 1.5rem 0 2rem 2rem;
+    }
+
+ol {
+	list-style: outside decimal;
+	margin: 1.5rem 0 2rem 2rem;
+    }
+
+dl {margin: 0 0 2rem 0;}
+dt {font-weight: bold;}
+dd {margin-left: 2rem;}
+
+img {
+    padding: 0 2rem;
+    }
+
+pre, blockquote, .codehilitetable, .codehilite, .toc {
+    background-color: rgb(238, 238, 238);
+    padding: 2rem;
+    margin: 2rem;
+
+    border-radius: .5rem;
+    -moz-border-radius: .5rem;
+    -webkit-border-radius: .5rem;
+    }
+
+/* Quotes */
+blockquote {
+    font-style: italic;
+    border-left: .5rem solid black;
+    }
+    
+    blockquote p {
+        padding: 0;
+        margin: 0;
+        }
+
+/* codehilite , markdown extension */
+.codehilitetable, .codehilite {
+    display: block;
+    border: none;
+    }
+    
+    .codehilitetable *, .codehilite *{
+        padding: 0;
+        margin: 0;
+        font-size: 1.4rem;
+        font-family: Monospace;
+        border: none;
+        }
+    
+    div.linenodiv {
+        text-align: right;
+        width: 2.4rem;
+        margin-right: 1.5rem;
+        padding-right: 1.5rem;
+        border-right: 1px dotted black;
+        }
+
+code {
+    background-color: rgb(238, 238, 238);
+    padding: .2rem .5rem;
+    margin: 0 .5rem;
+    font-family: Monospace;
+    border: 1px solid lightgrey;
+
+    border-radius: .5rem;
+    -moz-border-radius: .5rem;
+    -webkit-border-radius: .5rem;
+    }
+
+cite {}
+
+q {}
+
+/* Tables */
+table {
+    margin: 1rem auto 1rem auto;
+    border: 3px solid black;
+    background-color: rgb(238, 238, 238);
+    }
+    
+    /* Thead */
+    thead th {
+        padding: 1rem; 
+        text-align: left;
+        border: 1px solid black;
+        border-bottom: 3px double black;
+        }
+    thead td {}
+
+    /* Tbody */
+    tbody td {
+        padding: 1rem;
+        border: 1px solid black;
+        }
+    tbody th {
+        border-right: 3px double black;
+        }
+    
+    tbody .alt td {}
+    tbody .alt th {}
+    
+    /* Tfoot */
+    tfoot th {}
+    tfoot td {}
+
+/***** Layout *****/
+.body {clear: both; margin: 0 auto; width: 700px;}
+
+/*
+	Header
+*****************/
+#banner {
+	margin: 0 auto;
+	padding: 0;
+    }
+        
+    /* Banner */
+    #banner > div {
+        overflow: hidden;
+    }
+    #banner h1 {
+        /*border: 1px solid #000;*/
+        float: left;
+        font-size: 5rem;
+        line-height: 6rem;
+        margin: 0;
+        padding: 0;
+    }
+    #banner h1 a:link, #banner h1 a:visited {
+        color: #000305;
+        display: block;
+        font-weight: bold;
+        text-decoration: none;
+    }
+    #banner h1 a:hover, #banner h1 a:active {
+        background: none;
+        color: #C74350;
+        text-shadow: none;
+    }
+    
+    #banner h1 strong {font-size: 2rem; font-weight: normal;}
+
+	/* Social */
+    #banner .social {
+        /*border: 1px solid #000;*/
+        float: right;
+        list-style: none; 
+        margin: 2.8rem 0 0 0;
+        padding: 0; 
+    }
+    #banner .social li {
+        float: left;
+        display: inline;
+        margin: 0;
+        padding: 0;
+    }
+	
+    #banner .social a {
+        background-color: inherit;
+        display: block;
+        margin: 0;
+        padding: 0;
+	}
+    #banner .social img {
+        /*border: 1px solid #000;*/
+        display: block;
+        height: 32px;
+        width: 32px;
+        margin: 0;
+        padding: 0;
+    }
+    
+    /* Main Nav */
+    #banner nav {
+        background: #000305;
+        font-size: 1.6rem;
+        height: 4rem;
+        line-height: 4rem;
+        margin: 0 auto 3rem auto;
+        padding: 0;
+        
+        border-radius: .5rem;
+        -moz-border-radius: .5rem;
+        -webkit-border-radius: .5rem;
+    }
+	
+    #banner nav ul {list-style: none; margin: 0 auto;}
+    #banner nav li {float: left; display: inline; margin: 0;}
+    
+    #banner nav a:link, #banner nav a:visited {
+        color: #fff;
+        display: inline-block;
+        height: 4rem;
+        padding: 0rem 1.2rem;
+        text-decoration: none;
+    }
+    #banner nav a:hover, #banner nav a:active,
+    #banner nav .active a:link, #banner nav .active a:visited {
+        background: #C74350;
+        color: #fff;
+        text-shadow: none !important;
+    }
+    
+    #banner nav li:first-child a {
+        border-top-left-radius: .5rem;
+        -moz-border-radius-topleft: .5rem;
+        -webkit-border-top-left-radius: .5rem;
+        
+        border-bottom-left-radius: .5rem;
+        -moz-border-radius-bottomleft: .5rem;
+        -webkit-border-bottom-left-radius: .5rem;
+    }
+
+/*
+	Body
+*****************/
+#content {
+	background: #fff;
+	margin-bottom: 3rem;
+	overflow: hidden;
+	padding: 2rem;
+	width: 660px;
+	
+	border-radius: .5rem;
+	-moz-border-radius: .5rem;
+	-webkit-border-radius: .5rem;
+    }
+
+/*
+	blogroll
+*****************/
+#blogroll {
+    margin: 0 auto 3rem auto;
+    overflow: hidden;
+    }
+
+    #blogroll ul {
+        list-style: none;
+        margin: 0;
+        }
+
+    #blogroll li {
+        border-bottom: 0 solid #fff;
+        float: left; 
+        margin: 0 1rem;
+        width: 155px;
+        }
+
+    #blogroll h1 {
+        color: #C74350;
+        font-size: 2rem;
+        margin-bottom: .25rem;
+        padding: 0 .3rem;
+        }
+
+    #blogroll a:link, #blogroll a:visited {
+        color: #444;
+        display: block;
+        border-bottom: 1px solid #F4E3E3;
+        text-decoration: none;
+        text-align: center;
+        padding: .1rem .25rem;
+        }
+
+    #blogroll a:hover, #blogroll a:active {
+        color: #fff;
+        }
+
+	
+/*
+	About
+*****************/
+#contentinfo {
+    background: #fff;
+	font-style: normal;
+	margin-bottom: 2rem;
+	overflow: hidden;
+	padding: 2rem;
+	width: 660px;
+	text-align: center;
+	
+    border-radius: .5rem;
+    -moz-border-radius: .5rem;
+    -webkit-border-radius: .5rem;
+    }
+
+/*
+	Footer
+*****************/
+#paginator {text-align: center;}
+
+/***** Sections *****/
+/* Blog */
+.hentry {
+    display: block;
+    clear: both;
+    padding: 0;
+}
+li:last-child .hentry, #content > .hentry {border: 0; margin: 0;}
+.hentry img{display : none ;}
+.entry-content {
+    margin: 2rem;
+}
+
+.entry-title {font-size: 4.2rem; margin-bottom: 1rem; margin-top: 0;}
+.entry-title a:link, .entry-title a:visited {text-decoration: none; color: #333;}
+.entry-title a:visited {background-color: #fff;}
+
+.hentry .post-info {font-style: normal;}
+
+	/* Content */
+	article footer {text-align: right; margin-bottom: 2rem;}
+	article footer * {display: inline;}
+    
+	/* Blog Index */
+	#posts-list, #posts-list.li {
+        list-style: none; 
+        margin: 0;
+        padding: 0;
+        }
+	#posts-list .hentry {position: relative;}

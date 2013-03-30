@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block menuitem_active %}
+{% if link == 'categories.html' %}class="active"{% endif %}
+{% endblock %}
+
+{% block content %}
+{% if categories %}
+    <section id="content" class="body">
+    {% for category, dates in categories %}
+        <article class="hentry">
+            <header>
+                <h1 class="entry-title"><a href="{{ SITEURL }}/category/{{ category }}.html">{{ category }} ({{ dates.__len__() }})</a></h1>
+            </header>
+
+            <div class="entry-content">
+                <ul>
+                {% for article in dates %}
+                    <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
+                {% endfor %}
+                </ul>
+            </div>
+        </article>
+    {% endfor %}
+    </section>
+{% endif %}
+{% endblock %}
