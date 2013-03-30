@@ -12,9 +12,9 @@
     <link href="{{ FEED_DOMAIN }}/{{ FEED_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS Feed" />
     {% endif %}
     {% endblock head %}
-    
+
     {% include 'analytics.html' %}
-    
+
   </head>
 
   <body>
@@ -57,12 +57,12 @@
               {% endfor %}
               {% endif %}
             </ul>
-          </div><!-- /#menu --> 
+          </div><!-- /#menu -->
         </div>
       </div>
-      
+
       <hr />
-      
+
       <div class="row">
         <div class="span12">
           <div id="about">
@@ -71,12 +71,12 @@
         </div><!-- /#contentinfo -->
       </div>
     </div>
-    
+
     {% if DISQUS_SITENAME %}
     <script type="text/javascript">
         /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
         var disqus_shortname = '{{ DISQUS_SITENAME }}'; // required: replace example with your forum shortname
-    
+
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function () {
             var s = document.createElement('script'); s.async = true;
@@ -86,6 +86,6 @@
         }());
     </script>
     {% endif %}
-    
+
   </body>
 </html>

@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 {% block title %}{{ article.title }}{%endblock%}
-{% block content %}        
-<div id="content">    
+{% block content %}
+<div id="content">
     <div class="header">
         <h1>{{ article.title }}</h1>
     </div>
-    <p class="meta"><small><span>{% if article.author %}<a href="{{ SITEURL }}author/{{ article.author.slug }}/">{{ article.author }}</a> - {% endif %}</span><span>{{ article.locale_date }}</span> - <span class="tags">{% if article.tags %}{% for tag in article.tags %}<a href="/tag/{{ tag }}/">{{ tag }}</a>{% if not loop.last %}, {% endif %}{% endfor %}{% endif %}</span></small></p>
+    <p class="meta"><small><span>{% if article.author %}<a href="{{ SITEURL }}/author/{{ article.author.slug }}/">{{ article.author }}</a> - {% endif %}</span><span>{{ article.locale_date }}</span> - <span class="tags">{% if article.tags %}{% for tag in article.tags %}<a href="/tag/{{ tag }}/">{{ tag }}</a>{% if not loop.last %}, {% endif %}{% endfor %}{% endif %}</span></small></p>
         <div class="entry-content">
         {{ article.content }}
         </div><!-- /.entry-content -->
@@ -14,7 +14,7 @@
         <script type="text/javascript">
             /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
             var disqus_shortname = '{{ DISQUS_SITENAME }}'; // required: replace example with your forum shortname
-        
+
             /* * * DON'T EDIT BELOW THIS LINE * * */
             (function() {
                 var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

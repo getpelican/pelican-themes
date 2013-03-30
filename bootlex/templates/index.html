@@ -1,15 +1,15 @@
 {% extends "base.html" %}
 {% block title %}Blog{%endblock%}
-{% block content %}        
+{% block content %}
 <div id="content">
 {% block content_title %}
 <h1>Blog</h1>
 {% endblock %}
 
 <ul class="unstyled">
-{% for article in articles_page.object_list %}        
+{% for article in articles_page.object_list %}
         <li>
-            <div>    
+            <div>
                 <div class="header">
                     <h2>{{ article.title }}</h2>
                 </div>
@@ -29,12 +29,11 @@
                 </div>
             </div>
         </li>
-        
+
         <li><hr /></li>
-        
-        
 {% endfor %}
 </ul><!-- /#posts-list -->
+
 <div class="pagination pagination-centered">
     <ul>
     {% if articles_page.has_previous() and (articles_page.previous_page_number() != 1) %}
