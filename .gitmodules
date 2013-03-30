@@ -16,3 +16,6 @@
 [submodule "pelican-mockingbird"]
 	path = pelican-mockingbird
 	url = git://github.com/wrl/pelican-mockingbird.git
+[submodule "bold"]
+	path = bold
+	url = git://github.com/demianbrecht/pelican-bold.git
