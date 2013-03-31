@@ -19,3 +19,6 @@
 [submodule "bold"]
 	path = bold
 	url = git://github.com/demianbrecht/pelican-bold.git
+[submodule "lannisport"]
+	path = lannisport
+	url = git://github.com/siovene/lannisport.git
