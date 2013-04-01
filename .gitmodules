@@ -22,3 +22,6 @@
 [submodule "lannisport"]
 	path = lannisport
 	url = git://github.com/siovene/lannisport.git
+[submodule "fresh"]
+	path = fresh
+	url = git://github.com/jsliang/pelican-fresh
