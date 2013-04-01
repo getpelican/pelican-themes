@@ -25,3 +25,6 @@
 [submodule "fresh"]
 	path = fresh
 	url = git://github.com/jsliang/pelican-fresh
+[submodule "variant-note"]
+	path = pelican-variant-note
+	url = git://github.com/mpancorbo/pelican-variant-note.git 
