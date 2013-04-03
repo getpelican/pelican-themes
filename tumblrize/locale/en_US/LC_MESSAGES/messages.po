@@ -1,4 +1,4 @@
-# Portuguese (Brazil) translations for tumblrize.
+# English (US) translations for tumblrize.
 # Copyright Flávio Caetano © 2012
 # This file is distributed under the same license as the pelican project.
 # Flávio Caetano <flavio@vieiracaetano.com>, 2012.
