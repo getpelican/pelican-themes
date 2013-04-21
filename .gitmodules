@@ -31,3 +31,6 @@
 [submodule "water-iris"]
 	path = water-iris
 	url = git://github.com/jarv/water-iris
+[submodule "whispers"]
+	path =  whispersTheme
+	url = git://github.com/deBorn/whispersTheme.git
