@@ -16,6 +16,7 @@
 [submodule "pelican-mockingbird"]
 	path = pelican-mockingbird
 	url = git://github.com/wrl/pelican-mockingbird.git
+<<<<<<< HEAD
 [submodule "bold"]
 	path = bold
 	url = git://github.com/demianbrecht/pelican-bold.git
@@ -34,3 +35,6 @@
 [submodule "whispers"]
 	path =  whispersTheme
 	url = git://github.com/deBorn/whispersTheme.git
+[submodule "bluegrasshopper"]
+	path = bluegrasshopper
+	url = git@github.com:gregseth/pelican-bgh.git
