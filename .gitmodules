@@ -16,7 +16,6 @@
 [submodule "pelican-mockingbird"]
 	path = pelican-mockingbird
 	url = git://github.com/wrl/pelican-mockingbird.git
-<<<<<<< HEAD
 [submodule "bold"]
 	path = bold
 	url = git://github.com/demianbrecht/pelican-bold.git
@@ -28,7 +27,7 @@
 	url = git://github.com/jsliang/pelican-fresh
 [submodule "variant-note"]
 	path = pelican-variant-note
-	url = git://github.com/mpancorbo/pelican-variant-note.git 
+	url = git://github.com/mpancorbo/pelican-variant-note.git
 [submodule "water-iris"]
 	path = water-iris
 	url = git://github.com/jarv/water-iris
