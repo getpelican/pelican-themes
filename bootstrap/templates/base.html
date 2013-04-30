@@ -6,15 +6,24 @@
 	<meta name="description" content="">
 	<meta name="author" content="{{ AUTHOR }}">
 
-	<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+	<!-- HTML5 shim, for IE6-8 support of HTML elements -->
 	<!--[if lt IE 9]>
 		<script src="{{ SITEURL }}/theme/html5.js"></script>
 	<![endif]-->
 
-	<!-- Le styles -->
+	<!-- Styles -->
 	<link href="{{ SITEURL }}/theme/bootstrap.min.css" rel="stylesheet">
 	<link href="{{ SITEURL }}/theme/local.css" rel="stylesheet">
 	<link href="{{ SITEURL }}/theme/pygments.css" rel="stylesheet">
+
+    <!-- Feeds -->
+    {% if FEED_ALL_ATOM %}
+    <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed" />
+    {% endif %}
+    {% if FEED_ALL_RSS %}
+    <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS Feed" />
+    {% endif %}
+
 	{% include "analytics.html" %}
 	{% include "disqus.html" %}
 </head>
@@ -24,7 +33,7 @@
 	<div class="topbar">
 	  <div class="topbar-inner">
 		<div class="container-fluid">
-		  <a class="brand" href="{{ SITEURL }}/index.html">{{ SITENAME }}</a>
+		  <a class="brand" href="{{ SITEURL }}/">{{ SITENAME }}</a>
 			<ul class="nav">
 				{% for title, link in MENUITEMS %}
 					<li><a href="{{ link }}">{{ title }}</a></li>
@@ -66,8 +75,8 @@
 			{% block indextitle %}<div class="page-header"><h1>{% block title %} {{ self.windowtitle() }} {% endblock %}</h1></div>{% endblock %}
 			{% block content %}{% endblock %}
 		<footer>
-		  <p> Powered by <a href="http://alexis.notmyidea.org/pelican/">Pelican</a>, theme based on <a href="http://twitter.github.com/bootstrap/">Bootstrap, from Twitter</a>.</p>
-		  <p>&copy; {{ AUTHOR }} 2011</p>
+		  <p>Powered by <a href="http://getpelican.com/">Pelican</a>. Theme based on <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a>.</p>
+		  <p>&copy; {{ AUTHOR }}</p>
 		</footer>
 	  </div>
 
