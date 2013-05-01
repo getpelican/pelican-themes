@@ -29,5 +29,5 @@
 	path = pelican-variant-note
 	url = git://github.com/mpancorbo/pelican-variant-note.git 
 [submodule "whispers"]
-	path =  whispersTheme
+	path = whispersTheme
 	url = git://github.com/deBorn/whispersTheme.git
