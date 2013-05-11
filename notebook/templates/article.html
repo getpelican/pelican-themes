@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block head %}
+{{ super() }}
+<meta name="twitter:creator" content="{{ TWITTER_USERNAME }}">
+<meta name="twitter:url" content="{{ SITEURL }}/{{ article.url }}">
+<meta name="twitter:title" content="{{ SITENAME }} ~ {{ article.title }}">
+<meta name="twitter:description" content="{{ article.summary }}">
+
+<!-- Facebook Meta Data -->
+<meta property="og:title" content="{{ SITENAME }} ~ {{ article.title }}" />
+<meta property="og:description" content="{{ article.summary }}" />
+<meta property="og:image" content="{{ AVATAR }}" />
+{% endblock head %}
+{% block title %}{{ article.title }}{% endblock %}
+{% block content %}
+<section id="content">
+    <article>
+        <header class="post_list">
+            <h2 class="post_title"><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title }}">{{ article.title }}</a></h2>
+            <span>Par </span>
+            <a href="{{ SITEURL }}/{{ article.author.url }}">@{{ article.author }}</a>
+            <span> dans </span>
+            <span class="post_category"><a href="{{ SITEURL }}/{{ article.category.url }}" rel="bookmark" title="Permalink to {{ article.category|striptags }}">[ {{ article.category }} ]</a></span>
+            <span> le </span>
+            <span class="post_date">{{ article.locale_date }}</span>
+            <div><span>Tags : </span>
+                {% if article.tags %}
+                {% for tag in article.tags %}
+                <span><a href="{{ SITEURL }}/{{ tag.url }}">#{{ tag }}, </a></span>
+                {% endfor %}
+                {% endif %}
+            </div>
+
+            <div class="entry-social">
+                <span class="twitter"><a target="_blank" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=700');return false;" title="Twitter" href="https://twitter.com/share?url={{ SITEURL }}/{{ article.url }}&text={{ article.title }}&via={{TWITTER_USERNAME}}">Twitter</a></span>
+
+                <span class="gplus"><a target="_blank" title="Google +" href="https://plus.google.com/share?url={{ SITEURL }}/{{article.url}}&hl=fr" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;">Google+</a></span>
+
+                <span class="facebook"><a target="_blank" title="Facebook" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=700');return false;" href="https://www.facebook.com/sharer.php?u={{ SITEURL }}/{{article.url}}&t={{ article.title }}">Facebook</a></span>
+
+                <a  target="_blank" title="Linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=<{{ SITEURL }}/{{ article.url }}&title={{ article.title }}" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;">Linkedin</a>
+
+                <span class="mail"><a href="mailto:?subject={{ article.title }}&amp;body=Viens découvrir un article à propos de [{{ article.title }}] sur le site de {{ AUTHOR }}. {{ SITEURL }}/{{article.url}}" title="Share by Email" target="_blank">Mail</a></span>
+            </div>
+        </header>
+        <div class="entry-content">
+            {{ article.content }}
+        </div>
+        {% if DISQUS_SITENAME %}
+        <div class="comments">
+            <h2>Comments !</h2>
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+            var disqus_identifier = "{{ article.url }}";
+            (function() {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://{{ DISQUS_SITENAME }}.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] ||
+                 document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+            </script>
+        </div>
+        {% endif %}
+    </article>
+</section>
+{% endblock %}

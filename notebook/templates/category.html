@@ -1,0 +1,14 @@
+{% extends "index.html" %}
+{% block head %}
+{{ super() }}
+<meta name="twitter:creator" content="{{ TWITTER_USERNAME }}">
+<meta name="twitter:url" content="{{ SITEURL }}/{{ category.url }}">
+<meta name="twitter:title" content="{{ SITENAME }} ~ {{ category }}">
+<meta name="twitter:description" content="Articles de {{ category }}">
+
+<!-- Facebook Meta Data -->
+<meta property="og:title" content="{{ SITENAME }} ~ {{ category }}" />
+<meta property="og:description" content="Articles de {{ category }}" />
+<meta property="og:image" content="{{ AVATAR }}" />
+{% endblock head %}
+{% block title %}{{ SITENAME }} - {{ category }}{% endblock %}
