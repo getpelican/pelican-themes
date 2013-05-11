@@ -51,3 +51,9 @@ On the articles, we added these variables :
 	<meta name="twitter:description" content="{{ article.Summary }}">
 
 The `article.summary` variable must be set on the header of the Rest/Markdown article source file (tag : `Summary:`). If not, the first `SUMMARY_MAX_LENGTH` words from the blog post will be used as a default summary.
+
+## Icons
+
+The social icons are from Font-Awesome, and colorized by myself.
+
+Font Awesome by Dave Gandy - http://fortawesome.github.com/Font-Awesome

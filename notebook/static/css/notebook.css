@@ -20,7 +20,7 @@ body > article, footer {
   line-height: 1.6em;
   display: block;
   max-width: 600px;
-  margin: 40px auto;
+  margin: 40px auto auto 285px;
   padding: 20px 10px 0;
 }
 

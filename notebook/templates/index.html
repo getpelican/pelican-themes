@@ -1,4 +1,16 @@
 {% extends "base.html" %}
+{% block head %}
+{{ super() }}
+<meta name="twitter:creator" content="{{ TWITTER_USERNAME }}">
+<meta name="twitter:url" content="{{ SITEURL }}">
+<meta name="twitter:title" content="{{ SITENAME }}">
+<meta name="twitter:description" content="{{ SIDEBAR_DIGEST }}">
+
+<!-- Facebook Meta Data -->
+<meta property="og:title" content="{{ SITENAME }}" />
+<meta property="og:description" content="{{ SIDEBAR_DIGEST }}" />
+<meta property="og:image" content="{{ AVATAR }}" />
+{% endblock head %}
 {% block content_title %}{% endblock %}
 {% block content %}
 {% if articles %}

@@ -1,4 +1,16 @@
 {% extends "base.html" %}
+{% block head %}
+{{ super() }}
+<meta name="twitter:creator" content="{{ TWITTER_USERNAME }}">
+<meta name="twitter:url" content="{{ SITEURL }}/archives.html">
+<meta name="twitter:title" content="{{ SITENAME }} ~ Archives">
+<meta name="twitter:description" content="{{ SITENAME }} ~ Archives du site">
+
+<!-- Facebook Meta Data -->
+<meta property="og:title" content="{{ SITENAME }} ~ Archives" />
+<meta property="og:description" content="{{ SITENAME }} ~ Archives" />
+<meta property="og:image" content="{{ AVATAR }}" />
+{% endblock head %}
 {% block content %}
 <h1>Archives</h1>
 

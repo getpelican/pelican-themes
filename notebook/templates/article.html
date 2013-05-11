@@ -1,10 +1,15 @@
 {% extends "base.html" %}
 {% block head %}
 {{ super() }}
-<meta name="twitter:creator" content="{{ article.author }}">
+<meta name="twitter:creator" content="{{ TWITTER_USERNAME }}">
 <meta name="twitter:url" content="{{ SITEURL }}/{{ article.url }}">
-<meta name="twitter:title" content="{{ article.title }}">
+<meta name="twitter:title" content="{{ SITENAME }} ~ {{ article.title }}">
 <meta name="twitter:description" content="{{ article.summary }}">
+
+<!-- Facebook Meta Data -->
+<meta property="og:title" content="{{ SITENAME }} ~ {{ article.title }}" />
+<meta property="og:description" content="{{ article.summary }}" />
+<meta property="og:image" content="{{ AVATAR }}" />
 {% endblock head %}
 {% block title %}{{ article.title }}{% endblock %}
 {% block content %}
@@ -27,11 +32,13 @@
             </div>
 
             <div class="entry-social">
-                <span class="twitter"><a href="https://twitter.com/home/?status={{ article.title }}%20%7C%20{{ SITEURL }}/{{article.url}}%20by%20@{{TWITTER_USERNAME}}" target="_blank">Twitter</a></span>
+                <span class="twitter"><a target="_blank" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=700');return false;" title="Twitter" href="https://twitter.com/share?url={{ SITEURL }}/{{ article.url }}&text={{ article.title }}&via={{TWITTER_USERNAME}}">Twitter</a></span>
 
-                <span class="gplus"><a href="http://plus.google.com/share?url={{ SITEURL }}/{{article.url}}&hl=fr" target="_blank">Google+</a></span>
+                <span class="gplus"><a target="_blank" title="Google +" href="https://plus.google.com/share?url={{ SITEURL }}/{{article.url}}&hl=fr" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;">Google+</a></span>
 
-                <span class="facebook"><a href="http://www.facebook.com/sharer.php?u={{ SITEURL }}/{{article.url}}&t={{ article.title }}" target="_blank">Facebook</a></span>
+                <span class="facebook"><a target="_blank" title="Facebook" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=700');return false;" href="https://www.facebook.com/sharer.php?u={{ SITEURL }}/{{article.url}}&t={{ article.title }}">Facebook</a></span>
+
+                <a  target="_blank" title="Linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=<{{ SITEURL }}/{{ article.url }}&title={{ article.title }}" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;">Linkedin</a>
 
                 <span class="mail"><a href="mailto:?subject={{ article.title }}&amp;body=Viens découvrir un article à propos de [{{ article.title }}] sur le site de {{ AUTHOR }}. {{ SITEURL }}/{{article.url}}" title="Share by Email" target="_blank">Mail</a></span>
             </div>
@@ -50,7 +57,7 @@
                 dsq.type = 'text/javascript'; dsq.async = true;
                 dsq.src = 'http://{{ DISQUS_SITENAME }}.disqus.com/embed.js';
                 (document.getElementsByTagName('head')[0] ||
-                   document.getElementsByTagName('body')[0]).appendChild(dsq);
+                 document.getElementsByTagName('body')[0]).appendChild(dsq);
             })();
             </script>
         </div>
