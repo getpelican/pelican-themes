@@ -6,10 +6,10 @@
 
     <title>{% block title %}{{ SITENAME }}{%endblock%}</title>
 
-    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/normalize.css">
-    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/foundation.min.css">
-    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/style.css">
-    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/pygments.css">	
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/normalize.css" />
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/foundation.min.css" />
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/style.css" />
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/pygments.css" />	
     <script src="{{ SITEURL }}/theme/js/custom.modernizr.js"></script>
 </head>
 
@@ -30,12 +30,12 @@
 <div class="large-9 columns">
     <ul class="button-group navigation">
 	{% for title, link in MENUITEMS %}
-    <li><a href="{{ link }}" class="button small">{{ title }}</a></li>
+    <li><a href="{{ link }}" class="button secondary small">{{ title }}</a></li>
     {% endfor %}
 
     {% if DISPLAY_PAGES_ON_MENU %}
         {% for page in PAGES %}
-            <li><a href="{{ SITEURL }}/{{ page.url }}" class="button small">{{ page.title }}</a></li>
+            <li><a href="{{ SITEURL }}/{{ page.url }}" class="button secondary small">{{ page.title }}</a></li>
         {% endfor %}
     {% endif %}
     </ul>
