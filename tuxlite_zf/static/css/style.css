@@ -61,6 +61,7 @@ hr.gradient {
 
 /* Syntax Highlighting */
 .highlight > pre {
+word-wrap: normal;
 margin-top: 1em;
 margin-bottom: 1em;
 border: 1px solid #ccc;
