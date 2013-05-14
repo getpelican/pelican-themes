@@ -19,6 +19,9 @@ directory ``~/pelican-themes``, but yours could be different. Clone the
 .. code-block:: sh
 
 	git clone https://github.com/getpelican/pelican-themes ~/pelican-themes
+	cd ~/pelican-themes
+	git submodule init
+	git submodule update
 
 Now you should have your ``pelican-themes`` repository stored at
 ``~/pelican-themes/``.
