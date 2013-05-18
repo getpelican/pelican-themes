@@ -6,6 +6,8 @@ right sidebar design. Sidebar goes below main content when viewed on mobile devi
 
 Customization is all done and documented in style.css.
 
+Menu items and pages can be added to the top navigation bar via pelican settings file.
+
 Screenshot below.
 
 ![Screenshot](https://raw.github.com/mins/pelican-themes/master/tuxlite_zf/Screenshot.png)
