@@ -7,7 +7,7 @@
         {# First item #}
         {% if loop.first and not articles_page.has_previous() %}
             <article>
-                <h3 class="article-title"><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h3>
+                <a href="{{ SITEURL }}/{{ article.url }}"><h3 class="article-title">{{ article.title }}</h3></a>
                 {% include 'article_infos.html' %}{{ article.content }}{% include 'article_infos_bottom.html' %}{% include 'comments.html' %}
             </article>
 
