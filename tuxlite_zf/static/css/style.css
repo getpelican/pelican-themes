@@ -5,9 +5,7 @@ ol li ul, ol li ol {
 margin-bottom: 1.25em;
 }
 
-ul, ol, dl {
-list-style-position: inside;
-}
+article { padding-left:1em; }
 
 
 /* Base.html - top navigation */
@@ -34,8 +32,10 @@ text-transform: uppercase;
 
 
 /* Index.html - posts */
-h3.article-title { margin-bottom: 0em; }
-.article-title a { color: #222222; }
+h3.article-title {
+margin-bottom: 0em; 
+color: #3A91CB;
+}
 
 
 /* Article infos | infos_bottom.html */
