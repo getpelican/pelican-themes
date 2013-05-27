@@ -40,3 +40,6 @@
 [submodule "pelican-cait"]
 	path = pelican-cait
 	url = git://github.com/hdra/pelican-cait.git
+[submodule "irfan"]
+	path = irfan
+	url = https://github.com/erfaan/pelican-theme-irfan.git
