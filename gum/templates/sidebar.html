@@ -1,0 +1,67 @@
+<div class="three columns">
+
+<h4>Pages</h4>
+
+ <ul>
+  {% for title, link in MENUITEMS %}
+      <li><a href="{{ link }}">{{ title }}</a></li>
+  {% endfor %}
+  {% if DISPLAY_PAGES_ON_MENU %}
+    {% for p in PAGES %}
+      <li{% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
+    {% endfor %}
+  {% else %}
+    {% if DISPLAY_CATEGORIES_ON_MENU %}
+      {% for cat, null in categories %}
+        <li{% if cat == category %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
+      {% endfor %}
+    {% endif %}
+  {% endif %}
+  </ul>
+
+<h4>Categories</h4>
+{% if categories %}
+<ul>
+	{% for cat, null in categories %}
+		<li><a href="{{ SITEURL }}/{{ cat.url|e }}">{{ cat }}</a></li>
+	{% endfor %}
+</ul>
+{% endif %}
+
+
+<h4>Tags</h4>
+{% if tags %}
+	<ul>
+	{% for tag in tag_cloud %}
+	    <li class="tag-{{ tag.1 }}"><a href="/tag/{{ tag.0|string|replace(" ", "-" ) }}.html">{{ tag.0 }}</a></li>
+	{% endfor %}
+</ul>
+{% endif %}
+
+
+   
+
+  {% if SOCIAL %}
+  <nav class="widget">
+    <h3>Social</h3>
+    <ul>
+    {% for url, name in SOCIAL %}
+      <li><a href="{{ url|e }}">{{ name }}</a></li>
+    {% endfor %}
+      <li><a href="{{ SITEURL }}/{{ FEED }}" rel="alternate">Flux Atom</a></li>
+    {% if FEED_RSS %}
+      <li><a href="{{ SITEURL }}/{{ FEED_RSS }}" rel="alternate">Flux RSS</a></li>
+    {% endif %}
+    </ul>
+  </nav>
+  {% endif %}
+
+
+
+
+
+
+
+
+
+</div>
