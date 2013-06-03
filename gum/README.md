@@ -8,7 +8,8 @@ Gum is a clean and responsive theme for [Pelican](https://github.com/ametaireau/
 
 ### Config
 
-* Edit your config file to include : 
+* Edit your config file to include (Any values left blank won't show up in the theme): 
+
 ```
 GITHUB_URL = ''
 TWITTER_URL = ''
@@ -16,7 +17,12 @@ FACEBOOK_URL = ''
 GOOGLEPLUS_URL = ''
 ```
 
-Any values left blank won't show up in the theme.
+The theme uses the latest GA code
+
+```
+GOOGLE_ANALYTICS_ID = ''
+GOOGLE_ANALYTICS_SITENAME = ''
+```
 
 ### Credits / Thanks
  * Alexis Metaireau/Pelican
