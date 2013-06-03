@@ -1,0 +1,201 @@
+/*
+ Author : Nick Rance
+
+ - Credits
+ - 	Main CSS from Gumby framework
+ - 	Some CSS from Twitter Bootstrap - http://twitter.github.io/bootstrap/
+
+*/
+
+
+/* Code Highlighting */
+code,
+pre {
+  padding: 0 3px 2px;
+  font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+  font-size: 12px;
+  color: #333333;
+  -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+          border-radius: 3px;
+}
+
+code {
+  padding: 2px 4px;
+  color: #d14;
+  white-space: nowrap;
+  background-color: #f7f7f9;
+  border: 1px solid #e1e1e8;
+}
+
+pre {
+  display: block;
+  padding: 9.5px;
+  margin: 0 0 10px;
+  font-size: 13px;
+  line-height: 20px;
+  word-break: break-all;
+  word-wrap: break-word;
+  white-space: pre;
+  white-space: pre-wrap;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
+}
+
+pre.prettyprint {
+  margin-bottom: 20px;
+}
+
+pre code {
+  padding: 0;
+  color: inherit;
+  white-space: pre;
+  white-space: pre-wrap;
+  background-color: transparent;
+  border: 0;
+}
+
+.pre-scrollable {
+  max-height: 340px;
+  overflow-y: scroll;
+}
+
+
+
+
+
+/* Table
+--------------------------------------------------------- */
+
+table {
+  max-width: 100%;
+  background-color: transparent;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.table {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.table th,
+.table td {
+  padding: 8px;
+  line-height: 20px;
+  text-align: left;
+  vertical-align: top;
+  border-top: 1px solid #dddddd;
+}
+
+.table th {
+  font-weight: bold;
+}
+
+.table thead th {
+  vertical-align: bottom;
+}
+
+.table caption + thead tr:first-child th,
+.table caption + thead tr:first-child td,
+.table colgroup + thead tr:first-child th,
+.table colgroup + thead tr:first-child td,
+.table thead:first-child tr:first-child th,
+.table thead:first-child tr:first-child td {
+  border-top: 0;
+}
+
+.table tbody + tbody {
+  border-top: 2px solid #dddddd;
+}
+
+.table .table {
+  background-color: #ffffff;
+}
+
+.table-condensed th,
+.table-condensed td {
+  padding: 4px 5px;
+}
+
+.table-bordered {
+  border: 1px solid #dddddd;
+  border-collapse: separate;
+  *border-collapse: collapse;
+  border-left: 0;
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
+}
+
+.table-striped tbody > tr:nth-child(odd) > td,
+.table-striped tbody > tr:nth-child(odd) > th {
+  background-color: #f9f9f9;
+}
+
+.table-hover tbody tr:hover > td,
+.table-hover tbody tr:hover > th {
+  background-color: #f5f5f5;
+}
+
+table td[class*="span"],
+table th[class*="span"],
+.row-fluid table td[class*="span"],
+.row-fluid table th[class*="span"] {
+  display: table-cell;
+  float: none;
+  margin-left: 0;
+}
+
+
+/* Navigation
+--------------------------------------------------------- */
+#banner strong {display:block;}
+#banner h1 { font-size:3.25rem }
+
+.no-touch .navbar ul li.active > a {
+  
+  background: #868d92;
+
+}
+/* Posts
+--------------------------------------------------------- */
+
+#post-list { margin-left:0; }
+#post-list > li {list-style:none;  border-bottom: 2px solid #ccc;  margin-bottom: 20px;  padding-bottom: 15px;}
+
+.tag-row {margin-top:20px;}
+
+address { font-size:14px; margin-bottom:10px;}
+
+/* Typography
+--------------------------------------------------------- */
+
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+    color: #3498DB;
+}
+
+a, a:hover { color: #3498DB; }
+a:focus { color: #34495E; }
+
+.btn a:hover, 
+.btn a:focus {color:#eee; }
+
+.label:hover,
+.label:focus {color:#eee; }
+
+/* Footer
+--------------------------------------------------------- */
+.bg { background:#eee; margin-top:35px; padding-top:25px; border-top:5px solid #3498DB; }
+
+
+
+/* Responsive fixes
+--------------------------------------------------------- */
+@media only screen and (max-width: 600px) {
+  #banner h1 a {font-size:22px!important; line-height:24px;}
+}
