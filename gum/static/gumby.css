@@ -122,6 +122,15 @@ html, body {
 }
 
 
+/* Fonts */
+@font-face {
+  font-family: "entypo";
+  font-style: normal;
+  font-weight: 400;
+  src: url(fonts/icons/entypo.eot);
+  src: url("fonts/icons/entypo.eot?#iefix") format("ie9-skip-eot"), url("fonts/icons/entypo.woff") format("woff"), url("fonts/icons/entypo.ttf") format("truetype");
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: "Open Sans";
   font-weight: 300;
