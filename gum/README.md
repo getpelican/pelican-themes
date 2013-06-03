@@ -1,14 +1,13 @@
 ### What is Gum?
 
-Gum is a clean and responsive theme for [pelican](https://github.com/ametaireau/pelican), based on the [Gumby Framework](http://gumbyframework.com/docs)
+Gum is a clean and responsive theme for [Pelican](https://github.com/ametaireau/pelican), based on the [Gumby Framework](http://gumbyframework.com/docs)
 
 ### Requirements
 
-* Pelican
+* [Pelican](https://github.com/ametaireau/pelican)
 
-### Installation
+### Config
 
-* todo
 * Edit your config file to include : 
 ```
 GITHUB_URL = ''
@@ -17,21 +16,13 @@ FACEBOOK_URL = ''
 GOOGLEPLUS_URL = ''
 ```
 
-### Features
-
-* Responsive
+Any values left blank won't show up in the theme.
 
 ### Credits / Thanks
  * Alexis Metaireau/Pelican
  * Digital Surgeons/Gumby Framework
  * Twitter Bootstrap
  * traeblain for his [makefile](https://gist.github.com/traeblain/4252511) gist for building Pelican on Windows
-
-
-### To Do
-
-* To write
-* Add screenshot of theme
 
 **MIT Open Source License**
 
