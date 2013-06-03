@@ -33,6 +33,9 @@
         <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/gumby.css" />
         <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/style.css" />
 
+        <script src="{{ SITEURL }}/theme/js/libs/modernizr-2.6.2.min.js"></script>
+
+
         {% endblock head %}
 </head>
 
@@ -47,46 +50,29 @@
                   <h1><a href="{{ SITEURL }}">{{ SITENAME }} <strong>{{ SITESUBTITLE }}</strong></a></h1>
           </header><!-- /#banner -->
 
+            <div id="navigation" class="navbar row">
+              <a href="#" gumby-trigger="#navigation &gt; ul" class="toggle"><i class="icon-menu"></i></a>
+             
+              <ul class="columns">
+                <li><a href="{{ SITEURL }}">Home</a></li>
 
-
-
-            <div class="row navbar pretty" id="nav1">
-              <!-- Toggle for mobile navigation, targeting the <ul> -->
-              <a class="toggle" gumby-trigger="#nav1 > .row > ul" href="#"><i class="icon-menu"></i></a>
-
-              <ul class=" columns">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Page 1</a></li>
-                <li><a href="#">Page 2</a></li>
-                <li><a href="#">Page 3</a></li>
-                <li><a href="#">Page 4</a></li>
-                <li><a href="#">Page 5</a></li>
-                <li><a href="#">Page 6</a></li>
-                <li><a href="#">Page 7</a></li>
+            {% for title, link in MENUITEMS %}
+                <li><a href="{{ link }}">{{ title }}</a></li>
+            {% endfor %}
+            {% if DISPLAY_PAGES_ON_MENU %}
+              {% for p in PAGES %}
+                <li{% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
+              {% endfor %}
+            {% else %}
+              {% if DISPLAY_CATEGORIES_ON_MENU %}
+                {% for cat, null in categories %}
+                  <li{% if cat == category %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
+                {% endfor %}
+              {% endif %}
+            {% endif %}
 
               </ul>
             </div>
-
-
-
-
-          <nav id="menu"><ul>
-          {% for title, link in MENUITEMS %}
-              <li><a href="{{ link }}">{{ title }}</a></li>
-          {% endfor %}
-          {% if DISPLAY_PAGES_ON_MENU %}
-            {% for p in PAGES %}
-              <li{% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
-            {% endfor %}
-          {% else %}
-            {% if DISPLAY_CATEGORIES_ON_MENU %}
-              {% for cat, null in categories %}
-                <li{% if cat == category %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
-              {% endfor %}
-            {% endif %}
-          {% endif %}
-          </ul></nav><!-- /#menu -->
-
 
           {% block content %}
 
@@ -96,35 +82,52 @@
     </div><!-- /.container -->
 
 
+       <div class="container.nopad bg">
 
-       <div class="container">
-
-        <hr />
-
+    
         <footer id="credits" class="row">
           <div class="seven columns left-center">
 
                    <address id="about" class="vcard body">
                     Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
                     which takes great advantage of <a href="http://python.org">Python</a>.
+                    <br />
+                    Based on the <a target="_blank" href="http://gumbyframework.com">Gumby Framework</a>
                     </address>
-
-            <p>Based on the <a target="_blank" href="http://gumbyframework.com">Gumby Framework</a></p>
-
           </div>
+
+
           <div class="seven columns">
             <div class="row">
               <ul class="socbtns">
-                <li><div class="btn primary"><a href="#">Github</a></div></li>
-                <li><div class="btn twitter"><a href="#" target="_blank">Twitter</a></div></li>
-                <li><div class="btn facebook"><a href="#" target="_blank">Facebook</a></div></li>
-                <li><div class="btn danger"><a href="#" target="_blank">Google+</a></div></li>
+
+                {% if GITHUB_URL %}
+                <li><div class="btn primary"><a href="{{ GITHUB_URL }}" target="_blank">Github</a></div></li>
+                {% endif %}
+
+                {% if TWITTER_URL %}
+                <li><div class="btn twitter"><a href="{{ TWITTER_URL }}" target="_blank">Twitter</a></div></li>
+                {% endif %}
+
+                {% if FACEBOOK_URL %}
+                <li><div class="btn facebook"><a href="{{ FACEBOOK_URL }}" target="_blank">Facebook</a></div></li>
+                {% endif %}
+
+                {% if GOOGLEPLUS_URL %}
+                <li><div class="btn danger"><a href="{{ GOOGLEPLUS_URL }}" target="_blank">Google+</a></div></li>
+                {% endif %}
+
               </ul>
             </div>
           </div>
         </footer>
 
     </div>
+
+
+  <script src="{{ SITEURL }}/theme/js/libs/jquery-1.9.1.min.js"></script>
+  <script src="{{ SITEURL }}/theme/js/libs/gumby.min.js"></script>
+  <script src="{{ SITEURL }}/theme/js/plugins.js"></script>
 
 </body>
 </html>

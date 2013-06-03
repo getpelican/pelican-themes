@@ -26,9 +26,9 @@
 
 								<div class="row tag-row">
 									{% if article.tags %}
-										<span>tags</span>
+										<span>Tagged as : </span>
 										{% for tag in article.tags %}
-											<a class="secondary label" href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
+											<a class="danger label" href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
 										{% endfor %}
 									{% endif %}
 								</div>
@@ -39,7 +39,7 @@
 				{% endfor %}
 				</ol><!-- /#posts-list -->
 
-        </div><!-- /.ten.columns -->
+        </div><!-- /.eleven.columns -->
         
      {% include 'sidebar.html' %}
  </div><!-- /.row -->
