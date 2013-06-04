@@ -43,3 +43,6 @@
 [submodule "irfan"]
 	path = irfan
 	url = https://github.com/erfaan/pelican-theme-irfan.git
+[submodule "svbhack"]
+	path = svbhack
+	url = git@github.com:giulivo/pelican-svbhack.git
