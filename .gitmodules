@@ -46,3 +46,6 @@
 [submodule "svbhack"]
 	path = svbhack
 	url = https://github.com/giulivo/pelican-svbhack.git
+[submodule "html5-dopetrope"]
+	path = html5-dopetrope
+	url = https://github.com/PierrePaul/html5-dopetrope.git
