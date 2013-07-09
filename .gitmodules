@@ -49,3 +49,6 @@
 [submodule "html5-dopetrope"]
 	path = html5-dopetrope
 	url = https://github.com/PierrePaul/html5-dopetrope.git
+[submodule "plumage"]
+	path = plumage
+	url = git@github.com:kdeldycke/plumage.git
