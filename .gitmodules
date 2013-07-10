@@ -52,6 +52,3 @@
 [submodule "plumage"]
 	path = plumage
 	url = git@github.com:kdeldycke/plumage.git
-[submodule "sundown"]
-	path = sundown
-	url = https://github.com/keningle/pelican-sundown.git
