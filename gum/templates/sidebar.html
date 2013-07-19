@@ -33,7 +33,7 @@
 {% if tags %}
 	<ul>
 	{% for tag in tag_cloud %}
-	    <li class="tag-{{ tag.1 }}"><a href="{{ SITEURL }}/{{ tag.0.url }}">{{ tag.0 }}</a></li>
+	    <li class="tag-{{ tag.1 }}"><a href="{{ SITEURL }}/{{ tag.0.url }}">{{ tag.0|e }}</a></li>
 	{% endfor %}
 </ul>
 {% endif %}
