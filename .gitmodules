@@ -3,16 +3,16 @@
 	url = https://github.com/wting/pelican-svbtle.git
 [submodule "chunk"]
 	path = chunk
-	url = git@github.com:tbunnyman/pelican-chunk.git
+	url = https://github.com/tbunnyman/pelican-chunk.git
 [submodule "iris"]
 	path = iris
 	url = https://github.com/slok/iris.git
 [submodule "relapse"]
 	path = relapse
-	url = git@github.com:wamonite/relapse.git
+	url = https://github.com/wamonite/relapse.git
 [submodule "neat"]
 	path = neat
-	url = git@github.com:BYK/pelican-neat.git
+	url = https://github.com/BYK/pelican-neat.git
 [submodule "pelican-mockingbird"]
 	path = pelican-mockingbird
 	url = git://github.com/wrl/pelican-mockingbird.git
@@ -27,4 +27,31 @@
 	url = git://github.com/jsliang/pelican-fresh
 [submodule "variant-note"]
 	path = pelican-variant-note
-	url = git://github.com/mpancorbo/pelican-variant-note.git 
+	url = git://github.com/mpancorbo/pelican-variant-note.git
+[submodule "water-iris"]
+	path = water-iris
+	url = git://github.com/jarv/water-iris
+[submodule "whispers"]
+	path = whispersTheme
+	url = git://github.com/deBorn/whispersTheme.git
+[submodule "bluegrasshopper"]
+	path = bluegrasshopper
+	url = https://github.com/gregseth/pelican-bgh.git
+[submodule "pelican-cait"]
+	path = pelican-cait
+	url = git://github.com/hdra/pelican-cait.git
+[submodule "irfan"]
+	path = irfan
+	url = https://github.com/erfaan/pelican-theme-irfan.git
+[submodule "svbhack"]
+	path = svbhack
+	url = https://github.com/giulivo/pelican-svbhack.git
+[submodule "html5-dopetrope"]
+	path = html5-dopetrope
+	url = https://github.com/PierrePaul/html5-dopetrope.git
+[submodule "plumage"]
+	path = plumage
+	url = git@github.com:kdeldycke/plumage.git
+[submodule "sundown"]
+	path = sundown
+	url = https://github.com/keningle/pelican-sundown.git

@@ -1,11 +1,25 @@
 Syte theme for Pelican
 ======================
 
-This theme is based on [Syte][syte] and is for Pelican. It has been instanciated by [samrat][samrat] and continued by [arnaudbos][arnaudbos].
+This Pelican theme is based on [Syte][syte]. It was created by [samrat][samrat], with continued development by [arnaudbos][arnaudbos].
 
 You can [see this theme in action here][sneakernet].
 
 ![screenshot](https://raw.github.com/arnaudbos/pelican-themes/master/syte/screenshot.png)
+
+
+Dependencies
+------------
+
+Pelican-Syte uses the `webassets` and `cssmin` Python packages, which can be installed via:
+
+    pip install webassets cssmin
+
+Also required is the [assets][] Pelican plugin, which integrates the `webassets`
+package mentioned above into Pelican. Follow the instructions on the
+[Pelican Plugins][] page to install the [assets][] plugin and activate it via
+your settings file.
+
 
 Settings
 --------
@@ -18,12 +32,6 @@ All these settings are optional, not using them will simply not enable the socia
 * ABOUT = u'Describe yourself or your site here, this will go right under the site name'
 * SITE_DESCRIPTION = u'Used in HTML meta tag for description'
 * SITE_KEYWORDS = u'Used in the HTML meta tag for keywords'
-
-###### Not so optional
-
-Pelican-syte uses the webassets module integrated into Pelican, so you
-will also need to install it ( `pip install webassets` ) and add the
-`pelican.plugins.assets` plugin to `PLUGINS` setting.
 
 #### Links
 
@@ -55,7 +63,10 @@ will also need to install it ( `pip install webassets` ) and add the
 * INSTAGRAM_USERNAME = 'your_username' (Needed if INSTAGRAM_INTEGRATION_ENABLED is set to True)
 * INSTAGRAM_API_ACCESS = 'your_api_access_key' (Needed if INSTAGRAM_INTEGRATION_ENABLED is set to True)
 
+
 [syte]: http://rigoneri.github.com/syte/
-[samrat]: http://samrat.github.com
+[samrat]: http://samrat.github.com/
 [arnaudbos]: http://github.com/arnaudbos/
 [sneakernet]: http://www.sneakernet.fr/
+[assets]: https://github.com/getpelican/pelican-plugins/tree/master/assets
+[Pelican Plugins]: https://github.com/getpelican/pelican-plugins

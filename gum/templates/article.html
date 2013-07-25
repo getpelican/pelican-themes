@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %}{{ article.title|striptags }}{% endblock %}
+{% block content %}
+<section id="content" class="body">
+
+   <div class="row">
+        <div class="eleven columns">
+
+
+            <header>
+              <h2 class="entry-title">
+                <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark"
+                   title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h2>
+           {% import 'translations.html' as translations with context %}
+           {{ translations.translations_for(article) }}
+            </header>
+            <footer class="post-info">
+              <abbr class="published" title="{{ article.date.isoformat() }}">
+                {{ article.locale_date }}
+              </abbr>
+              {% if article.author %}
+              <address class="vcard author">
+                By <a class="url fn" href="{{ SITEURL }}/{{ article.author.url }}">{{ article.author }}</a>
+              </address>
+              {% endif %}
+            </footer><!-- /.post-info -->
+            <div class="entry-content">
+              {{ article.content }}
+            </div><!-- /.entry-content -->
+            {% if DISQUS_SITENAME %}
+            <div class="comments">
+              <h3>Comments</h3>
+              <div id="disqus_thread"></div>
+              <script type="text/javascript">
+                var disqus_identifier = "{{ article.url }}";
+                (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://{{ DISQUS_SITENAME }}.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+              </script>
+            </div>
+            {% endif %}
+
+
+        </div><!-- /.eleven.columns -->
+        
+     {% include 'sidebar.html' %}
+ </div><!-- /.row -->
+
+
+</section>
+{% endblock %}
