@@ -55,3 +55,6 @@
 [submodule "sundown"]
 	path = sundown
 	url = https://github.com/keningle/pelican-sundown.git
+[submodule "crowsfoot"]
+	path = crowsfoot
+	url = https://github.com/porterjamesj/crowsfoot.git
