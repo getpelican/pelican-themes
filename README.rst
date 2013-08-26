@@ -27,14 +27,14 @@ To use one of the themes, edit your Pelican settings file to include this line:
 
 .. code-block:: python
 
-	THEME = "~/pelican-themes/theme-name"
+	THEME = "/home/user/pelican-themes/theme-name"
 
-So, for instance, to use the ``mnmlst`` theme, you would edit your settings
+So, for instance, to use the ``mnmlist`` theme, you would edit your settings
 file to include:
 
 .. code-block:: python
 
-	THEME = "~/pelican-themes/mnmlst"
+	THEME = "/home/user/pelican-themes/mnmlist"
 
 Save the changes to your settings file and then regenerate your site by using
 the Makefile you should already have set up using ``pelican-quickstart``:
