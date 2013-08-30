@@ -58,3 +58,6 @@
 [submodule "crowsfoot"]
 	path = crowsfoot
 	url = https://github.com/porterjamesj/crowsfoot.git
+[submodule "elegant"]
+	path = elegant
+	url = git@github.com:talha131/pelican-elegant.git
