@@ -61,3 +61,6 @@
 [submodule "elegant"]
 	path = elegant
 	url = git@github.com:talha131/pelican-elegant.git
+[submodule "niu-x2"]
+	path = niu-x2
+	url = https://github.com/wilbur-ma/niu-x2
