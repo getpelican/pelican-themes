@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}{{ NIUX2_ARCHIVE_TRANSL | default("Archive") }} | {{ super() }} {% endblock %}
+{% block content %}
+<div class="niu2-page">
+	<h1><i class="icon-archive"></i> {{ NIUX2_ARCHIVE_TRANSL | default("Archive") }}</h1>
+	<ul id="niu2-archives">
+	   {% for article in articles %}
+           {% if loop.first or article.date.strftime('%Y %m') != articles[loop.index0-1].date.strftime('%Y %m') %}
+	       {% set currArcDate = article.date.strftime('%Y-%m') %}
+	       <a class="niu2-toggle-ctrl" data-toggle="collapse" data-target="#arc-{{ currArcDate }}">
+	           {{ currArcDate }}
+	       </a>
+	       <ul id="arc-{{ currArcDate }}" class="collapse {{ 'in' if loop.first else 'out' }}">
+		   {% endif %}
+	       <li>
+	           <a href="{{ SITEURL }}/{{ article.url }}" title="{{ NIUX2_CATEGORY_TRANSL | default("Category") }} {{ article.category }}">
+                   {{ article.html_h1 | default(article.title) }}
+	           </a>
+	       </li>
+	       {% if loop.last or article.date.strftime('%Y %m') != articles[loop.index0+1].date.strftime('%Y %m') %}
+	       </ul>
+           {% endif %}
+	   {% endfor %}
+	</ul>
+</div>
+{% endblock %}

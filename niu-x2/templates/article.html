@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %} {{ article.html_h1 | default(article.title) }} | {{ super() }} {% endblock %}
+
+{% block content %}
+    <div class="niu2-article">
+        <div class="niu2-meta">
+            <span class="niu2-meta-category pull-left">
+            {% if NIUX2_CATEGORY_MAP and NIUX2_CATEGORY_MAP[article.category] %}
+                <i class="{{ NIUX2_CATEGORY_MAP[article.category][1] }}"></i>
+                <a href="{{ SITEURL }}/{{ article.category.url }}">
+                    {{ NIUX2_CATEGORY_MAP[article.category][0] }}
+                </a>
+            {% else %}
+                <i class="icon-open-folder"></i>
+                {{ article.category }}
+            {% endif %}
+            </span>
+            {% if article.tags %}
+            <span class="niu2-meta-tag pull-left">
+               <i class="icon-tag"></i>
+               {% for tag in article.tags %}
+               <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
+            {% endfor %}
+            </span>
+            {% endif %}
+            <span class="niu2-meta-date pull-right">
+                <i class="icon-calendar"></i> {{ article.locale_date }}
+            </span>
+	    </div>
+	    {% if NIUX2_DISPLAY_TITLE is not defined or NIUX2_DISPLAY_TITLE %}
+	        <h1>{{ article.title }}</h1>
+	    {% endif %}
+        {{ article.content }}
+        {% if DISQUS_SITENAME %}
+            {% include "disqus.html" %}
+        {% endif %}
+    </div>
+{% endblock %}

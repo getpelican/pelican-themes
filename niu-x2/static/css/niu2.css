@@ -1,0 +1,234 @@
+/*
+ * built with boostrap3 
+ * @navbar-height: 30px
+ * @nav-link-padding: 7px
+ */
+
+#disqus_thread {
+	margin-top: 30px;
+}
+
+.niu2-index-title {
+	margin-bottom: 20px;
+}
+
+#niu2-cse-wrapper {
+    padding-right: 15px;
+}
+
+#niu2-cse-header-box {
+    position: absolute;
+    margin-top: 3.5px;
+    margin-left: -172px;
+}
+
+#niu2-cse-search-input {
+	width: 150px;
+    height: 20px;
+    padding: 1px 3px;
+}
+
+#niu2-cse-ctrl-box {
+    color: #999999;
+    margin-top: 6px;
+    cursor: pointer;
+}
+
+#niu2-cse-search-image {
+    margin: 2px 3px 0 5px;
+}
+
+/*
+.niu2-index-article a:hover {
+	text-decoration: none;
+    color: white;
+    background-color: #428bca;
+    display: inline-block;
+}
+*/
+
+.niu2-index-date {
+    width: 30%;
+}
+
+.niu2-index-article {
+	font-size: 16px;
+	margin: 7px 0;
+	width: 70%;
+}
+
+a.niu2-toggle-ctrl {
+	cursor: pointer;
+    display: block;
+    color: #333333;
+    padding: 3px 10px;
+    font-size: 20px;
+    width: 50%;
+}
+
+a.niu2-toggle-ctrl:hover {
+	text-decoration: none;
+    color: white;
+    background-color: #428bca;
+}
+
+.niu2-footer {
+    clear: both;
+    margin-bottom: 50px;
+}
+
+.niu2-footer hr {
+	margin: 15px 0;
+}
+
+.niu2-footer p {
+	padding: 0;
+	margin: 5px 0;
+}
+
+.niu2-button {
+	margin-left: 5px;
+}
+
+.niu2-icons a {
+    text-decoration: none;	
+}
+
+ul#niu2-archives {
+  padding-left: 0;  
+}
+
+#niu2-tagcloud {
+	margin-top: 15px;
+}
+
+#niu2-tagcloud-filter-input {
+	width: 40%;
+}
+
+#niu2-tagcloud ul {
+    padding: 0;	
+}
+
+#niu2-tagcloud a {
+    display: inline-block;
+}
+
+#niu2-tagcloud a:hover {
+	text-decoration: none;
+	color: white;
+	background-color: #428bca;
+}
+
+#niu2-tagcloud li {
+	display: inline;
+}
+
+#niu2-tagcloud li, .dropdown-toc li {
+	list-style: none;
+}
+
+.dropdown-toc a {
+	padding: 3px 0 5px 5px;
+	color: #333333;
+	display: list-item;
+}
+
+.dropdown-toc a:hover {
+	color: white;
+	background-color: #428bca;
+	text-decoration: none;
+}
+
+.dropdown-toc .dropdown-menu {
+	max-height: 500px;
+	overflow: auto;
+}
+
+.dropdown-toc > ul {
+    min-width: 200px;
+}
+
+.dropdown-toc > .dropdown-menu ul {
+    padding-left: 10px;
+}
+
+.dropdown-toc > .dropdown-menu > li > a {
+    padding-left: 10px;
+}
+
+.niu2-page {
+	padding-top: 30px;
+}
+
+.niu2-article {
+	padding-top: 45px;
+}
+
+.niu2-meta {
+    margin-bottom: 35px;
+}
+
+.niu2-meta a {
+    color: #333333;
+}
+
+.niu2-meta-tag {
+    padding-left: 10px; 
+}
+
+/* fix headings covered by fixed header problem */
+h1:before, h2:before, h3:before,
+h4:before, h5:before, h6:before {
+	display: block;
+    content: "";
+    height: 45px;
+    margin: -45px 0 0;
+}
+
+@media (max-width: 768px) {
+
+.dropdown-toc > .dropdown-menu > li > a {
+    padding: 5px 10px 5px 10px !important;
+}
+
+.niu2-index-date {
+	display: none;
+}
+
+#niu2-cse-header-box {
+    position: relative;
+    margin-top: 2.5px;
+    margin-left: -8px;
+}
+
+#niu2-cse-search-input {
+    width: 150px;
+    position: absolute;
+    margin-left: -3px;
+    margin-top: -9px;
+}
+
+#niu2-cse-ctrl-box {
+    color: #999999;
+    position: absolute;
+    margin-top: -20px;
+    margin-left: 3px;
+}
+
+#niu2-cse-search-text {
+    display: none;
+}
+
+.dropdown-toc a {
+    color: #999999;
+}
+
+@media (max-height: 300px) {
+/* 2 levels at most */
+.dropdown-toc li li li {
+    display: none !important;
+}
+
+}
+
