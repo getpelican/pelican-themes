@@ -1,0 +1,33 @@
+<div class="niu2-footer">
+    <hr/>
+	<p>
+		Powered by <a href="https://github.com/getpelican/pelican">Pelican</a>, 
+		theme built with <a href="http://http://getbootstrap.com">Bootstrap3</a>
+		by <a href="http://atime.me">Ma Wenbao</a>, icons by 
+		<a href="http://fortawesome.github.io/Font-Awesome">Font Awesome</a>.
+	</p>
+	<p class="pull-left">
+		Copyright
+		{% if articles[0] %}
+			{% if articles[0].date.year == articles[-1].date.year %}
+				{{ articles[0].date.year }}
+			{% else %}
+				{{ articles[-1].date.year }}-{{ articles[0].date.year }}
+			{% endif %}
+		{% else %}
+		     2013
+		{% endif %}
+		<a href="{{ SITEURL }}">{{ AUTHOR | default("") }}</a>
+		{% for link in NIUX2_FOOTER_LINKS %}
+			| <i class="{{ link[3] }}"></i>
+			<a href="{{ link[2] }}" title="{{ link[1] }}">{{ link[0] }}</a>
+		{% endfor %}
+    </p>
+    <p class="niu2-icons pull-right">
+	    {% for icon in NIUX2_FOOTER_ICONS %}
+	        <a href="{{ icon[2] }}" title="{{ icon[1] }}">
+	            <i class="{{ icon[0] }} icon-large"></i>
+	        </a>
+	    {% endfor %}
+	</p>
+</div>

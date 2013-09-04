@@ -1,0 +1,21 @@
+{% extends "index.html" %}
+
+{% if NIUX2_CATEGORY_MAP and NIUX2_CATEGORY_MAP[category] %}
+    {% set my_cat = NIUX2_CATEGORY_MAP[category][0] %}
+    {% set my_cat_icon = NIUX2_CATEGORY_MAP[category][1] %}
+{% else %}
+    {% set my_cat = category %}
+    {% set my_cat_icon = "icon-folder-open" %}
+{% endif %}
+
+{% block title %}{{ NIUX2_CATEGORY_TRANSL | default("Category") }} {{ my_cat }} | {{ super() }}{% endblock %}
+
+{% block index_title %}{{ NIUX2_CATEGORY_TRANSL | default("Category") }} {{ my_cat }}{% endblock %}
+
+{% block content_header %}
+
+<h1 class="niu2-index-title">
+<i class="{{ my_cat_icon }}"></i> {{ my_cat }}
+</h1>
+
+{% endblock content_header %}

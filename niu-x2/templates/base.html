@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% block head %}
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} {{ SITENAME }} {% endblock %}</title>
+    <link rel="shortcut icon" type="image/x-icon" href="{{ NIUX2_FAVICON_URL | default('/favicon.png') }}">
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/font-awesome.min.css" type="text/css" />
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/niu2.css" type="text/css" />
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/pygments/{{ NIUX2_PYGMENTS_THEME | default("github") }}.css" type="text/css" />
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/custom.css" type="text/css" />
+    <script type="text/javascript" src="/theme/js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="/theme/js/niu2.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#niu2-cse-ctrl-box").click(showCSE);
+            $("#niu2-cse-ctrl-box").focus(showCSE);
+            $("#niu2-cse-search-input").hide();
+            $("#niu2-cse-search-input").focusout(hideCSE);
+            $(document).keyup(function(e) {
+                e = e || window.event;
+                if (e.keyCode == 27) {
+                    hideCSE();
+                }
+            });
+        })
+    </script>
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="{{ SITEURL }}/theme/js/html5shiv.js"></script>
+        <script src="{{ SITEURL }}/theme/js/respond.min.js"></script>
+    <![endif]-->
+    <!--[if IE 7]>
+        <link rel="stylesheet" href="{{ SITEURL }}/theme/css/font-awesome-ie7.min.css">
+    <![endif]-->
+    {% endblock head %}
+  </head>
+  <body>
+    {% block header %}
+        {% include "header.html" %}
+    {% endblock header %}
+    
+    <div class="container col-md-6 col-md-offset-3">
+           {% block content %} {% endblock content %}
+       </div>
+       <div class="container col-md-6 col-md-offset-3">
+        {% block footer %}
+            {% include "footer.html" %}
+        {% endblock footer %}
+    </div>
+    {% if GOOGLE_ANALYTICS %}
+	    <script type="text/javascript">
+	      var _gaq = _gaq || [];
+	      _gaq.push(['_setAccount', '{{ GOOGLE_ANALYTICS }}']);
+	      _gaq.push(['_trackPageview']);
+	
+	      (function() {
+	        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	      })();
+	    </script>
+    {% endif %}
+    
+    {% block additional_js %}
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script type="text/javascript" src="/theme/js/bootstrap.min.js"></script>
+    {% endblock additional_js %}
+  </body>
+</html>
