@@ -64,3 +64,6 @@
 [submodule "niu-x2"]
 	path = niu-x2
 	url = http://github.com/wilbur-ma/niu-x2
+[submodule "storm"]
+	path = storm
+	url = git@github.com:redVi/storm.git
