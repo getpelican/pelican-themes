@@ -67,3 +67,6 @@
 [submodule "storm"]
 	path = storm
 	url = git@github.com:redVi/storm.git
+[submodule "pure"]
+	path = pure
+	url = https://github.com/danclaudiupop/pure.git
