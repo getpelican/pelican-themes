@@ -31,7 +31,7 @@
     {% else %} 
         <li><article class="hentry">    
                 <header>
-                        <h1><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalien vers «{{ article.title}}»">{{ article.title }}</a></h1>
+                        <h1><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalien vers «{{ article.title|striptags }}»">{{ article.title }}</a></h1>
                 </header>
                 
                 <div class="entry-content">
