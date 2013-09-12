@@ -40,8 +40,8 @@
 
     {% endif %}
     <!-- Bootstrap -->
-    {% if BOOTSWATCH_THEME %}
-        <link rel="stylesheet" href="{{ SITEURL }}/theme/css/bootstrap.{{ BOOTSWATCH_THEME }}.min.css" type="text/css"/>
+    {% if BOOTSTRAP_THEME %}
+        <link rel="stylesheet" href="{{ SITEURL }}/theme/css/bootstrap.{{ BOOTSTRAP_THEME }}.min.css" type="text/css"/>
     {% else %}
         <link rel="stylesheet" href="{{ SITEURL }}/theme/css/bootstrap.min.css" type="text/css"/>
     {% endif %}
@@ -64,7 +64,7 @@
     {% include 'includes/ga.html' %}
 </head>
 <body>
-<nav class="navbar navbar-fixed-top" role="navigation">
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">

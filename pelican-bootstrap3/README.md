@@ -1,6 +1,6 @@
 # pelican-bootstrap3
 
-This is a Bootstrap 3 theme for Pelican. It's fully responsive. Bootstrap 3 is still in RC state as of now, so expect changes as the Bootstrap 3 codebase matures. I will try to keep it up-to-date.
+This is a Bootstrap 3 theme for Pelican. It's fully responsive. Bootstrap 3 has seen an official, final release now, so I don't expect any breaking changes anymore. I will try to keep it up-to-date.
 
 ## Installation
 
@@ -41,9 +41,9 @@ The theme can show your most recently active GitHub repos in the sidebar. To ena
 * `GITHUB_SKIP_FORK`
 * `GITHUB_SHOW_USER_LINK`
 
-### Bootswatch
+### Bootswatch and other Bootstrap 3 themes
 
-I included all the lovely Bootstrap 3 themes from [Bootswatch](http://bootswatch.com/), built by [Thomas Park](https://github.com/thomaspark). You can tell Pelican what Bootswatch theme to use, by setting `BOOTSWATCH_THEME` to the desired theme, in lowercase (ie. 'readable' or 'cosmo' etc.). My own site is using _Readable_.
+I included all the lovely Bootstrap 3 themes from [Bootswatch](http://bootswatch.com/), built by [Thomas Park](https://github.com/thomaspark). You can tell Pelican what Bootswatch theme to use, by setting `BOOTSTRAP_THEME` to the desired theme, in lowercase (ie. 'readable' or 'cosmo' etc.). My own site is using _Readable_. If you want to use any other Bootstrap 3 compatible theme, just put the minified CSS in the `static/css` directory and rename it using the following naming scheme: `bootstrap.{theme-name}.min.css`. Then update the `BOOTSTRAP_THEME` variable with the _theme-name_ used.
 
 ### AddThis
 
