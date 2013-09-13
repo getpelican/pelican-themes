@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+    {% if articles %}
+        {% for article in (articles_page.object_list if articles_page else articles) %}
+            <article>
+                <h2><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h2>
+                <div class="summary">{{ article.summary }}
+                    {# Uncomment if you want to show comment counts #}
+                    {#{% include 'includes/comment_count.html' %}#}
+                    <a class="btn btn-default btn-xs" href="{{ SITEURL }}/{{ article.url }}">more ...</a>
+                </div>
+            </article>
+            <hr/>
+        {% endfor %}
+    {% endif %}
+
+    {% if articles_page and articles_paginator.num_pages > 1 %}
+        <ul class="pagination">
+            {% if articles_page.has_previous() %}
+                {% set num = articles_page.previous_page_number() %}
+                <li class="prev"><a href="{{ SITEURL }}/{{ page_name }}{{ num if num > 1 else '' }}.html">&laquo;</a>
+                </li>
+            {% else %}
+                <li class="prev disabled"><a href="#">&laquo;</a></li>
+            {% endif %}
+            {% for num in range( 1, 1 + articles_paginator.num_pages ) %}
+                <li class="{{ 'active' if num == articles_page.number else '' }}"><a
+                        href="{{ SITEURL }}/{{ page_name }}{{ num if num > 1 else '' }}.html">{{ num }}</a></li>
+            {% endfor %}
+            {% if articles_page.has_next() %}
+                <li class="next"><a
+                        href="{{ SITEURL }}/{{ page_name }}{{ articles_page.next_page_number() }}.html">&raquo;</a></li>
+            {% else %}
+                <li class="next disabled"><a href="#">&laquo;</a></li>
+            {% endif %}
+        </ul>
+    {% endif %}
+{% endblock content %}
