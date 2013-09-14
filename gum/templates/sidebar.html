@@ -43,7 +43,7 @@
 <nav class="widget">
   <h4>Social</h4>
   <ul>
-  {% for url, name in SOCIAL %}
+  {% for name, url in SOCIAL %}
     <li><a href="{{ url|e }}">{{ name }}</a></li>
   {% endfor %}
   </ul>
