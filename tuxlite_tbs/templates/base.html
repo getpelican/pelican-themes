@@ -18,6 +18,20 @@
     <link href="{{ SITEURL }}/theme/local.css" rel="stylesheet">
     <link href="{{ SITEURL }}/theme/pygments.css" rel="stylesheet">
 
+    <!-- So Firefox can bookmark->"abo this site" -->
+    {% if FEED_ALL_ATOM %}
+        <link href="{{ FEED_ALL_ATOM }}" rel="alternate" title="{{ SITENAME }}" type="application/atom+xml">
+    {% endif %}
+    {% if FEED_ATOM %}
+        <link href="{{ FEED_ATOM }}" rel="alternate" title="{{ SITENAME }}" type="application/atom+xml">
+    {% endif %}
+    {% if FEED_RSS %}
+        <link href="{{ FEED_RSS }}" rel="alternate" title="{{ SITENAME }}" type="application/rss+xml">
+    {% endif %}
+    {% if FEED_ALL_RSS %}
+        <link href="{{ FEED_ALL_RSS }}" rel="alternate" title="{{ SITENAME }}" type="application/rss+xml">
+    {% endif %}
+
 </head>
 
 <body>
@@ -70,10 +84,22 @@
             
                 <li><a href="{{ SITEURL }}/{{ ARCHIVES_URL }}">Archives</a>
                 <li><a href="{{ SITEURL }}/tags.html">Tags</a>
+
+
+
+                {% if FEED_ALL_ATOM %}
+                <li><a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" rel="alternate">Atom feed</a></li>
+                {% endif %}
+                {% if FEED_ATOM %}
                 <li><a href="{{ FEED_DOMAIN }}/{{ FEED_ATOM }}" rel="alternate">Atom feed</a></li>
+                {% endif %}
                 {% if FEED_RSS %}
                 <li><a href="{{ FEED_DOMAIN }}/{{ FEED_RSS }}" rel="alternate">RSS feed</a></li>
                 {% endif %}
+                {% if FEED_ALL_RSS %}
+                <li><a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}" rel="alternate">RSS feed</a></li>
+                {% endif %}
+
             </ul>
             </div>
 
