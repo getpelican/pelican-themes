@@ -73,3 +73,6 @@
 [submodule "jesuislibre"]
 	path = jesuislibre
 	url = https://github.com/badele/pelican-theme-jesuislibre.git
+[submodule "pelicanthemes-generator"]
+	path = pelicanthemes-generator
+	url = https://github.com/badele/pelicanthemes-generator.git
