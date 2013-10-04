@@ -73,3 +73,6 @@
 [submodule "jesuislibre"]
 	path = jesuislibre
 	url = https://github.com/badele/pelican-theme-jesuislibre.git
+[submodule "pelipress"]
+	path = pelipress
+	url = https://github.com/jjimenezlopez/pelipress.git
