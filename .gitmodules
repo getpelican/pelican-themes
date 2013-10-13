@@ -76,3 +76,6 @@
 [submodule "pelipress"]
 	path = pelipress
 	url = https://github.com/jjimenezlopez/pelipress.git
+[submodule "pelicanthemes-generator"]
+	path = pelicanthemes-generator
+	url = https://github.com/badele/pelicanthemes-generator
