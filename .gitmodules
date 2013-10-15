@@ -76,3 +76,6 @@
 [submodule "pelipress"]
 	path = pelipress
 	url = https://github.com/jjimenezlopez/pelipress.git
+[submodule "blueidea"]
+	path = blueidea
+	url = git@github.com:blueicefield/pelican-blueidea.git
