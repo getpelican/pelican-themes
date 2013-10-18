@@ -1,0 +1,17 @@
+{% if DEFAULT_PAGINATION %}
+<div class="pager">
+      <ul>
+		{% if articles_page.has_previous() %}
+                        {% set num = articles_page.previous_page_number() %}
+						<li class="previous"><a href="{{ SITEURL }}/{{ page_name }}{{ num if num > 1 else '' }}.html">← Previous</a></li>
+                {% else %}
+                        <li class="previous disabled"><a>← Previous</a></li>
+                {% endif %}
+		{% if articles_page.has_next() %}
+						<li class="next"><a href="{{ SITEURL }}/{{ page_name }}{{ articles_page.next_page_number() }}.html">Next →</a></li>
+                {% else %}
+                        <li class="next disabled"><a>Next →</a></li>
+                {% endif %}
+      </ul>
+    </div>
+{% endif %}
