@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block navclass %}active{%endblock%}
+{% block content %}
+<section id="content" class="content">
+{% block content_title %}
+{% endblock %}
+
+{% for article in articles_page.object_list %}
+        <article class="hentry">
+                <header> <h2 class="entry-title"><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h2> </header>
+                <div class="entry-content"> {{ article.summary }} </div><!-- entry-content -->
+        </article>
+{% endfor %}
+{% include 'pagination.html' %}
+</section><!-- content -->
+{% endblock content %}
