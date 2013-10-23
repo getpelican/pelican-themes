@@ -9,6 +9,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- Enable latex plugin -->
+    {% if article and article.latex %}
+        {{ article.latex }}
+    {% endif %}
+    {% if page and page.latex %}
+        {{ page.latex }}
+    {% endif %}
+
     <!-- Open Graph tags -->
     {% if USE_OPEN_GRAPH is not defined %}
         {% set USE_OPEN_GRAPH = True %}
