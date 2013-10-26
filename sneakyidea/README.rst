@@ -8,3 +8,9 @@ To make the tag cloud accessible from the navigation bar add ::
     $ MENUITEMS = (('Tags', 'tags.html'),)
 
 in your settings.
+
+Screenshot
+----------
+
+.. image:: screenshot.png
+   :alt: Screenshot of the theme

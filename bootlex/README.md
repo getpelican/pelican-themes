@@ -43,3 +43,7 @@ You can make use of the following settings:
 # Missing
 
 I do not know whether it works, but as I never cared about it, I suppose that categorys will not work properly
+
+## Screenshot ##
+
+![screenshot](screenshot.png)

@@ -11,5 +11,5 @@ Screenshot
 ----------
 
 .. image:: screenshot.png
-   :alt: Sreenshot of the basic theme
+   :alt: Screenshot of the basic theme
 

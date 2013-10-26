@@ -24,6 +24,11 @@ GOOGLE_ANALYTICS_ID = ''
 GOOGLE_ANALYTICS_SITENAME = ''
 ```
 
+
+### Screenshot ###
+
+![screenshot](screenshot.png)
+
 ### Credits / Thanks
 
  * Alexis Metaireau / Pelican
