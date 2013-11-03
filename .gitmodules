@@ -79,3 +79,6 @@
 [submodule "blueidea"]
 	path = blueidea
 	url = git@github.com:blueicefield/pelican-blueidea.git
+[submodule "sora"]
+	path = sora
+	url = https://github.com/if1live/pelican-sora.git
