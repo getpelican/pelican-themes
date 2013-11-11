@@ -82,3 +82,7 @@
 [submodule "Responsive-Pelican"]
 	path = Responsive-Pelican
 	url = git@github.com:ir193/Responsive-Pelican.git
+[submodule "sora"]
+	path = sora
+	url = https://github.com/if1live/pelican-sora.git
+
