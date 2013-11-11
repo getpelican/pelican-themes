@@ -51,7 +51,7 @@
 	url = https://github.com/PierrePaul/html5-dopetrope.git
 [submodule "plumage"]
 	path = plumage
-	url = git@github.com:kdeldycke/plumage.git
+	url = https://github.com/kdeldycke/plumage.git
 [submodule "sundown"]
 	path = sundown
 	url = https://github.com/keningle/pelican-sundown.git
@@ -60,13 +60,13 @@
 	url = https://github.com/porterjamesj/crowsfoot.git
 [submodule "elegant"]
 	path = elegant
-	url = git@github.com:talha131/pelican-elegant.git
+	url = https://github.com/talha131/pelican-elegant.git
 [submodule "niu-x2"]
 	path = niu-x2
 	url = http://github.com/wilbur-ma/niu-x2
 [submodule "storm"]
 	path = storm
-	url = git@github.com:redVi/storm.git
+	url = https://github.com/redVi/storm.git
 [submodule "pure"]
 	path = pure
 	url = https://github.com/danclaudiupop/pure.git
@@ -78,7 +78,7 @@
 	url = https://github.com/jjimenezlopez/pelipress.git
 [submodule "blueidea"]
 	path = blueidea
-	url = git@github.com:blueicefield/pelican-blueidea.git
+	url = https://github.com/blueicefield/pelican-blueidea.git
 [submodule "sora"]
 	path = sora
 	url = https://github.com/if1live/pelican-sora.git
