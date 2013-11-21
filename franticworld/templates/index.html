@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% for article in articles_page.object_list %}
+<div class="summarycontainer">
+	<div class="metabox">
+		<p class="metaday">{{ article.date|strftime('%j') }}</p>
+		<p class="metayear">{{ article.date|strftime('%Y') }}</p>
+		<p class="metacategory">{{ article.category }}</p>
+	</div>
+	<div class="summarybox">
+		<a class="summarytitle" href="{{ BLOGURL }}/{{ article.url }} " >{{ article.title }}</a>
+		{{ article.summary }}
+		<a class="btnmore" href="{{ BLOGURL }}/{{ article.url }}">more ...</a>
+	</div>
+</div>
+{% endfor %}
+
+{% include 'pagination.html' %}
+{% endblock content %}
