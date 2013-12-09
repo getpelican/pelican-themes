@@ -82,3 +82,6 @@
 [submodule "sora"]
 	path = sora
 	url = https://github.com/if1live/pelican-sora.git
+[submodule "pelican-simplegrey"]
+	path = pelican-simplegrey
+	url = https://github.com/fle/pelican-simplegrey
