@@ -55,6 +55,10 @@ You can enable sharing buttons through [AddThis](http://www.addthis.com/) by set
 
 In order to make the Facebook like button work better, the template contains Open Graph metatags like `<meta property="og:type" content="article"/>`. You can disable them by setting `USE_OPEN_GRAPH` to `False`. You can use `OPEN_GRAPH_FB_APP_ID` to provide a Facebook _app id_. You can also provide a default image that will be passed to Facebook for the homepage of you site by setting `OPEN_GRAPH_IMAGE` to a relative file path, which will be prefixed by your site's static directory.
 
+### Tag List
+
+You can customize the separator between article tags with `TAG_LIST_SEPARATOR`. The default separator is `/`.
+
 ## Screenshot
 
 ![](screenshot.png)
