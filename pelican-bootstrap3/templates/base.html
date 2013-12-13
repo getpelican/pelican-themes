@@ -22,7 +22,7 @@
             <meta property="og:type" content="article"/>
             <meta property="og:title" content="{{ article.title }}"/>
             <meta property="og:url" content="{{ SITEURL }}/{{ article.url }}"/>
-            <meta property="og:description" content="{{ article.summary|striptags }}"/>
+            <meta property="og:description" content="{{ article.summary|striptags|e }}"/>
         {% elif page %}
             <meta property="og:type" content="article"/>
             <meta property="og:title" content="{{ page.title }}"/>
