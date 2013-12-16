@@ -20,3 +20,9 @@ Compass
 ~~~~~~~
 
 The ``main.css`` file is generated from the ``compass/src/main.scss`` sass file, using http://compass-style.org/.
+
+Screenshot
+----------
+
+.. image:: screenshot.png
+   :alt: Screenshot of the theme

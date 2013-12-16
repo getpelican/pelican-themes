@@ -10,4 +10,4 @@ Menu items and pages can be added to the top navigation bar via pelican settings
 
 Screenshot below.
 
-![Screenshot](https://raw.github.com/mins/pelican-themes/master/tuxlite_zf/Screenshot.png)
+![Screenshot](Screenshot.png)
