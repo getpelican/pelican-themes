@@ -1,3 +1,7 @@
+{% if DISPLAY_TAGS_ON_SIDEBAR is not defined %}
+    {% set DISPLAY_TAGS_ON_SIDEBAR = True %}
+{% endif %}
+
 <aside>
     <section>
         <ul class="list-group list-group-flush">
@@ -10,25 +14,42 @@
                 {% endfor %}
             {% endif %}
 
-            {# Uncomment if you want to show Categories #}
+            {% if DISPLAY_RECENT_POSTS_ON_SIDEBAR %}
+                {% if RECENT_POST_COUNT is not defined %}
+                    {% set RECENT_POST_COUNT = 5 %}
+                {% endif %}
+                <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Recent Posts</h4></li>
+                    {% for article in articles[:RECENT_POST_COUNT] %}
+                        <li class="list-group-item">
+                            <a href="{{ SITEURL }}/{{ article.url }}">
+                                {{ article.title }}
+                            </a>
+                        </li>
+                    {% endfor %}
+            {% endif %}
 
-            {#    <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Categories</h4></li>#}
-            {#    {% for cat, null in categories %}#}
-            {#        <li class="list-group-item">#}
-            {#            <a href="{{ SITEURL }}/{{ cat.url }}">#}
-            {#                <i class="icon-folder-open icon-large"></i>{{ cat }}#}
-            {#            </a>#}
-            {#        </li>#}
-            {#    {% endfor %}#}
+            {% if DISPLAY_CATEGORIES_ON_SIDEBAR %}
 
-            <li class="list-group-item"><a href="{{ SITEURL }}/tags.html"><h4><i class="icon-tags icon-large"></i>Tags</h4></a></li>
-            {% for tag in tag_cloud|sort(attribute='1') %}
-                <li class="list-group-item tag-{{ tag.1 }}">
-                    <a href="{{ SITEURL }}/{{ tag.0.url }}">
-                        {{ tag.0 }}
-                    </a>
-                </li>
-            {% endfor %}
+                <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Categories</h4></li>
+                    {% for cat, null in categories %}
+                        <li class="list-group-item">
+                            <a href="{{ SITEURL }}/{{ cat.url }}">
+                                <i class="icon-folder-open icon-large"></i>{{ cat }}
+                            </a>
+                        </li>
+                    {% endfor %}
+            {% endif %}
+
+            {% if DISPLAY_TAGS_ON_SIDEBAR %}
+                <li class="list-group-item"><a href="{{ SITEURL }}/tags.html"><h4><i class="icon-tags icon-large"></i>Tags</h4></a></li>
+                    {% for tag in tag_cloud|sort(attribute='1') %}
+                        <li class="list-group-item tag-{{ tag.1 }}">
+                            <a href="{{ SITEURL }}/{{ tag.0.url }}">
+                                {{ tag.0 }}
+                            </a>
+                        </li>
+                {% endfor %}
+            {% endif %}
         </ul>
     </section>
     {% include 'includes/github.html' %}
