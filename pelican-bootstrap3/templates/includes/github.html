@@ -12,18 +12,6 @@
             {% set GITHUB_SKIP_FORK = "false" %}
         {% endif %}
     {% endif %}
-    {% if GITHUB_SORT_ATTRIBUTE is not defined %}
-        {% set GITHUB_SORT_ATTRIBUTE = "pushed_at" %}
-    {% endif %}
-    {% if GITHUB_SORT_DESCENDING is not defined %}
-        {% set GITHUB_SORT_DESCENDING = "true" %}
-    {% else %}
-        {% if GITHUB_SORT_DESCENDING %}
-            {% set GITHUB_SORT_DESCENDING = "true" %}
-        {% else %}
-            {% set GITHUB_SORT_DESCENDING = "false" %}
-        {% endif %}
-    {% endif %}
 
     <section>
     <ul class="list-group list-group-flush">
@@ -49,9 +37,7 @@
                     user: '{{ GITHUB_USER }}',
                     count: {{ GITHUB_REPO_COUNT }},
                     skip_forks: {{ GITHUB_SKIP_FORK }},
-                    target: '#gh_repos',
-                    sort_attribute: '{{ GITHUB_SORT_ATTRIBUTE }}',
-                    sort_descending: {{ GITHUB_SORT_DESCENDING }}
+                    target: '#gh_repos'
                 });
             });
         </script>
