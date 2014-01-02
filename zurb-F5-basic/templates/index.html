@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content_title %}{% endblock %}
+{% block content %}        
+{% if articles %}
+    {% for article in articles_page.object_list %}        
+
+        {# First item #}
+        {% if loop.first and not articles_page.has_previous() %}
+            <article>
+                <a href="{{ SITEURL }}/{{ article.url }}"><h3 class="article-title">{{ article.title }}</h3></a>
+                {% include 'article_infos.html' %}{{ article.content }}{% include 'article_infos_bottom.html' %}{% include 'comments.html' %}
+            </article>
+
+            {% if loop.length == 1 %}
+                {% include 'pagination.html' %}
+            {% endif %}
+
+            {% if loop.length > 1 %}
+                <hr  class="gradient"/>
+            {% endif %}
+
+        {# other items #}
+        {% else %}
+
+            <article>
+                <a href="{{ SITEURL }}/{{ article.url }}"><h3 class="article-title">{{ article.title }}</h3></a>
+                {% include 'article_infos.html' %}{{ article.summary }}{% include 'article_infos_bottom.html' %}{% include 'comments.html' %}
+                <a class="button radius secondary small right" href="{{ SITEURL }}/{{ article.url }}">Read More</a>
+                <hr  class="gradient"/>
+            </article>
+        {% endif %}
+
+        {% if loop.last %}
+            <!-- /#posts-list -->
+            {% if loop.last and (articles_page.has_previous() or not articles_page.has_previous() and loop.length > 1) %}
+                {% include 'pagination.html' %}
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+
+{% else %}
+
+    <h3>Pages</h3>
+    {% for page in PAGES %}
+        <li><a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a></li>
+    {% endfor %}
+
+{% endif %}
+{% endblock content %}
