@@ -24,12 +24,12 @@ text-shadow:5px 5px 0px #000,4px 4px 0px white,5px -5px 0px #000,4px -4px 0px wh
 }
 
 .content{
-width:60em;
+width:62em;
 display:inline-block;
 margin-left:3%;
 }
 .summarycontainer{
-width:60em;
+width:62em;
 }
 .metabox{
 vertical-align:top;
@@ -57,7 +57,7 @@ text-shadow:1px 1px 0px #000;
 }
 .summarybox{
 display:inline-block;
-width:50em;
+width:52em;
 background-color:rgba(255,255,255,0.6);
 margin-bottom:3em;
 margin-left:-4px;
@@ -68,7 +68,7 @@ text-shadow:1px 1px 0px rgba(255,255,255,0.2);
 }
 .summarytitle,.articletitle{
 display:block;
-width:790px;
+width:820px;
 margin-top:-25px;
 margin-left:-25px;
 padding:5px;
@@ -92,7 +92,7 @@ text-shadow:0 0 10px #2fa0ff;
 
 .arcticlecontentbox,.page-body{
 display:inline-block;
-width:50em;
+width:52em;
 background-color:rgba(255,255,255,0.6);
 margin-bottom:3em;
 margin-left:-4px;
