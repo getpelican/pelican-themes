@@ -85,3 +85,6 @@
 [submodule "pelican-simplegrey"]
 	path = pelican-simplegrey
 	url = https://github.com/fle/pelican-simplegrey
+[submodule "pujangga"]
+	path = pujangga
+	url = git@github.com:habibillah/pujangga.git
