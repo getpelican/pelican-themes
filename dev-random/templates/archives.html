@@ -16,7 +16,7 @@
              <li>
                 <a rel="bookmark"
                   href="{{ SITEURL }}/{{ article.url }}"
-                  title="Lien permanent vers «{{ article.title }}»">
+                  title="Lien permanent vers «{{ article.title|striptags }}»">
                 {{ article.title }}
                 </a>
              </li>

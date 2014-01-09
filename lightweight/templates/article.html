@@ -4,7 +4,7 @@
 
 {% block content %}        
   <article class="post">
-        <h2 class="page_title"><a href="{{ article.url }}" rel="bookmark" title="{{SITENAME}} - {{ article.title }}">{{ article.title }}</a></h2>
+        <h2 class="page_title"><a href="{{ article.url }}" rel="bookmark" title="{{SITENAME}} - {{ article.title|striptags }}">{{ article.title }}</a></h2>
 
         <section class="post_content">
         {{ article.content }}
