@@ -7,8 +7,8 @@
 	<h6>Written by <a href="{{ SITEURL }}/author/{{ article.author|lower|replace(' ', '-') }}.html">{{ article.author }}</a> on {{ article.locale_date }}.</h6>
 </article>
 
-{% if DISQUS_SITENAME %}
 <hr/>
+{% if DISQUS_SITENAME %}
 <div class="row">
 	<div class="small-12 columns">
 		<h3>Comments</h3>
