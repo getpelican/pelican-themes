@@ -9,9 +9,11 @@
         <div>{{ article.content }}</div>
 	
         <hr>
-    	   
-        <h2>Comments</h2>
+
 	{% include "twitter.html" %}
-	{% include 'disqus.html' %}
+    {% if DISQUS_SITENAME %}
+        <h2>Comments</h2>
+        {% include "disqus.html" %}
+    {% endif %}
     </div>
 {% endblock %}
