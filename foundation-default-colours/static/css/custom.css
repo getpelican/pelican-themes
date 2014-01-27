@@ -50,9 +50,6 @@
 .highlighttable {
 	background: #272822;
 	border: 1px solid #8f908a;
-	/* uncomment to center the code blocks */
-	/*margin-left: auto;
-	margin-right: auto;*/
 	width: 100%;
 }
 
@@ -114,4 +111,29 @@ p {
 
 .archive-entry {
 	border-top: 1px dotted;
+}
+
+table.highlighttable {
+	table-layout: fixed;
+	white-space: nowrap;
+	width:100%;
+}
+
+.linenos {
+	width: 2.25rem;
+	text-align: right;
+	margin: 0;
+	padding: 0;
+	vertical-align: top;
+}
+       
+.highlight{
+	width: 100%;
+	height: auto;
+	overflow: auto;
+}
+
+.linenodiv {
+	margin: 0.55rem 0.5rem 0 0;
+	padding: 0;
 }
