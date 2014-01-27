@@ -1,5 +1,23 @@
 {% extends "base.html" %}
-{% block title %}{{ article.title|striptags }}{% endblock %}
+{% block title %}{{ article.title|striptags }} - {{ SITENAME }}{% endblock %}
+
+{% block breadcrumbs %}
+    {% if DISPLAY_BREADCRUMBS %}
+        {% if DISPLAY_CATEGORY_IN_BREADCRUMBS %}
+            <ol class="breadcrumb">
+                <li><a href="{{ SITEURL }}" title="{{ SITENAME }}"><i class="fa fa-home fa-lg"></i></a></li>
+                <li><a href="{{ SITEURL }}/{{ article.category.url }}" title="{{ article.category }}">{{ article.category }}</a></li>
+                <li class="active">{{ article.title }}</li>
+            </ol>
+        {% else %}
+            <ol class="breadcrumb">
+                <li><a href="{{ SITEURL }}" title="{{ SITENAME }}"><i class="fa fa-home fa-lg"></i></a></li>
+                <li class="active">{{ article.title }}</li>
+            </ol>
+        {% endif %}
+    {% endif %}
+{% endblock %}
+
 {% block content %}
     <section id="content">
         <article>
@@ -21,6 +39,7 @@
                 {{ article.content }}
             </div>
             <!-- /.entry-content -->
+            {% include 'includes/related-posts.html' %}
             {% include 'includes/addthis.html' %}
             {% include 'includes/comments.html' %}
         </article>

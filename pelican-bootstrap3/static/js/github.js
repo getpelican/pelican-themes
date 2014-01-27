@@ -4,10 +4,12 @@ var github = (function(){
   }
   function render(target, repos){
     var i = 0, fragment = '', t = $(target)[0];
+    fragment += '<ul class="list-group" id="github">';
 
     for(i = 0; i < repos.length; i++) {
       fragment += '<li class="list-group-item"><a href="'+repos[i].html_url+'">'+repos[i].name+'</a><p><small>'+escapeHtml(repos[i].description||'')+'</small></p></li>';
     }
+    fragment += '</ul>';
     t.innerHTML = fragment;
   }
   return {

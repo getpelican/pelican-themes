@@ -1,12 +1,12 @@
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="icon-calendar"></i>{{ article.locale_date }}
+        <i class="fa fa-calendar"></i><time datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }}</time>
     </span>
     {# Uncomment if you want the author shown #}
     {#{% if article.author %}#}
     {#<span class="label">By</span>#}
-    {#<a href="{{ SITEURL }}/{{ article.author.url }}"><i class="icon-user"></i>{{ article.author }}</a>#}
+    {#<a href="{{ SITEURL }}/{{ article.author.url }}"><i class="fa fa-user"></i> {{ article.author }}</a>#}
     {#{% endif %}#}
 
     {# Uncomment if you want to show Categories#}
@@ -20,5 +20,6 @@
     {% endif %}
 
     {% include 'includes/taglist.html' %}
-    {% include 'includes/translations.html' %}
+    {% import 'includes/translations.html' as translations with context %}
+    {{ translations.translations_for(article) }}
 </footer><!-- /.post-info -->
