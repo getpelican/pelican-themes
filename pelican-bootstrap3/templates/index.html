@@ -5,8 +5,7 @@
             <article>
                 <h2><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h2>
                 <div class="summary">{{ article.summary }}
-                    {# Uncomment if you want to show comment counts #}
-                    {#{% include 'includes/comment_count.html' %}#}
+                    {% include 'includes/comment_count.html' %}
                     <a class="btn btn-default btn-xs" href="{{ SITEURL }}/{{ article.url }}">more ...</a>
                 </div>
             </article>
