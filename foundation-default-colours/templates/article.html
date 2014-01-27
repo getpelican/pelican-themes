@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<article>
+	<h2>{{ article.title }}</h2>
+	{{ article.content }}
+	<hr/>
+	<h6>Written by <a href="{{ SITEURL }}/author/{{ article.author|lower|replace(' ', '-') }}.html">{{ article.author }}</a> {% if article.category %}in <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category}}</a> {% endif %}on {{ article.locale_date }}.{% if article.tags|count > 0 %} Tags: {% for tag in article.tags %}<a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>, {% endfor %}{% endif %}</h6>
+</article>
+
+<hr/>
+{% if DISQUS_SITENAME %}
+<div class="row">
+	<div class="small-12 columns">
+		<h3>Comments</h3>
+		<div id="disqus_thread"></div>
+		<script type="text/javascript">
+			var disqus_shortname = '{{ DISQUS_SITENAME }}';
+			(function() {
+				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+				dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+			})();
+		</script>
+		<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+		<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+	</div>
+</div>
+{% endif %}
+{% endblock %}

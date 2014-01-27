@@ -1,0 +1,19 @@
+body {
+	font-family: 'Droid Serif', serif;
+}
+
+h1, h2, h3, h4, h5, h6, .side-nav, .top-bar-section ul li > a, ul.off-canvas-list li {
+	font-family: 'Droid Sans', sans-serif;
+}
+
+h1, h2, h3 {
+	font-weight: bold;
+}
+
+pre, code {
+	font-family: 'Droid Sans Mono', monospace;
+}
+
+code {
+	font-size: 0.7em ;
+}
