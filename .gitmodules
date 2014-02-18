@@ -91,3 +91,6 @@
 [submodule "lovers"]
 	path = lovers
 	url = https://github.com/chdoig/pelican-bootstrap3-lovers.git
+[submodule "BT3-Flat"]
+	path = BT3-Flat
+	url = https://github.com/KenMercusLai/BT3-Flat.git
