@@ -87,7 +87,7 @@
 	url = https://github.com/fle/pelican-simplegrey
 [submodule "pujangga"]
 	path = pujangga
-	url = git@github.com:habibillah/pujangga.git
+	url = https://github.com/habibillah/pujangga.git
 [submodule "lovers"]
 	path = lovers
 	url = https://github.com/chdoig/pelican-bootstrap3-lovers.git
