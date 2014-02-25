@@ -45,6 +45,7 @@
                     <li{% if author or tag %} class="active"{% endif %}{% block archclass %}{{ ARCHCLASS }}{% endblock archclass %}><a href="{{ SITEURL }}/archives.html">Archives</a></li>
                 </ul>
                 <h3 class="text-muted"><a href="{{ SITEURL }}">{{ SITENAME }}</a></h3>
+				<h2 class="text-muted">{{ SITESUBTITLE }}</h2>
              </div>
             {% block content %}
             {% endblock %}
@@ -57,5 +58,6 @@
                     </address><!-- /#about -->
             </footer><!-- /#contentinfo -->
         </div><!-- container -->
+		{% include 'analytics.html' %}
     </body>
 </html>
