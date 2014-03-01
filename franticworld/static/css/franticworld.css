@@ -101,6 +101,9 @@ box-shadow:0px 0px 10px #000000;
 color:#222;
 text-shadow:1px 1px 0px rgba(255,255,255,0.2);
 }
+.arcticlecontentbox img, .page-body img, .summarybox img{
+    max-width:780px;
+}
 h1{
 padding-top:5px;
 padding-bottom:5px;
