@@ -97,3 +97,6 @@
 [submodule "voidy-bootstrap"]
 	path = voidy-bootstrap
 	url = https://github.com/robulouski/voidy-bootstrap.git
+[submodule "pelican-iliork"]
+	path = pelican-iliork
+	url = https://github.com/yuex/pelican-iliork.git
