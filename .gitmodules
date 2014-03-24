@@ -100,3 +100,6 @@
 [submodule "pelican-iliork"]
 	path = pelican-iliork
 	url = https://github.com/yuex/pelican-iliork.git
+[submodule "burrito"]
+	path = burrito
+	url = https://github.com/fly/burrito.git
