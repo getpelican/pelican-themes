@@ -103,3 +103,6 @@
 [submodule "burrito"]
 	path = burrito
 	url = https://github.com/fly/burrito.git
+[submodule "maggner-pelican"]
+	path = maggner-pelican
+	url = https://github.com/kplaube/maggner-pelican.git
