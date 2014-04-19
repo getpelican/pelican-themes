@@ -97,3 +97,6 @@
 [submodule "voidy-bootstrap"]
 	path = voidy-bootstrap
 	url = https://github.com/robulouski/voidy-bootstrap.git
+[submodule "crisp"]
+	path = crisp
+	url = https://github.com/barryorourke/pelican-crisp-theme
