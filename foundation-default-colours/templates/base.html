@@ -147,7 +147,7 @@
 								<h5>Tags</h5>
 								<ul class="tag-cloud">
 									{% for tag in tag_cloud %}
-									<li><a href="/tag/{{ tag.0|lower|replace(' ', '-') }}/" class="tag-{{ tag.1 }}">{{ tag.0 }}</a></li>
+										<li class="tag-{{ tag.1 }}"><a href="{{ SITEURL }}/{{ tag.0.url }}">{{ tag.0 }}</a></li>
 									{% endfor %}
 								</ul>
 							</div>
