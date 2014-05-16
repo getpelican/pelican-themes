@@ -1,0 +1,25 @@
+<div id="niu2-sidebar-meta" class="niu2-sidebar">
+    <div class="niu2-sidebar-label"><i class="fa fa-calendar"></i>{{ NIUX2_PUBLISHED_TRANSL | default("Published") }}:</div>
+    <div class="niu2-sidebar-value">{{ page.date.strftime("%Y-%m-%d %H:%M") }}</div>
+    {% if page.updatedate %}
+    <div class="niu2-sidebar-label"><i class="fa fa-pencil"></i>{{ NIUX2_LASTMOD_TRANSL | default("Last modified") }}:</div>
+    <div class="niu2-sidebar-value">{{ page.updatedate.strftime("%Y-%m-%d %H:%M") }}</div>
+    {% endif %}
+</div>
+
+<div id="niu2-sidebar-toc" class="niu2-sidebar" data-status="closed">
+    {% if page %}
+    <div class="niu2-sidebar-label">
+        <i id="niu2-sidebar-toc-ctrl" class="fa fa-plus"></i>{{ NIUX2_HEADER_TOC_TRANSL | default("TOC") }}
+    </div>
+    <ol id="niu2-sidebar-toc-list">
+        <li><a href="#content-heading">{{ page.title }}</a></li>
+        {{ page.html_toc }}
+        {% if (page.metadata['comment'] is not defined) or (page.metadata['comment'] | trim | upper == 'ON') %}
+        {% if DISQUS_SITENAME or NIUX2_DUOSHUO_SHORTNAME %}
+        <li><a href="#content-comments">{{ NIUX2_COMMENTS_TRANSL | default("Comments") }}</a></li>
+        {% endif %}
+        {% endif %}
+    </ol>
+    {% endif %}
+</div>

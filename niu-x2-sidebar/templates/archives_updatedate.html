@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block title %}{{ NIUX2_ARCHIVE_UPDATEDATE_TRANSL | default("Archives (by updatedate)") }} - {{ super() }} {% endblock %}
+{% block content %}
+<div class="col-md-8 col-md-offset-2">
+    <h1><i class="fa fa-archive"></i>{{ NIUX2_ARCHIVE_UPDATEDATE_TRANSL | default("Archives (by updatedate)") }}</h1>
+	<div id="niu2-archives">
+	{% set allLists = [] %}
+	{% for article in articles_updatedate %}
+           {% if loop.first or article.updatedate.strftime('%Y %m') != articles_updatedate[loop.index0-1].updatedate.strftime('%Y %m') %}
+               {% set monthList = [] %}
+           {% endif %}
+           {% do monthList.append(article) %}
+           {% if loop.last or article.updatedate.strftime('%Y %m') != articles_updatedate[loop.index0+1].updatedate.strftime('%Y %m') %}
+               {% do allLists.append(monthList[:]) %}
+           {% endif %}
+       {% endfor %}
+       
+       <div class="panel">
+       {% for monthArc in allLists %}
+           {% set currArcDate = monthArc[0].updatedate.strftime('%Y-%m') %}
+            <a class="niu2-toggle-ctrl" data-parent="#niu2-archives" data-toggle="collapse" data-target="#arc-{{ currArcDate }}">
+            {{ currArcDate }} ({{ monthArc | length }})
+            </a>
+            <ul id="arc-{{ currArcDate }}" class="collapse {{ 'in' if loop.first else 'out' }}">
+            {% for article in monthArc %}
+                {% if NIUX2_CATEGORY_MAP and NIUX2_CATEGORY_MAP[article.category] %}
+                    {% set my_cat = NIUX2_CATEGORY_MAP[article.category][0] %}
+                {% else %}
+                    {% set my_cat = article.category %}
+                {% endif %}
+                <li>
+                    <span>{{ article.updatedate.strftime('%d') }}</span>
+                    <a href="{{ SITEURL }}/{{ article.url }}" title="{{ NIUX2_CATEGORY_TRANSL | default("Category") }}: {{ my_cat }}">
+                        {{ article.title }}
+                    </a>
+                </li>
+            {% endfor %}
+            </ul>
+       {% endfor %}
+       </div>
+	</div>
+</div>
+{% endblock %}
+
+{% block footer %}
+<div id="body-footer" class="col-md-8 col-md-offset-2">
+    {% include "footer.html" %}
+</div>
+{% endblock footer %}

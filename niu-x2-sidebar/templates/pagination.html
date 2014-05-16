@@ -1,0 +1,69 @@
+{# 
+  N: pagination length
+  n: number of pages
+  x: current page number
+  pager bar style:
+  1 2 ... x-N/2+3 ~ x+N/2-4 ... n-1 n-2
+  compare x-N/2-3 == 3 and x+N/2-4 == n-1
+#}
+
+{% macro paginater_elem(pageNo) %}
+       {% if articles_page.number == pageNo %}
+       <li class="active"><span>{{ pageNo }}</span></li>
+       {% else %}
+       <li><a href="{{ SITEURL }}/{{ page_name }}{{ pageNo if pageNo > 1 }}.html">{{ pageNo }}</a></li>
+       {% endif %}
+{% endmacro %}
+
+{% if articles_page and articles_paginator.num_pages > 1 %}
+<ul class="pagination">
+    {% if articles_page.has_previous() %}
+       {% set num = articles_page.previous_page_number() %}
+       <li><a href="{{ SITEURL }}/{{ page_name }}{{ num if num > 1 else '' }}.html">
+           <i class="fa fa-caret-left fa-lg"></i></a>
+       </li>
+    {% else %}
+       <li class="disabled"><span> <i class="fa fa-caret-left fa-lg"></i></span></li>
+    {% endif %}
+    {% set page_limit = NIUX2_PAGINATOR_LENGTH | default(11) %}
+    {% if articles_paginator.num_pages > page_limit %}
+       {% set divide_lost = 0 %}
+       {% if page_limit % 2 != 0 %}
+           {% set divide_lost = 1 %}
+       {% endif %}
+       {{ paginater_elem(1) }}
+       {{ paginater_elem(2) }}
+       {% if articles_page.number <= page_limit // 2 %}
+       {% for num in range(3, page_limit - 2) %}
+       {{ paginater_elem(num) }}
+       {% endfor %}
+       <li class="disabled"><span>...</span></li>
+       {% elif articles_page.number >= articles_paginator.num_pages + 2 - page_limit // 2 - divide_lost %}
+       <li class="disabled"><span>...</span></li>
+       {% for num in range(articles_paginator.num_pages - page_limit + 4, articles_paginator.num_pages - 1) %}
+       {{ paginater_elem(num) }}
+       {% endfor %}
+       {% else %}
+       <li class="disabled"><span>...</span></li>
+       {% for num in range(articles_page.number - page_limit // 2 + 3, articles_page.number + page_limit // 2 - 3 + divide_lost) %}
+       {{ paginater_elem(num) }}
+       {% endfor %}
+       <li class="disabled"><span>...</span></li>
+       {% endif %}
+       {% for num in range(articles_paginator.num_pages - 1, articles_paginator.num_pages + 1) %}
+       {{ paginater_elem(num) }}
+       {% endfor %}
+    {% else %}
+        {% for num in range(1, 1 + articles_paginator.num_pages) %}
+        {{ paginater_elem(num) }}
+        {% endfor %}
+    {% endif %}
+    {% if articles_page.has_next() %}
+       <li><a href="{{ SITEURL }}/{{ page_name }}{{ articles_page.next_page_number() }}.html">
+           <i class="fa fa-caret-right fa-lg"></i></a>
+       </li>
+    {% else %}
+       <li class="disabled"><span><i class="fa fa-caret-right fa-lg"></i></span></li>
+    {% endif %}
+</ul>
+{% endif %}
