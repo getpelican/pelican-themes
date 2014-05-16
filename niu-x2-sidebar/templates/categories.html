@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}{{ NIUX2_CATEGORY_TRANSL | default("Categories") }} - {{ super() }}{% endblock title %}
+
+{% block content %}
+    <div class="niu2-page">
+      <h1>{{ NIUX2_CATEGORY_TRANSL | default("Categories") }}</h1>
+      <ul class="niu2-category-list">
+      {% for category, n in categories %}
+        {% if NIUX2_CATEGORY_MAP and NIUX2_CATEGORY_MAP[category] %}
+          {% set my_cat = NIUX2_CATEGORY_MAP[category][0] %}
+          {% set my_cat_icon = NIUX2_CATEGORY_MAP[category][1] %}
+        {% else %}
+          {% set my_cat = category %}
+          {% set my_cat_icon = "fa fa-folder-open" %}
+        {% endif %}
+
+        <li><a href="{{ SITEURL }}/{{ category.url }}">
+            <i class="fa {{ my_cat_icon }}"></i>{{ my_cat }}
+        </a>({{ n | count }})</li>
+      {% endfor %}
+      </ul>
+    </div>
+{% endblock content %}

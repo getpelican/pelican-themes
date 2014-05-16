@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}{{ NIUX2_404_TITLE_TRANSL | default("ERROR 404 Page Not Found!") }} - {{ super() }}{% endblock %}
+
+{% block content %}
+<div class="col-md-6 col-md-offset-2">
+<div class="niu2-404-info-bigger">
+404
+</div>
+<div class="niu2-404-info">
+{{ NIUX2_404_INFO_TRANSL | default("The requested url was not found!") }}
+</div>
+</div>
+{% endblock content %}

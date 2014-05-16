@@ -1,0 +1,94 @@
+<div class="navbar navbar-inverse navbar-fixed-top">
+<div class="col-md-12">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="{{ SITEURL }}">
+            <i class="fa fa-home"></i>{{ SITENAME }}
+        </a>
+    </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+        <ul class="nav navbar-nav">
+        {% if NIUX2_HEADER_SECTIONS %}
+        {% for section in NIUX2_HEADER_SECTIONS %}
+            <li><a href="{{ section[2] }}" title="{{ section[1] }}">
+                <i class="fa {{ section[3] }}"></i>{{ section[0] }}</a>
+            </li>
+        {% endfor %}
+        {% else %}
+        <li><a href="{{ SITEURL }}/{{ TAGS_SAVE_AS | default('tags.html') }}">
+                <i class="fa fa-tag"></i>{{ NIUX2_TAG_TRANSL | default("Tag") }}</a>
+        </li>
+        <li><a href="{{ SITEURL }}/{{ ARCHIVE_SAVE_AS | default('archives.html') }}">
+                <i class="fa fa-archive"></i>{{ NIUX2_ARCHIVE_TRANSL | default("Archive") }}
+            </a>
+        </li>
+        {% endif %}
+        <!-- category dropdown list -->
+        {% if NIUX2_CATEGORY_MAP %}
+        <li class="dropdown">
+           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <i class="fa fa-folder-open"></i>{{ NIUX2_CATEGORY_TRANSL | default("Category") }}<b class="caret"></b>
+           </a>
+           <ul class="dropdown-menu">
+               {% for cat, article_list in categories %}
+               <li><a href="{{ SITEURL }}/{{ cat.url }}">
+                   {% if NIUX2_CATEGORY_MAP[cat] %}
+                      <i class="fa {{ NIUX2_CATEGORY_MAP[cat][1] }}"></i>{{ NIUX2_CATEGORY_MAP[cat][0] }}
+                   {% else %}
+                   <i class="fa fa-folder-close"></i>{{ cat }}
+                   {% endif %}
+                      ({{ article_list | count }})</a></li>
+               {% endfor %}
+           </ul>
+        </li>
+        {% endif %}
+        <!--  self defined dropdown list -->
+        {% if NIUX2_HEADER_DROPDOWN_SECTIONS %}
+        {% for dpsection, dplinks in NIUX2_HEADER_DROPDOWN_SECTIONS.items() %}
+        <li class="dropdown">
+           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+               <i class="fa {{ dpsection[1] }}"></i>{{ dpsection[0] }}<b class="caret"></b>
+           </a>
+           <ul class="dropdown-menu">
+           {% for link in dplinks %}
+               <li><a href="{{ link[2] }}" title="{{ link[1] }}">
+                 <i class="fa {{ link[3] }}"></i>{{ link[0] }}</a>
+               </li>
+           {% endfor %}
+           </ul>
+        </li>
+        {% endfor %}
+        {% endif %}
+        </ul>
+        
+        <!-- right nav bar -->
+        <ul class="nav navbar-nav navbar-right">
+        <!-- google custom search -->
+        {% if NIUX2_GOOGLE_CSE_ID %}
+        <li>
+        <div id="niu2-cse-wrapper">
+            <div id="niu2-cse-header-box" class="navbar-form navbar-nav">
+                <form action="http://google.com/cse">
+                    <input type="hidden" name="cx" value="{{ NIUX2_GOOGLE_CSE_ID }}" />
+                    <input type="hidden" name="ie" value="UTF-8" />
+                    <div class="form-group">
+                        <input id="niu2-cse-search-input" class="niu2-cse-header form-control" 
+                            type="text" name="q" 
+                            placeholder="{{ NIUX2_SEARCH_PLACEHOLDER_TRANSL | default('Press enter to search ...') }}"/>
+                    </div>
+                </form>
+           </div>
+           <div id="niu2-cse-ctrl-box" class="navbar-nav">
+            <i id="niu2-cse-search-image" class="fa fa-search navbar-nav"></i><span id="niu2-cse-search-text">{{ NIUX2_SEARCH_TRANSL | default("Search") }}</span>
+           </div>
+       </div>
+       </li>
+       {% endif %}
+       </ul>
+    </nav>
+</div>
+</div>

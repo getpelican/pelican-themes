@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}{{ article.title }} - {{ super() }}{% endblock %}
+
+{%- block js_on_body_ready -%}
+    onContentLoaded();
+{%- endblock js_on_body_ready -%}
+
+{% block content %}
+<div class="col-md-8 col-md-offset-2">
+    {% if (NIUX2_DISPLAY_TITLE is not defined) or NIUX2_DISPLAY_TITLE %}
+    <h1 id="content-heading">{{ article.title }}</h1>
+    {% endif %}
+</div>
+<div id="niu2-left-container" class="col-md-6 col-md-offset-2 with-right-border">
+    <div id="niu2-main-content">
+        {{ article.content }}
+    </div>
+    {% from "comments_wrapper.html" import niu2_comments %}
+    {{ niu2_comments(article, DISQUS_SITENAME, NIUX2_DUOSHUO_SHORTNAME) }}
+</div>
+<div id="niu2-right-container" class="col-md-3">
+    {% include "article_sidebar.html" %}
+</div>
+{% include "toolbar.html" %}
+{% endblock %}
+

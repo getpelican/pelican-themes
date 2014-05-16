@@ -1,0 +1,11 @@
+{% macro niu2_comments(content, DISQUS_SITENAME, NIUX2_DUOSHUO_SHORTNAME) %}
+{% if (content.metadata['comment'] is not defined) or (content.metadata['comment'] | trim | upper == 'ON') %}
+<div id="content-comments">
+    {% if DISQUS_SITENAME %}
+        {% include "disqus.html" %}
+    {% elif NIUX2_DUOSHUO_SHORTNAME %}
+        {% include "duoshuo.html" %}
+    {% endif %}
+</div>
+{% endif %}
+{% endmacro %}
