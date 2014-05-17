@@ -4,7 +4,7 @@
         <title>{% block title %}{{ SITENAME }}{%endblock%}</title>
         <meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="shortcut icon" href="http://launchyard.com/images/favicon.png"/>
+        <link rel="shortcut icon" href="{{ SITEURL }}/theme/images/favicon.ico"/>
         <link rel="stylesheet" href="{{ SITEURL }}/theme/css/{{ CSS_FILE }}" type="text/css" />
         {% if FEED_ALL_ATOM %}
         <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed" />
@@ -34,7 +34,7 @@
                 <h1><a href="{{ SITEURL }}/"><img src="http://www.launchyard.com/images/logo.png" />{% if SITESUBTITLE %}<strong>{{ SITESUBTITLE }}</strong>{% endif %}</a></h1>
         </header> -->
 <!-- /#banner -->
-	      <div class="LaunchyardDetail"><p><a href="{{ SITEURL }}/">{% if SITESUBTITLE %}{{ SITESUBTITLE }}{% endif %}</a><img src="http://www.launchyard.com/images/LY-identity.png" width="100" height="100" alt="LaunchYard logo"><br/>skensell<br/><a href="http://launchyard.com/" >Learn more &rarr;</a></p></div>
+	      <div class="LaunchyardDetail"><p><a href="{{ SITEURL }}/">{% if SITESUBTITLE %}{{ SITESUBTITLE }}{% endif %}</a><img src="{{ SITEURL }}/theme/images/blue-pin.png" width="100" height="100" alt="Graph icon"><br/>scottkensell.com<br/><a href="https://github.com/skensell" >github</a></p></div>
 
         {% block content %}
         {% endblock %}
@@ -46,7 +46,7 @@
         <footer id="contentinfo" >
                 <address id="about" class="vcard ">
                 Proudly powered by <a href="http://getpelican.com/" target="_blank">Pelican</a>, which takes
-                great advantage of <a href="http://python.org" target="_blank">Python</a>. &copy; <a class="url fn" href="http://launchyard.com">LaunchYard</a>
+                great advantage of <a href="http://python.org" target="_blank">Python</a>.
 		
                 </address><!-- /#about -->
 		
