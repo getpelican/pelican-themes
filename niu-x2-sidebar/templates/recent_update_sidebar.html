@@ -1,0 +1,19 @@
+{% if articles_updatedate %}
+<div data-spy="affix" class="niu2-sidebar">
+    <div class="niu2-sidebar-label">{{ NIUX2_RECENT_UPDATE_TRANSL | default("Recent Posts") }}:</div>
+    <div class="niu2-sidebar-value">
+        {% set recentPostsNum = 10 %}
+        {% if NIUX2_RECENT_UPDATE_NUM is defined %}
+        {% set recentPostsNum = NIUX2_RECENT_UPDATE_NUM %}
+        <ul>
+            {% for article in articles_updatedate %}
+            {% if loop.index <= recentPostsNum %}
+            <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
+            {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+</div>
+{% endif %}
+

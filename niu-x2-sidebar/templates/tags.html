@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{{ super() }}
+{% block additional_js_file %}
+<script type="text/javascript" src="{{ theme_loc }}/js/tagcloud.min.js"></script>
+{% endblock %}
+
+{% block js_on_body_ready %}
+{{ super() }}
+var tc = TagCloud.create();
+{% for tag, article_list in tags %}
+tc.add('{{ tag }}', {{ article_list | count }}, '{{ SITEURL }}/{{ tag.url }}', null);
+{% endfor %}
+tc.loadEffector('CountSize');tc.loadEffector('CountSize');
+
+function tag_filter() {
+  tc.searchAndDisplay('niu2-tagcloud', $('#niu2-tagcloud-filter-input').val());
+  return false;
+}
+tc.setup('niu2-tagcloud');
+{% endblock %}
+
+{% block title %}{{ NIUX2_TAG_TRANSL | default("Tags") }} - {{ super() }}{% endblock title %}
+
+{% block content %}
+<div class="col-md-8 col-md-offset-2">
+    <h1><i class="fa fa-tags"></i>{{ NIUX2_TAG_TRANSL | default("Tag") }}</h1>
+    <input id="niu2-tagcloud-filter-input" type="text" placeholder="{{ NIUX2_TAG_FILTER_TRANSL | default("filter tags") }}"
+           class="form-control pull-left" onkeyup="tag_filter()">
+    <button class="btn btn-success niu2-button" 
+            onclick="$('#niu2-tagcloud-filter-input').val('');tag_filter()">{{ NIUX2_TAG_CLEAR_TRANSL | default("clear") }}</button>
+    <div id="niu2-tagcloud">
+    </div>
+</div>
+{% endblock content %}
+
+{% block footer %}
+<div id="body-footer" class="col-md-8 col-md-offset-2">
+    {% include "footer.html" %}
+</div>
+{% endblock footer %}

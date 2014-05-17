@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}{{ super() }}{% endblock %}
+
+{% block content %}
+<div class="col-md-8 col-md-offset-2">
+    {% block content_header %}
+    <h1 class="niu2-index-title">{{ SITENAME }}</h1>
+    {% endblock content_header %}
+</div>
+
+<div class="col-md-8 col-md-offset-2">
+    {% block content_body %}
+    {% if articles %}
+    {% for article in (articles_page.object_list if articles_page else articles) %}
+    <div class="niu2-index-article">
+        <div class="niu2-index-article-title">
+            <span>
+                {% if NIUX2_CATEGORY_MAP and NIUX2_CATEGORY_MAP[article.category] %}
+                {% set my_cat = NIUX2_CATEGORY_MAP[article.category][0] %}
+                {% else %}
+                {% set my_cat = article.category %}
+                {% endif %}
+                <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
+            </span>
+        </div>
+        {% include "article_meta_index.html" %}
+        <div class="niu2-article-summary">
+            {{ article._summary }}
+        </div>
+    </div>
+    {% endfor %}
+    {%endif%}
+    {% endblock content_body %}
+
+    {% block pager %}
+    {% include "pagination.html" %}
+    {% endblock pager %}
+</div>
+{% endblock content %}
+
+{% block footer %}
+<div id="body-footer" class="col-md-8 col-md-offset-2">
+    {% include "footer.html" %}
+</div>
+{% endblock footer %}
+
