@@ -1,0 +1,16 @@
+<div class="post-info">
+	<ul>
+	{% if article.author %}
+        <li class="vcard author">
+                 by&nbsp;<a class="url fn" href="{{ SITEURL }}/{{ article.author.url }}">{{ article.author }}</a>
+        </li>
+        {% endif %}
+        <li class="published" title="{{ article.date.isoformat() }}">
+          on&nbsp;{{ article.locale_date }}
+        </li>
+
+	</ul>
+{% include 'taglist.html' %}
+{% import 'translations.html' as translations with context %}
+{{ translations.translations_for(article) }}
+</div><!-- /.post-info -->
