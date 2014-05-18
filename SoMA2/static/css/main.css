@@ -11,7 +11,7 @@ body {
     background:url("../images/body-bg.jpg");
     color: #000305;
     font-size: 87.5%; /* Base font size: 14px */
-    font-family: 'Trebuchet MS', Trebuchet, 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Avenir Next', Avenir, 'Helvetica Neue', Helvetica, sans-serif;
     line-height: 1.429;
     margin: 0;
     padding: 0;
@@ -19,18 +19,19 @@ body {
 }
 
 /* Headings */
-h1 {font-size: 2em }
-h2 {font-size: 1.714em; margin-bottom: .333em;}	/* 22px */
-h3 {font-size: 1.429em}	/* 20px */
-h4 {font-size: 1.286em}	/* 18px */
-h5 {font-size: 1.143em}	/* 16px */
-h6 {font-size: 1em}		/* 14px */
+/* Actual sizes are 8/5 the stated. */
+h1 {font-size: 3.2em }
+h2 {font-size: 2.7424em; margin-bottom: .333em;}	/* 22px */
+h3 {font-size: 2.2864em}	/* 20px */
+h4 {font-size: 2.0576em}	/* 18px */
+h5 {font-size: 1.8288em}	/* 16px */
+h6 {font-size: 1.6em}		/* 14px */
 
 h1, h2, h3, h4, h5, h6 {
-	font-weight: 400;
+	/* font-weight: 400; */
 	line-height: 1.1;
 	margin-bottom: .8em;
-	font-family: 'Vollkorn', serif;
+    font-family: Helvetica, sans-serif;
 }
 
 h3, h4, h5, h6 { margin-top: .8em; }
@@ -56,7 +57,7 @@ h1 a:hover {
 }
 	
 /* Paragraphs */
-p {margin-bottom: 1.143em; color: #666; font-size:15px}
+p {margin-bottom: 1.143em; color:#333 ; font-size:1.6em}
 
 strong, b {font-weight: bold; color: #333;}
 em, i {font-style: italic;}
@@ -81,7 +82,6 @@ ol {
 	float:right;	
 	}
 .LaunchyardDetail {
-    font-family: 'vollkorn';
     font-size: 1.5em;
     position: fixed;
     left: 4%;
@@ -91,13 +91,31 @@ ol {
 
 .LaunchyardDetail p {
 	margin:0;
+    margin-bottom: 7em;
 	text-align: center;
 	font-size:.9em;
 }
-.LaunchyardDetail a:first-child {
+.LaunchyardDetail ul {
+    list-style: none;
+    margin:0;
+    padding-left:20px;
+}
+.LaunchyardDetail li {
+    font-size: 0.95em;
+    font-family: Helvetica, sans-serif;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 0.5em;
+}
+
+
+.LaunchyardDetial li a {
+}
+
+.LaunchyardDetail a#sitesubtitle {
     text-decoration: none;
-    position: absolute;
-    margin: 28% 38%;
+    font-size: 1.5em;
+    color: black;
 }
 .post-info {
     width: 100%;
@@ -424,7 +442,7 @@ img.left, figure.left {float: left; margin: 0 2em 2em 0;}
 li:last-child .hentry, #content > .hentry {border: 0; margin: 0;}
 #content > .hentry {padding: 1em 0;}
 .hentry img{display : none ;}
-.entry-title {font-size: 2.5em; margin-bottom: 0px; margin-top: 0; }
+.entry-title {font-size: 4em; margin-bottom: 0px; margin-top: 0; }
 .entry-title a:link, .entry-title a:visited {text-decoration: none; color: #333;}
 .entry-title a:visited {background-color: #fff;}
 
