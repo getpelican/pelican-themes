@@ -3,7 +3,6 @@
 @import url("reset.css");
 @import url("pygment.css");
 @import url("typogrify.css");
-@import url(http://fonts.googleapis.com/css?family=Vollkorn);
 
 /***** Global *****/
 /* Body */
@@ -58,6 +57,7 @@ h1 a:hover {
 	
 /* Paragraphs */
 p {margin-bottom: 1.143em; color:#333 ; font-size:1.6em}
+pre {margin-bottom: 1.143em; font-size:1.6em}
 
 strong, b {font-weight: bold; color: #333;}
 em, i {font-style: italic;}
@@ -145,13 +145,6 @@ ol {
 dl {margin: 0 0 1.5em 0;}
 dt {font-weight: bold;}
 dd {margin-left: 1.5em;}
-
-pre {background-color:#ffc;
-     padding: 10px;
-     margin: 10px;
-     overflow: auto;
-     font-size:14px;
-     font-family: 'Trebuchet MS', Trebuchet, 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;}
 
 /* Quotes */
 blockquote {
@@ -445,6 +438,7 @@ li:last-child .hentry, #content > .hentry {border: 0; margin: 0;}
 .entry-title {font-size: 4em; margin-bottom: 0px; margin-top: 0; }
 .entry-title a:link, .entry-title a:visited {text-decoration: none; color: #333;}
 .entry-title a:visited {background-color: #fff;}
+.entry-content blockquote {font-size: 1.5em; margin: 10px 20px; }
 
 .hentry .post-info * {font-style: normal;}
 
