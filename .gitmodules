@@ -1,3 +1,6 @@
+[submodule "ghastly"]
+	path = ghastly
+	url = https://github.com/kura/ghastly.git
 [submodule "svbtle"]
 	path = svbtle
 	url = https://github.com/wting/pelican-svbtle.git
