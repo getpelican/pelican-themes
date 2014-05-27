@@ -156,7 +156,12 @@
 
 <footer>
 <br />
-<p><a href="{{ SITEURL }}">{{ SITENAME }}</a> &copy; {{ AUTHOR }} 2012</p>
+{% if articles %}
+   {% set copy_date = articles[0].date.strftime('%Y') %}
+{% else %}
+   {% set copy_date = '' %}
+{% endif %}
+<p><a href="{{ SITEURL }}">{{ SITENAME }}</a> &copy; {{ AUTHOR }} {{ copy_date }}</p>
 </footer>
 
 </div> <!-- /container -->
