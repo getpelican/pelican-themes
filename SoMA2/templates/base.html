@@ -37,15 +37,14 @@
   <div class="LaunchyardDetail">
     <p>
     <!-- <img src="{{ SITEURL }}/theme/images/blue-pin.png" width="100" height="100" alt="Graph icon"> -->
-    <br/>
-    <a id="sitesubtitle" href="{{ SITEURL }}/">{% if SITESUBTITLE %}{{ SITESUBTITLE }}{% endif %}</a>
-    <br/>
+    </p>
+    <p><a id="sitesubtitle" href="{{ SITEURL }}/">{% if SITESUBTITLE %}{{ SITESUBTITLE }}{% endif %}</a></p>
+
     <!-- This belongs in the about page -->
       <!-- {% for name, link in SOCIAL %} -->
       <!-- <a href="{{ link }}">{{ name }}</a> -->
       <!-- <br/> -->
       <!-- {% endfor %} -->
-    </p>
 
 {% include 'categories.html' %}
   </div>
