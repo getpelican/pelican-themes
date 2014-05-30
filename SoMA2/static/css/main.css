@@ -57,7 +57,7 @@ h1 a:hover {
 	
 /* Paragraphs */
 p {margin-bottom: 1.143em; color:#333 ; font-size:1.6em}
-pre {margin-bottom: 1.143em; font-size:1.6em}
+pre {margin-bottom: 1.143em; padding: 4px; font-size:1.6em}
 
 strong, b {font-weight: bold; color: #333;}
 em, i {font-style: italic;}
@@ -91,7 +91,7 @@ ol {
 
 .LaunchyardDetail p {
 	margin:0;
-    margin-bottom: 7em;
+    margin-bottom: 3em;
 	text-align: center;
 	font-size:.9em;
 }
@@ -114,8 +114,9 @@ ol {
 
 .LaunchyardDetail a#sitesubtitle {
     text-decoration: none;
-    font-size: 1.5em;
-    color: black;
+    font-size: 3.5em;
+    font-weight: bold;
+    color: #4896DF;
 }
 .post-info {
     width: 100%;
