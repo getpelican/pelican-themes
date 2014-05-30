@@ -436,7 +436,7 @@ img.left, figure.left {float: left; margin: 0 2em 2em 0;}
 li:last-child .hentry, #content > .hentry {border: 0; margin: 0;}
 #content > .hentry {padding: 1em 0;}
 .hentry img{display : none ;}
-.entry-title {font-size: 4em; margin-bottom: 0px; margin-top: 0; }
+.entry-title {font-size: 3.5em; font-weight:bold;  margin-bottom: 0px; margin-top: 0; }
 .entry-title a:link, .entry-title a:visited {text-decoration: none; color: #333;}
 .entry-title a:visited {background-color: #fff;}
 .entry-content blockquote {font-size: 1.5em; margin: 10px 20px; }
