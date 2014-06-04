@@ -30,7 +30,7 @@ h1, h2, h3, h4, h5, h6 {
 	/* font-weight: 400; */
 	line-height: 1.1;
 	margin-bottom: .8em;
-    font-family: Helvetica, sans-serif;
+    font-family: 'Avenir Next', sans-serif;
 }
 
 h3, h4, h5, h6 { margin-top: .8em; }
@@ -91,10 +91,20 @@ ol {
 
 .LaunchyardDetail p {
 	margin:0;
-    margin-bottom: 3em;
+    /* margin-bottom: 1em; */
 	text-align: center;
 	font-size:.9em;
 }
+.LaunchyardDetail p#sitetagline {
+    font-style: italic;
+    margin-bottom: 3em;
+}
+.LaunchyardDetail a#aboutlink {
+    font-size: 0.95em;
+    font-family: 'Avenir Next', sans-serif;
+    /* font-weight: bold; */
+}
+
 .LaunchyardDetail ul {
     list-style: none;
     margin:0;
@@ -102,7 +112,7 @@ ol {
 }
 .LaunchyardDetail li {
     font-size: 0.95em;
-    font-family: Helvetica, sans-serif;
+    font-family: 'Avenir Next', sans-serif;
     font-weight: 700;
     color: #333;
     margin-bottom: 0.5em;
@@ -440,6 +450,9 @@ li:last-child .hentry, #content > .hentry {border: 0; margin: 0;}
 .entry-title a:link, .entry-title a:visited {text-decoration: none; color: #333;}
 .entry-title a:visited {background-color: #fff;}
 .entry-content blockquote {font-size: 1.5em; margin: 10px 20px; }
+.entry-content li {font-size: 1.6em;}
+#featured .body li {font-size: 1.6em;}
+#featured .body blockquote {font-size: 1.5em; margin: 10px 20px; }
 
 .hentry .post-info * {font-style: normal;}
 

@@ -10,7 +10,7 @@
                 <div class="body">
                     <article>
                         <h1 class="entry-title"><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h1>
-                        {% include 'article_infos.html' %}{{ article.content }}
+                        {% include 'article_infos.html' %}{{ article.summary }}
                     </article>
 		{% if loop.last and (articles_page.has_previous() or not articles_page.has_previous() and loop.length > 1) %} 
                     {% include 'pagination.html' %}
