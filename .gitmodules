@@ -106,3 +106,6 @@
 [submodule "maggner-pelican"]
 	path = maggner-pelican
 	url = https://github.com/kplaube/maggner-pelican.git
+[submodule "pelican-sober"]
+	path = pelican-sober
+	url = https://github.com/fle/pelican-sober.git
