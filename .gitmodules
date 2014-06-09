@@ -1,3 +1,9 @@
+[submodule "Responsive-Pelican"]
+	path = Responsive-Pelican
+	url = git@github.com:ir193/Responsive-Pelican.git
+[submodule "hauntr"]
+        path = hauntr
+        url = https://github.com/kura/hauntr.git
 [submodule "ghastly"]
 	path = ghastly
 	url = https://github.com/kura/ghastly.git
@@ -112,3 +118,6 @@
 [submodule "pelican-sober"]
 	path = pelican-sober
 	url = https://github.com/fle/pelican-sober.git
+[submodule "twenty-html5up"]
+	path = twenty-html5up
+	url = git@github.com:frankV/twenty-pelican-html5up.git
