@@ -62,14 +62,16 @@ hr.gradient {
 
 /* Syntax Highlighting */
 .highlight > pre {
-word-wrap: normal;
-white-space: pre;
-margin-top: 1em;
-margin-bottom: 1em;
-border: 1px solid #ccc;
-background: #073642;
-padding: 1em;
-overflow: auto;
+	word-wrap: normal;
+	white-space: pre;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	background: #e0e0e0;
+	padding: 1em;
+	overflow: auto;
+	font-weight:normal;
 }
 
 body { background-color: #fffff9; }
