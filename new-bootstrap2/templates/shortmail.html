@@ -1,0 +1,9 @@
+{% if SHORT_MAIL %}
+<div class="shortmail-compose-widget"></div>
+<script src="http://shortmail.com/widgets/compose-widget.js?v=1"></script>
+<script>
+  Shortmail.ComposeWidget({
+    screenName: '{{ SHORT_MAIL }}'
+  });
+</script>
+{% endif %}
