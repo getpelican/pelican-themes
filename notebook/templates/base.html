@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="{{ DEFAULT_LANG }}">
+<head>
+  {% block head %}
+  <meta charset="utf-8">
+  <!-- Site Meta Data -->
+  <title>{% block title %}{{ SITENAME }}{% endblock %}</title>
+  <meta name="description" content="">
+  <meta name="author" content="{{ AUTHOR }}">
+
+  <!-- Style Meta Data -->
+  <link rel="stylesheet" href="{{ SITEURL }}/theme/css/notebook.css" type="text/css" />
+  <link rel="shortcut icon" href="{{ SITEURL }}/{{ AVATAR}}">
+
+  <!-- Feed Meta Data -->
+  <link href="{{ SITEURL }}/{{ FEED }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} ATOM Feed" />
+  {% if FEED_RSS %}
+  <link href="{{ SITEURL }}/{{ FEED_RSS }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} RSS Feed" />
+  {% endif %}
+
+  <!-- Twitter Feed -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="{{ TWITTER_USERNAME }}">
+  <meta name="twitter:image" content="{{ SITEURL }}/{{ AVATAR }}">
+  {% endblock %}
+</head>
+
+<body>
+  <!-- Sidebar -->
+  <aside>
+    <p><a href="{{ SITEURL }}"><img id="avatar" src="{{ SITEURL }}/{{ AVATAR }}"></a></p>
+    <h1>{{ SITENAME }}</h1>
+    <p>{{ SIDEBAR_DIGEST }}</p>
+    <hr>
+    <h2>Social</h2>
+    <ul class="social">
+      {% for name, link in SOCIAL %}
+      <li style="list-style-image : url({{ SITEURL }}/theme/images/icons/{{ name|lower }}.png);"><a href="{{ link }}">{{ name }}</a></li>
+      {% endfor %}
+      <li style="list-style-image : url({{ SITEURL }}/theme/images/icons/rss.png);"><a href="{{ SITEURL }}/{{ FEED_ATOM }}" rel="alternate"><i class="icon-bookmark icon-large"></i>Atom feed</a></li>
+      {% if FEED_RSS %}
+      <li style="list-style-image : url({{ SITEURL }}/theme/images/icons/rss.png);"><a href="{{ SITEURL }}/{{ FEED_RSS }}" rel="alternate">RSS feed</a></li>
+      {% endif %}
+    </ul>
+    {% for title, link in MENUITEMS %}
+    <li><a href="{{ link }}">{{ title }}</a></li>
+    {% endfor %}
+    {% if DISPLAY_PAGES_ON_MENU and PAGES %}
+    <h2>Pages</h2>
+    <ul class="navbar">
+      {% for p in PAGES %}
+      <li><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+    {% if categories %}
+    <h2>Categories</h2>
+    <ul class="navbar">
+      {% for cat, null in categories %}
+      <li{% if cat == category %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
+      {% endfor %}
+    </ul> 
+    {% endif %}
+  </aside>
+
+  <!-- Content -->
+  <article>
+    {% block content %}
+    {% endblock %}
+  </article>
+
+  <!-- Footer -->
+  <footer>
+    <address id="about" class="vcard body">
+      {% if FIREFOX_BANNERS %}
+      <div align="center">
+        {% for id, img, alt in FIREFOX_BANNERS %}
+        <a href="http://affiliates.mozilla.org/link/banner/{{ id }}" target="_blank"><img src="{{ img }}" alt="{{ alt }}"/></a>
+        {% endfor %}
+      </div>
+      {% endif %}
+      Blog powered by <a href="http://getpelican.com/">Pelican</a>, 
+      which takes great advantage of <a href="http://python.org">Python</a>.
+      Theme <a href="https://github.com/quack1/notebook/">Notebook</a> by <a href="https://twitter.com/_Quack1">@Quack1</a>.
+    </address>
+  </footer>
+
+  {% if GOOGLE_ANALYTICS %}
+  <!-- Analytics -->
+  <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', '{{ GOOGLE_ANALYTICS }}']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script>
+  {% endif %}
+
+</body>
+</html>

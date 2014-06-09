@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block head %}
+{{ super() }}
+<meta name="twitter:creator" content="{{ TWITTER_USERNAME }}">
+<meta name="twitter:url" content="{{ SITEURL }}/categories.html">
+<meta name="twitter:title" content="{{ SITENAME }} ~ Catégories">
+<meta name="twitter:description" content="{{ SITENAME }} ~ Catégories du site">
+
+<!-- Facebook Meta Data -->
+<meta property="og:title" content="{{ SITENAME }} ~ Catégories" />
+<meta property="og:description" content="{{ SITENAME }} ~ Catégories" />
+<meta property="og:image" content="{{ AVATAR }}" />
+{% endblock head %}
+{% block content %}
+<h2>Categories</h2>
+<ul class="category_folder">
+{% for category, articles in categories %}
+	<li><a href="{{ category.url }}">{{ category }}</a></li>
+{% endfor %}
+</ul>
+{% endblock %}
