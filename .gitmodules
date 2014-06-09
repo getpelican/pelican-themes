@@ -112,3 +112,6 @@
 [submodule "pelican-sober"]
 	path = pelican-sober
 	url = https://github.com/fle/pelican-sober.git
+[submodule "twenty-html5up"]
+	path = twenty-html5up
+	url = git@github.com:frankV/twenty-pelican-html5up.git
