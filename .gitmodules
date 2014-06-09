@@ -1,3 +1,6 @@
+[submodule "hauntr"]
+        path = hauntr
+        url = https://github.com/kura/hauntr.git
 [submodule "ghastly"]
 	path = ghastly
 	url = https://github.com/kura/ghastly.git
