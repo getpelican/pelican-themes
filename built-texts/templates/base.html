@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% block head %}
+
     <meta charset="utf-8">
-    <title>{% block windowtitle %}{{ SITENAME }}{% endblock %}</title>
+    <title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
     <meta name="description" content="">
     <meta name="author" content="{{ AUTHOR }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,6 +19,8 @@
     <link href="{{ SITEURL }}/theme/pygments.css" rel="stylesheet">
     <link href="{{ SITEURL }}/theme/font-awesome.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Gudea:400,400italic|Alegreya+SC' rel='stylesheet' type='text/css'>
+
+    {% endblock head %}
 </head>
 
 <body>
