@@ -113,9 +113,11 @@
                 <i class="icon-rss" style="color: #1f334b"></i>
                 RSS Feed</a></li>
 	    {% endif %}
-            <li><a href="{{ SITEURL }}/{{ FEED }}" rel="alternate">
-                <i class="icon-rss-sign" style="color: #1f334b"></i>
+	    {% if FEED_ATOM %}
+	    <li> <a href="{{ FEED_DOMAIN }}/{{ FEED_ATOM }}" rel="alternate">
+                <i class="icon-rss" style="color: #1f334b"></i>
                 Atom Feed</a></li>
+	    {% endif %}
 	  </ul>
 
         </div>
