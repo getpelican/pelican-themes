@@ -24,6 +24,15 @@ GOOGLE_ANALYTICS_ID = ''
 GOOGLE_ANALYTICS_SITENAME = ''
 ```
 
+Alternatively you can use [Piwik](http://piwik.org/) for analytics if you set the following settings, where the url has to be given without leading `http://` and trailing `/`.
+
+```
+PIWIK_ID = ''
+PIWIK_URL = ''
+```
+
+
+
 
 ### Screenshot ###
 
