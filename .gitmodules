@@ -1,6 +1,6 @@
 [submodule "pelicanthemes-generator"]
 	path = pelicanthemes-generator
-	url = https://github.com/badele/pelicanthemes-generator.git
+	url = https://github.com/badele/pelicanthemes-generator
 [submodule "Responsive-Pelican"]
 	path = Responsive-Pelican
 	url = git://github.com/ir193/Responsive-Pelican.git
