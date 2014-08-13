@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block description %}Title: {{ article.title }}; Date: {{ article.date|strftime('%Y-%m-%d') }}; Author: {{ article.author }}{% endblock %}
+{% block title %}{{ article.title }} — {{ SITENAME }}{% endblock %}
+{% block content %}
+<div class="article" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="text-center article-header">
+		<h1 itemprop="name headline" class="article-title">{{ article.title }}</h1>
+		<span itemprop="author" itemscope itemtype="http://schema.org/Person">
+			<h4 itemprop="name">{{article.author or "Wilson Freitas"}}</h4>
+		</span>
+		<time datetime="{{ article.date.isoformat() }}" itemprop="datePublished">{{ article.locale_date }}</time>
+	</div>
+	{% if article.category %}
+	<div>
+		Category:
+		<span itemprop="articleSection">
+			<a href="{{ SITEURL }}/{{ article.category.url }}" rel="category">{{ article.category }}</a>
+		</span>
+	</div>
+	{% endif %}
+	{% if article.tags %} 
+	<div>
+		Tags:
+		{% for tag in article.tags %}
+		<span itemprop="keywords">
+			<a href="{{ SITEURL }}/{{ tag.url }}" rel="tag">{{ tag }}</a>
+		</span>
+		{% endfor %}
+	</div>
+	{% endif %}
+	<div itemprop="articleBody" class="article-body">{{ article.content }}</div>
+	<hr>
+	<h2>Comments</h2>
+	{% include "twitter.html" %}
+	{% include 'disqus.html' %}
+</div>
+{% endblock %}

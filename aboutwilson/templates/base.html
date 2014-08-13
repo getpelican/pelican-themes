@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="{{ DEFAULT_LANG }}">
+<head>
+	<meta charset="utf-8">
+	<title>{% block title %}{{ SITENAME }}{% endblock %}</title>
+	<meta name="description" content="{% block description %}Coding, scientific development, finance, data analysis, visualization, statistics, and machine learning{% endblock %}">
+	<meta name="author" content="{{ AUTHOR }}">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+		<script src="{{ SITEURL }}/theme/html5.js"></script>
+		<![endif]-->
+	<link href="{{ SITEURL }}/theme/css/ipython.css" rel="stylesheet">
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+	<link href="//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/simplex/bootstrap.min.css" rel="stylesheet">
+	<link href="{{ SITEURL }}/theme/css/local.css" rel="stylesheet">
+	<link href="{{ SITEURL }}/theme/css/pygments.css" rel="stylesheet">
+	{% block head %}{% endblock %}
+</head>
+<body>
+<div class="container">
+	<div class="page-header">
+		<h1><a href="{{SITEURL}}">{{ SITENAME }}</a>
+			<br><small>what we observe is not the nature itself but the nature exposed to our method of questioning</small></h1>
+	</div>
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			{% block content %}{% endblock %}
+		</div>
+	</div> {# End row #}
+	<!-- <hr> -->
+</div> <!-- /container -->
+<footer class="aw-footer bg-danger">
+	<div class="container"> <!-- footer -->
+		<div class="row">
+			<div class="col-md-10 col-md-offset-1">
+				<div class="row">
+					<div class="col-md-3">
+						<h4>Navigation</h4>
+						<ul class="list-unstyled my-list-style">
+							<li><a href="{{SITEURL}}">{{ SITENAME }}</a></li>
+							{% for title, link in MENUITEMS %}
+							<li><a href="{{ SITEURL }}/{{ link }}"><i class="fa fa-{{ title }} "></i> {{title}}</a></li>
+							{% endfor %}
+							{% if DISPLAY_PAGES_ON_MENU %}
+							{% for page in PAGES %}
+							<li><a href="{{ SITEURL }}/{{ page.url }}"><i class="fa fa-{{ page.title }} "></i> {{page.title}}</a></li>
+							{% endfor %}
+							{% endif %}
+							<li><a href="{{ SITEURL }}/feeds/rss.xml"><i class="fa fa-rss "></i> rss</a></li>
+						</ul>
+					</div>
+					<div class="col-md-3">
+						<h4>Author</h4>
+						<ul class="list-unstyled my-list-style">
+							<li><a href="http://aboutwilson.net">Homepage</a></li>
+							<li><a href="http://github.com/wilsonfreitas">Github</a></li>
+							<li><a href="https://twitter.com/aboutwilson">Twitter</a></li>
+							<li><a href="https://plus.google.com/114469936125336696794?rel=author">Google+</a></li>
+							<li><a href="https://www.facebook.com/wnfreitas">Facebook</a></li>
+							<li><a href="http://www.linkedin.com/pub/wilson-freitas/a/572/609">Linked-in</a></li>
+						</ul>
+					</div>
+					<div class="col-md-3">
+						<h4>Categories</h4>
+						<ul class="list-unstyled my-list-style">
+							{% for cat, art in categories %}
+							<li><a href="{{SITEURL}}/category/{{cat | replace(" ", "-") }}.html">{{cat}} ({{art | count}})</a></li>
+							{% endfor %}
+						</ul>
+					</div>
+					<div class="col-md-3">
+						<h4>Links</h4>
+						<ul class="list-unstyled my-list-style">
+							<li><a href="http://www.r-bloggers.com/">R-bloggers</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+<div class="container">
+	<div class="row">
+		<div class="col-md-12 text-center center-block aw-bottom">
+			<p>&copy; {{ AUTHOR }} 2014</p>
+			<p>Powered by Pelican</p>
+		</div>
+	</div>
+</div>
+<!-- JavaScript -->
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+	$("div.collapseheader").click(function () {
+		$header = $(this).children("span").first();
+		$codearea = $(this).children(".input_area");
+		$codearea.slideToggle(500, function () {
+			$header.text(function () {
+				return $codearea.is(":visible") ? "Collapse Code" : "Expand Code";
+			});
+		});
+	});
+});
+</script>
+{% include "analytics.html" %}
+{% include "github.html" %} 
+</body>
+</html>
