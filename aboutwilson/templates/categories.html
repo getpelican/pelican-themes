@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block description %}The Categories page lists all categories used to classify the posts. Each post is categorized by a category helping readers find out easily what they are looking for.{% endblock %}
+{% block title %}Categories — {{ SITENAME }}{% endblock %}
+{% block content %}
+<h1>Categories</h1>
+<ul>
+{% for category, articles in categories %}
+	<li><a href="{{ SITEURL }}/{{ category.url }}">{{ category }}</li>
+{% endfor %}
+</ul>
+{% endblock %}

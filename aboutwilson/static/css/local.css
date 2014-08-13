@@ -1,0 +1,104 @@
+
+.my-list-style {
+    margin-left: 0;
+}
+
+.aw-bottom {
+    padding: 2em;
+}
+
+.aw-footer {
+    margin-top: 2em;
+    border-top: 2px solid lightgrey;
+    border-bottom: 2px solid lightgrey;
+/*    height: 250px;*/
+    padding-top: 2em;
+    padding-bottom: 2em;
+}
+
+.aw-footer li {
+    line-height: 200%;
+}
+
+.summary {
+    margin-bottom: 2em;
+    margin-top: 2em;
+    color: black;
+}
+
+.summary pre { display: none; }
+
+.article-body {
+    margin-top: 2em;
+    color: black;
+}
+
+.article-title {
+    margin-bottom: 1em;
+}
+
+.article-header {
+    margin-bottom: 1em;
+}
+
+/**
+ * Overrides of notebook CSS for static HTML export
+**/
+div.entry-content {
+	overflow: visible;
+	padding: 8px;
+}
+
+.inner_cell {
+	width: 100%;
+}
+
+.input_area {
+	padding: 0.2em;
+}
+
+a.heading-anchor {
+	white-space: normal;
+}
+
+.rendered_html code {
+	font-size: .8em;
+}
+
+pre.ipynb {
+	color: black;
+	background: #f7f7f7;
+	border: none;
+	box-shadow: none;
+	margin-bottom: 0;
+	padding: 0;
+	margin: 0px;
+	font-size: 13px;
+}
+
+/* remove the prompt div from text cells */
+.prompt {
+	display: none;
+}
+
+/* remove horizontal padding from text cells, */
+/* so it aligns with outer body text */
+div.text_cell_render {
+	padding: 0.5em 0em;
+}
+
+img.anim_icon {
+	padding: 0;
+	border: 0;
+	vertical-align: middle;
+	-webkit-box-shadow: none;
+	-box-shadow: none;
+}
+
+div.collapseheader {
+	width: 100%;
+	background-color: #d3d3d3;
+	padding: 2px;
+	cursor: pointer;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
