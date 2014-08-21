@@ -52,7 +52,7 @@
       {% set cc_title_suffix = cc_title_suffix ~ "-ShareAlike" %}
     {% endif %}
   {% endif %}
-  {% set cc_title, cc_uri, cc_icon = ("Creative Commons Attribution 4.0 InternationalCCSUFFIX License","http://creativecommons.org/licenses/CCNAME/4.0/","http://i.creativecommons.org/l/CCNAME/4.0/80x15.png") %}
+  {% set cc_title, cc_uri, cc_icon = ("Creative Commons Attribution 4.0 InternationalCCSUFFIX License","http://creativecommons.org/licenses/CCNAME/4.0/","//i.creativecommons.org/l/CCNAME/4.0/80x15.png") %}
   <a rel="license" href="{{ cc_uri|replace('CCNAME',cc_name) }}"><img alt="Creative Commons License" style="border-width:0" src="{{ cc_icon|replace('CCNAME',cc_name) }}" /></a>
   {% if br_after_img %}<br/>{% endif %}
   {% if attr_markup %}

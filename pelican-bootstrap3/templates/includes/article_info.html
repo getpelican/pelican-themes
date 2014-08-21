@@ -3,15 +3,17 @@
     <span class="published">
         <i class="fa fa-calendar"></i><time datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }}</time>
     </span>
-    {# Uncomment if you want the author shown #}
-    {#{% if article.author %}#}
-    {#<span class="label">By</span>#}
-    {#<a href="{{ SITEURL }}/{{ article.author.url }}"><i class="fa fa-user"></i> {{ article.author }}</a>#}
-    {#{% endif %}#}
+    {% if SHOW_ARTICLE_AUTHOR %}
+        {% if article.author %}
+            <span class="label label-default">By</span>
+            <a href="{{ SITEURL }}/{{ article.author.url }}"><i class="fa fa-user"></i> {{ article.author }}</a>
+        {% endif %}
+    {% endif %}
 
-    {# Uncomment if you want to show Categories#}
-    {#<span class="label label-default">Category</span>#}
-    {#<a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>#}
+    {% if SHOW_ARTICLE_CATEGORY %}
+        <span class="label label-default">Category</span>
+        <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>
+    {% endif %}
 
     {% if PDF_PROCESSOR %}
         <span class="label label-default">

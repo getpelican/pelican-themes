@@ -1,47 +1,60 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
+<html lang="{% block html_lang %}{{ DEFAULT_LANG }}{% endblock %}"
+      {% if USE_OPEN_GRAPH %}
       xmlns:og="http://ogp.me/ns#"
-      xmlns:fb="https://www.facebook.com/2008/fbml">
+      xmlns:fb="https://www.facebook.com/2008/fbml"{% endif %}>
 <head>
     <title>{% block title %}{{ SITENAME }}{% endblock %}</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
+    {% if 'liquid_tags.notebook' in PLUGINS %}
+        {% include 'includes/liquid_tags_nb_header.html' %}
+    {% endif %}
+
+    {# Favicons are a touchy subject. For reasoning for the following code, see: http://stackoverflow.com/a/23851464/872397 #}
     {% if FAVICON %}
     <link href="{{ SITEURL }}/{{ FAVICON }}" rel="icon">
     {% endif %}
+    {% if FAVICON_IE %}
+    <!--[if IE]><link rel="shortcut icon" href="{{ SITEURL }}/{{ FAVICON_IE }}"><![endif]-->
+    {% endif %}
+    {% if TOUCHICON %}
+    <link rel="apple-touch-icon" href="{{ SITEURL }}/{{ TOUCHICON }}">
+    {% endif %}
+
+    {% block canonical_rel %}{% endblock %}
+
+    {% block meta %}
+        <meta name="author" content="{{ AUTHOR }}" />
+    {% endblock %}
 
     {# Open Graph tags #}
     {% if USE_OPEN_GRAPH is not defined %}
         {% set USE_OPEN_GRAPH = True %}
     {% endif %}
     {% if USE_OPEN_GRAPH %}
+    {% block opengraph %}
     <!-- Open Graph tags -->
         {% if OPEN_GRAPH_FB_APP_ID %}
             <meta property="fb:app_id" content="{{ OPEN_GRAPH_FB_APP_ID }}"/>
         {% endif %}
-        {% if article %}
-            <meta property="og:type" content="article"/>
-            <meta property="og:title" content="{{ article.title|striptags }}"/>
-            <meta property="og:url" content="{{ SITEURL }}/{{ article.url }}"/>
-            <meta property="og:description" content="{{ article.summary|striptags }}"/>
-        {% elif page %}
-            <meta property="og:type" content="article"/>
-            <meta property="og:title" content="{{ page.title }}"/>
-            <meta property="og:url" content="{{ SITEURL }}/{{ page.url }}"/>
-        {% else %}
-            <meta property="og:type" content="website"/>
-            <meta property="og:title" content="{{ SITENAME }}"/>
-            <meta property="og:url" content="{{ SITEURL }}"/>
-            <meta property="og:description" content="{{ SITENAME }}"/>
-            {% if OPEN_GRAPH_IMAGE %}
+        <meta property="og:site_name" content="{{ SITENAME }}" />
+        <meta property="og:type" content="website"/>
+        <meta property="og:title" content="{{ SITENAME }}"/>
+        <meta property="og:url" content="{{ SITEURL }}"/>
+        <meta property="og:description" content="{{ SITENAME }}"/>
+        {% if OPEN_GRAPH_IMAGE %}
             <meta property="og:image"
-                  content="{{ SITEURL }}/static/{{ OPEN_GRAPH_IMAGE }}"/>
-            {% endif %}
+                  content="{{ SITEURL }}/{{ OPEN_GRAPH_IMAGE }}"/>
         {% endif %}
+    {% endblock %}
     {% endif %}
+
+    {# Twitter Cards tags #}
+    {% include 'includes/twitter_cards.html' %}
 
     <!-- Bootstrap -->
     {% if BOOTSTRAP_THEME %}
@@ -68,7 +81,7 @@
               title="{{ SITENAME }} ATOM Feed"/>
     {% endif %}
     {% if FEED_ALL_RSS %}
-        <link href="{{ SITEURL }}/{{ FEED_ALL_RSS }}" type="application/atom+xml" rel="alternate"
+        <link href="{{ SITEURL }}/{{ FEED_ALL_RSS }}" type="application/rss+xml" rel="alternate"
               title="{{ SITENAME }} RSS Feed"/>
     {% endif %}
 
@@ -97,7 +110,7 @@
                 {% if DISPLAY_PAGES_ON_MENU %}
                     {% for p in PAGES %}
                          <li{% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">
-                             {{ p.title }}
+                             {{ p.menulabel|default(p.title) }}
                           </a></li>
                       {% endfor %}
                 {% endif %}
@@ -119,7 +132,7 @@
 
 <div class="container">
     <div class="row">
-        {% if not HIDE_SIDEBAR %}
+        {% if not HIDE_SIDEBAR or SHOW_ABOUTME %}
         <div class="col-sm-9">
         {% else %}
         <div class="col-lg-12">
@@ -130,6 +143,11 @@
         {% block content %}
         {% endblock %}
         </div>
+	{% if ABOUT_ME %}
+        <div class="col-sm-3" id="aboutme">
+            {% include 'includes/aboutme.html' %}
+        </div>
+	{% endif %}
 	{% if not HIDE_SIDEBAR %}
         <div class="col-sm-3 well well-sm" id="sidebar">
             {% include 'includes/sidebar.html' %}
@@ -139,7 +157,7 @@
 </div>
 {% include 'includes/footer.html' %}
 
-<script src="//code.jquery.com/jquery.js"></script>
+<script src="{{ SITEURL }}/theme/js/jquery.min.js"></script>
 
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="{{ SITEURL }}/theme/js/bootstrap.min.js"></script>

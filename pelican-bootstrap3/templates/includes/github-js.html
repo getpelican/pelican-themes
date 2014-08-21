@@ -11,6 +11,7 @@
             {% set GITHUB_SKIP_FORK = "false" %}
         {% endif %}
     {% endif %}
+    <!-- GitHub JS -->
     <script type="text/javascript">
         $(document).ready(function () {
             if (!window.jXHR) {
@@ -30,4 +31,5 @@
         });
     </script>
     <script src="{{ SITEURL }}/theme/js/github.js" type="text/javascript"></script>
+    <!-- End GitHub JS Code -->
 {% endif %}

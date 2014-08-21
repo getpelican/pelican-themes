@@ -1,5 +1,52 @@
 {% extends "base.html" %}
 {% block title %}{{ article.title|striptags }} - {{ SITENAME }}{% endblock %}
+{% block html_lang %}{{ article.lang }}{% endblock %}
+{% block meta %}
+    {% if article.author %}
+        <meta name="author" content="{{ article.author }}" />
+    {% else %}
+        <meta name="author" content="{{ AUTHOR }}" />
+    {% endif %}
+    {% if article.tags %}
+        <meta name="keywords" content="{{ article.tags|join(',')|striptags }}" />
+    {% endif %}
+    {% if article.summary %}
+        <meta name="description" content="{{ article.summary|striptags|escape }}" />
+    {% endif %}
+{% endblock %}
+{% block opengraph %}
+    {% if OPEN_GRAPH_FB_APP_ID %}
+        <meta property="fb:app_id" content="{{ OPEN_GRAPH_FB_APP_ID }}"/>
+        <meta property="og:site_name" content="{{ SITENAME }}" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="{{ article.title|striptags|escape }}"/>
+        <meta property="og:url" content="{{ SITEURL }}/{{ article.url }}"/>
+        <meta property="og:description" content="{{ article.summary|striptags|escape }}"/>
+        <meta property="article:published_time" content="{{ article.date.strftime("%Y-%m-%d") }}" />
+        {% if article.category %}
+            <meta property="article:section" content="{{ article.category }}" />
+        {% endif %}
+        {% for tag in article.tags %}
+            <meta property="article:tag" content="{{ tag }}" />
+        {% endfor %}
+        {% if article.author %}
+            <meta property="article:author" content="{{ article.author }}" />
+        {% elif AUTHOR %}
+            <meta property="article:author" content="{{ AUTHOR }}" />
+        {% endif %}
+        {% if article.og_image %}
+            <meta property="og:image"
+                  content="{{ SITEURL }}/{{ article.og_image }}"/>
+        {% elif OPEN_GRAPH_IMAGE %}
+            <meta property="og:image"
+                  content="{{ SITEURL }}/{{ OPEN_GRAPH_IMAGE }}"/>
+        {% endif %}
+    {% endif %}
+{% endblock %}
+
+{% block canonical_rel %}
+<link rel="canonical" href="{{ SITEURL }}/{{ article.url }}">
+{% endblock %}
 
 {% block breadcrumbs %}
     {% if DISPLAY_BREADCRUMBS %}

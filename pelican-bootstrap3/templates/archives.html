@@ -12,12 +12,13 @@
 {% block content %}
     <section id="content">
         <h1>Archives for {{ SITENAME }}</h1>
-
-        <dl>
+        <div id="archives">
             {% for article in dates %}
-                <dt>{{ article.locale_date }}</dt>
-                <dd><a href='{{ SITEURL }}/{{ article.url }}'>{{ article.title }}</a></dd>
+                <p>
+                    <span class="categories-timestamp"><time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time></span>
+                    <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}{% if article.subtitle %} - {{ article.subtitle }}{% endif %}</a>
+                </p>
             {% endfor %}
-        </dl>
+        </div>
     </section>
 {% endblock %}
