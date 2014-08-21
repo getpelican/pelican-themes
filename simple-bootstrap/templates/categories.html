@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %} Articles in {{ category }} - {{ SITENAME }}{% endblock %}
+{% block archclass %} class="active"{%endblock%}
+{% block content %}
+<ul>
+{% for category, articles in categories %}
+    <li><a href="{{ SITEURL }}/{{ category.url }}">{{ category }}</a></li>
+{% endfor %}
+</ul>
+{% endblock %}

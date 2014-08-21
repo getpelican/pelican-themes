@@ -1,0 +1,19 @@
+{% if DEFAULT_PAGINATION %}
+<div class="pagination-centered">
+<h6 class="subheader">Page {{ articles_page.number }} of {{ articles_paginator.num_pages }}</h6>
+
+<p>
+    {% if articles_page.has_previous() %}
+        {% if articles_page.previous_page_number() == 1 %}
+            <a href="{{ SITEURL }}/{{ page_name }}.html">&laquo; Prev</a>
+        {% else %}
+            <a href="{{ SITEURL }}/{{ page_name }}{{ articles_page.previous_page_number() }}.html">&laquo; Prev</a>
+        {% endif %}
+    {% endif %}
+
+    {% if articles_page.has_next() %}
+        <a href="{{ SITEURL }}/{{ page_name }}{{ articles_page.next_page_number() }}.html">Next &raquo;</a>
+    {% endif %}
+</p>
+</div>
+{% endif %}

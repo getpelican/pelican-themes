@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block description %}The Tags page lists all tags used to classify the posts. Each post has at least one tag helping readers find out easily what they are looking for.{% endblock %}
+{% block title %}Tags — {{ SITENAME }}{% endblock %}
+{% block head %}
+<style type="text/css" media="screen">
+ul.tagcloud {
+	list-style: none;
+	padding: 0;
+	padding-top: 7em;
+	padding-bottom: 7em;
+	width: 50%;
+	margin-left: 25%;
+}
+
+ul.tagcloud li {
+	display: inline-block;
+}
+
+li.tag-1 {
+	font-size: 150%;
+}
+
+li.tag-2 {
+	font-size: 120%;
+}
+
+li.tag-3 {
+	font-size: 100%;
+}
+
+li.tag-4 {
+	font-size: 80%;
+}
+</style>
+{% endblock %}
+{% block content %}
+<h1>Tags</h1>
+<div class="text-center">
+<ul class="tagcloud">
+	{% for tag in tag_cloud %}
+	<li class="tag-{{ tag.1 }}"><a href="{{ SITEURL }}/{{ tag.0.url }}">{{ tag.0 }}</a></li>
+	{% endfor %}
+</ul>
+</div>
+{% endblock %}

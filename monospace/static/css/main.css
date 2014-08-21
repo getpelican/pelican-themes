@@ -10,10 +10,11 @@
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  */
 
+@import url("pygment.css");
+
 body { margin:0px; padding:20px 0px; text-align:center; font-family:Monospace; color:#585858; }
 a, a:visited { text-decoration:none; color:rgb(17, 170, 34); }
 a:hover { color:#FFF; background-color:#5353CB }
-pre { overflow-x:scroll; }
 h1, h2, h3, h4, h5, h6, h7 { margin:0px; text-transform:uppercase; }
 h4, h5, h6 { font-size:14px; }
 h1 { padding:0px 0px 15px; margin:0px 0px 15px 0px; }

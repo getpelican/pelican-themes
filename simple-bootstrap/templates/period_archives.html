@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block archclass %} class="active"{%endblock%}
+
+{% block content %}
+
+<dl>
+    {% for year, date_year in dates|groupby( 'date.year' )|sort(reverse=True) %}  
+            <h3><a href="{{SITEURL}}/{{year}}"  class="text">Archive for {{ year }}</a></h3>
+            <ul class="archive-list">
+            {% for article in date_year %}
+                <li><span class="text-muted">{{article.locale_date}} &raquo; </span><a href="{{ SITEURL }}/{{ article.url }}">{{article.title}}</a></li>   
+            {% endfor %}
+     </ul>
+    {% endfor %}
+</dl>
+{% endblock %}

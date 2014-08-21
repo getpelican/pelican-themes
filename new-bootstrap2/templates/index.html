@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block content_title %}{% endblock %}
+{%- block content %}
+<div class="row">
+{% if articles %}
+    {% for article in (articles_page.object_list if articles_page else articles) %}
+    <div class="span2">
+        <div class="well small">{% include "article_infos.html" %}</div>
+    </div>
+    <div class="span6">
+        <div class="article well">
+            <h1><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h1>
+            <div class="summary">{{ article.summary }}
+                <a class="btn btn-small" href="{{ SITEURL }}/{{ article.url }}">more ...</a>
+            </div>
+        </div>
+    </div>
+    <div class="span8">
+        <hr />
+    </div>
+    {% endfor %}
+{% endif %}
+
+<div class="span6">
+{% if articles_page and articles_paginator.num_pages > 1 %}
+<div class="pagination">
+<ul>
+    {% if articles_page.has_previous() %}
+        {% set num = articles_page.previous_page_number() %}
+        <li class="prev"><a href="{{ SITEURL }}/{{ page_name }}{{ num if num > 1 else '' }}.html">&larr; Previous</a></li>
+    {% else %}
+        <li class="prev disabled"><a href="#">&larr; Previous</a></li>
+    {% endif %}
+    {% for num in range( 1, 1 + articles_paginator.num_pages ) %}
+        <li class="{{ 'active' if num == articles_page.number else '' }}"><a href="{{ SITEURL }}/{{ page_name }}{{ num if num > 1 else '' }}.html">{{ num }}</a></li>
+    {% endfor %}
+    {% if articles_page.has_next() %}
+        <li class="next"><a href="{{ SITEURL }}/{{ page_name }}{{ articles_page.next_page_number() }}.html">Next &rarr;</a></li>
+    {% else %}
+        <li class="next disabled"><a href="#">&rarr; Next</a></li>
+    {% endif %}
+</ul>
+</div>
+{#
+{% else %}
+    {% if PAGES %}
+        <section id="content" class="body">
+        <h3>Pages</h3>
+        <ul class="nav nav-list">
+        {% for page in PAGES %}
+            <li><div><i class="icon-external-link"></i><a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a></div></li>
+        {% endfor %}
+        </ul>
+        </section>
+    {% endif %}
+#}
+{% endif %}
+</div>
+</div>
+{% endblock content %}

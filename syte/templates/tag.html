@@ -6,7 +6,7 @@
     <h3 class="date">{{article.locale_date}}</h3>
     <article>
 	<hgroup>
-	<h2><a href="{{article.url}}" title="Permalink to {{article.title}}">{{article.title}}</a></h2>
+	<h2><a href="{{article.url}}" title="Permalink to {{article.title|striptags }}">{{article.title}}</a></h2>
 	
 	</hgroup>
 	{{article.summary}}

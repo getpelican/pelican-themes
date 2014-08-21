@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<div class="row">
+		<div class="small-10 columns small-centered">
+			{% for year, date_year in dates|groupby( 'date.year' )|sort(reverse=True) %}
+				<div class="row archive-year">
+					<div class="small-2 columns text-right">
+						<h3>{{ year }}</h3>
+					</div>
+				</div>
+				{% for month, articles in date_year|groupby('date.month') %}
+					{% for article in articles %}
+					<div class="row archive-entry">
+						<div class="small-2 columns text-right">
+							<h5>{{ article.date.strftime('%b %d') }}</h5>
+						</div>
+						<div class="small-10 columns">
+							<h5><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h5>
+						</div>
+					</div>
+					{% endfor %}
+				{% endfor %}
+			{% endfor %}
+		</div>
+	</div>
+{% endblock %}
+
+{% set pagetitle = 'Archives' %}

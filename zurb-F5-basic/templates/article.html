@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}{{ article.title|striptags }}{% endblock %}
+{% block content %}
+<article>
+    <header>
+        <h3 class="article-title"><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark"
+        title="Permalink to {{ article.title|striptags }}">{{ article.title}}</a></h3>
+        {% include 'twitter.html' %}
+    </header>
+
+    {% include 'article_infos.html' %}
+    {{ article.content }}
+    {% include 'article_infos_bottom.html' %}
+
+    {% if DISQUS_SITENAME and SITEURL and article.status != "draft" %}
+	<h4>Comments</h4>
+    {% include 'disqus_script.html' %}
+    {% endif %}
+</article>
+{% endblock %}

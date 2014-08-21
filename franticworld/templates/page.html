@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}{{ page.title }} | {{ SITENAME }}{% endblock %}
+{% block content %}
+<div id="content" class="page-body">
+        <h1 class="page-title">{{ page.title }}</h1>
+		<hr></hr>
+        {{ page.content }}
+		{% if DISQUS_SITENAME %}
+		<div class="comments">
+		<div id="disqus_thread"></div>
+		<script type="text/javascript">
+		   var disqus_identifier = "{{ page.url }}";
+		   (function() {
+				var dsq = document.createElement('script');
+				dsq.type = 'text/javascript'; dsq.async = true;
+				dsq.src = 'http://{{ DISQUS_SITENAME }}.disqus.com/embed.js';
+				(document.getElementsByTagName('head')[0] ||
+				 document.getElementsByTagName('body')[0]).appendChild(dsq);
+		  })();
+		</script>
+		</div>
+		{% endif %}
+</div>
+
+
+
+{% endblock %}

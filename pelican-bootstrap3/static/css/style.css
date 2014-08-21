@@ -6,6 +6,18 @@ body {
     background-color: transparent;
 }
 
+/* for list-groups nested within a list-group-item, reset the bottom margin */
+.list-group-item > .list-group {
+    margin-bottom: 0px;
+}
+
+/* for list-group-items nested within a list-group-item, reset the bottom
+   padding of the last item, b/c the containing item has paddimg already 
+ */
+.list-group-item .list-group-item:last-child {
+    padding-bottom: 0px;
+}
+
 .list-group-item {
     border: none;
 }
@@ -28,14 +40,27 @@ body {
 
 #sidebar {
     padding-top: 0px;
+    -ms-word-break: break-all;
+    word-break: break-all;
+    word-break: break-word;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
 }
 
 #sidebar a {
     color: inherit;
 }
 
-i {
-    margin-right: 10px;
+.icon-label {
+    margin-left: 10px;
+}
+
+/* Example for how to control spacing between icon and label in specific
+   lists in the sidebar. To change, override in your CUSTOM_CSS           */
+#sidebar #social i {
+    margin-right: 3px;
 }
 
 a, a:hover {
@@ -57,9 +82,49 @@ a, a:hover {
     height: auto;
 }
 
-.highlight pre {
-    background-color: #202020;
-    color: #777;
+.entry-content figcaption, .caption {
+    font-size: small;
+    margin-bottom: 2px;
+}
+
+.floatright, .align-right {
+    float: right;
+}
+
+.floatleft, .align-left {
+    float: left;
+}
+
+.floatcenter, .align-center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+figure.floatright, .align-right {
+    margin-left: 4px;
+}
+
+figure.floatleft, .align-left {
+    margin-right: 4px;
+}
+
+figure.floatcenter, .align-center {
+    margin-bottom: 11px;
+}
+
+.highlighttable pre {
+    /* Removes bootstrap default margin-bottom */
+    margin-bottom: 0px;
+}
+
+.highlighttable {
+    /* Adds them margin-bottom to highlightable instead of <pre> */
+    margin-bottom: 11px;
+}
+
+.highlighttable .code {
+    width: 100%;
 }
 
 #categories ul, #tags ul {
@@ -67,3 +132,21 @@ a, a:hover {
     padding: 0;
     margin-left: 0;
 }
+
+.docutils.footnote td.label {
+    display: table-cell;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    color: inherit;
+    text-align: inherit;
+    white-space: inherit;
+    border-radius: inherit;
+}
+
+.categories-timestamp {
+    color: #AAAAAA;
+    font-size: 0.9em;
+    margin-right: 10px;
+}
+

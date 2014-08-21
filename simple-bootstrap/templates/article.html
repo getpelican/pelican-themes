@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}{{ article.title }} - {{SITENAME}}{% endblock title %}
+{% block content %}
+<section id="content" class="article content">
+  <header>
+    <h2 class="entry-title">
+      <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark"
+         title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h2>
+ {% import 'translations.html' as translations with context %}
+ {{ translations.translations_for(article) }}
+  </header>
+  
+     
+  <div class="entry-content">
+    {{ article.content }}
+  </div><!-- /.entry-content -->
+   <footer class="post-info text-muted">
+    Posted on <abbr class="published" title="{{ article.date.isoformat() }}">
+      {{ article.locale_date }}
+    </abbr>
+    {% if article.author %}
+    <address class="vcard author">
+      by <a class="url fn" href="{{ SITEURL }}/{{ article.author.url }}">{{ article.author }}</a>
+    </address> in <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a> Tagged {% if article.tags %}{% for tag in article.tags %}<a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }} </a>{% endfor %}{% endif %}
+    {% endif %}
+  </footer><!-- /.post-info -->
+</section>
+    {% if DISQUS_SITENAME %}
+    <div class="comment">
+        <div id="disqus_thread"></div> <!-- comment app container -->
+    </div>
+	<!-- Comment BEGIN -->
+    <script type="text/javascript">
+        var disqus_shortname = '{{ DISQUS_SITENAME }}'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+     <!-- Comment END -->
+    {% endif %}
+{% endblock %}

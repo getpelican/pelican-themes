@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content_title %}{% endblock %}
+{% block content %}        
+{% if articles %}
+{% for article in articles_page.object_list %}        
+<div class="article" itemscope itemtype="http://schema.org/BlogPosting">
+	<a href="{{ SITEURL }}/{{ article.url }}">
+		<h2 itemprop="name headline">{{ article.title }}</h2>
+	</a>
+	<time datetime="{{ article.date.isoformat() }}" itemprop="datePublished">{{ article.locale_date }}</time>
+	&nbsp;—&nbsp;
+	<span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+		<span itemprop="name">{{article.author or "Wilson Freitas"}}</span>
+	</span>
+	<div class="summary">{{ article.summary }}</div>
+	{% if article.category %}
+	Category:
+	<span itemprop="articleSection">
+		<a href="{{ SITEURL }}/{{ article.category.url }}" rel="category">{{ article.category }}</a>
+	</span>
+	{% endif %}
+	Tags:
+	{% if article.tags %} 
+	{% for tag in article.tags %}
+	<span itemprop="keywords">
+		<a href="{{ SITEURL }}/{{ tag.url }}" rel="tag">{{ tag }}</a>
+	</span>
+	{% endfor %}
+	{% endif %}
+</div>
+<hr>
+{% endfor %} {# For article #}
+{% include 'pagination.html' %}
+{% endif %} {# If articles #}
+{% endblock content %}
+

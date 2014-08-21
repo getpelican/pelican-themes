@@ -1,0 +1,9 @@
+{% if GITHUB_URL %}
+<a href="{{ GITHUB_URL }}" class="visible-desktop">
+{% if GITHUB_POSITION != "left" %}
+<img style="position: absolute; top: 0; right: 0; border: 0; z-index: 9999;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" />
+{% else %}
+<img style="position: absolute; top: 0; left: 0; border: 0;z-index: 9999;" src="http://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png" alt="Fork me on GitHub" />
+{% endif %}
+</a>
+{% endif %}
