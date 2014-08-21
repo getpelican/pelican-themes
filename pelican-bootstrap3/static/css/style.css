@@ -22,6 +22,10 @@ body {
     border: none;
 }
 
+.tag-0 {
+    font-size: 16pt;
+}
+
 .tag-1 {
     font-size: 13pt;
 }
@@ -30,7 +34,7 @@ body {
     font-size: 10pt;
 }
 
-.tag-2 {
+.tag-3 {
     font-size: 8pt;
 }
 
@@ -123,7 +127,7 @@ figure.floatcenter, .align-center {
     margin-bottom: 11px;
 }
 
-.highlighttable .code {
+.highlighttable {
     width: 100%;
 }
 
@@ -150,3 +154,6 @@ figure.floatcenter, .align-center {
     margin-right: 10px;
 }
 
+.tagcloud li {
+    padding: 0px;
+}

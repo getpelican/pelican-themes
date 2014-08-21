@@ -1,15 +1,25 @@
 {% if DISQUS_SITENAME %}
-    <hr />
+    <hr/>
     <section class="comments" id="comments">
         <h2>Comments</h2>
+
         <div id="disqus_thread"></div>
         <script type="text/javascript">
             /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
             var disqus_shortname = '{{ DISQUS_SITENAME }}'; // required: replace example with your forum shortname
-            {% if not DISQUS_NO_ID %}
-            var disqus_identifier = '{{ article.date|strftime('%Y-%m-') ~ article.slug if DISQUS_ID_PREFIX_SLUG else article.slug }}';
+
+            {% if article %}
+                {% if not DISQUS_NO_ID %}
+                    var disqus_identifier = '{{ article.date|strftime('%Y-%m-') ~ article.slug if DISQUS_ID_PREFIX_SLUG else article.slug }}';
+                {% endif %}
+                var disqus_url = '{{ SITEURL }}/{{ article.url }}';
+            {% elif page %}
+                {% if not DISQUS_NO_ID %}
+                    var disqus_identifier = 'page-{{ page.slug }}';
+                {% endif %}
+                var disqus_url = '{{ SITEURL }}/{{ page.url }}';
             {% endif %}
-            var disqus_url = '{{ SITEURL }}/{{ article.url }}';
+
             var disqus_config = function () {
                 this.language = "{{ DEFAULT_LANG }}";
             };

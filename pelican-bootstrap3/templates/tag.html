@@ -1,4 +1,9 @@
-{% extends "index.html" %}
+{% extends "article_list.html" %}
+{% block title %}{{ tag }} - {{ SITENAME }}{% endblock %}
+{% block meta %}
+    <meta name="author" content="{{ AUTHOR }}" />
+    <meta name="keywords" content="{{ tag }}" />
+{% endblock %}
 {% block breadcrumbs %}
     {% if DISPLAY_BREADCRUMBS %}
     <ol class="breadcrumb">
@@ -8,4 +13,3 @@
     </ol>
     {% endif %}
 {% endblock %}
-{% block title %}{{ tag }} - {{ SITENAME }}{% endblock %}
