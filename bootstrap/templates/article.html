@@ -5,7 +5,7 @@
 		<div class="page-header"><h1>{{ article.title }}</h1></div>
 		<div class="well small">{% include "metadata.html" %}</div>
 		<div>{{ article.content }}</div>
-        {% if DISQUS_SITENAME or FACEBOOK_APPID %}
+        {% if DISQUS_SITENAME or FACEBOOK_APPID or TWITTER_USERNAME %}
 		<div>
 			<h2>Comments</h2>
 		 	{% include "twitter.html" %}
