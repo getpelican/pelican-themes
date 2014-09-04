@@ -173,13 +173,12 @@ blockquote {
   margin-left: -12px;
   padding-left: 6px;
 }
-code, .codehilite {
+pre {
   background: #262626;
   -webkit-box-shadow: inset 0 0 10px #000000;
   -moz-box-shadow: inset 0 0 10px #000000;
   box-shadow: inset 0 0 10px #000000;
   color: #ffffff;
-  display: block;
   margin-left: -24px;
   font-family: 'Droid Sans Mono', monospace;
   padding: 24px;
@@ -541,8 +540,7 @@ p[role="contentinfo"] {
   width: 50%;
 }
 blockquote,
-code,
-.codehilite,
+pre
 .post ul,
 .post ol,
 p,
@@ -601,6 +599,7 @@ p,
   }
 }
 @media screen and (min-width: 55.5em) {
+  pre,
   .post > p,
   .post blockquote,
   .post ul,
@@ -672,9 +671,9 @@ p,
     margin-bottom: 24px;
   }
   code, .codehilite {
-    line-height: 1.5;
     font-size: 36px;
   }
+  pre,
   .post > p,
   .post blockquote,
   .post ul,
