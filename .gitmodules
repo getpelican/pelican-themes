@@ -124,7 +124,9 @@
 [submodule "twenty-html5up"]
 	path = twenty-html5up
 	url = git://github.com/frankV/twenty-pelican-html5up.git
-
 [submodule "lazystrap"]
 	path = lazystrap
 	url = https://github.com/lazycoder-ru/lazystrap.git
+[submodule "pelican-twitchy"]
+	path = pelican-twitchy
+	url = https://github.com/ingwinlu/pelican-twitchy.git
