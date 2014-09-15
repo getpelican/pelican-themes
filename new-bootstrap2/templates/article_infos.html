@@ -1,0 +1,17 @@
+<footer class="post-info">
+<abbr class="published" title="{{ article.date.isoformat() }}">
+    <i class="icon-calendar"></i>&nbsp;{{ article.locale_date }}
+</abbr>
+{% if article.author %}
+<br/><a href="{{ SITEURL }}/{{ article.author.url }}"><i class="icon-user"></i>&nbsp;{{ article.author }}</a>
+{% endif %}
+
+{% if PDF_GENERATOR %}
+<span class="label">
+    <a href="{{ SITEURL }}/pdf/{{ article.slug }}.pdf">PDF</a>
+</span>
+{% endif %}
+
+{% include 'taglist.html' %}
+{% include 'translations.html' %}
+</footer><!-- /.post-info -->

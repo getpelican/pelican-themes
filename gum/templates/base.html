@@ -54,8 +54,21 @@
               </script>
           {% endif %}
 
-
-
+          {% if PIWIK_URL%}
+            <script type="text/javascript">
+                var _paq = _paq || [];
+                    _paq.push(['trackPageView']);
+                _paq.push(['enableLinkTracking']);
+                    (function() {
+                     var u=(("https:" == document.location.protocol) ? "https" : "http") + "://{{ PIWIK_URL }}/";
+                     _paq.push(['setTrackerUrl', u+'piwik.php']);
+                     _paq.push(['setSiteId', {{ PIWIK_ID }}]);
+                     var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
+                     g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+                 })();
+            </script>
+            <noscript><p><img src="http://{{ PIWIK_URL }}/piwik.php?idsite={{ PIWIK_ID }}" style="border:0;" alt="" /></p></noscript>
+          {% endif %}
 
         {% endblock head %}
 </head>
@@ -68,14 +81,14 @@
         <div class="row">
 
           <header id="banner" class="body">
-                  <h1><a href="{{ SITEURL }}">{{ SITENAME }} <strong>{{ SITESUBTITLE }}</strong></a></h1>
+                  <h1><a href="{{ SITEURL }}/">{{ SITENAME }} <strong>{{ SITESUBTITLE }}</strong></a></h1>
           </header><!-- /#banner -->
 
             <div id="navigation" class="navbar row">
               <a href="#" gumby-trigger="#navigation &gt; ul" class="toggle"><i class="icon-menu"></i></a>
              
               <ul class="columns">
-                <li><a href="{{ SITEURL }}">Home</a></li>
+                <li><a href="{{ SITEURL }}/">Home</a></li>
 
             {% for title, link in MENUITEMS %}
                 <li><a href="{{ link }}">{{ title }}</a></li>
@@ -147,9 +160,9 @@
 
 
 {% include 'disqus_script.html' %}
+{% include 'piwik.html' %}
   <script src="{{ SITEURL }}/theme/js/libs/jquery-1.9.1.min.js"></script>
   <script src="{{ SITEURL }}/theme/js/libs/gumby.min.js"></script>
   <script src="{{ SITEURL }}/theme/js/plugins.js"></script>
-
 </body>
 </html>

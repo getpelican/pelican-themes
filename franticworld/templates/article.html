@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}{{ article.title }} | {{ SITENAME }}{% endblock title %}
+{% block content %}
+
+<div class="metabox">
+	<p class="metaday">{{ article.date|strftime('%j') }}</p>
+	<p class="metayear">{{ article.date|strftime('%Y') }}</p>
+	<p class="metacategory">{{ article.category }}</p>
+</div>
+<div class="arcticlecontentbox">
+	<div class="articlecontent">
+		<a class="articletitle" href="{{ BLOGURL }}/{{ article.url }} " >{{ article.title }}</a>
+		{{ article.content }}
+	</div>
+	
+	{% if DISQUS_SITENAME %}
+	<div class="comments">
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+	   var disqus_identifier = "{{ article.url }}";
+	   (function() {
+			var dsq = document.createElement('script');
+			dsq.type = 'text/javascript'; dsq.async = true;
+			dsq.src = 'http://{{ DISQUS_SITENAME }}.disqus.com/embed.js';
+			(document.getElementsByTagName('head')[0] ||
+			 document.getElementsByTagName('body')[0]).appendChild(dsq);
+	  })();
+	</script>
+	</div>
+	{% endif %}
+	       
+</div>
+
+{% endblock content %}

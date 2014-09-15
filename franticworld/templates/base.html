@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="{{ DEFAULT_LANG }}">
+<head>
+	{% block head %}
+	<title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
+	<meta charset="utf-8" />
+    <meta name="author" content="{{ AUTHOR }}">
+	<link rel="stylesheet" href="{{ SITEURL }}/theme/css/franticworld.css" type="text/css" />
+	<link href="{{ SITEURL }}/theme/css/pygments.css" rel="stylesheet">
+	{% endblock head %}
+</head>
+<body background="{{ SITEURL }}/theme/img/pattern.png">
+		<div class="nav-banner">
+		<a href="{{ SITEURL }}">{{ SITENAME }}</a>
+		</div>
+		
+		<div class="content">
+		{% block content %}
+		{% endblock content %}
+		</div>
+		
+		<div class="sidebar">
+		{% include 'sidebar.html' %}
+		</div>
+		
+		<footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
+                which takes great advantage of <a href="http://python.org">Python</a>,
+				Theme by <a href="http://frantic1048.com/">Frantic1048</a>.
+                </address><!-- /#about -->
+        </footer><!-- /#contentinfo -->
+</body>
+</html>

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block head %}
+{{ super() }}
+<meta name="twitter:creator" content="{{ TWITTER_USERNAME }}">
+<meta name="twitter:url" content="{{ SITEURL }}/tags.html">
+<meta name="twitter:title" content="{{ SITENAME }} ~ Tags">
+<meta name="twitter:description" content="{{ SITENAME }} ~ Tags du site">
+
+<!-- Facebook Meta Data -->
+<meta property="og:title" content="{{ SITENAME }} ~ Tags" />
+<meta property="og:description" content="{{ SITENAME }} ~ Tags" />
+<meta property="og:image" content="{{ AVATAR }}" />
+{% endblock head %}
+{% block content %}
+<h2>Tags</h2>
+<ul>
+{% for tag, articles in tags %}
+    <li><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</li>
+{% endfor %}
+</ul>
+{% endblock %}

@@ -1,3 +1,15 @@
+[submodule "pelicanthemes-generator"]
+	path = pelicanthemes-generator
+	url = https://github.com/badele/pelicanthemes-generator
+[submodule "Responsive-Pelican"]
+	path = Responsive-Pelican
+	url = git://github.com/ir193/Responsive-Pelican.git
+[submodule "hauntr"]
+        path = hauntr
+        url = https://github.com/kura/hauntr.git
+[submodule "ghastly"]
+	path = ghastly
+	url = https://github.com/kura/ghastly.git
 [submodule "svbtle"]
 	path = svbtle
 	url = https://github.com/wting/pelican-svbtle.git
@@ -85,3 +97,36 @@
 [submodule "pelican-simplegrey"]
 	path = pelican-simplegrey
 	url = https://github.com/fle/pelican-simplegrey
+[submodule "pujangga"]
+	path = pujangga
+	url = https://github.com/habibillah/pujangga.git
+[submodule "lovers"]
+	path = lovers
+	url = https://github.com/chdoig/pelican-bootstrap3-lovers.git
+[submodule "BT3-Flat"]
+	path = BT3-Flat
+	url = https://github.com/KenMercusLai/BT3-Flat.git
+[submodule "voidy-bootstrap"]
+	path = voidy-bootstrap
+	url = https://github.com/robulouski/voidy-bootstrap.git
+[submodule "pelican-iliork"]
+	path = pelican-iliork
+	url = https://github.com/yuex/pelican-iliork.git
+[submodule "burrito"]
+	path = burrito
+	url = https://github.com/fly/burrito.git
+[submodule "maggner-pelican"]
+	path = maggner-pelican
+	url = https://github.com/kplaube/maggner-pelican.git
+[submodule "pelican-sober"]
+	path = pelican-sober
+	url = https://github.com/fle/pelican-sober.git
+[submodule "twenty-html5up"]
+	path = twenty-html5up
+	url = git://github.com/frankV/twenty-pelican-html5up.git
+[submodule "lazystrap"]
+	path = lazystrap
+	url = https://github.com/lazycoder-ru/lazystrap.git
+[submodule "pelican-twitchy"]
+	path = pelican-twitchy
+	url = https://github.com/ingwinlu/pelican-twitchy.git

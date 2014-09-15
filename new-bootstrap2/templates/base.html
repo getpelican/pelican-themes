@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>{% block title %}Blog about Me and my Linux{% endblock %} | {{ SITENAME }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="{{ KEYWORDS }}" />
+    <meta name="author" content="{{ AUTHOR }}" />
+    <meta name="kittycheck_rumble" content="true" />
+    <meta name="kittycheck_position" content="top=60,right=60" />
+
+    <!-- Le styles -->
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/bootstrap.min.css" type="text/css" />
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+      .tag-1 {
+        font-size: 13pt;
+      }
+      .tag-2 {
+        font-size: 10pt;
+      }
+      .tag-2 {
+        font-size: 8pt;
+      }
+      .tag-4 {
+        font-size: 6pt;
+     }
+    </style>
+    <link href="{{ SITEURL }}/theme/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="{{ SITEURL }}/theme/css/font-awesome.css" rel="stylesheet">
+    <link href="{{ SITEURL }}/theme/css/pygments.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="{{ SITEURL }}/theme/img/favicon.ico">
+    <link rel="apple-touch-icon" href="{{ SITEURL }}/theme/img/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="{{ SITEURL }}/theme/img/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="{{ SITEURL }}/theme/img/apple-touch-icon-114x114.png">
+
+    <link href="{{ SITEURL }}/{{ FEED }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} ATOM Feed" />
+    {% if FEED_RSS %}
+    <link href="{{ SITEURL }}/{{ FEED_RSS }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} RSS Feed" />
+    {% endif %}
+  </head>
+  <body>
+    {% include 'github.html' %}
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="{{ SITEURL }}/index.html">{{ SITENAME }} {% if SITESUBTITLE %} <strong>{{ SITESUBTITLE }}</strong>{% endif %}</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              {% for title, link in MENUITEMS %}
+                  <li><a href="{{ link }}">{{ title }}</a></li>
+              {% endfor %}
+              {% if DISPLAY_PAGES_ON_MENU %}
+              {% for gpage in PAGES %}
+                <li {% if page == gpage %}class="active"{% endif %}><a href="{{ SITEURL }}/{{ gpage.url }}">{{ gpage.title }}</a></li>
+              {% endfor %}
+                <li class="divider-vertical"></li>
+              {% endif %}
+              {% for cat, null in categories %}
+                <li {% if cat == category %}class="active"{% endif %}>
+                  <a href="{{ SITEURL }}/{{ cat.url }}">
+						        <i class="icon-folder-open icon-large"></i>{{ cat }}
+					         </a>
+                </li>
+              {% endfor %}
+              <ul class="nav pull-right">
+                    <li><a href="{{ SITEURL }}/archives.html"><i class="icon-th-list"></i>Archives</a></li>
+              </ul>
+
+            </ul>
+            <!--<p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>-->
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="span8" id="content">
+            {% block content %}
+            {% endblock %}
+        </div><!--/span-->
+        <div class="span3 well sidebar-nav" id="sidebar">
+            {% include 'sidebar.html' %}
+        </div><!--/.well -->
+
+      </div><!--/row-->
+
+      <hr>
+
+      {% include 'footer.html' %}
+    </div><!--/.fluid-container-->
+
+    {% include 'analytics.html' %}
+    {% include 'metryka.html' %}
+    {% include 'piwik.html' %}
+    {#% include 'disqus_script.html' %#}
+
+    <!-- Le javascript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{{ SITEURL }}/theme/js/jquery-1.7.2.min.js"></script>
+    <script src="{{ SITEURL }}/theme/js/bootstrap.min.js"></script>
+  </body>
+</html>

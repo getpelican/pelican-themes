@@ -1,0 +1,15 @@
+{% if DEFAULT_PAGINATION %}
+<div class="paginator">
+    {% if articles_page.has_previous() %}
+        {% if articles_page.previous_page_number() == 1 %}
+            <div class="navButton"> <a href="{{ SITEURL }}/{{ page_name }}.html" >Prev</a></div>
+        {% else %}
+            <div class="navButton"><a href="{{ SITEURL }}/{{ page_name }}{{ articles_page.previous_page_number() }}.html">Prev</a></div>
+        {% endif %}
+    {% endif %}
+    <div class="navButton">Page {{ articles_page.number }} / {{ articles_paginator.num_pages }}</div>
+    {% if articles_page.has_next() %}
+        <div class="navButton"><a href="{{ SITEURL }}/{{ page_name }}{{ articles_page.next_page_number() }}.html" >Next</a></div>
+    {% endif %}
+</div>
+{% endif %}

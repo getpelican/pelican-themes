@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block head %}
+{{ super() }}
+<meta name="twitter:creator" content="{{ TWITTER_USERNAME }}">
+<meta name="twitter:url" content="{{ SITEURL }}">
+<meta name="twitter:title" content="{{ SITENAME }}">
+<meta name="twitter:description" content="{{ SIDEBAR_DIGEST }}">
+
+<!-- Facebook Meta Data -->
+<meta property="og:title" content="{{ SITENAME }}" />
+<meta property="og:description" content="{{ SIDEBAR_DIGEST }}" />
+<meta property="og:image" content="{{ AVATAR }}" />
+{% endblock head %}
+{% block content_title %}{% endblock %}
+{% block content %}
+{% if articles %}
+<ol>
+	{% for article in (articles_page.object_list if articles_page else articles) %}
+	<li class="post_list"><p class="post_entry">
+		<h2 class="post_title"><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h2>
+		<a href="{{ SITEURL }}/{{ article.author.url }}">@{{ article.author }}</a>
+		<span> dans </span>
+		<span class="post_category"><a href="{{ SITEURL }}/{{ article.category.url }}" rel="bookmark" title="Permalink to {{ article.category|striptags }}">[ {{ article.category }} ]</a></span>
+		<span> le </span>
+		<span class="post_date">{{ article.locale_date }}</span>
+	</li>
+	{% endfor %}
+</ol>
+{% endif %}
+
+{% if articles_page and articles_paginator.num_pages > 1 %}
+{% include 'pagination.html' %}
+{% endif %}
+
+{% endblock content %}

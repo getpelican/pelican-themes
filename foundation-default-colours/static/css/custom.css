@@ -1,0 +1,139 @@
+.tag-cloud {
+	padding: 2px;
+	margin: 0;
+	margin-top: -0.25em;
+}
+
+.tag-cloud a {
+	padding: 0px;
+}
+
+.tag-cloud li {
+	display: inline;
+}
+
+.tag-cloud a.tag-1 {
+	font-size: 1.0em;
+	font-weight: 400;
+}
+
+.tag-cloud a.tag-2 {
+	font-size: 0.9em;
+	font-weight: 300;
+}
+
+.tag-cloud a.tag-3 {
+	font-size: 0.8em;
+	font-weight: 200;
+}
+
+.tag-cloud a.tag-4 {
+	font-size: 0.7em;
+	font-weight: 100;
+}
+
+.img-center {
+	width: 100%;
+	background: red;
+	border: 1px solid green;
+}
+
+.image-caption {
+	padding-top: 0.5em;
+	font-size: 0.7em;
+}
+
+.image-container {
+	padding-bottom: 1em;
+}
+
+.highlighttable {
+	background: #272822;
+	border: 1px solid #8f908a;
+	width: 100%;
+}
+
+.linenos {
+	color: #8f908a;
+	border-right: 1px dotted #464741;
+}
+
+.panel h5 {
+	border-bottom: 2px solid;
+	padding: 0;
+	margin: 0;
+	margin-bottom: 0.25em;
+}
+
+.side-nav {
+	margin: 0;
+	padding: 0;
+}
+
+.side-nav li {
+	margin: 0;
+	padding: 0;
+}
+
+.side-nav a {
+	color: black;
+}
+
+.side-nav li a:before {
+	content: "- ";
+}
+
+code {
+	color: #222222;
+	background: #f8f8f8;
+	border: 1px solid #dddddd;
+	margin: 0 2px;
+	padding: 0 5px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	font-weight: normal;
+	font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+}
+
+p {
+	text-align: justify;
+}
+
+.continue {
+	width: 100%;
+	text-align: right;
+}
+
+.archive-year {
+	border-top: 1px solid;
+}
+
+.archive-entry {
+	border-top: 1px dotted;
+}
+
+table.highlighttable {
+	table-layout: fixed;
+	white-space: nowrap;
+	width:100%;
+}
+
+.linenos {
+	width: 2.25rem;
+	text-align: right;
+	margin: 0;
+	padding: 0;
+	vertical-align: top;
+}
+       
+.highlight{
+	width: 100%;
+	height: auto;
+	overflow: auto;
+}
+
+.linenodiv {
+	margin: 0.55rem 0.5rem 0 0;
+	padding: 0;
+}

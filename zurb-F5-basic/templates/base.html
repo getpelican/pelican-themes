@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8" />
+    <!-- Set the viewport width to device width for mobile -->
+    <meta name="viewport" content="width=device-width" />
+
+    <title>{% block title %}{{ SITENAME }}{%endblock%}</title>
+
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/normalize.css" />
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/foundation.min.css" />
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/style.css" />
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/pygments.css" />	
+    <script src="{{ SITEURL }}/theme/js/custom.modernizr.js"></script>
+</head>
+
+<body>
+
+<!-- Nav Bar -->
+<nav>
+<div class="top-bar">
+<div class="row">
+    <div class="large-9 large-centered columns">
+	    <h1><a href="{{ SITEURL }}">{{ SITENAME }}</a></h1>
+    </div>
+</div>
+</div>
+
+<!-- Show menu items and pages -->
+<div class="row">
+<div class="large-9 columns">
+    <ul class="button-group navigation">
+	{% for title, link in MENUITEMS %}
+    <li><a href="{{ link }}" class="button secondary small">{{ title }}</a></li>
+    {% endfor %}
+
+    {% if DISPLAY_PAGES_ON_MENU %}
+        {% for page in PAGES %}
+            <li><a href="{{ SITEURL }}/{{ page.url }}" class="button secondary small">{{ page.title }}</a></li>
+        {% endfor %}
+    {% endif %}
+    </ul>
+</div>
+</div>
+</nav>
+<!-- End Nav -->
+
+
+<!-- Main Page Content and Sidebar -->
+<div class="row">
+
+    <!-- Main Blog Content -->
+    <div class="large-9 columns">
+    {% block content %}{% endblock %}
+    </div>
+    <!-- End Main Content -->
+
+    <!-- Sidebar -->
+    <aside class="large-3 columns">
+        <h5 class="sidebar-title">Site</h5>
+        <ul class="side-nav">
+            <li><a href="{{ SITEURL }}/archives.html">Archives</a>
+            <li><a href="{{ SITEURL }}/tags.html">Tags</a>
+            {% if FEED_RSS %}
+            <li><a href="{{ FEED_DOMAIN }}/{{ FEED_ATOM }}" rel="alternate">Atom feed</a></li>
+            {% endif %}
+            {% if FEED_RSS %}
+            <li><a href="{{ FEED_DOMAIN }}/{{ FEED_RSS }}" rel="alternate">RSS feed</a></li>
+            {% endif %}
+        </ul>
+
+        {% if categories %}		
+        <h5 class="sidebar-title">Categories</h5>
+        <ul class="side-nav">
+        {% for cat, null in categories %}
+            <li><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
+        {% endfor %}   
+        </ul>
+        {% endif %}
+
+        {% if LINKS %}
+        <h5 class="sidebar-title">Links</h5>
+        <ul class="side-nav">
+        {% for name, link in LINKS %}
+            <li><a href="{{ link }}">{{ name }}</a></li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+		
+        {% if SOCIAL %}
+        <h5 class="sidebar-title">Social</h5>
+        <ul class="side-nav">
+        {% for name, link in SOCIAL %}
+            <li><a href="{{ link }}">{{ name }}</a></li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+
+    </aside> <!-- End Sidebar -->
+
+</div> <!-- End Main Content and Sidebar -->
+
+
+<!-- Footer -->
+<footer class="row">
+    <div class="large-12 columns">
+        <hr />
+        <div class="row">
+            <div class="large-6 columns">
+              <!--                  <p>{{ SITENAME }} by {{ AUTHOR }}</p> -->
+            </div>
+            </div>
+    </div>
+</footer>

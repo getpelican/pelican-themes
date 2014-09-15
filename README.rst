@@ -7,10 +7,10 @@ theme, and submit a pull request. It's community-managed!
 Using Themes
 ############
 
-These instructions assume you have already completed the `Getting Started`_
-guide, have a working site, and would now like to apply a non-default theme.
+These instructions assume you have already read all the `Pelican documentation`_,
+have a working site, and would now like to apply a non-default theme.
 
-.. _Getting Started: http://docs.getpelican.com/en/latest/getting_started.html
+.. _Pelican documentation: http://docs.getpelican.com/
 
 First, choose a location to hold your themes. For this example, we'll use the
 directory ``~/pelican-themes``, but yours could be different. Clone the
