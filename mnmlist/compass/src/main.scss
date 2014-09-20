@@ -118,6 +118,20 @@ header {
     }
 }
 
+.note {
+    background: #efefef;
+    margin: 1em 0;
+    p {
+        display: inline;
+        &.first {
+            font-weight: bold;
+            &:after {
+                content: ' : ';
+            }
+        }
+    }
+}
+
 footer {
     background: #fff;
     color: #666;

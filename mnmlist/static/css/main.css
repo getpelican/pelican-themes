@@ -1,3 +1,4 @@
+@import url("pygment.css");
 /*
     Theme Name: mnmlist
     Theme URI: http://mathieu.agopian.info/mnmlist/theme.html
@@ -7,7 +8,6 @@
 
     This theme is uncopyrighted, free, and offered as is.
 */
-@import url("pygment.css");
 /* line 13, ../../compass/src/main.scss */
 body {
   background: #fff;
@@ -145,6 +145,24 @@ header a#page-title {
 }
 
 /* line 121, ../../compass/src/main.scss */
+.note {
+  background: #efefef;
+  margin: 1em 0;
+}
+/* line 124, ../../compass/src/main.scss */
+.note p {
+  display: inline;
+}
+/* line 126, ../../compass/src/main.scss */
+.note p.first {
+  font-weight: bold;
+}
+/* line 128, ../../compass/src/main.scss */
+.note p.first:after {
+  content: ' : ';
+}
+
+/* line 135, ../../compass/src/main.scss */
 footer {
   background: #fff;
   color: #666;
@@ -153,16 +171,16 @@ footer {
   letter-spacing: 4px;
   margin-left: 20px;
 }
-/* line 128, ../../compass/src/main.scss */
+/* line 142, ../../compass/src/main.scss */
 footer a {
   border-bottom: none;
   color: #c0c0c0;
 }
-/* line 132, ../../compass/src/main.scss */
+/* line 146, ../../compass/src/main.scss */
 footer li {
   display: inline;
 }
-/* line 135, ../../compass/src/main.scss */
+/* line 149, ../../compass/src/main.scss */
 footer p {
   text-align: right;
 }
