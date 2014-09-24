@@ -130,3 +130,6 @@
 [submodule "pelican-twitchy"]
 	path = pelican-twitchy
 	url = https://github.com/ingwinlu/pelican-twitchy.git
+[submodule "dev-random3"]
+	path = dev-random3
+	url = https://github.com/22decembre/dev-random3
