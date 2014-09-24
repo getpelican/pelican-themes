@@ -133,3 +133,6 @@
 [submodule "dev-random3"]
 	path = dev-random3
 	url = https://github.com/22decembre/dev-random3.git
+[submodule "blue-penguin"]
+	path = blue-penguin
+	url = git@github.com:jody-frankowski/blue-penguin.git
