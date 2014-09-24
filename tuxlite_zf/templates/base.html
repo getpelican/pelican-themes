@@ -11,6 +11,21 @@
     <link rel="stylesheet" href="{{ SITEURL }}/theme/css/style.css" />
     <link rel="stylesheet" href="{{ SITEURL }}/theme/css/pygments.css" />	
     <script src="{{ SITEURL }}/theme/js/custom.modernizr.js"></script>
+
+    <!-- So Firefox can bookmark->"abo this site" -->
+    {% if FEED_ALL_ATOM %}
+        <link href="{{ FEED_ALL_ATOM }}" rel="alternate" title="{{ SITENAME }}" type="application/atom+xml">
+    {% endif %}
+    {% if FEED_ATOM %}
+        <link href="{{ FEED_ATOM }}" rel="alternate" title="{{ SITENAME }}" type="application/atom+xml">
+    {% endif %}
+    {% if FEED_RSS %}
+        <link href="{{ FEED_RSS }}" rel="alternate" title="{{ SITENAME }}" type="application/rss+xml">
+    {% endif %}
+    {% if FEED_ALL_RSS %}
+        <link href="{{ FEED_ALL_RSS }}" rel="alternate" title="{{ SITENAME }}" type="application/rss+xml">
+    {% endif %}
+
 </head>
 
 <body>
@@ -60,12 +75,20 @@
         <ul class="side-nav">
             <li><a href="{{ SITEURL }}/archives.html">Archives</a>
             <li><a href="{{ SITEURL }}/tags.html">Tags</a>
-            {% if FEED_RSS %}
-            <li><a href="{{ FEED_DOMAIN }}/{{ FEED_ATOM }}" rel="alternate">Atom feed</a></li>
-            {% endif %}
-            {% if FEED_RSS %}
-            <li><a href="{{ FEED_DOMAIN }}/{{ FEED_RSS }}" rel="alternate">RSS feed</a></li>
-            {% endif %}
+
+
+                {% if FEED_ALL_ATOM %}
+                <li><a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" rel="alternate">Atom feed</a></li>
+                {% endif %}
+                {% if FEED_ATOM %}
+                <li><a href="{{ FEED_DOMAIN }}/{{ FEED_ATOM }}" rel="alternate">Atom feed</a></li>
+                {% endif %}
+                {% if FEED_RSS %}
+                <li><a href="{{ FEED_DOMAIN }}/{{ FEED_RSS }}" rel="alternate">RSS feed</a></li>
+                {% endif %}
+                {% if FEED_ALL_RSS %}
+                <li><a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}" rel="alternate">RSS feed</a></li>
+                {% endif %}
         </ul>
 
         {% if categories %}		
