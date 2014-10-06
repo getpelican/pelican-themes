@@ -230,7 +230,7 @@ You can enable sharing buttons through [AddThis](http://www.addthis.com/) by set
 
 ### Keybase
 
-You can advertise your public keybase.io 64 bit fingerprint and link to https://keybase.io/user in the sidebar. To enable, just provide a `KEYBASE_USER` and `KEYBASE_64BIT`.
+You can advertise your public [keybase.io](https://keybase.io) 64 bit fingerprint and link to `keybase.io/user` in the sidebar. To enable, just provide a `KEYBASE_USER` and `KEYBASE_64BIT`.
 
 ### Footer
 
