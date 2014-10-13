@@ -136,3 +136,6 @@
 [submodule "blue-penguin"]
 	path = blue-penguin
 	url = git@github.com:jody-frankowski/blue-penguin.git
+[submodule "nikhil-theme"]
+	path = nikhil-theme
+	url = https://github.com/gunchu/nikhil-theme
