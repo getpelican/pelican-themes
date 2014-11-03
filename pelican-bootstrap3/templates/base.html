@@ -95,7 +95,7 @@
     {% endif %}
 
     {% if tag and TAG_FEED_ATOM %}
-        <link href="{{ SITEURL }}/{{ TAG_FEED_ATOM|format(tag) }}" type="application/atom+xml" rel="alternate"
+        <link href="{{ SITEURL }}/{{ TAG_FEED_ATOM|format(tag.slug) }}" type="application/atom+xml" rel="alternate"
               title="{{ SITENAME }} {{ tag }} ATOM Feed"/>
     {% endif %}
 
