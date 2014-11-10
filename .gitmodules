@@ -135,4 +135,7 @@
 	url = https://github.com/22decembre/dev-random3.git
 [submodule "blue-penguin"]
 	path = blue-penguin
-	url = git@github.com:jody-frankowski/blue-penguin.git
+	url = https://github.com/jody-frankowski/blue-penguin
+[submodule "nikhil-theme"]
+	path = nikhil-theme
+	url = https://github.com/gunchu/nikhil-theme
