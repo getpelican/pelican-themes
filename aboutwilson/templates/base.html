@@ -48,7 +48,12 @@
 							<li><a href="{{ SITEURL }}/{{ page.url }}"><i class="fa fa-{{ page.title }} "></i> {{page.title}}</a></li>
 							{% endfor %}
 							{% endif %}
-							<li><a href="{{ SITEURL }}/feeds/rss.xml"><i class="fa fa-rss "></i> rss</a></li>
+							{% if FEED_ALL_ATOM %}
+							<li><a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml"><i class="fa fa-rss "></i> atom</a></li>
+							{% endif %}
+							{% if FEED_ALL_RSS %}
+							<li><a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}" type="application/rss+xml"><i class="fa fa-rss "></i> rss</a></li>
+							{% endif %}
 						</ul>
 					</div>
 					<div class="col-md-3">
@@ -107,6 +112,6 @@ jQuery(document).ready(function($) {
 });
 </script>
 {% include "analytics.html" %}
-{% include "github.html" %} 
+{% include "github.html" %}
 </body>
 </html>
