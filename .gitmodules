@@ -139,3 +139,6 @@
 [submodule "nikhil-theme"]
 	path = nikhil-theme
 	url = https://github.com/gunchu/nikhil-theme
+[submodule "ptemplate"]
+	path = ptemplate
+	url = https://github.com/spinner-dev/ptemplate.git
