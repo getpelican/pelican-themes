@@ -139,3 +139,6 @@
 [submodule "nikhil-theme"]
 	path = nikhil-theme
 	url = https://github.com/gunchu/nikhil-theme
+[submodule "clean-blog"]
+	path = clean-blog
+	url = https://github.com/gilsondev/pelican-clean-blog.git
