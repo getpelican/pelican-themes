@@ -1,7 +1,7 @@
 New Bootstrap 2 theme
 =====================
 
-This is slitly updated "Bootstrap 2" theme.
+This is a slightly updated "Bootstrap 2" theme.
 
 You can find live example of it on `my site <http://infinitylx.org>`_.
 
