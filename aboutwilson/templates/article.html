@@ -30,8 +30,8 @@
 	{% endif %}
 	<div itemprop="articleBody" class="article-body">{{ article.content }}</div>
 	<hr>
-	<h2>Comments</h2>
 	{% include "twitter.html" %}
+	<h2>Comments</h2>
 	{% include 'disqus.html' %}
 </div>
 {% endblock %}
