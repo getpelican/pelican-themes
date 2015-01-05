@@ -82,7 +82,7 @@
                 Site
                 </li>
             
-                <li><a href="{{ SITEURL }}/{{ ARCHIVES_URL }}">Archives</a>
+                <li><a href="{{ SITEURL }}/archives.html">Archives</a>
                 <li><a href="{{ SITEURL }}/tags.html">Tags</a>
 
 
@@ -156,12 +156,17 @@
 
 <footer>
 <br />
-<p><a href="{{ SITEURL }}">{{ SITENAME }}</a> &copy; {{ AUTHOR }} 2012</p>
+{% if articles %}
+   {% set copy_date = articles[0].date.strftime('%Y') %}
+{% else %}
+   {% set copy_date = '' %}
+{% endif %}
+<p><a href="{{ SITEURL }}">{{ SITENAME }}</a> &copy; {{ AUTHOR }} {{ copy_date }}</p>
 </footer>
 
 </div> <!-- /container -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-collapse.js"></script>
+<script src="{{ SITEURL }}/theme/bootstrap-collapse.js"></script>
 {% include "analytics.html" %}
 {% include "github.html" %} 
 </body>
