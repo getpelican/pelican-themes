@@ -109,9 +109,6 @@
 [submodule "voidy-bootstrap"]
 	path = voidy-bootstrap
 	url = https://github.com/robulouski/voidy-bootstrap.git
-[submodule "pelican-iliork"]
-	path = pelican-iliork
-	url = https://github.com/yuex/pelican-iliork.git
 [submodule "burrito"]
 	path = burrito
 	url = https://github.com/fly/burrito.git
@@ -142,3 +139,6 @@
 [submodule "ptemplate"]
 	path = ptemplate
 	url = https://github.com/spinner-dev/ptemplate.git
+[submodule "chameleon"]
+	path = chameleon
+	url = https://github.com/yuex/pelican-iliork.git
