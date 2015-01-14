@@ -75,7 +75,7 @@
 	url = https://github.com/talha131/pelican-elegant.git
 [submodule "niu-x2"]
 	path = niu-x2
-	url = http://github.com/wilbur-ma/niu-x2
+	url = https://github.com/wilbur-ma/niu-x2.git
 [submodule "storm"]
 	path = storm
 	url = https://github.com/redVi/storm.git
