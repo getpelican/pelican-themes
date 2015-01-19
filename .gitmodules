@@ -142,3 +142,6 @@
 [submodule "chameleon"]
 	path = chameleon
 	url = https://github.com/yuex/pelican-iliork.git
+[submodule "mg"]
+	path = mg
+	url = https://github.com/lucachr/pelican-mg.git
