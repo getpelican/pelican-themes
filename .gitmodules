@@ -145,3 +145,6 @@
 [submodule "mg"]
 	path = mg
 	url = https://github.com/lucachr/pelican-mg.git
+[submodule "martin-pelican"]
+	path = martin-pelican
+	url = https://github.com/cpaulik/martin-pelican
