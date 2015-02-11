@@ -210,6 +210,10 @@ The theme can show your most recently active GitHub repos in the sidebar. To ena
 * `GITHUB_SKIP_FORK`
 * `GITHUB_SHOW_USER_LINK`
 
+### Coderwall Badges
+
+The theme can show your [Coderwall](https://coderwall.com/) badges in the sidebar. To enable, provide a `CODERWALL_USER`.
+
 ### Facebook Open Graph
 
 In order to make the Facebook like button and other social sharing options work better, the template contains Open Graph metatags like `<meta property="og:type" content="article"/>`. You can disable them by setting `USE_OPEN_GRAPH` to _False_. You can use `OPEN_GRAPH_FB_APP_ID` to provide a Facebook _app id_. 

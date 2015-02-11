@@ -46,3 +46,5 @@ If your website is listed here, but you don't want it to be, let me know and I'l
 [Jason Antman's Blog](http://blog.jasonantman.com/)  by [jantman](https://github.com/jantman)
 
 [Bryce Boe](http://bryceboe.com/) by [bboe](https://github.com/bboe)
+
+[higeblog](http://www.higebu.com/) by [higebu](https://github.com/higebu)
