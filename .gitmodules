@@ -148,3 +148,6 @@
 [submodule "martin-pelican"]
 	path = martin-pelican
 	url = https://github.com/cpaulik/martin-pelican
+[submodule "nest"]
+	path = nest
+	url = https://github.com/molivier/nest.git
