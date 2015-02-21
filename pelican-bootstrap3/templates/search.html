@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Search - {{ super() }}
+{% endblock %}
+
+{% block scripts %}
+    {% if 'assets' in PLUGINS %}
+    {% include '_includes/minify_tipuesearch.html' with context %}
+    {% else %}
+    <link href="{{ SITEURL }}/theme/tipuesearch/tipuesearch.css" rel="stylesheet">
+    <script type="text/javascript" src="{{ SITEURL }}/theme/tipuesearch/tipuesearch_set.js"></script>
+    <script type="text/javascript" src="{{ SITEURL }}/theme/tipuesearch/tipuesearch.min.js"></script>
+    {% endif %}
+    <script>
+    $(document).ready(function() {
+      $('#tipue_search_input').tipuesearch({
+        'mode' : 'json',
+        'show': 10,
+        'newWindow': false,
+        'contentLocation': 'tipuesearch_content.json'
+      });
+    });
+    </script>
+{% endblock %}
+
+{% block content %}
+<div id="tipue_search_content"></div>
+{% endblock %}

@@ -31,15 +31,6 @@
         <meta name="author" content="{{ AUTHOR }}" />
     {% endblock %}
 
-    <!-- Enable latex plugin -->
-    {% if article and article.latex %}
-        {{ article.latex }}
-    {% endif %}
-    {% if page and page.latex %}
-        {{ page.latex }}
-    {% endif %}
-
-
     {# Open Graph tags #}
     {% if USE_OPEN_GRAPH is not defined %}
         {% set USE_OPEN_GRAPH = True %}
@@ -74,6 +65,9 @@
     <link href="{{ SITEURL }}/theme/css/font-awesome.min.css" rel="stylesheet">
 
     <link href="{{ SITEURL }}/theme/css/pygments/{{ PYGMENTS_STYLE|default('native') }}.css" rel="stylesheet">
+    {% if 'tipue_search' in PLUGINS %}
+    <link href="{{ SITEURL}}/theme/tipuesearch/tipuesearch.css" rel="stylesheet">
+    {% endif %}
     {% if DOCUTIL_CSS %}
         <link href="{{ SITEURL }}/theme/css/html4css1.css" rel="stylesheet">
     {% endif %}
@@ -83,6 +77,9 @@
     <link rel="stylesheet" href="{{ SITEURL }}/theme/css/style.css" type="text/css"/>
     {% if CUSTOM_CSS %}
         <link href="{{ SITEURL }}/{{ CUSTOM_CSS }}" rel="stylesheet">
+    {% endif %}
+    {% if SHARIFF %}
+        <link href="{{ SITEURL }}/theme/css/shariff/shariff.min.css" rel="stylesheet">
     {% endif %}
 
     {% if FEED_ALL_ATOM %}
@@ -94,21 +91,11 @@
               title="{{ SITENAME }} RSS Feed"/>
     {% endif %}
 
-    {% if tag and TAG_FEED_ATOM %}
-        <link href="{{ SITEURL }}/{{ TAG_FEED_ATOM|format(tag.slug) }}" type="application/atom+xml" rel="alternate"
-              title="{{ SITENAME }} {{ tag }} ATOM Feed"/>
-    {% endif %}
-
-    {% if category and CATEGORY_FEED_ATOM %}
-        <link href="{{ SITEURL }}/{{ CATEGORY_FEED_ATOM|format(category.slug) }}" type="application/atom+xml" rel="alternate"
-              title="{{ SITENAME }} {{ category }} ATOM Feed"/>
-    {% endif %}
-
 </head>
 <body>
 
 <div class="navbar {% if BOOTSTRAP_NAVBAR_INVERSE %}navbar-inverse{% else %}navbar-default{% endif %} navbar-fixed-top" role="navigation">
-    <div class="container">
+	<div class="container{% if BOOTSTRAP_FLUID %}-fluid{% endif %}">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -142,16 +129,29 @@
                 {% endif %}
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="{{ SITEURL }}/{{ ARCHIVES_URL | default('archives.html') }}"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            {% if 'tipue_search' in PLUGINS %}
+              <li><span>
+                <form class="navbar-search" action="/search">
+                  <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input" required>
+                </form></span>
+              </li>
+            {% endif %}
+              <li><a href="{{ SITEURL }}/{{ ARCHIVES_URL | default('archives.html') }}"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
     </div>
 </div> <!-- /.navbar -->
-
-<div class="container">
+<!-- Banner -->
+{% if BANNER and BANNER_ALL_PAGES %}
+    {% include 'includes/banner.html' %}
+{% elif BANNER and not BANNER_ALL_PAGES %}
+    {% block banner %}{% endblock %}
+{% endif %}
+<!-- End Banner -->
+<div class="container{% if BOOTSTRAP_FLUID %}-fluid{% endif %}">
     <div class="row">
-        {% if not HIDE_SIDEBAR or SHOW_ABOUTME %}
+        {% if not HIDE_SIDEBAR or ABOUT_ME %}
         <div class="col-sm-9">
         {% else %}
         <div class="col-lg-12">
@@ -162,16 +162,18 @@
         {% block content %}
         {% endblock %}
         </div>
-	{% if ABOUT_ME %}
-        <div class="col-sm-3" id="aboutme">
-            {% include 'includes/aboutme.html' %}
+        {% if not HIDE_SIDEBAR or ABOUT_ME %}
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+            {% if ABOUT_ME %}
+                {% include 'includes/aboutme.html' %}
+            {% endif %}
+            {% if not HIDE_SIDEBAR %}
+                {% include 'includes/sidebar.html' %}
+            {% endif %}
+            </aside>
         </div>
-	{% endif %}
-	{% if not HIDE_SIDEBAR %}
-        <div class="col-sm-3 well well-sm" id="sidebar">
-            {% include 'includes/sidebar.html' %}
-        </div>
-	{% endif %}
+        {% endif %}
     </div>
 </div>
 {% include 'includes/footer.html' %}
@@ -184,10 +186,14 @@
 <!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
 <script src="{{ SITEURL }}/theme/js/respond.min.js"></script>
 
+{% if BANNER %}
+    <script src="{{ SITEURL }}/theme/js/bodypadding.js"></script>
+{% endif %}
 {% include 'includes/github-js.html' %}
-{% include 'includes/coderwall-js.html' %}
 {% include 'includes/disqus_script.html' %}
 {% include 'includes/ga.html' %}
 {% include 'includes/piwik.html' %}
+
+{% block scripts %}{% endblock %}
 </body>
 </html>
