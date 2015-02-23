@@ -96,7 +96,7 @@ body {
 .bottom-nav{display:none;}
 .bottom-nav a{margin-left:15px;}
 /* code style */
-.hightlight { background-color: #ffffcc }
+.highlight { background-color: #ffffcc }
 .c { color: #999988; font-style: italic } /* Comment */
 .err { color: #a61717; background-color: #e3d2d2 } /* Error */
 .k { color: #000000; font-weight: bold } /* Keyword */
