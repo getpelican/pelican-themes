@@ -151,3 +151,6 @@
 [submodule "nest"]
 	path = nest
 	url = https://github.com/molivier/nest.git
+[submodule "alchemy"]
+	path = alchemy
+	url = https://github.com/nairobilug/pelican-alchemy.git
