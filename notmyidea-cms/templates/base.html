@@ -27,8 +27,10 @@
         <header id="banner" class="body">
                 <h1><a href="{{ SITEURL }}/index.html">{{ SITENAME }} {% if SITESUBTITLE %} <strong>{{ SITESUBTITLE }}</strong>{% endif %}</a></h1>
                 <nav><ul>
-                {% for title, link in MENUITEMS %}
-                    <li><a href="{{ link }}">{{ title }}</a></li>
+                {% for title, url in MENUITEMS %}
+                    <li {% if page is defined and url == page.url %} class="active" {% endif %}>
+                        <a href="{{ SITEURL }}/{{ url }}">{{ title }}</a>
+                    </li>
                 {% endfor %}
                 {% if DISPLAY_PAGES_ON_MENU != False %}
                 {% for p in PAGES %}
