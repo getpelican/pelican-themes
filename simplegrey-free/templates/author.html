@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}{{ author }} - {{ SITENAME }}{% endblock %}
+
+{% block content %}
+
+<h1>Posts published by: {{ author }}</h1>
+
+{% for article in articles_page.object_list %}
+  {% include 'article_summary.inc.html' %}
+{% endfor %}
+
+{% include 'pagination.inc.html' %}
+
+{% endblock %}
