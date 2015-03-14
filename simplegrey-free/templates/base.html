@@ -85,6 +85,15 @@
 	          </aside>
 	        {% endif %}
 
+            {% if DISPLAY_TAGS_ON_SIDEBAR %}
+                <h2>Tags</h2>
+
+                <ul class="tagcloud">
+                    {% for tag in tag_cloud %}
+                    <li class="tag-{{ tag.1 }}"><a href="{{ SITEURL }}/{{ tag.0.url }}">{{ tag.0 }}</a></li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
 		  </div>
 
 	  </div>

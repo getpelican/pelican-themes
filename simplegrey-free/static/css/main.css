@@ -1,4 +1,4 @@
-/*
+﻿/*
 Colors :
 - #40403F
 - #4D4D4C
@@ -12,7 +12,7 @@ Colors :
 @import url("pygment.css");
 
 
-/* Latout */
+/* Layout */
 
 article,
 figcaption,
@@ -279,10 +279,10 @@ ul.tagcloud li {
     display: inline-block;
 }
 
-li.tag-1 { font-size: 175%; margin: 0 1em; }
-li.tag-2 { font-size: 150%; margin: 0 1em; }
-li.tag-3 { font-size: 125%; margin: 0 1em; }
-li.tag-4 { font-size: 110%; margin: 0 1em; }
+li.tag-1 { font-size: 100%; margin: 0 1em; }
+li.tag-2 { font-size: 80%; margin: 0 1em; }
+li.tag-3 { font-size: 70%; margin: 0 1em; }
+li.tag-4 { font-size: 60%; margin: 0 1em; }
 
 /* Pagination */
 

@@ -13,6 +13,7 @@ No Javascript is used (besides for Disqus).
 Configuration in pelicanconf.py:
 
 	EMAIL="x@y.com'
+	DISPLAY_TAGS_ON_SIDEBAR=True'
 	DISQUS_SITENAME='http://example.com/example1'
 	SOCIAL=(('Buddycloud', 'https://demo.buddycloud.org/'),
 	        ('Diaspora', 'https://diasp.eu/'),
