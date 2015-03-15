@@ -11,80 +11,55 @@
 		<script src="{{ SITEURL }}/theme/html5.js"></script>
 		<![endif]-->
 	<link href="{{ SITEURL }}/theme/css/ipython.css" rel="stylesheet">
-	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
-	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-	<link href="//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/simplex/bootstrap.min.css" rel="stylesheet">
+	<!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"> -->
+	<!-- <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet"> -->
+	<!-- <link href="//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/simplex/bootstrap.min.css" rel="stylesheet"> -->
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+	<link href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.2/simplex/bootstrap.min.css" rel="stylesheet">
 	<link href="{{ SITEURL }}/theme/css/local.css" rel="stylesheet">
 	<link href="{{ SITEURL }}/theme/css/pygments.css" rel="stylesheet">
 	{% block head %}{% endblock %}
 </head>
 <body>
 <div class="container">
-	<div class="page-header">
-		<h1><a href="{{SITEURL}}">{{ SITENAME }}</a>
-			<br><small>what we observe is not the nature itself but the nature exposed to our method of questioning</small></h1>
-	</div>
-	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
-			{% block content %}{% endblock %}
-		</div>
-	</div> {# End row #}
-	<!-- <hr> -->
-</div> <!-- /container -->
-<footer class="aw-footer bg-danger">
-	<div class="container"> <!-- footer -->
-		<div class="row">
-			<div class="col-md-10 col-md-offset-1">
-				<div class="row">
-					<div class="col-md-3">
-						<h4>Navigation</h4>
-						<ul class="list-unstyled my-list-style">
-							<li><a href="{{SITEURL}}">{{ SITENAME }}</a></li>
-							{% for title, link in MENUITEMS %}
-							<li><a href="{{ SITEURL }}/{{ link }}"><i class="fa fa-{{ title }} "></i> {{title}}</a></li>
-							{% endfor %}
-							{% if DISPLAY_PAGES_ON_MENU %}
-							{% for page in PAGES %}
-							<li><a href="{{ SITEURL }}/{{ page.url }}"><i class="fa fa-{{ page.title }} "></i> {{page.title}}</a></li>
-							{% endfor %}
-							{% endif %}
-							<li><a href="{{ SITEURL }}/feeds/rss.xml"><i class="fa fa-rss "></i> rss</a></li>
-						</ul>
-					</div>
-					<div class="col-md-3">
-						<h4>Author</h4>
-						<ul class="list-unstyled my-list-style">
-							<li><a href="http://aboutwilson.net">Homepage</a></li>
-							<li><a href="http://github.com/wilsonfreitas">Github</a></li>
-							<li><a href="https://twitter.com/aboutwilson">Twitter</a></li>
-							<li><a href="https://plus.google.com/114469936125336696794?rel=author">Google+</a></li>
-							<li><a href="https://www.facebook.com/wnfreitas">Facebook</a></li>
-							<li><a href="http://www.linkedin.com/pub/wilson-freitas/a/572/609">Linked-in</a></li>
-						</ul>
-					</div>
-					<div class="col-md-3">
-						<h4>Categories</h4>
-						<ul class="list-unstyled my-list-style">
-							{% for cat, art in categories %}
-							<li><a href="{{SITEURL}}/category/{{cat | replace(" ", "-") }}.html">{{cat}} ({{art | count}})</a></li>
-							{% endfor %}
-						</ul>
-					</div>
-					<div class="col-md-3">
-						<h4>Links</h4>
-						<ul class="list-unstyled my-list-style">
-							<li><a href="http://www.r-bloggers.com/">R-bloggers</a></li>
-						</ul>
-					</div>
-				</div>
+	<nav class="navbar navbar-default" style="margin-top:2em;">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="{{ SITEURL }}">{{ SITENAME }}</a>
+			</div>
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li><a href="{{ SITEURL }}"><i class="fa fa-home"></i> Home</a></li>
+					{% for title, key, link in MENUITEMS %}
+					<li><a href="{{ SITEURL }}/{{ link }}"><i class="fa fa-{{ key }} "></i> {{title}}</a></li>
+					{% endfor %}
+					{% if DISPLAY_PAGES_ON_MENU %}
+					{% for page in PAGES %}
+					<li><a href="{{ SITEURL }}/{{ page.url }}"><i class="fa fa-{{ page.title }} "></i> {{page.title}}</a></li>
+					{% endfor %}
+					{% endif %}
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="{{ SITEURL }}/categories.html"><i class="fa fa-archive"></i> Categorias</a></li>
+					<li><a href="{{ SITEURL }}/tags.html"><i class="fa fa-tags"></i> Tags</a></li>
+					<li><a href="{{ SITEURL }}/feeds/rss.xml"><i class="fa fa-rss"></i> RSS</a></li>
+				</ul>
 			</div>
 		</div>
-	</div>
-</footer>
+	</nav>
+	{% block mainrow %}{% endblock %}
+</div>
 <div class="container">
 	<div class="row">
 		<div class="col-md-12 text-center center-block aw-bottom">
-			<p>&copy; {{ AUTHOR }} 2014</p>
+			<p>&copy; {{ AUTHOR }} 2015</p>
 			<p>Powered by Pelican</p>
 		</div>
 	</div>

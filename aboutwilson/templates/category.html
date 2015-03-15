@@ -1,8 +1,8 @@
-{% extends "base.html" %}
+{% extends "base_site.html" %}
 {% block description %}All posts which refer to category {{ category }}{% endblock %}
 {% block title %}{{ category }} — {{ SITENAME }}{% endblock %}
 {% block content %}
-<h1>Category <small>{{category}}</small></h1>
+<h1>Categoria <small>{{category}}</small></h1>
 <table class="table">
     <tbody>
     {% for article in articles %}

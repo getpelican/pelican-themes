@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block mainrow %}
+	<div class="row">
+		<div class="col-md-3 col-md-offset-1" style="margin-top:2em;">
+			<ul class="list-group">
+				<li class="list-group-item"><a href="http://aboutwilson.net">Homepage</a></li>
+				<li class="list-group-item"><a href="http://github.com/wilsonfreitas">Github</a></li>
+				<li class="list-group-item"><a href="https://twitter.com/aboutwilson">Twitter</a></li>
+				<li class="list-group-item"><a href="https://plus.google.com/114469936125336696794?rel=author">Google+</a></li>
+				<li class="list-group-item"><a href="https://www.facebook.com/wnfreitas">Facebook</a></li>
+				<li class="list-group-item"><a href="http://www.linkedin.com/pub/wilson-freitas/a/572/609">Linked-in</a></li>
+			</ul>
+			<ul class="list-group">
+				{% for cat, art in categories %}
+				<li class="list-group-item">
+					<span class="badge">{{art | count}}</span>
+					<a href="{{SITEURL}}/category/{{cat | replace(" ", "-") }}.html">{{cat}}</a>
+				</li>
+				{% endfor %}
+			</ul>
+		</div>
+		<div class="col-md-7">
+			{% block content %}{% endblock %}
+		</div>
+	</div>
+{% endblock %}

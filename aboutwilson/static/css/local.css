@@ -20,27 +20,6 @@
     line-height: 200%;
 }
 
-.summary {
-    margin-bottom: 2em;
-    margin-top: 2em;
-    color: black;
-}
-
-.summary pre { display: none; }
-
-.article-body {
-    margin-top: 2em;
-    color: black;
-}
-
-.article-title {
-    margin-bottom: 1em;
-}
-
-.article-header {
-    margin-bottom: 1em;
-}
-
 /**
  * Overrides of notebook CSS for static HTML export
 **/

@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "base_article.html" %}
 {% block description %}Title: {{ article.title }}; Date: {{ article.date|strftime('%Y-%m-%d') }}; Author: {{ article.author }}{% endblock %}
 {% block title %}{{ article.title }} — {{ SITENAME }}{% endblock %}
 {% block content %}
