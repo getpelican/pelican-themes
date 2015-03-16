@@ -20,6 +20,20 @@
     line-height: 200%;
 }
 
+.article-body {
+	margin-top: 2em;
+}
+
+.article-body > p {
+	text-align: justify;
+}
+
+.article-body > p > img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 /**
  * Overrides of notebook CSS for static HTML export
 **/
