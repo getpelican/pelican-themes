@@ -21,8 +21,8 @@
 <body>
 <div class="container">
 	<div class="page-header">
-		<h1><a href="{{SITEURL}}">{{ SITENAME }}</a>
-			<br><small>what we observe is not the nature itself but the nature exposed to our method of questioning</small></h1>
+		<h1><a href="{{ SITEURL }}/">{{ SITENAME }}</a>
+			<br>{% if SITESUBTITLE %}<small>{{ SITESUBTITLE }}</small></h1>{% endif %}
 	</div>
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
@@ -48,18 +48,20 @@
 							<li><a href="{{ SITEURL }}/{{ page.url }}"><i class="fa fa-{{ page.title }} "></i> {{page.title}}</a></li>
 							{% endfor %}
 							{% endif %}
-							<li><a href="{{ SITEURL }}/feeds/rss.xml"><i class="fa fa-rss "></i> rss</a></li>
+							{% if FEED_ALL_ATOM %}
+							<li><a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml"><i class="fa fa-rss "></i> atom</a></li>
+							{% endif %}
+							{% if FEED_ALL_RSS %}
+							<li><a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}" type="application/rss+xml"><i class="fa fa-rss "></i> rss</a></li>
+							{% endif %}
 						</ul>
 					</div>
 					<div class="col-md-3">
 						<h4>Author</h4>
 						<ul class="list-unstyled my-list-style">
-							<li><a href="http://aboutwilson.net">Homepage</a></li>
-							<li><a href="http://github.com/wilsonfreitas">Github</a></li>
-							<li><a href="https://twitter.com/aboutwilson">Twitter</a></li>
-							<li><a href="https://plus.google.com/114469936125336696794?rel=author">Google+</a></li>
-							<li><a href="https://www.facebook.com/wnfreitas">Facebook</a></li>
-							<li><a href="http://www.linkedin.com/pub/wilson-freitas/a/572/609">Linked-in</a></li>
+						{% for name, link in SOCIAL %}
+							<li><a href="{{ link }}">{{ name }}</a></li>
+						{% endfor %}
 						</ul>
 					</div>
 					<div class="col-md-3">
@@ -70,12 +72,16 @@
 							{% endfor %}
 						</ul>
 					</div>
+				{% if LINKS %}
 					<div class="col-md-3">
 						<h4>Links</h4>
 						<ul class="list-unstyled my-list-style">
-							<li><a href="http://www.r-bloggers.com/">R-bloggers</a></li>
+						{% for name, link in LINKS %}
+							<li><a href="{{ link }}">{{ name }}</a></li>
+						{% endfor %}
 						</ul>
 					</div>
+				{% endif %}
 				</div>
 			</div>
 		</div>
@@ -106,6 +112,6 @@ jQuery(document).ready(function($) {
 });
 </script>
 {% include "analytics.html" %}
-{% include "github.html" %} 
+{% include "github.html" %}
 </body>
 </html>

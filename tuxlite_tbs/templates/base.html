@@ -20,16 +20,16 @@
 
     <!-- So Firefox can bookmark->"abo this site" -->
     {% if FEED_ALL_ATOM %}
-        <link href="{{ FEED_ALL_ATOM }}" rel="alternate" title="{{ SITENAME }}" type="application/atom+xml">
+        <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" rel="alternate" title="{{ SITENAME }}" type="application/atom+xml">
     {% endif %}
     {% if FEED_ATOM %}
-        <link href="{{ FEED_ATOM }}" rel="alternate" title="{{ SITENAME }}" type="application/atom+xml">
+        <link href="{{ FEED_DOMAIN }}/{{ FEED_ATOM }}" rel="alternate" title="{{ SITENAME }}" type="application/atom+xml">
     {% endif %}
     {% if FEED_RSS %}
-        <link href="{{ FEED_RSS }}" rel="alternate" title="{{ SITENAME }}" type="application/rss+xml">
+        <link href="{{ FEED_DOMAIN }}/{{ FEED_RSS }}" rel="alternate" title="{{ SITENAME }}" type="application/rss+xml">
     {% endif %}
     {% if FEED_ALL_RSS %}
-        <link href="{{ FEED_ALL_RSS }}" rel="alternate" title="{{ SITENAME }}" type="application/rss+xml">
+        <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}" rel="alternate" title="{{ SITENAME }}" type="application/rss+xml">
     {% endif %}
 
 </head>
@@ -82,7 +82,7 @@
                 Site
                 </li>
             
-                <li><a href="{{ SITEURL }}/{{ ARCHIVES_URL }}">Archives</a>
+                <li><a href="{{ SITEURL }}/archives.html">Archives</a>
                 <li><a href="{{ SITEURL }}/tags.html">Tags</a>
 
 
@@ -156,12 +156,17 @@
 
 <footer>
 <br />
-<p><a href="{{ SITEURL }}">{{ SITENAME }}</a> &copy; {{ AUTHOR }} 2012</p>
+{% if articles %}
+   {% set copy_date = articles[0].date.strftime('%Y') %}
+{% else %}
+   {% set copy_date = '' %}
+{% endif %}
+<p><a href="{{ SITEURL }}">{{ SITENAME }}</a> &copy; {{ AUTHOR }} {{ copy_date }}</p>
 </footer>
 
 </div> <!-- /container -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-collapse.js"></script>
+<script src="{{ SITEURL }}/theme/bootstrap-collapse.js"></script>
 {% include "analytics.html" %}
 {% include "github.html" %} 
 </body>

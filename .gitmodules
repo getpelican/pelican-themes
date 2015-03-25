@@ -75,7 +75,7 @@
 	url = https://github.com/talha131/pelican-elegant.git
 [submodule "niu-x2"]
 	path = niu-x2
-	url = http://github.com/wilbur-ma/niu-x2
+	url = https://github.com/wilbur-ma/niu-x2.git
 [submodule "storm"]
 	path = storm
 	url = https://github.com/redVi/storm.git
@@ -109,9 +109,6 @@
 [submodule "voidy-bootstrap"]
 	path = voidy-bootstrap
 	url = https://github.com/robulouski/voidy-bootstrap.git
-[submodule "pelican-iliork"]
-	path = pelican-iliork
-	url = https://github.com/yuex/pelican-iliork.git
 [submodule "burrito"]
 	path = burrito
 	url = https://github.com/fly/burrito.git
@@ -139,3 +136,24 @@
 [submodule "nikhil-theme"]
 	path = nikhil-theme
 	url = https://github.com/gunchu/nikhil-theme
+[submodule "ptemplate"]
+	path = ptemplate
+	url = https://github.com/spinner-dev/ptemplate.git
+[submodule "chameleon"]
+	path = chameleon
+	url = https://github.com/yuex/pelican-iliork.git
+[submodule "mg"]
+	path = mg
+	url = https://github.com/lucachr/pelican-mg.git
+[submodule "martin-pelican"]
+	path = martin-pelican
+	url = https://github.com/cpaulik/martin-pelican
+[submodule "nest"]
+	path = nest
+	url = https://github.com/molivier/nest.git
+[submodule "alchemy"]
+	path = alchemy
+	url = https://github.com/nairobilug/pelican-alchemy.git
+[submodule "Nuja"]
+	path = Nuja
+	url = https://github.com/allenskd/Nuja.git
