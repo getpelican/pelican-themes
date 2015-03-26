@@ -128,6 +128,7 @@
                     {% endfor %}
                 {% endif %}
             </ul>
+            {% if not HIDE_ARCHIVES %}
             <ul class="nav navbar-nav navbar-right">
             {% if 'tipue_search' in PLUGINS %}
               <li><span>
@@ -138,6 +139,7 @@
             {% endif %}
               <li><a href="{{ SITEURL }}/{{ ARCHIVES_URL | default('archives.html') }}"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
             </ul>
+            {% endif %}
         </div>
         <!-- /.navbar-collapse -->
     </div>

@@ -238,6 +238,10 @@ You can enable sharing buttons through [AddThis](http://www.addthis.com/) by set
 * AddThis automatically adds a short hashtag to the end of your URLs. This lets you reveal how often visitors copy your URL from their address bar to share. Example of URL: `http://domain.com/page.html#UF0983`. This function can be disabled by setting `ADDTHIS_DATA_TRACK_ADDRESSBAR` to _False_.
 * All social buttons are enabled by default. You can disable certain button by setting following properties to _False_: `ADDTHIS_FACEBOOK_LIKE`, `ADDTHIS_TWEET`, `ADDTHIS_GOOGLE_PLUSONE`.
 
+### Keybase
+
+You can advertise your public [keybase.io](https://keybase.io) 64 bit fingerprint and link to `keybase.io/user` in the sidebar. To enable, just provide a `KEYBASE_USER` and `KEYBASE_64BIT`.
+
 ### Shariff
 
 As an alternative, you may use [Shariff](https://github.com/heiseonline/shariff) by setting `SHARIFF = True`. This will display the privacy enabled social media buttons developed by [heiseonline](https://github.com/heiseonline).
@@ -262,7 +266,6 @@ All you have to do, is:
 - enable the plugin, and the theme will add a search box on the right
   side of the menu
 - Add `DIRECT_TEMPLATES = (('search',))` in your `pelicanconf.py`.
-
 
 ### Footer
 
