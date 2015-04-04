@@ -3,6 +3,14 @@
     <span class="published">
         <i class="fa fa-calendar"></i><time datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }}</time>
     </span>
+    
+    {% if SHOW_SERIES %}
+        {% if article.series %}
+            <span class="label label-default">Series</span>
+            Part {{ article.series.index}} of {{ article.series.name }}
+        {% endif %}
+    {% endif %}
+
     {% if SHOW_DATE_MODIFIED %}
         {% if article.modified %}
             <span class="label label-default">Modified</span>
