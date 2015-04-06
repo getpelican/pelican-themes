@@ -7,24 +7,26 @@
 
 ## Options ##
 
-Theme inspired by pelican-simplegrey, but without all the datadealer (Google, Twitter, Facebook) stuff. Social links to Friendica, Diaspora, Statusnet,... instead. EMail is displayed in the footer.
+Theme inspired by pelican-simplegrey, but without all the datadealer (Google, Twitter, Facebook) stuff. Social links to Friendica, Diaspora, Statusnet,... instead. EMail and License is displayed in the footer.
 No Javascript is used (besides for Disqus).
 
 Configuration in pelicanconf.py:
+EMAIL='x@y.com'
+DISQUS_SITENAME= 'http://example.com/example1'
+# Use web address of your own server
+SOCIAL = (('Buddycloud', 'https://demo.buddycloud.org/'),
+          ('Diaspora', 'https://diasp.eu/'),
+          ('Friendica', 'https://friendica.eu/profile/...'),
+          ('Github', 'https://github.com/...'),
+           ('Gnusocial', 'https://www.gnusocial.de/...'),
+          ('Lorea', 'https://n-1.cc/profile/...'),
+          ('Movim', 'https://pod.movim.eu/?q=...'),
+          ('OpenAutonomy', 'http://openautonomy.com/'),
+           ('Pump.io', 'https://identica/...'),
+          ('RedMatrix', 'http://friendicared.de/'),)
 
-	EMAIL="x@y.com'
-	DISPLAY_TAGS_ON_SIDEBAR=True'
-	DISQUS_SITENAME='http://example.com/example1'
-	SOCIAL=(('Buddycloud', 'https://demo.buddycloud.org/'),
-	        ('Diaspora', 'https://diasp.eu/'),
-        	('Friendica', 'https://friendica.eu/profile/...'),
-         	('Github', 'https://github.com/...'),
-          	('Gnusocial', 'https://www.gnusocial.de/...'),
-          	('Lorea', 'https://n-1.cc/profile/...'),
-          	('Movim', 'https://pod.movim.eu/?q=...'),
-          	('OpenAutonomy', 'http://openautonomy.com/'),
-          	('Pump.io', 'https://identica/...'),
-          	('RedMatrix', 'http://friendicared.de/'),)
+# License (choose one)
+LICENSE = 'CC-BY-SA', 'CC-BY', 'CC-BY-NC', 'CC-BY-NC-SA', 'ALL RIGHTS RESERVED'
 
 ## Credits ##
 

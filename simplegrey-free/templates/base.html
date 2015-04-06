@@ -100,12 +100,33 @@
 
       <footer>
 		<p role="contentinfo">
-		  © 2015 {{ AUTHOR }} - 
+		    {% if LICENSE=="CC-BY" %}
+                <a href="http://creativecommons.org/licenses/by/4.0/legalcode" rel="alternate"><img src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/licenses/cc-by-88x31.png" alt="CC-BY"/></a>   
+	        {% endif %}
+	        {% if LICENSE=="CC-BY-NC" %}
+                <a href="http://creativecommons.org/licenses/by-nc/4.0/legalcode" rel="alternate"><img src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/licenses/cc-by-nc-88x31.png" alt="CC-BY-NC"/></a>   
+	        {% endif %}
+	        {% if LICENSE=="CC-BY-SA" %}
+                <a href="http://creativecommons.org/licenses/by-sa/4.0/legalcode" rel="alternate"><img src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/licenses/cc-by-sa-88x31.png" alt="CC-BY-SA"/></a>   
+	        {% endif %}
+	        {% if LICENSE=="CC-BY-NC-SA" %}
+                <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/legalcode" rel="alternate"><img src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/licenses/cc-by-nc-sa-88x31.png" alt="CC-BY-NC-SA"/></a>   
+	        {% endif %}
+            {% if LICENSE=="ALL-RIGHTS-RESERVED" %}
+                All rights reserved.   
+	        {% endif %}
+	        
+	        © 2015 {{ AUTHOR }} - 
+
             {% if EMAIL %}
                 E-Mail: {{ EMAIL }}   
 	        {% endif %}
-     --- Proudly powered by <a href="http://alexis.notmyidea.org/pelican/">pelican</a>. </p>
-	  </footer>	
+        </p>
+
+        <p role="contentinfo">     
+	        Proudly powered by <a href="http://alexis.notmyidea.org/pelican/">pelican</a>.
+	    </p>     
+	   </footer>	
 
 	</div>
 	
