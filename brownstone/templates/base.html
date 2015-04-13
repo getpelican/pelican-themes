@@ -36,11 +36,11 @@ Released   : 20100928
 					</div>
 					<div id="menu">
 						<ul>
-							<li class="current_page_item"><a href="{{ SITEURL }}">Home</a></li>
-							<li><a href="{{ SITEURL }}/archives.html">Archives</a></li>
+							<li {% if page_name == "index" %}class="current_page_item"{% endif %}><a href="{{ SITEURL }}">Home</a></li>
+							<li {% if page_name == "archives" %}class="current_page_item"{% endif %}><a href="{{ SITEURL }}/archives.html">Archives</a></li>
 							{% if DISPLAY_PAGES_ON_MENU %}
                                                         {% for page in PAGES %}
-                                                            <li><a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a></li>
+                                                            <li {% if page_name == page_title %}class="current_page_item"{% endif %}><a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a></li>
                                                         {% endfor %}
                                                         {% endif %}
 						</ul>
