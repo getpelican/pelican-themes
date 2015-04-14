@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content_title %}{% endblock %}
+{% block content %}
+{% if articles %}
+
+    <aside id="featured" class="body">
+
+    {% for article in articles_page.object_list %}
+
+	<div style="float:left">
+		<a href="{{ SITEURL }}/{{ article.url }}">
+		<img src="images/{{ article.thumbnail }}" class="bw" id="ima{{ loop.index }}" onmouseover="greyoff(this.id)" onmouseleave="greyon(this.id)" border="0" title="{{article.title}}" alt="{{ article.title }}" /></a>
+	</div>
+        {% if loop.last %}
+            {% if loop.length > 1 %}
+                </ol><!-- /#posts-list -->
+            {% endif %}
+            {% if articles_page.has_previous() or loop.length > 1 %}
+                <div style="clear:both"></div>{% include 'pagination.html' %}
+            {% endif %}
+            {% if loop.length > 1 %}
+                </section><!-- /#content -->
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+    </aside><!-- /#featured -->
+{% else %}
+<section id="content" class="body">
+<h2>Pages</h2>
+    {% for page in PAGES %}
+        <li><a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a></li>
+    {% endfor %}
+</section>
+{% endif %}
+{% endblock content %}
