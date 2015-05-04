@@ -15,10 +15,19 @@
 	{% endblock %}
 
     {% if FEED_ALL_ATOM %}
-    <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed" />
+        <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed" />
     {% endif %}
     {% if FEED_ALL_RSS %}
-    <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS Feed" />
+        <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS Feed" />
+    {% endif %}
+    {% if GNUSOCIAL_TIMELINE %}
+        <script type="text/javascript">
+            {% for variable, value in GNUSOCIAL_TIMELINE %}
+                var  {{ variable }} = '{{ value }}';
+            {% endfor %}
+             parseInt(max);
+             var tag = 'elitimeline';
+        </script>
     {% endif %}
 </head>
 	
@@ -26,33 +35,33 @@
 {{ FEED_ATOM }}
     <div class="container">
 	  
-	  <header role="banner">
+        <header role="banner">
 	    <div class="feeds">
-	      {% if FEED_ALL_ATOM %}
-	        <a href="{{ SITEURL }}/{{ FEED_ALL_ATOM }}" rel="alternate"><img src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/icons/feed-32px.png" alt="atom feed"/></a>
-	      {% endif %}
-          {% if FEED_ALL_RSS %}
-            <a href="{{ SITEURL }}/{{ FEED_ALL_RSS }}" rel="alternate"><img src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/icons/feed-32px.png" alt="rss feed"/></a>
-          {% endif %}
+                {% if FEED_ALL_ATOM %}
+                    <a href="{{ SITEURL }}/{{ FEED_ALL_ATOM }}" rel="alternate"><img src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/icons/feed-32px.png" alt="atom feed"/></a>
+                {% endif %}
+                {% if FEED_ALL_RSS %}
+                    <a href="{{ SITEURL }}/{{ FEED_ALL_RSS }}" rel="alternate"><img src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/icons/feed-32px.png" alt="rss feed"/></a>
+                {% endif %}
 	    </div>
 	    {% if PAGES %}
 	      <nav class="pages">
 	        {% for p in PAGES %}
 			  <a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a>
 			  {% if not loop.last %}-{% endif %}
-			{% endfor %}
+		{% endfor %}
 	      </nav>
 	    {% endif %}
 		<a href="{{ SITEURL }}" class="title">{{ SITENAME }}</a>
-      </header>
+        </header>
 	
-	  <div class="wrapper">
-
-		  <div role="main" class="content">
-		    {% block content %}{% endblock %}
-		  </div>	
+        <div class="wrapper">
 		  
-		  <div class="sidebar">
+            <div role="main" class="content">
+                   {% block content %}{% endblock %}
+            </div>	
+		  
+            <div class="sidebar">
 
 	        <nav>
 	          <h2>Categories</h2>
@@ -63,40 +72,45 @@
 	          </ul>
 	        </nav>
 
-	        {% if SOCIAL %}
-	          <aside>
-	          <h2>Social</h2>
-			    <ul class="social">
-				  {% for name, link in SOCIAL %}
-				  <li><a href="{{ link }}" id="{{ name }}">{{ name }}</a><i></i></li>
-				  {% endfor %}
-			    </ul>
-			  </aside>
-			{% endif %}
-
-	        {% if LINKS %}
-	          <aside>
-	            <h2>Blogroll</h2>
-	            <ul>
-	              {% for name, link in LINKS %}
-	                <li><a href="{{ link }}">{{ name }}</a></li>
-	              {% endfor %}
-	            </ul>
-	          </aside>
-	        {% endif %}
-
             {% if DISPLAY_TAGS_ON_SIDEBAR %}
                 <h2>Tags</h2>
-
                 <ul class="tagcloud">
                     {% for tag in tag_cloud %}
                     <li class="tag-{{ tag.1 }}"><a href="{{ SITEURL }}/{{ tag.0.url }}">{{ tag.0 }}</a></li>
                     {% endfor %}
                 </ul>
             {% endif %}
-		  </div>
 
-	  </div>
+            {% if GNUSOCIAL_TIMELINE %}
+                <h2>GNU Social</h2>
+                <div id="elitimeline">
+                    <p>Timeline activity...</p>
+                </div>
+	            <script type="text/javascript" src="./theme/js/eli.js"></script>
+            {% endif %}
+    	    {% if SOCIAL %}
+                <aside>
+                 <h2>Social Networks</h2>
+                    <ul class="social">
+			 {% for name, link in SOCIAL %}
+                            <li><a href="{{ link }}" id="{{ name }}">{{ name }}</a><i></i></li>
+			 {% endfor %}
+		    </ul>
+                </aside>
+            {% endif %}
+
+	        {% if LINKS %}
+                <aside>
+                 <h2>Blogroll</h2>
+                        <ul>
+                            {% for name, link in LINKS %}
+                                <li><a href="{{ link }}">{{ name }}</a></li>
+                            {% endfor %}
+                        </ul>
+	            </aside>
+	        {% endif %}
+        </div>
+  </div>
 
       <footer>
 		<p role="contentinfo">
@@ -128,6 +142,7 @@
 	</footer>	
 
 	</div>
-	
+
+    
 </body>
 </html>
