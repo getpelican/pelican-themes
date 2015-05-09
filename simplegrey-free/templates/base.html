@@ -91,24 +91,24 @@
     	    {% if SOCIAL %}
                 <aside>
                  <h2>Social Networks</h2>
-                    <ul class="social">
-			 {% for name, link in SOCIAL %}
-                            <li><a href="{{ link }}" id="{{ name }}">{{ name }}</a><i></i></li>
-			 {% endfor %}
-		    </ul>
+                 <ul class="social">
+                    {% for name, link in SOCIAL %}
+                        <li><a href="{{ link }}" id="{{ name }}">{{ name }}</a><i></i></li>
+                    {% endfor %}
+                 </ul>
                 </aside>
             {% endif %}
 
-	        {% if LINKS %}
+            {% if LINKS %}
                 <aside>
                  <h2>Blogroll</h2>
-                        <ul>
-                            {% for name, link in LINKS %}
-                                <li><a href="{{ link }}">{{ name }}</a></li>
-                            {% endfor %}
-                        </ul>
-	            </aside>
-	        {% endif %}
+                 <ul>
+                   {% for name, link in LINKS %}
+                    <li><a href="{{ link }}">{{ name }}</a></li>
+                   {% endfor %}
+                 </ul>
+	        </aside>
+	    {% endif %}
         </div>
   </div>
 
