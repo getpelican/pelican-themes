@@ -1,4 +1,4 @@
-# simplegrey-free#
+## simplegrey-free#
 
 ## Screenshot ##
 
@@ -7,10 +7,12 @@
 
 ## Options ##
 
-Theme inspired by pelican-simplegrey, but without all the datadealer (Google, Twitter, Facebook) stuff. GNU Social Widget in sidebar. Social links to Friendica, Diaspora, Statusnet,... instead. EMail and License is displayed in the footer.)
-Javascript only used for GNU Social/StatusNet Widget..
+Theme inspired by pelican-simplegrey, but without all the datadealer (Google, Twitter, Facebook) stuff. GNU Social Widget in sidebar. Social links to Friendica, Diaspora, Statusnet,... instead. EMail and License is displayed in the footer.
+
+Javascript only used for GNU Social/StatusNet Widget.
 
 Configuration in pelicanconf.py:
+
     EMAIL='x@y.com'
     DISQUS_SITENAME= 'http://example.com/example1'
     # Use web address of your own server
@@ -29,9 +31,9 @@ Configuration in pelicanconf.py:
     LICENSE = 'CC-BY-SA', 'CC-BY', 'CC-BY-NC', 'CC-BY-NC-SA', 'ALL RIGHTS RESERVED'
     
     GNUSOCIAL_TIMELINE = (('domain','https://quitter.se),
-			('user','debian'),
-			('max','5'),
-			('type','user'))    # could be 'group' to follow a group
+                         ('user','debian'),
+                         ('max','5'),
+                         ('type','user'))    # could be 'group' to follow a group
 
 ## Credits ##
 
