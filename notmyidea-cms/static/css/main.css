@@ -10,7 +10,11 @@
 /* Imports */
 @import url("reset.css");
 @import url("pygment.css");
+<<<<<<< HEAD
 @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz&subset=latin);
+=======
+@import url(//fonts.googleapis.com/css?family=Yanone+Kaffeesatz&subset=latin);
+>>>>>>> 32f8d7ff151a0712f9c1f148c326bbf198e0e609
 
 /***** Global *****/
 /* Body */
