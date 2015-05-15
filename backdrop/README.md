@@ -1,23 +1,7 @@
 # Backdrop Pelican Theme
-This is a theme for the [Pelican](http://docs.getpelican.com/en/3.5.0/) static
-site generator. It is based on [Zurb Foundation](http://foundation.zurb.com/),
-customized with [Sass](http://sass-lang.com/). It is managed using
-[Grunt](http://gruntjs.com/). To build the theme, run
-
-    grunt build
-
-Alternatively, a precompiled version of this theme is available in the
-[Pelican Themes](https://github.com/getpelican/pelican-themes) repository.
-
-If you wish to customize this theme, template files are contained within the
-`html` direcotory, while (s)css is within the `scss` directory. This theme
-uses no custom javascript, but this can be added to the file `js/app.js` if
-desired.
-
-
-## About the Theme
 Backdrop is a responsive theme which adjusts itself to different screen and
-window sizes. It is designed to look modern, but at the same time traditional,
+window sizes, built on [Zurb Foundation](http://foundation.zurb.com/).
+It is designed to look modern, but at the same time traditional,
 using a serif font and darker colours. It features full
 [Disqus](https://disqus.com/) integration and can be customized through
 variables in your Pelican configuration file. See it live at my blog,
@@ -28,6 +12,12 @@ variables in your Pelican configuration file. See it live at my blog,
 
 This is an example of the page footer on a medium screen.
 ![The footer on a medium screen](https://raw.githubusercontent.com/cmacmackin/backdrop-theme/master/screenshot3.png)
+
+I you want to customize Backdrop, perhaps consider using
+[Sass](http://sass-lang.com/) and [Grunt](http://gruntjs.com/), as I did when
+originally designing it. See the
+[backdrop-theme](https://github.com/cmacmackin/backdrop-theme) repository.
+
 
 ## Compatible Plugins
 The theme has been designed to use the [representative_image](https://github.com/getpelican/pelican-plugins/tree/master/representative_image) plugin. However,
