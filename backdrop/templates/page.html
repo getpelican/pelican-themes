@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}{{ page.title|striptags }}{%endblock%}
+
+{% block content %}
+<div class="row">
+    <div class="small-12 columns article">
+        <h2>{{ page.title }}</h2>
+        <section>
+            {{ page.content }}    
+        </section>
+    </div>
+</div>
+{% endblock content %}
