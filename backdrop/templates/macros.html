@@ -1,0 +1,88 @@
+{% macro article_info(article, url, disqus=None) -%}
+<div class="row info-bar" style="margin-left:0rem;margin-bottom:6px;">
+    <div class="small-12 columns">
+        <ul class="inline-list">
+            <li><span><i class="fa fa-calendar"></i>&nbsp; {{ article.locale_date }}</span></li>
+            <li><span><i class="fa fa-folder-open"></i>&nbsp; <a href="{{ url }}/{{ article.category.url }}">{{ article.category }}</a></span></li>
+        {% if disqus %}
+            <li><span><i class="fa fa-comments"></i>&nbsp; <a href="{{ url }}/{{ article.url }}#disqus_thread" rel="bookmark" title="Disqus Comments">{{ article.title }}</a></span></li>
+        {% endif %}
+        {% if article.tags %}
+            <li>
+                <span>
+                    <i class="fa fa-tags"></i>&nbsp;
+                {% for tag in article.tags %}
+                    <a href="{{ url }}/{{ tag.url }}"><span class="label">{{ tag }}</span></a>
+                {% endfor %}
+                </span>
+            </li>
+        {% endif %}
+        </ul>
+    </div>
+</div>
+{%- endmacro %}
+
+{% macro article_summary(article,url,showimg=False,imgside=True,disqus=None) -%}
+{% if showimg and imgside and article.featured_image %}
+    {% set numcols1 = 7 %}
+    {% set numcols2 = 12 - numcols1 %}
+{% else %}
+    {% set numcols1 = 12 %}
+    {% set numcols2 = 12 %}
+{% endif %}
+<section class="summary">
+    <h3><a href="{{ url }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h3>
+    {{ article_info(article, url, disqus) }}
+    <div class="row summary">
+        <div class="small-12 medium-{{ numcols1 }} columns">
+            {{ article.summary }}
+            <p class='text-right'><a href="{{ url }}/{{ article.url }}">Continue reading&hellip;</a></p>
+        </div>
+    {% if showimg and article.featured_image %}
+        <div class="small-12 medium-{{ numcols2 }} columns">
+            <a class="th" href="{{ url }}/{{ article.url }}">
+                <img src="{{ article.featured_image }}">
+            </a>
+        </div>
+    {% endif %}
+    </div>
+</section>
+{%- endmacro %}
+
+
+{% macro pagination(pobj, num_pages, page_name, url) %}
+{% if num_pages > 1 %}
+<div class="pagination-centered">
+    <ul class="pagination">
+    {% if pobj.has_previous() %}
+        {% set num = pobj.previous_page_number() %}
+        <li class="arrow"><a href="{{ url }}/{{ page_name }}{{ num if num > 1 else '' }}.html">&laquo;</a></li>
+    {% else %}
+        <li class="arrow unavailable"><a href="#">&laquo;</a></li>
+    {% endif %}
+    {% for num in range( 1, 1 + num_pages ) %}
+      {% if num in [1,2,pobj.number-1,pobj.number,pobj.number+1,num_pages-1,num_pages] %}
+        <li class="{{ 'current' if num == pobj.number else '' }}"><a href="{{ url }}/{{ page_name }}{{ num if num > 1 else '' }}.html">{{ num }}</a></li>
+        {% set prevellip = False %}
+      {% elif not prevellip %}
+        <li class="unavailable"><a href="">&hellip;</a></li>
+        {% set prevellip = True %}
+      {% endif %}
+    {% endfor %}
+    {% if pobj.has_next() %}
+        <li class="arrow"><a href="{{ url }}/{{ page_name }}{{ pobj.next_page_number() }}.html">&raquo;</a></li>
+    {% else %}
+        <li class="arrow unavailable"><a href="#">&raquo;</a></li>
+    {% endif %}
+    </ul>
+</div>
+{% endif %}
+{% endmacro %}
+
+
+{% macro page_list(pobj, num_pages, page_name, url, disqus=None) %}
+{% for a in pobj.object_list %}
+  {{ article_summary(a, url, True, True, disqus) }}
+{% endfor %}
+{{ pagination(pobj, num_pages, page_name, url) }}
+{% endmacro %}

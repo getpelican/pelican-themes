@@ -1,0 +1,48 @@
+<div class="row">
+    <div class="small-6 medium-3 columns">
+        <ul class="left-nav">
+            <li><a href="{{ SITEURL }}">Home &nbsp;<i class="fa fa-home fa-fw"></i></a></li>
+            <li><a href="{{ SITEURL }}/categories.html">Categories &nbsp;<i class="fa fa-folder-open fa-fw"></i></a></li>
+        </ul>
+    </div>
+    <div class="small-6 medium-3 medium-push-6 columns">
+        <ul class="right-nav">
+        {% if FEED_ALL_ATOM %}
+            <li><a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}"><i class="fa fa-rss fa-fw"></i>&nbsp; Feed</a></li>
+        {% elif FEED_ALL_RSS %}
+            <li><a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}"><i class="fa fa-rss fa-fw"></i>&nbsp; Feed</a></li>
+        {% elif FEED_ATOM %}
+            <li><a href="{{ FEED_DOMAIN }}/{{ FEED_ATOM }}"><i class="fa fa-rss fa-fw"></i>&nbsp; Feed</a></li>
+        {% elif FEED_RSS %}
+            <li><a href="{{ FEED_DOMAIN }}/{{ FEED_RSS }}"><i class="fa fa-rss fa-fw"></i>&nbsp; Feed</a></li>
+        {% endif %}
+            <li><a href="{{ SITEURL }}/archives.html"><i class="fa fa-archive fa-fw"></i>&nbsp; Archives</a></li>
+        </ul>
+    </div>
+    <div class="small-12 medium-6 medium-pull-3 columns text-center">
+    {% if tags %}
+        <p class="tag-cloud">
+            <a href="{{ SITEURL }}/tags.html"><i class="fa fa-tags"></i>&nbsp;Tags:</a>&nbsp;&nbsp;
+        {% for tag in tag_cloud %}
+            <a href="{{ SITEURL }}/tag/{{ tag.0|string|replace(" ", "-" )|lower }}.html"><span class="label">{{ tag.0 }}</span></a>
+        {% endfor %}
+            &nbsp;&hellip;
+        </p>
+    {% endif %}
+    </div>
+    <div class="small-12 columns sub-footer">
+        <hr>
+        <div class="small-12 medium-6 columns">
+            <p class="small-text-center medium-text-left">
+                &copy; {{ YEAR }} {{ AUTHOR }} {{ LICENSE }}
+                <!-- <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="cc.png" /></a>-->
+            </p>
+        </div>
+        <div class="small-12 medium-6 columns">
+            <p class="small-text-center medium-text-right">
+                Proudly powered by <a href="http://blog.getpelican.com/">Pelican</a>,
+                which takes great advantage of <a href="https://www.python.org/">Python</a>.
+            </p>
+        </div>
+    </div>
+</div>

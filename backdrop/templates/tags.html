@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Tags{%endblock%}
+
+{% block content %}
+<div class="row">
+    <div class="small-12 columns article">
+        <h2>Tags</h2>
+        <section>
+            <p class='tag-page'>
+            {% for tag, articles in tags|sort %}
+                <a href="{{ SITEURL }}/{{ tag.url }}"><span class="label">{{ tag }}&nbsp;&nbsp;<span class="label round secondary">{{ articles|count }}</span></span></a>
+            {% endfor %}
+            </p>    
+        </section>
+    </div>
+</div>
+{% endblock content %}
