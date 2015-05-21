@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% set date = None %}
+
+{% for article in (articles_page.object_list if articles_page else articles) -%}
+{%   if date != article.date.date() %}
+{%     set first_article_of_day = True %}
+{%   else %}
+{%     set first_article_of_day = False %}
+{%   endif %}
+{%   set date = article.date.date() %}
+{%   if 'hidden' not in article.categories %}
+{%      include "article_summary.html" %}
+{%   endif %}
+{%- else %}
+                <div class="post text pinned">
+                    <h1>No Posts</h1>
+                    <p>Nothing here yet!</p>
+                </div>
+{% endfor %}
+{% include "pagination.html" %}
+{% endblock %}

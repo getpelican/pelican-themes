@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Search&nbsp;&middot;&nbsp;{{ SITENAME }}
+{% endblock title %}
+
+{% block scripts %}
+<script type="text/javascript" src="{{ SITEURL }}/theme/js/jquery.min.js"></script>
+<script type="text/javascript" src="{{ SITEURL }}/theme/tipuesearch/tipuesearch_set.js"></script>
+<script type="text/javascript" src="{{ SITEURL }}/theme/tipuesearch/tipuesearch.min.js"></script>
+<script>
+$(document).ready(function() {
+     $('#tipue_search_input').tipuesearch({
+         'show': 8,
+         'mode': 'json',
+         'contentLocation': '{{ SITEURL }}/tipuesearch_content.json'
+     });
+});
+</script>
+{% endblock scripts %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-xs-3 col-md-2 col-lg-2 archives izquierda"></div>
+        <div class="col-xs-8 col-md-9 col-lg-9 post"><div id="tipue_search_content"></div></div>
+    </div>
+{% include 'back.html' %}
+{% endblock content %}
