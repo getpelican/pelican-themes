@@ -160,3 +160,6 @@
 [submodule "pjport"]
 	path = pjport
 	url = https://github.com/xm3ron/pjport.git
+[submodule "pelican-octopress-theme"]
+	path = pelican-octopress-theme
+	url = https://github.com/duilio/pelican-octopress-theme
