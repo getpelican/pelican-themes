@@ -160,3 +160,6 @@
 [submodule "pjport"]
 	path = pjport
 	url = https://github.com/xm3ron/pjport.git
+[submodule "pelican-blue-penguin"]
+	path = pelican-blue-penguin
+	url = https://github.com/ix5/pelican-blue-penguin.git
