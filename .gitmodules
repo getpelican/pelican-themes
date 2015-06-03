@@ -142,3 +142,6 @@
 [submodule "ptemplate"]
 	path = ptemplate
 	url = https://github.com/spinner-dev/ptemplate.git
+[submodule "Casper2Pelican"]
+	path = Casper2Pelican
+	url = https://github.com/abr4xas/Casper2Pelican.git
