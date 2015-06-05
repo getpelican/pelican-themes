@@ -298,10 +298,12 @@ li.tag-4 { font-size: 60%; margin: 0 1em; }
 #eli_widget {
 font-size: 0.7em;
 margin-top: 20px;
+height: 250px;
 padding: 0;
 /* border: thin solid #eee; */
 border-radius: 5px;
 background-color: #FcFcFc;
+overflow-y: auto;
 }
 
 #eli_widget header {
@@ -332,6 +334,42 @@ margin-bottom: 5px;
 padding: 5px;
 border-bottom: thin solid #eeeeee;
 }
+
+/* Friendica Comments */
+#comments {
+  border-top: thin solid #eeeeee;
+  padding-top: 15px;
+  display: table;
+  margin-left: 60px;
+  width: calc(100% - 60px);
+}
+
+.comment-container {
+  display: table-cell;
+  float: right;
+  min-width: 100%;
+  padding: 5px;
+  border-bottom: thin solid #eeeeee;
+  }
+
+.contact-photo {
+  float: left;
+  width: 60px;
+  height: 60px;
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
+.wall-item-actions-author {
+  height: 10px;
+  font-size: 70%;
+}
+.wall-item-content {
+  margin-top: 10px;
+  font-size: 90%;
+  text-align: left;
+ }
+
 
 /* Responsive */
 
