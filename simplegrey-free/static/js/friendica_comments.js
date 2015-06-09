@@ -1,4 +1,4 @@
-var article = document.getElementsByTagName("article")[0].innerHTML;
+﻿var article = document.getElementsByTagName("article")[0].innerHTML;
 var article_name= article.substring(article.indexOf('<p>')+3,article.indexOf('<p>')+33);
 var search = friendica_domain + "/search?search=" + article_name.replace(/ /gi,'+');
 var http, http2 = null;
@@ -30,7 +30,7 @@ http2 = new XMLHttpRequest();
 function SearchComments() {
    if (http.readyState == 4 && http.status == 200) {
     var CommentsResult = http2.responseText;
-    var ergebnisse = ("");
+    var ergebnisse = ("<div class='comment'> <a href='" + ergebnis +"'> Comments</a> powered by Friendica</div>" );
     var arr = new Array();
     arr = CommentsResult.split("wall-item-container comment");
     for (i=1;i<arr.length;i++){
@@ -38,9 +38,8 @@ function SearchComments() {
         var start = arr[i].indexOf('<div class=\"wall-item-actions-author\">');
         var end = arr[i].indexOf('<div class=\"wall-item-bottom\">',start);
         var comment = arr[i].substring(start,end-1);
-        var endcomment = comment.slice(comment.indexOf('onmouseover'),comment.indexOf('<a href')-1);
         ergebnisse = ergebnisse + '<div class=\"comment-container\">' + photo + comment + '</div>';
-        }
+       }
     document.getElementById("comments").innerHTML = ergebnisse;
     }
 }
