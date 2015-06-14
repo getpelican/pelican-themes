@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}{{ SITENAME }} - Articles by {{ author }}{% endblock %}
+{% block content %}
+<div class="container">
+<section class="main-section contact" id="contact">
+		<div class="row">
+			<div class="col-lg-12 col-sm-12 wow fadeInLeft">
+				<div class="contact-info-box phone clearfix">
+					<h3><i class="fa-user"></i>Author:</h3>
+					<span>{{ author }}</span>
+				</div>
+				<div class="contact-info-box email clearfix">
+					<h3><i class="fa-pencil"></i>Email:</h3>
+					<span>xxxxxx@xxx.com</span>
+				</div>
+				<ul class="social-link">
+					<li class="twitter"><a href="#"><i class="fa-twitter"></i></a></li>
+					<li class="facebook"><a href="#"><i class="fa-facebook"></i></a></li>
+					<li class="pinterest"><a href="#"><i class="fa-pinterest"></i></a></li>
+					<li class="gplus"><a href="#"><i class="fa-google-plus"></i></a></li>
+					<li class="dribbble"><a href="#"><i class="fa-dribbble"></i></a></li>
+				</ul>
+			</div>
+		</div>
+</section>
+</div>
+{% endblock %}

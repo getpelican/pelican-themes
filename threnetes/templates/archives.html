@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="main-section" id="service"><!--main-section-start-->
+	<div class="container">
+		<!--<h2>Services</h2>
+		<h6>We offer exceptional service with complimentary hugs.</h6>-->
+		<div class="row">
+			<div class="col-lg-12 col-sm-12 wow fadeInLeft delay-05s">
+				{% for article in dates %}
+				<div class="service-list">
+				  <div class="service-list-col1">
+					  <i class="fa-paw"></i>
+					</div>
+				  <div class="service-list-col2">
+						<a href="{{ SITEURL }}/{{ article.url }}"><h3>{{ article.title }}</h3></a>
+						<p>
+							<a href="#">{{ article.locale_date }}</a>
+						</p>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</section><!--main-section-end-->
+{% endblock %}

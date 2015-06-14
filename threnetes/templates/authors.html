@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}{{ SITENAME }} - Articles by {{ author }}{% endblock %}
+{% block content %}
+<div class="container">
+<section class="main-section contact" id="contact">
+		<h2>Authors on {{ SITENAME }}</h2>
+		<h6>All the great author in here.</h6>
+		{%- for author, articles in authors|sort %}
+		<div class="row">
+			<div class="col-lg-12 col-sm-12 wow fadeInLeft">
+				<div class="contact-info-box phone clearfix">
+					<h3><i class="fa-user"></i>Author:</h3>
+					<span><a href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a>({{ articles|count }})</span>
+				</div>
+			</div>
+		</div>
+		{% endfor %}
+</section>
+</div>
+{% endblock %}

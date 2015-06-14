@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}{{ SITENAME }} - Tags{% endblock %}
+{% block content %}
+<section class="main-section" id="service"><!--main-section-start-->
+	<div class="container">
+		<!--<h2>Services</h2>
+		<h6>We offer exceptional service with complimentary hugs.</h6>-->
+		<div class="row">
+			<div class="col-lg-12 col-sm-12 wow fadeInLeft delay-05s">
+			  <div class="service-list">
+					<div class="service-list-col1">
+						<i class="fa-tags"></i>
+					</div>
+					<div class="service-list-col2">
+						<h3>Tags</h3>
+						<p>
+						{% for tag in tag_cloud %}
+							<a href="{{ SITEURL }}/{{ tag.0.url }}">{{ tag.0|e }}</a>
+						{% endfor %}
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section><!--main-section-end-->
+{% endblock %}

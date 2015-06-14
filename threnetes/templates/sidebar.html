@@ -1,0 +1,92 @@
+<div class="col-lg-3 col-sm-3 col-md-3 col-xs-12 wow fadeInLeft delay-05s">
+	<div class="service-list">
+		<div class="service-list-col1">
+			<i class="fa-paw"></i>
+		</div>
+		<div class="service-list-col2">
+			<h3>Pages</h3>
+			<p>
+				<a href="{{ SITEURL }}/">Home</a><br/>
+				{% if DISPLAY_PAGES_ON_MENU %}
+					{% for p in PAGES %}
+						<a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a><br/>
+					{% endfor %}
+				{% else %}
+					{% if DISPLAY_CATEGORIES_ON_MENU %}
+						{% for cat, null in categories %}
+							<a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a><br/>
+						{% endfor %}
+					{% endif %}
+				{% endif %}
+
+				{% for title, link in MENUITEMS %}
+					<a href="{{ link }}">{{ title }}</a><br/>
+				{% endfor %}
+			</p>
+		</div>
+	</div>
+	
+	<div class="service-list">
+		<div class="service-list-col1">
+			<i class="fa-pagelines"></i>
+		</div>
+		<div class="service-list-col2">
+			<h3>Categories</h3>
+			{% if categories %}
+			<p>
+				{% for cat, null in categories %}
+					<a href="{{ SITEURL }}/{{ cat.url|e }}">{{ cat }}</a><br/>
+				{% endfor %}
+			</p>
+			{% endif %}
+		</div>
+	</div>
+	
+	<div class="service-list">
+		<div class="service-list-col1">
+			<i class="fa-tags"></i>
+		</div>
+		<div class="service-list-col2">
+			<h3>Tags</h3>
+			{% if tags %}
+			<p>
+				{% for tag in tag_cloud %}
+					<a href="{{ SITEURL }}/{{ tag.0.url }}">{{ tag.0|e }}</a>
+				{% endfor %}
+			</p>
+			{% endif %}
+		</div>
+	</div>
+	
+	{% if LINKS %}
+	<div class="service-list">
+		<div class="service-list-col1">
+			<i class="fa-link"></i>
+		</div>
+		<div class="service-list-col2">
+			<h3>Links</h3>
+			<p>
+				{% for name, link in LINKS %}
+					<a href="{{ link }}">{{ name }}</a><br/>
+				{% endfor %}
+			</p>
+		</div>
+	</div>
+	{% endif %}
+	
+	{% if SOCIAL %}
+	<div class="service-list">
+		<div class="service-list-col1">
+			<i class="fa-facebook-square"></i>
+		</div>
+		<div class="service-list-col2">
+			<h3>Social</h3>
+			<p>
+				{% for name, url in SOCIAL %}
+					<a href="{{ url|e }}">{{ name }}</a><br/>
+				{% endfor %}
+			</p>
+		</div>
+	</div>
+	{% endif %}
+</div>

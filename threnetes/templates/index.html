@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="main-section" id="service"><!--main-section-start-->
+	<div class="container">
+		<div class="row">
+			
+			{% include 'sidebar.html' %}
+
+			<figure class="col-lg-9 col-sm-6  text-left wow fadeInUp delay-02s">
+				{% for article in articles_page.object_list %}
+				<article class="post">
+					<header class="entry-header">
+						<h2 class="entry-title"><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h2>
+						<div class="entry-meta"> 
+							<span class="posted-on">
+								<time class="entry-date published" title="{{ article.date.isoformat() }}"> 
+									{{ article.locale_date }} 
+								</time>
+							</span>
+							{% if article.author %}
+							<span class="posted-by">By 
+								<a href="{{ SITEURL }}/{{ article.author.url }}">
+									{{ article.author }}
+								</a>
+							</span>
+							{% endif %}           
+						</div>
+					</header>
+					<div class="entry-content">
+						 {{ article.summary }} 
+						 <a class="more-link" href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">Read more&#8230;</a>
+					</div>
+				</article>
+				{% endfor %}
+				
+				{% include 'pagination.html' %}
+				
+			</figure>  
+		</div>
+	</div>
+</section><!--main-section-end-->
+{% endblock %}

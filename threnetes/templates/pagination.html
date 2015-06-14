@@ -1,0 +1,17 @@
+{% if DEFAULT_PAGINATION %}
+<nav>
+	<ul class="pager">
+	{% if articles_page.has_previous() %}
+		{% if articles_page.previous_page_number() == 1 %}
+			<li><a href="{{ SITEURL }}/{{ page_name }}.html" style="color: #666666;">Previous</a></li>
+		{% else %}
+			<li><a href="{{ SITEURL }}/{{ page_name }}{{ articles_page.previous_page_number() }}.html" style="color: #666666;">Previous</a></li>
+		{% endif %}
+	{% endif %}
+	{{ articles_page.number }} / {{ articles_paginator.num_pages }}
+	{% if articles_page.has_next() %}
+		<li><a href="{{ SITEURL }}/{{ page_name }}{{ articles_page.next_page_number() }}.html" style="color: #666666;">Next</a></li>
+	{% endif %}
+	</ul>
+</nav>
+{% endif %}

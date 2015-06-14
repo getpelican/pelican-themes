@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block title %}{{ article.title|striptags }}{% endblock %}
+{% block content %}
+<section class="main-section" id="service"><!--main-section-start-->
+	<div class="container">
+		<div class="row">
+			
+			{% include 'sidebar.html' %}
+
+			<figure class="col-lg-9 col-sm-6  text-left wow fadeInUp delay-02s">
+				<div class="post">                        
+					<a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark"
+						title="Permalink to {{ article.title|striptags }}">
+						<h2>{{ article.title }}</h2>
+					</a>
+					{% import 'translations.html' as translations with context %}
+					{{ translations.translations_for(article) }}
+
+					<span  title="{{ article.date.isoformat() }}">{{ article.locale_date }}</span><br/>        
+					
+					{% if article.author %}
+					<span class="posted-by">By 
+						<a href="{{ SITEURL }}/{{ article.author.url }}">
+							{{ article.author }}
+						</a>
+					</span>
+					{% endif %}   
+
+					<div class="entry-content2">
+						{{ article.content }}
+					</div>
+
+					<div class="post-tags">
+						{% if article.tags %}
+							<i class="fa-tags"></i>
+							{% for tag in article.tags %}
+							<a href="{{ SITEURL }}/{{ tag.url }}">{{ tag|e }}</a>
+							{% endfor %}
+						{% endif %}
+					</div>   
+				</div>  
+
+				{% if DISQUS_SITENAME %}
+				<div class="comments" style="color:black;">
+					<h3>Comments</h3>
+					<div id="disqus_thread"></div>
+					<script type="text/javascript">
+						var disqus_identifier = "{{ article.url }}";
+						(function() {
+						var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+						dsq.src = 'http://{{ DISQUS_SITENAME }}.disqus.com/embed.js';
+						(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+						})();
+					</script>
+				</div>
+				{% endif %}
+			</figure>
+		</div>
+	</div>
+</section><!--main-section-end-->
+{% endblock %}
