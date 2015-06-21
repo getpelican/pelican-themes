@@ -32,11 +32,11 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="{{ SITEURL }}">{{ SITENAME }}</a>
+				<a class="navbar-brand" href="{{ SITEURL }}/index.html">{{ SITENAME }}</a>
 			</div>
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-					<li><a href="{{ SITEURL }}"><i class="fa fa-home"></i> Home</a></li>
+					<li><a href="{{ SITEURL }}/index.html"><i class="fa fa-home"></i> Home</a></li>
 					{% for title, key, link in MENUITEMS %}
 					<li><a href="{{ SITEURL }}/{{ link }}"><i class="fa fa-{{ key }} "></i> {{title}}</a></li>
 					{% endfor %}
