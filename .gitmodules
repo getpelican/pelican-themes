@@ -160,3 +160,6 @@
 [submodule "pjport"]
 	path = pjport
 	url = https://github.com/xm3ron/pjport.git
+[submodule "calepin"]
+	path = calepin
+	url = https://github.com/fernandezcuesta/calepin.git

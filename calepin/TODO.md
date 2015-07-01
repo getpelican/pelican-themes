@@ -1,2 +1,0 @@
-- Move from bootstrap to flexbox
-- Allow different colours (instead of green)
