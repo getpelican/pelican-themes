@@ -1,14 +1,21 @@
         <div class="row post">
             <div class="izquierda col-xs-2 col-md-2 col-lg-2">
+            {% if article.date.strftime('%y') <= CURRDATE.strftime('%y') %}
              <div class="date">
                 {% if article.date.strftime('%y') < CURRDATE.strftime('%y') %}
                  <div class="dateday">{{ article.date.strftime("%d %b") }}</div>
                  <div class="datemonth">{{ article.date.strftime("%Y") }}</div>
-                {% else %}
+                {% elif article.date.strftime('%y') == CURRDATE.strftime('%y') %}
                  <div class="dateday">{{ article.date.strftime("%a %d") }}</div>
                  <div class="datemonth">{{ article.date.strftime("%b") }}</div>
                 {% endif %}
              </div>
+             {% else %}
+                <span class="fa-stack fa-4x date">
+                 <i class="fa fa-circle fa-stack-2x"></i>
+                 <i class="fa fa-chain-broken fa-inverse fa-stack-1x"></i>
+                </span>
+             {% endif %}
              {% if article.tags %}
                  <div class="tags"><ul>{% for t in article.tags %}
                      <li>
@@ -32,7 +39,7 @@
             </div>
         </div>
 
-        {% if DISQUS_SITENAME %}
+        {% if DISQUS_SITENAME and article.status == 'published' %}
         <div class="comments">
         <div class="row post">
             <div class="col-xs-10 col-md-10 col-lg-10 comments_content comments_header">

@@ -1,52 +1,46 @@
 {% macro ephemeral_nav_link(what, where, selected=False) -%}
 <li class="ephemeral{%- if selected %} selected{% endif %}"><a href="{{ SITEURL }}/{{ where }}">{{what}}</a></li>
 {%- endmacro -%}
-
-<!DOCTYPE html>
-<html lang={{ DEFAULT_LANG }}>
-<head>
-    <title>{% block title %}{{ SITENAME }}{% if title %} &middot; ${ title | escape }{% endif %}{% endblock %}</title>
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<!doctype html>
+<html class="no-js" lang="{{ DEFAULT_LANG }}">
+ <head>
     <meta charset="utf-8">
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{{ SITENAME }}{% if title %} &middot; ${ title | escape }{% endif %}{% endblock %}</title>
 {% if USE_FAVICON %}
     <link rel="shortcut icon" href="{{ SITEURL }}/theme/images/favicon.ico" type="image/x-icon" />
 {% endif %}
     {% block meta %}
        <meta name="author" content="{{ AUTHOR }}" />
     {% endblock %}
-
-    {% if FEED_ALL_ATOM -%}
+{%  if FEED_ALL_ATOM -%}
     <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed" />
     {% endif %}
-    {% if FEED_ALL_RSS %}
+{%  if FEED_ALL_RSS %}
     <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS Feed" />
     {% endif %}
-
-
-     <!-- Tipuesearch, Bootstrap and custom style -->
-{% if 'tipue_search' in PLUGINS %}
+<!-- Tipuesearch, Bootstrap and custom style -->
+{%   if 'tipue_search' in PLUGINS %}
     <link href="{{ SITEURL}}/theme/tipuesearch/tipuesearch.css" rel="stylesheet">
 {% endif %}
     <link rel="stylesheet" href="{{ SITEURL }}/theme/css/bootstrap.min.css" type="text/css"/>
     <link rel="stylesheet" href="{{ SITEURL }}/theme/css/calepin.css" type="text/css" />
     <link rel="stylesheet" href="{{ SITEURL }}/theme/css/pygments.css" type="text/css" />
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-
 {% block scripts %}
-    <script src="{{ SITEURL }}/theme/js/jquery.min.js"></script>
     <script src="{{ SITEURL }}/theme/js/bootstrap.min.js"></script>
     <!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
     <script src="{{ SITEURL }}/theme/js/respond.min.js"></script>
+    <script src="{{ SITEURL }}/theme/js/modernizr-2.8.3-respond-1.4.2.min.js"></script>
 {% endblock scripts %}
-
-
-    {% include 'analytics.html' %}
-
-</head>
-<body>
-
-<nav class="navbar navbar-static-top" role="navigation">
+ </head>
+ <body>
+  <!--[if lt IE 8]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+  <nav class="navbar navbar-static-top" role="navigation">
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="sr-only">Toggle navigation</span>
@@ -95,14 +89,13 @@
             </form>
           </div>
 {% endif %}
-
              </div>
          </div>
     </div>
     <!-- /.navbar-collapse -->
-</nav> <!-- /.navbar -->
+  </nav> <!-- /.navbar -->
 
-<div class="container{% if BOOTSTRAP_FLUID %}-fluid{% endif %}">
+  <div class="container{% if BOOTSTRAP_FLUID %}-fluid{% endif %}">
          <!-- OLD NAVIGATOR -->
     <div id="content">
          <div class="row">
@@ -118,8 +111,8 @@
    {% block footer %}{% if LICENSE %}{% include 'footer.html' %}{% endif %}{% endblock footer %}
 
    <div class="clear"></div>
-</div>
-
-</body>
-<!-- Theme: notebook for Pelican -->
+  </div>
+{% include 'analytics.html' %}
+ </body>
+<!-- Theme: calepin for Pelican -->
 </html>

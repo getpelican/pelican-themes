@@ -1,5 +1,6 @@
    {% block footer %}
    <div class="row" id="footer">
+     <footer>
        {% if LICENSE_IMG %}
        <div class="license_img">
           <a rel="license" {% if LICENSE_URL %}href="{{ LICENSE_URL }}"{% endif %}>
@@ -16,5 +17,6 @@
             <p>Proudly powered by <a href="http://getpelican.com">Pelican</a>&nbsp;&middot;&nbsp;Calepin theme</p>
           </div>
        </div>
+    </footer>
    </div>
    {% endblock footer %}
