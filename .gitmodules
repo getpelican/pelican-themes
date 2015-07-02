@@ -160,3 +160,6 @@
 [submodule "pjport"]
 	path = pjport
 	url = https://github.com/xm3ron/pjport.git
+[submodule "cid"]
+	path = cid
+	url = https://github.com/hdra/Pelican-Cid
