@@ -163,3 +163,6 @@
 [submodule "cid"]
 	path = cid
 	url = https://github.com/hdra/Pelican-Cid
+[submodule "uberblau"]
+	path = uberblau
+	url = https://github.com/uberpartei/uberblau
