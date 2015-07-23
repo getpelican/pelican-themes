@@ -166,3 +166,6 @@
 [submodule "uberblau"]
 	path = uberblau
 	url = https://github.com/uberpartei/uberblau
+[submodule "Flex"]
+	path = Flex
+	url = https://github.com/alexandrevicenzi/Flex.git
