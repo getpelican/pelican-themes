@@ -172,3 +172,6 @@
 [submodule "Casper2Pelican"]
 	path = Casper2Pelican
 	url = https://github.com/abr4xas/Casper2Pelican
+[submodule "octopress"]
+	path = octopress
+	url = https://github.com/duilio/pelican-octopress-theme
