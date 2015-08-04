@@ -175,3 +175,6 @@
 [submodule "octopress"]
 	path = octopress
 	url = https://github.com/duilio/pelican-octopress-theme
+[submodule "smoothie"]
+	path = smoothie
+	url = https://github.com/kdheepak89/pelican-smoothie
