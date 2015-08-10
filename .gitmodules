@@ -178,3 +178,6 @@
 [submodule "smoothie"]
 	path = smoothie
 	url = https://github.com/kdheepak89/pelican-smoothie
+[submodule "tribaal-mnmlist"]
+	path = tribaal-mnmlist
+	url = https://github.com/chrisglass/tribaal-mnmlist.git
