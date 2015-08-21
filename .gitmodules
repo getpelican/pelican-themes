@@ -178,3 +178,6 @@
 [submodule "smoothie"]
 	path = smoothie
 	url = https://github.com/kdheepak89/pelican-smoothie
+[submodule "material"]
+	path = material
+	url = https://github.com/greizgh/pelican-material
