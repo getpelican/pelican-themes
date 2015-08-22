@@ -40,7 +40,7 @@ body {
   text-align: left;
   color: #4D4D4C;
   padding: 0;
-  min-width: 800px;
+  min-width: 1000px;
   max-width: 1200px;
 }
 
@@ -72,7 +72,7 @@ header {
 
 footer {
   border-top: 1px dotted #D6D6D6;
-  line-height: 50%;
+  line-height: 80%;
   padding: 0 1em;
   font-size: 0.8em;
 }
@@ -273,7 +273,7 @@ ol.archive li .tags
 ul.tagcloud {
   list-style: none;
   padding: 0;
-  width: 50%;
+  width: 90%;
   margin: 0 auto;
   line-height: 200%;
 }
@@ -373,20 +373,50 @@ border-bottom: thin solid #eeeeee;
 
 /* Responsive */
 
-@media (min-width: 1280px) {
-  body {
-    margin: 0 16%;
+@media all and (max-width: 1000px) {
+  
+   html {
+    margin: 10px;     
+   }
+   
+   body {
+    min-width: 300px;
+    max-width: 50%;
+    font-size: 32px;
+   }
+    
+   .container {
+    border-right: none;
+  }  
+  
+  .wrapper {
+    padding: 20px;
+    display: block;
+    float: none;
+    width: 90%;
+      
+}  
+  
+  header {
+    display: table-cell;
   }
-}
+  
+  .wrapper .sidebar, 
+  .wrapper .content {
+      display: block;
+      padding: 0px 5px 1em;
+      border-left: none;
+      border-right: none;
+      width: 100%;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+  }
 
-@media (max-width: 1280px) {
-  body {
-    margin: 0 12%;
-  }
+  #eli_widget {
+  margin-right: 80px;
+  font-size: 80%;
+} 
+  ul.tagcloud {
+  margin: 0;
 }
-
-@media (max-width: 979px) {
-  body {
-    margin: 0 4%;
-  }
 }
