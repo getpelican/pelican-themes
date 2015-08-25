@@ -1,0 +1,56 @@
+	<br>
+		<div id="ustBaslik"><a href="{{ SITEURL }}">{{ SITENAME }}</a></div>
+		
+		<div id="ustSosyal">
+			{% if FB_ADD %}
+				<a href="{{ FB_ADD }}" target="_new"><div class="facebook"></div></a>
+			{% endif %}
+
+			{% if TWITTER_ADD %}
+				<a href="{{ TWITTER_ADD }}" target="_new"><div class="twitter"></div></a>
+			{% endif %}
+
+			{% if INSTAGRAM_ADD %}
+				<a href="{{ INSTAGRAM_ADD }}" target="_new"><div class="instagram"></div></a>
+			{% endif %}
+
+			{% if YOUTUBE_ADD %}
+				<a href="{{ YOUTUBE_ADD }}" target="_new"><div class="youtube"></div></a>
+			{% endif %}
+
+			{% if GOOGLE_ADD %}
+				<a href="{{ GOOGLE_ADD }}" target="_new"><div class="google-plus"></div></a>
+			{% endif %}
+
+			{% if LINKEDIN_ADD %}
+				<a href="{{ LINKEDIN_ADD }}" target="_new"><div class="linkedin"></div></a>
+			{% endif %}
+			
+			{% if GITHUB_ADD %}
+				<a href="{{ GITHUB_ADD }}" target="_new"><div class="github"></div></a>
+			{% endif %}
+
+			{% if STACK_ADD %}
+				<a href="{{ STACK_ADD }}" target="_new"><div class="stackoverflow"></div></a>
+			{% endif %}
+			
+		</div>
+
+		<center><div id="ustMenu">
+
+		<a href="{{ SITEURL }}"><div id="ustMenuTab">Ana Sayfa</div></a>
+		{% if PAGES_ON_MENU %}
+			{% for p in PAGES %}
+				<a href="{{ SITEURL }}/{{ p.url }}"><div id="ustMenuTab">{{ p.title }}</div></a>
+			{% endfor %}
+		{% endif %}
+		{% if TAGS_VISIBLE %}
+			<a href="{{ SITEURL }}/tags.html"><div id="ustMenuTab">Tags</div></a>
+		{% endif %}
+		{% if CAT_VISIBLE %}
+			<a href="{{ SITEURL }}/categories.html"><div id="ustMenuTab">Categories</div></a>
+		{% endif %}
+		{% if ARCHIVES_VISIBLE %}
+			<a href="{{ SITEURL }}/archives.html"><div id="ustMenuTab">Archives</div></a>
+		{% endif %}
+		</div></center>

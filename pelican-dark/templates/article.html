@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block head %}
+  {{ super() }}
+  {% if article.author %}
+    <meta name="author" content="{{ article.author }}">
+  {% endif %}
+  {% if article.summary %}
+    <meta name="description" content="{{ article.summary|striptags }}">
+  {% endif %}
+  <meta name="tags" contents="{% for tag in article.tags %}{{ tag }}, {% endfor %}">
+{% endblock %}
+
+{% block title %}
+  {{ SITENAME }} | {{ article.title|striptags }}
+{% endblock %}
+
+{% block content %}
+	<div id="ortaBoard">
+		<div id="postTab">
+			<div id="postSosyalTab">
+				<a href="https://www.facebook.com/sharer/sharer.php?u={{ SITEURL }}/{{ article.url }}&title={{ article.title }}" target="_new" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"><div class="facebookShare"></div></a>
+
+				<a href="https://twitter.com/share?url={{ SITEURL }}/{{ article.url }}&text={{ article.title }}" target="_new" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"><div class="twitterShare"></div></a>
+				
+				<a href="https://plus.google.com/share?url={{ SITEURL }}/{{ article.url }}" target="_new" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"><div class="googleShare"></div></a>
+
+				<a href="https://www.linkedin.com/cws/share?url={{ SITEURL }}/{{ article.url }}" target="_new" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"><div class="linkedinShare"></div></a>
+				
+			</div>
+
+			<div id="postBaslik">
+				<a href="/{{ article.url }}" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a>
+			</div>
+			<div id="postBilgi">
+				<a href="{{ SITEURL }}/{{ article.author.url }}">{{ article.author }}</a> - 
+				{{ article.locale_date }} - 
+				<a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>
+			</div>
+
+			{{ article.content }}
+
+			<br><br>
+			<red><b>Tags; </b></red>
+			{% for tag in article.tags %}
+            <a href="{{ SITEUrL }}/tag/{{ tag }}.html">{{ tag }}</a>{% if not loop.last %}, {% endif %}
+          {% endfor %}
+
+			
+  <div class="col-md-8 col-md-offset-2">
+    {% include 'include/disqus.html' %}
+  </div>
+			
+		</div>
+	</div>
+	
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}
+  {{ SITENAME }} &mdash; Archives
+{% endblock %}
+
+{% block content %}
+  <div id="ortaBoard">
+		<div id="postTab">
+		{% if SOCIAL_ON_ARCHIVES %}
+			<div id="postSosyalTab">
+				<a href="https://www.facebook.com/sharer/sharer.php?u={{ SITEURL }}/archives.html&title={{ SITENAME }} &mdash; Archives" target="_new" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"><div class="facebookShare"></div></a>
+
+				<a href="https://twitter.com/share?url={{ SITEURL }}/archives.html&text={{ SITENAME }} &mdash; Archives" target="_new" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"><div class="twitterShare"></div></a>
+				
+				<a href="https://plus.google.com/share?url={{ SITEURL }}/archives.html" target="_new" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"><div class="googleShare"></div></a>
+
+				<a href="https://www.linkedin.com/cws/share?url={{ SITEURL }}/archives.html" target="_new" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"><div class="linkedinShare"></div></a>
+			</div>
+		{% endif %}
+
+			<div id="postBaslik">{{ SITENAME }} Archives</div><br>
+			    {% for article in dates %}
+			      <div id="tabSol"><b>{{ article.locale_date }}</b></div>
+			      <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a> - <b>{{ article.author }}</b><br>
+			    {% endfor %}
+</div>
+	</div>
+{% endblock %}

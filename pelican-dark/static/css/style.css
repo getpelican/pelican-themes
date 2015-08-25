@@ -1,0 +1,388 @@
+/* Turkuaz: #28cbe6; */
+
+/* Font Tanımla */
+@font-face{
+	font-family: ubuntuBold;
+	src: url('font/Ubuntu-Bold.ttf');
+}
+@font-face{
+	font-family: ubuntuMedium;
+	src: url('font/Ubuntu-Medium.ttf');
+}
+@font-face{
+	font-family: ubuntuLight;
+	src: url('font/Ubuntu-Light.ttf');
+}
+
+/* Body */
+
+body{
+	background-color: rgb(240, 240, 240);
+	font-family: ubuntuLight;
+	font-size: 15.5px;
+	margin: auto;
+}
+
+body a{
+	font-family: ubuntuLight;
+	font-weight: bold;
+	text-decoration: none;
+	color: darkred;
+	-o-transition:.4s;
+    -ms-transition:.4s;
+    -moz-transition:.4s;
+    -webkit-transition:.4s;
+    transition:.4s;
+}
+
+body a:hover{
+	color: #5C97FF;
+}
+
+ul{
+	list-style-type: square;
+	margin-top: 0px;
+}
+ul li{
+	line-height: 12px;
+	margin-top: 2px;
+}
+
+pre code{
+	margin-top: -10px;
+	font-size: 13px;
+}
+
+/* Icon */
+.twitter{
+	background-image: url('icon/twitter.png');
+	width:32px;
+	height: 32px;
+	float: left;
+	background-repeat: no-repeat;
+	-o-transition:.4s;
+    -ms-transition:.4s;
+    -moz-transition:.4s;
+    -webkit-transition:.4s;
+    transition:.4s;
+}
+.twitter:hover{
+	opacity: 0.7;
+}
+
+.github{
+	background-image: url('icon/github.png');
+	width: 32px;
+	height: 32px;
+	float: left;
+	background-repeat: no-repeat;
+	-o-transition:.4s;
+    -ms-transition:.4s;
+    -moz-transition:.4s;
+    -webkit-transition:.4s;
+    transition:.4s;
+}
+.github:hover{
+	opacity: 0.7;
+}
+
+.google-plus{
+	background-image: url('icon/google-plus.png');
+	width: 32px;
+	height: 32px;
+	float: left;
+	background-repeat: no-repeat;
+	-o-transition:.4s;
+    -ms-transition:.4s;
+    -moz-transition:.4s;
+    -webkit-transition:.4s;
+    transition:.4s;
+}
+.google-plus:hover{
+	opacity: 0.7;
+}
+
+.linkedin{
+	background-image: url('icon/linkedin.png');
+	width: 32px;
+	height: 32px;
+	float: left;
+	background-repeat: no-repeat;
+	-o-transition:.4s;
+    -ms-transition:.4s;
+    -moz-transition:.4s;
+    -webkit-transition:.4s;
+    transition:.4s;
+}
+.linkedin:hover{
+	opacity: 0.7;
+}
+
+.stackoverflow{
+	background-image: url('icon/stackoverflow.png');
+	width:32px;
+	height: 32px;
+	float: left;
+	-o-transition:.4s;
+    -ms-transition:.4s;
+    -moz-transition:.4s;
+    -webkit-transition:.4s;
+    transition:.4s;
+}
+.stackoverflow:hover{
+	opacity: 0.7;
+}
+
+.youtube{
+	background-image: url('icon/youtube.png');
+	width:32px;
+	height: 32px;
+	float: left;
+	-o-transition:.4s;
+    -ms-transition:.4s;
+    -moz-transition:.4s;
+    -webkit-transition:.4s;
+    transition:.4s;
+}
+.youtube:hover{
+	opacity: 0.7;
+}
+
+.instagram{
+	background-image: url('icon/instagram.png');
+	width:32px;
+	height: 32px;
+	float: left;
+	-o-transition:.4s;
+    -ms-transition:.4s;
+    -moz-transition:.4s;
+    -webkit-transition:.4s;
+    transition:.4s;
+}
+.instagram:hover{
+	opacity: 0.7;
+}
+
+.facebook{
+	background-image: url('icon/facebook.png');
+	width:32px;
+	height: 32px;
+	float: left;
+	-o-transition:.4s;
+    -ms-transition:.4s;
+    -moz-transition:.4s;
+    -webkit-transition:.4s;
+    transition:.4s;
+}
+.facebook:hover{
+	opacity: 0.7;
+}
+
+.facebookShare{
+	background-image: url('icon/facebookShare.png');
+	width:32px;
+	height: 32px;
+	float: left;
+}
+
+.twitterShare{
+	background-image: url('icon/twitterShare.png');
+	width:32px;
+	height: 32px;
+	float: left;
+}
+
+.linkedinShare{
+	background-image: url('icon/linkedinShare.png');
+	width:32px;
+	height: 32px;
+	float: left;
+}
+
+.googleShare{
+	background-image: url('icon/googleShare.png');
+	width:32px;
+	height: 32px;
+	float: left;
+}
+
+/* Üst */
+#ust{
+	height: 190px;
+	background-color: white;
+	box-shadow: 0px 5px 7px 0px rgb(40, 40, 40);
+}
+#ust a{
+	color: black;
+	font-family: ubuntuMedium;
+}
+
+#ustBaslik {
+	margin-top: 30px;
+	margin: auto;
+	text-align: right;
+	font-family: ubuntuBold;
+	font-weight: bold;
+	font-size: 51px;
+}
+
+#ustSosyal{
+	height: 50px;
+	margin: auto;
+	float: right;
+	margin-right: 3px;
+	font-size: 51px;
+	color: red;
+}
+
+#ustMenu{
+	font-family: ubuntuMedium;
+	height: 65px;
+	width: 90%;
+	clear: both;
+	margin-top: 64px;
+	text-align: center;
+}
+#ustMenu a{
+	font-family: ubuntuMedium;
+	font-weight: normal;
+	color: black;
+	text-align: center;
+}
+
+#ustMenuTab{
+	height: 50px;
+	line-height: 60px;
+	width: 120px;
+	text-align: center;
+	font-family: ubuntuMedium;
+	float: left;
+	font-size: 19px;
+	margin-right: 2px;
+	-o-transition:.4s;
+    -ms-transition:.4s;
+    -moz-transition:.4s;
+    -webkit-transition:.4s;
+    transition:.4s;
+}
+#ustMenuTab:hover{
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+ 	border-radius: 5px 5px 5px 5px;
+ 	background-color: black;
+ 	color: white;
+}
+
+
+/* ALT */
+#alt{
+	margin-top: 15px;
+	font-size: 15px;
+	color: gray;
+	font-family: ubuntuLight;
+	background-color: white;
+	height: 70px;
+	padding: 20px;
+	border-top: 1px solid silver;
+	border-bottom: 1px solid silver;
+}
+
+#alt a{
+	color:#5C97FF;
+}
+
+#altSol{
+	float: left;
+	width: 250px;
+	height: 40px;
+	margin-bottom: 10px;
+}
+
+#altSag{
+	float: right;
+	width: 250px;
+	height: 40px;
+	margin-bottom: 10px;
+}
+
+/* Orta */
+
+#ortaBoard{
+	background-color: white;
+	width: 80%;
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 5px;
+}
+
+#postTab{
+	min-height: 130px;
+	padding-bottom: 40px;
+	padding-top: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+#postTab a{
+	color: #5C97FF;
+}
+#postTab a:hover{
+	color:black;
+}
+
+#postSosyalTab{
+	width: 32px;
+	height: 128px;
+	float: right;
+}
+
+#postBaslik{
+	text-align: center;
+	font-family: ubuntuMedium;
+	font-size: 28px;
+	color:black;
+}
+
+#postBaslik a{
+	color: black;
+}
+#postBaslik a:hover{
+	color: #5C97FF;
+}
+
+#postBilgi{
+	text-align: center;
+	color: black;
+	margin-bottom: 7px;
+}
+#postBilgi a{
+	color:gray;
+}
+#postBilgi a:hover{
+	color: black;
+}
+
+#tabSol{
+	width: 150px;
+	float:left;
+	text-align: right;
+	margin-right: 10px;
+}
+
+/* Renklendirmeler */
+red{
+  color:red;
+}
+darkred{
+  color:darkred;
+}
+blue{
+  color:blue;
+}
+green{
+  color:green;
+}
+darkgreen{
+  color:darkgreen;
+}
+
