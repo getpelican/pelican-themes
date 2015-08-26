@@ -208,9 +208,9 @@ pre code{
 
 /* Üst */
 #ust{
-	height: 190px;
 	background-color: white;
 	box-shadow: 0px 5px 7px 0px rgb(40, 40, 40);
+	clear: both;
 }
 #ust a{
 	color: black;
@@ -237,9 +237,7 @@ pre code{
 
 #ustMenu{
 	font-family: ubuntuMedium;
-	height: 65px;
-	width: 90%;
-	clear: both;
+	margin-left: 20px;
 	margin-top: 64px;
 	text-align: center;
 }
