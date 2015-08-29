@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}
+  {{ SITENAME }} &mdash; Tags
+{% endblock %}
+
+
+{% block content %}
+  <div id="ortaBoard">
+		<div id="postTab">
+			<div id="postBaslik">Tags on {{ SITENAME }}</div><br>
+		  
+		    {% for tag, articles in tags|sort %}
+		      <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a> ({{ articles|count }})<br>
+		    {% endfor %}
+		  
+		</div>
+	</div>
+{% endblock %}
