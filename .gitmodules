@@ -181,3 +181,6 @@
 [submodule "material"]
 	path = material
 	url = https://github.com/greizgh/pelican-material
+[submodule "w3-personal-blog"]
+	path = w3-personal-blog
+	url = https://github.com/samael500/w3-personal-blog.git
