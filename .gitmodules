@@ -184,3 +184,6 @@
 [submodule "w3-personal-blog"]
 	path = w3-personal-blog
 	url = https://github.com/samael500/w3-personal-blog.git
+[submodule "free-agent"]
+	path = free-agent
+	url = https://github.com/callmefish/pelican-free-agent
