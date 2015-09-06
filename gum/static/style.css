@@ -188,6 +188,20 @@ a:focus { color: #34495E; }
 .label:hover,
 .label:focus {color:#eee; }
 
+ul, ol {
+  margin-bottom: 0.273em;
+  margin-left: 1.5em;
+}
+
+ul {
+  list-style: disc outside;
+}
+
+ul.blank {
+  list-style: none outside;
+  margin-left: 0;
+}
+
 /* Footer
 --------------------------------------------------------- */
 .bg { background:#eee; margin-top:35px; padding-top:25px; border-top:5px solid #3498DB; }
