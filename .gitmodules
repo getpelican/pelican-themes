@@ -187,3 +187,6 @@
 [submodule "free-agent"]
 	path = free-agent
 	url = https://github.com/callmefish/pelican-free-agent
+[submodule "pelican-mediumfox"]
+	path = pelican-mediumfox
+	url = git@github.com:cprieto/pelican-mediumfox.git
