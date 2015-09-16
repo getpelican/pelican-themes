@@ -7,11 +7,11 @@ using a serif font and darker colours. It features full
 variables in your Pelican configuration file. See it live at my blog,
 [The Political Physicist](http://cmacmackin.github.io/blog/).
 
-![The homepage](https://raw.githubusercontent.com/cmacmackin/backdrop-theme/master/screenshot1.png)
-![An article](https://raw.githubusercontent.com/cmacmackin/backdrop-theme/master/screenshot2.png)
+![The homepage](screenshot1.png)
+![An article](screenshot2.png)
 
 This is an example of the page footer on a medium screen.
-![The footer on a medium screen](https://raw.githubusercontent.com/cmacmackin/backdrop-theme/master/screenshot3.png)
+![The footer on a medium screen](screenshot3.png)
 
 I you want to customize Backdrop, perhaps consider using
 [Sass](http://sass-lang.com/) and [Grunt](http://gruntjs.com/), as I did when
