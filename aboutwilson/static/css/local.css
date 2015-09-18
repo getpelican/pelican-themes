@@ -22,6 +22,7 @@
 
 .article-body {
 	margin-top: 2em;
+	font-size: 125%;
 }
 
 .article-body > p {
@@ -95,3 +96,9 @@ div.collapseheader {
 	cursor: pointer;
 	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
+
+.rendered_html table,.rendered_html tr,.rendered_html th,.rendered_html td{border:1px solid black;border-collapse:collapse;margin:1em 2em;}
+.rendered_html td,.rendered_html th{text-align:left;vertical-align:middle;padding:4px;}
+.rendered_html th{font-weight:bold;}
+.rendered_html p{text-align:justify;}
+.rendered_html p+p{margin-top:1em;}

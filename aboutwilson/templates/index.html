@@ -3,15 +3,13 @@
 {% block content %}        
 {% if articles %}
 <div class="page-header">
-	<h3>Artigos recentes</h2>
+	<h3>Artigos</h2>
 </div>
 {% for article in articles_page.object_list %}
 <div class="article" itemscope itemtype="http://schema.org/BlogPosting" style="margin-bottom:2em;">
 	<div class="row">
-		<div class="col-md-10">
-			<a href="{{ SITEURL }}/{{ article.url }}">
-				<h4 itemprop="name headline">{{ article.title }}</h4>
-			</a>
+		<div class="lead-article-title col-md-10">
+			<a href="{{ SITEURL }}/{{ article.url }}"><h4 itemprop="name headline">{{ article.title }}</h4></a>
 		</div>
 		<div class="col-md-2">
 			<h4 class="text-right">
@@ -23,7 +21,7 @@
 	</div>
 	{% if article.category %}
 	<span itemprop="articleSection">
-		<strong><a href="{{ SITEURL }}/{{ article.category.url }}" rel="category">{{ article.category }}</a></strong>
+		<a href="{{ SITEURL }}/{{ article.category.url }}" rel="category"><strong>{{ article.category }}</strong></a>
 	</span>
 	{% endif %}
 	{% if article.tags %} 
@@ -35,7 +33,7 @@
 	{% endif %}
 </div>
 {% endfor %} {# For article #}
-{% include 'pagination.html' %}
+{#% include 'pagination.html' %#}
 {% endif %} {# If articles #}
 {% endblock content %}
 

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block mainrow %}
 	<div class="row">
-		<div class="col-md-3 col-md-offset-1" style="margin-top:2em;">
+		{#<div class="col-md-3 col-md-offset-1" style="margin-top:2em;">
 			<ul class="list-group">
 				{% for url, icon, uid in MEDIAITEMS %}
 				<li class="list-group-item"><a href="{{url}}"><i class="fa fa-{{icon}}"></i> {{uid}}</a></li>
@@ -15,8 +15,8 @@
 				</li>
 				{% endfor %}
 			</ul>
-		</div>
-		<div class="col-md-7">
+		</div> #}
+		<div class="col-md-10 col-md-offset-1">
 			{% block content %}{% endblock %}
 		</div>
 	</div>

@@ -10,13 +10,9 @@
 	<!--[if lt IE 9]>
 		<script src="{{ SITEURL }}/theme/html5.js"></script>
 		<![endif]-->
-	<link href="{{ SITEURL }}/theme/css/ipython.css" rel="stylesheet">
-	<!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"> -->
-	<!-- <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet"> -->
-	<!-- <link href="//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/simplex/bootstrap.min.css" rel="stylesheet"> -->
-	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
-	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-	<link href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.2/simplex/bootstrap.min.css" rel="stylesheet">
+	<!-- <link href="{{ SITEURL }}/theme/css/ipython.css" rel="stylesheet"> -->
+	<link href="{{ SITEURL }}/theme/css/font-awesome.min.css" rel="stylesheet">
+	<link href="{{ SITEURL }}/theme/css/bootstrap.min.css" rel="stylesheet">
 	<link href="{{ SITEURL }}/theme/css/local.css" rel="stylesheet">
 	<link href="{{ SITEURL }}/theme/css/pygments.css" rel="stylesheet">
 	{% block head %}{% endblock %}
@@ -65,8 +61,8 @@
 	</div>
 </div>
 <!-- JavaScript -->
-<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="{{ SITEURL }}/theme/js/jquery-2.1.1.min.js"></script>
+<script src="{{ SITEURL }}/theme/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 jQuery(document).ready(function($) {
 	$("div.collapseheader").click(function () {

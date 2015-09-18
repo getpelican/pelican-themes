@@ -12,7 +12,7 @@
 	</div>
 	{% if article.category %}
 	<div>
-		Category:
+		Categoria:
 		<span itemprop="articleSection">
 			<a href="{{ SITEURL }}/{{ article.category.url }}" rel="category">{{ article.category }}</a>
 		</span>
@@ -30,7 +30,7 @@
 	{% endif %}
 	<div itemprop="articleBody" class="article-body">{{ article.content }}</div>
 	<hr>
-	{% include "twitter.html" %}
+	{# include "twitter.html" #}
 	<h2>Comments</h2>
 	{% include 'disqus.html' %}
 </div>
