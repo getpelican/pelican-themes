@@ -192,4 +192,4 @@
 	url = https://github.com/cprieto/pelican-mediumfox
 [submodule "medius"]
 	path = medius
-	url = https://github.com/onuraslan/medius.git
+	url = https://github.com/onur/medius.git
