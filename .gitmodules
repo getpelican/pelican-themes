@@ -190,3 +190,6 @@
 [submodule "mediumfox"]
 	path = mediumfox
 	url = https://github.com/cprieto/pelican-mediumfox
+[submodule "medius"]
+	path = medius
+	url = https://github.com/onuraslan/medius
