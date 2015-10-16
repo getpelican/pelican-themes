@@ -193,3 +193,6 @@
 [submodule "medius"]
 	path = medius
 	url = https://github.com/onuraslan/medius
+[submodule "materialistic"]
+	path = materialistic
+	url = https://github.com/eswarm/materialistic-pelican
