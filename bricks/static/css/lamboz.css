@@ -1,0 +1,341 @@
+BODY,P,DIV, UL LI, OL LI, TD {
+  font-family:"Exo 2",sans-serif;
+  font-size: 12pt;
+  margin: 0;
+}
+
+
+H1,H2,H3,H4,H5,H6 {
+  font-family:"Exo 2",sans-serif;
+  font-weight: 600;
+  color: #777;
+}
+
+H1 { font-size: 2em; }
+H2 { font-size: 1.57em; }
+H3 { font-size: 1.23em; }
+H4 { font-size: 1.1em; }
+H5,H6 { font-size: 1.05em; }
+ 
+
+.header H1 {
+  font-size:3em;
+  margin-top: 0.2em;
+}
+
+.data-holder {
+  margin: 1em auto;
+  max-width: 960px;
+}
+
+.header, .content, .footer { padding: 1em; }
+
+.header { 
+  border-bottom: 1px dotted silver;
+}
+.footer { 
+  
+    border-top: 1px dotted silver;
+}
+
+.main-article { 
+  background-color: #eee;
+  margin-bottom: 0.8em;
+  padding: 1em;
+}
+
+.main-article H2 {
+  font-size: 1.9em;
+}
+.main-article P  {
+  font-size: 1.2em;
+}
+
+A { 
+  text-decoration: none;
+  color: #666;
+}
+
+A:hover {
+  color: #900;
+}
+
+.footer UL { 
+  margin:0px ;
+    padding: 0px; 
+  list-style-type:none;
+}
+.footer UL LI {
+  display: inline-block;
+  margin: 1px;
+  padding: 1px;
+  
+}
+
+UL li.active { 
+  border: 1px dotted #aaa;
+  background-color: #eee;
+}
+
+
+.main-article .read-more {
+  font-size: 0.9em;
+  letter-spacing: 2px;
+  border-bottom: 1px dotted silver;
+  margin-bottom: 0.5em;
+}
+
+.header-article .read-more,
+.sec-article .read-more {
+  font-size: 0.9em;
+  letter-spacing: 2px;
+  border-bottom: 1px dotted silver;
+  margin-bottom: 0.5em;
+}
+
+ul.tag-list {
+  list-style-type: none;
+  margin:0px;
+  padding: 0px;
+}
+
+ul.tag-list LI:hover { 
+    background-color: whitesmoke;
+}
+
+ul.tag-list LI {
+  display: inline-block;
+  background-color: white;
+  border: 1px dotted silver;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  padding: 3px;
+}
+
+div.entry-summary p{
+  font-size: 1.2em;
+}
+
+div.entry-summary {
+  margin-bottom: 1em;
+}
+
+section.article P { 
+  margin-bottom: 1em;
+  text-align: justify;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+}
+
+.main-article P, .sec-article P {
+  text-align: justify;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+}
+
+.pages {
+    background-color: #A01;
+    color: white;
+    padding: 3px;
+}
+
+.pages UL {
+  list-style-type: none;
+  margin: 0px;
+}
+
+.pages UL LI {
+  display: inline-block;
+  margin: 3px 10px 3px 0px;
+}
+
+.pages UL LI:nth-child(1) {
+  font-size: 1.4em;
+}
+
+.pages UL LI A { color: white; font-weight: 600; text-transform: uppercase;}
+
+
+.pages UL LI.active {
+  background-color: transparent;
+  border: 0px solid transparent;
+  border-bottom: 1px solid white;
+}
+
+#image-block { float: right; }
+
+div.hp-header {
+  display:table;
+  width:100%;
+  height:55%;
+  max-height: 55;
+  position:relative;
+  background:url('/theme/img/lego_background.jpg') no-repeat center center fixed;
+  background-size:cover;
+
+}
+
+div.hp-header-inner {
+  display:table;
+  width:100%;
+  height:30%;
+  position:relative;
+  background:url('/theme/img/lego_background.jpg') no-repeat center center fixed;
+  background-size:cover;
+
+}
+
+div.hp-header-inner  #title-block H1 {
+  font-size:4em;
+  color:white;
+  text-align:center
+}
+
+
+div.page-header {
+  display:table-cell;
+  vertical-align: middle;
+  text-align:center;
+}
+
+div#title-block {
+  margin:10px;
+}
+
+div#title-block H1 {
+  font-size: 6em;
+  font-weight:900;  
+  text-shadow: 2px 2px 10px #000;
+  margin-bottom: 0px;
+}
+
+div#title-block H1 A {
+  color: white;
+}
+
+div#title-block P.blurb {
+  font-family:"Exo 2",sans-serif;
+  color: white;
+  font-size: 1.5em;
+  text-shadow: 1px 1px 3px #000;
+     margin-top: 0px;
+}
+
+
+.blog_review, .rev_rating {
+  background-color: #DDD;
+  padding: 0.5em;
+  text-align: justify;
+}
+
+.rev_rating {
+  margin-bottom: 1em;
+}
+
+.blog_review {
+    margin-bottom:1em;
+}
+
+.rev_rating  span {
+  font-weight: 700;
+  color: #901;
+}
+
+.a_cura_di { 
+  font-size: 0.9em; 
+  font-style: italic;
+}
+
+
+.sec-article {
+  margin-bottom: 1em;
+}
+
+ .footer {
+    background-color:#C01;
+    color: #FFF;
+  }
+  
+  .footer A {
+    color: #FFF;
+    font-weight: bold;
+  }
+  
+ .footer H3 { color: white; margin: 0px;}
+ 
+  .footer .active A { color: #A01;}
+  .footer .active { color: #666; } 
+
+
+
+@media (max-width: 768px) {
+
+  .content { padding: 0px;}
+  div.column > * { margin: 1em;}
+  
+  div.column.aside { background-color: #DDD; padding: 10px;}
+  
+  .aside UL {
+      margin: 0px; 
+      padding: 4px;
+      list-style: none;
+    }
+  
+    .aside UL LI {
+      display: inline-block;
+      background-color: #FFF; 
+      padding: 4px; border: 1px dotted gray
+    }
+  
+   #title-block,#image-block { margin: 0.2em auto; }
+  #title-block { text-align: center; }
+  #image-block { float: none; }
+
+div.hp-header {
+  display:table;
+  width:100%;
+  height:100%;
+  position:relative;
+  background:url('/theme/img/lego_background_mobile.jpg') no-repeat scroll 0% 0% / 100% 100%;
+  background-size:cover;
+
+}
+
+div.hp-header-inner {
+  display:table;
+  width:100%;
+  height:30%;
+  position:relative;
+  background:url('/theme/img/lego_background.jpg') no-repeat scroll 0% 0% / 100% 100%;
+  /*  background-size:cover; */
+
+}
+
+div.hp-header-inner  #title-block H1 {
+  font-size:2.5em;
+  color:white;
+  text-align:center;
+}
+  
+  
+div#title-block H1 {
+  font-size: 2.5em;
+  font-weight:900;  
+  text-shadow: 2px 2px 10px #000;
+  margin-bottom: 0px;
+}
+
+  .content .data-holder {
+    margin: 0px;
+  }
+  
+  .main-article  {
+    padding: 0.5em;
+  }
+
+}
+
+
+
+
+
