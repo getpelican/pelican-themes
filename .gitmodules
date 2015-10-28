@@ -196,3 +196,6 @@
 [submodule "materialistic"]
 	path = materialistic
 	url = https://github.com/eswarm/materialistic-pelican
+[submodule "hyde"]
+	path = hyde
+	url = https://github.com/jvanz/pelican-hyde.git
