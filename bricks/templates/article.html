@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}{{ article.title }} - {{SITENAME}}{% endblock title %}
+{% block pageheader %}
+<div class="hp-header-inner">
+    <div class="page-header">
+        <div class="content-header">
+            <div id="title-block">
+            <h1>  <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark"
+                    title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h1>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block content %}
+<div class="content-article">
+    <header class="header-article">
+        <div class="read-more">Posted on {{ article.locale_date}}</div>
+ 
+   </header>
+    <section class='article'>
+        
+        <div class="entry-summary">
+            {{ article.summary }}
+        </div>
+    
+        <div class="entry-content">
+            {{ article.content }}
+        </div>
+    </section>
+    <footer class="footer-article">
+        <div class="tags-and-categories">Filed under <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>
+        | Tagged: {% if article.tags %}{% for tag in article.tags %}<a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }} </a>{% endfor %}{% endif %}
+
+        | <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark"
+         title="Permalink to {{ article.title|striptags }}">Permalink</a>            
+        </div>
+        <!-- metaldata 
+        {% for m in article.Metaldata %}
+        Rock on! {{ m }}
+        {% endfor %}
+        -->
+    </footer>
+    <!-- disqus {{ DISQUS_SITENAME }} -->
+    {% include 'article_discus.html' %}
+</div>
+{% endblock %}
