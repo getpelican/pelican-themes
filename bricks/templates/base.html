@@ -4,9 +4,32 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="{{ SITEURL}}/theme/css/foundation.min.css" media="all">
+        <link rel="stylesheet" href="{{ SITEURL}}/theme/css/foundation-icons.css" media="all">
         <script type="text/javascript" src="{{ SITEURL }}/theme/js/modernizr.js"></script>
         <link href='https://fonts.googleapis.com/css?family=Exo+2:400,300,700,300italic,400italic,700italic,900,900italic' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="{{ SITEURL }}/theme/css/lamboz.css" media="all">
+
+       <!-- metadata for search engines.  -->
+        <meta property="og:site_name" content="{{ SITENAME }}" />         
+        <meta property="og:title" content="{{ SITENAME }}" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="{{ SITEURL }}" />
+        {% if SITEIMAGE %}
+        <meta property="og:image" content="{{ SITEURL }}/theme/img/{{ SITEIMAGE }}" />
+        {% endif %}
+        <meta property="description" content="{{ SITESUBTITLE }} - {{ SITEDESCRIPTION }}" />
+        <meta property="og:description" content="{{ SITESUBTITLE }} - {{ SITEDESCRIPTION }}" />
+
+        {% if ICONTOUCH %}
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ SITEURL }}/theme/icons/{{ ICONTOUCH }}" />
+        <link rel="icon" sizes="192x192" href="{{ SITEURL }}/theme/icons/{{ ICONTOUCH }}" />
+        {% endif %}
+
+        {% if FAVICON %}
+        <link rel="shortcut icon" href="{{ SITEURL }}/theme/icons/{{ FAVICON }}" />
+        <link rel="icon" type="image/x-icon" href="{{ SITEURL }}/theme/icons/{{ FAVICON }}" />
+        {% endif %}
+
         {% block head %}
         <title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
         <meta charset="utf-8" />

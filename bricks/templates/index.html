@@ -4,9 +4,8 @@
 {% block content_title %}
 {% endblock %}
 
-
+<!-- main loop -->
 {% set cnt = 0 %}
-
 {% for article in articles_page.object_list %}
     {% if cnt < 2 %}
         {% if articles_page.has_previous() %}
@@ -15,47 +14,25 @@
             <ul class="medium-block-grid-2">
             {% endif %}
             <li>
-            <div class="sec-article">
-                 <div class="read-more">{{ article.locale_date}}</div>
-                 <h3><a href="{{ SITEURL }}/{{ article.url }}" rel=Bookmark title="Permalink to {{ article.title | striptags }}">{{ article.title }}</a></h3>
-                <p>
-                {{ article.summary }}            
-                </p>
-                
-            </div>
+            {% include 'index-sec-article.html' %}
             </li>
 
         {% else %}
             <!-- prima pagina -->
-            <div class="main-article">
-                <div class="read-more">{{ article.locale_date}}</div>
- 
-                <h2><a href="{{ SITEURL }}/{{ article.url }}" rel=Bookmark title="Permalink to {{ article.title | striptags }}">{{ article.title }}</a></h2>
-                <p>
-                {{ article.summary }}            
-                </p>
-                   
-
-            </div>
+            {% include 'index-main-article.html' %}
             {% if cnt == 1 %}
             <ul class="medium-block-grid-2">
             {% endif %}
         {% endif %}
     {% else %}
         <li>
-        <div class="sec-article">
-             <div class="read-more">{{ article.locale_date}}</div>
-             <h3><a href="{{ SITEURL }}/{{ article.url }}" rel=Bookmark title="Permalink to {{ article.title | striptags }}">{{ article.title }}</a></h3>
-            <p>
-            {{ article.summary }}            
-            </p>
-            
-        </div>
+        {% include 'index-sec-article.html' %}
         </li>
     {% endif %}    
     {% set cnt = cnt +1 %}
 {% endfor %}
 </ul>
+<!-- pagination -->
 {% if articles_page.has_other_pages() %}
 <div class="pagination-block">
     {% include 'pagination.html' %}

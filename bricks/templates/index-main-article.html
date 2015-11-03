@@ -1,0 +1,12 @@
+<div class="main-article">
+    <div class="read-more">{{ article.locale_date}}</div>
+
+    <h2><a href="{{ SITEURL }}/{{ article.url }}" rel=Bookmark title="Permalink to {{ article.title | striptags }}">{{ article.title }}</a></h2>
+    <p>
+    {{ article.summary | striptags  }} 
+    <span class="post-read-more"><a href="{{ SITEURL }}/{{ article.url }}" rel=Bookmark title="Permalink to {{ article.title | striptags }}"><i class="fi-plus"></i> Read More</a></span>
+    </p>
+       
+
+</div>
+
