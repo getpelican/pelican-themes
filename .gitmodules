@@ -199,3 +199,6 @@
 [submodule "hyde"]
 	path = hyde
 	url = https://github.com/jvanz/pelican-hyde.git
+[submodule "clean-blog"]
+	path = clean-blog
+	url = https://github.com/gilsondev/pelican-clean-blog
