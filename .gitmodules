@@ -202,3 +202,6 @@
 [submodule "clean-blog"]
 	path = clean-blog
 	url = https://github.com/gilsondev/pelican-clean-blog
+[submodule "pelican-semantic-ui"]
+	path = pelican-semantic-ui
+	url = https://github.com/ellisonleao/pelican-semantic-ui
