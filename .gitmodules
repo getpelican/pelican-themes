@@ -205,3 +205,6 @@
 [submodule "semantic-ui"]
 	path = semantic-ui
 	url = https://github.com/ellisonleao/pelican-semantic-ui
+[submodule "yapeme"]
+	path = yapeme
+	url = https://github.com/kplaube/yapeme
