@@ -136,9 +136,6 @@
 [submodule "nikhil-theme"]
 	path = nikhil-theme
 	url = https://github.com/gunchu/nikhil-theme
-[submodule "ptemplate"]
-	path = ptemplate
-	url = https://github.com/spinner-dev/ptemplate.git
 [submodule "chameleon"]
 	path = chameleon
 	url = https://github.com/yuex/pelican-iliork.git
