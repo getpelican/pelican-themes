@@ -3,6 +3,18 @@
 <head>
         <title>{% block title %}{{ SITENAME }}{%endblock%}</title>
         <meta charset="utf-8" />
+        <meta name="generator" content="Pelican" />
+        {% if not page and not article %}
+        <meta name="author" content="{{ AUTHOR }}" />
+        <meta name="copyright" content="{{ AUTHOR }}" />
+        {% if SITE_DESCRIPTION %}
+        <meta name="description" content="{% block head_description %}{{ SITE_DESCRIPTION }}{% endblock head_description %}" />
+        {% endif %}
+        {% endif %}
+        {% block meta_tags_in_head %}
+        {% endblock meta_tags_in_head %}
+        <meta name="robots" content="{% block robots %}index,follow{% endblock %}">
+
         <link rel="stylesheet" href="{{ SITEURL }}/theme/css/{{ CSS_FILE }}" type="text/css" />
         {% if FEED_ATOM %}
         <link href="{{ FEED_DOMAIN }}/{{ FEED_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed" />
