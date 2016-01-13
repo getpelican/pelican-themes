@@ -1,7 +1,28 @@
 {% extends "base.html" %}
 {% block title %}{{ page.title }}{% endblock %}
-{% block content %}        
-<section id="content" class="body">    
+{% block robots %}
+{% if page.robots %}{{ page.robots }}{% else %}index,follow{% endif %}
+{% endblock %}
+{% block meta_tags_in_head %}
+{% if page.tags and page.category %}
+        <meta name="keywords" content="{{ [page.tags|join(', '), page.category]|join(', ') }}" />
+{% endif %}
+{% if page.category %}
+        <meta name="category" content="{{ page.category|striptags }}" />
+{% endif %}
+{% if page.description %}
+        <meta name="description" content="{{ page.description|striptags  }}" />
+{% elif page.summary %}
+        <meta name="description" content="{{ page.summary|striptags  }}" />
+{% endif %}
+{% if page.author %}
+        <meta name="author" content="{{ page.author }}" />
+        <meta name="copyright" content="{{ page.author }}" />
+{% endif %}
+{% endblock meta_tags_in_head %}
+
+{% block content %}
+<section id="content" class="body">
     <h1 class="entry-title">{{ page.title }}</h1>
     {% if PDF_PROCESSOR %}<a href="{{ SITEURL }}/pdf/{{ page.slug }}.pdf">get
     the pdf</a>{% endif %}
