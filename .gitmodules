@@ -205,3 +205,6 @@
 [submodule "yapeme"]
 	path = yapeme
 	url = https://github.com/kplaube/yapeme
+[submodule "pelican-blue"]
+	path = pelican-blue
+	url = https://github.com/Parbhat/pelican-blue
