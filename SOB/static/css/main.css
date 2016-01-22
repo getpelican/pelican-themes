@@ -1,0 +1,471 @@
+/***TODO: create variables for colors for fonts, links, background, boxes, etc...*/
+/***      this will make it easier to modify the CSS file to change such things..*/
+/***VARIABLES*********************************************************************/
+:root/*root element is first element and all other elements inherit it's properties*/
+{
+	--box-size: 640px;
+	--box-padding: 14px/*top*/ 32px/*right*/ 14px/*bottom*/ 32px/*left*/;
+
+}
+/***Body config***************************************************************/
+body
+{
+	background-color: #000000;
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+
+	font-family: DejaVu Sans Mono, arial, sans-serif;
+	font-size: 12pt; /*100% is a good <body> font-size,1em == the default setting for the browser 16px*/
+	/*line-height: 14pt; --default line height*/
+	font-style: normal; /*italic, oblique*/
+	font-weight: medium;
+	color: #DDDDDD;
+	text-align: left; /*right, center*/
+	text-decoration: none; /*overline, line-through, underline*/
+	/*text-transform: uppercase, lowercase, capitalize*/
+	/*text-indent: 50px, Xpx*/
+}
+/*****************************************************************************/
+
+
+
+/***Main tag configurations and variants**************************************/
+p
+{
+	text-align: left;
+}
+
+h1, h2, h3, h4, h5, h6
+{
+	font-weight: bold;
+	text-align: left;
+}
+
+a:link
+{
+	font-weight: bold;
+	color: #AA0000;
+	text-decoration: none;
+	text-align: left;
+
+}
+
+a:visited
+{
+	font-weight: bold;
+	color: #EE00EE;
+	text-decoration: none;
+	text-align: left;
+}
+
+a:hover, a:active
+{
+	font-weight: bold;
+	color: #FF0000;
+	text-decoration: none;
+	text-align: left;
+}
+/*****************************************************************************/
+
+
+
+
+/***container*****************************************************************/
+#container
+{
+	width: var(--box-size);
+	margin: 0px auto;
+	background-color: #000000;
+}
+/*****************************************************************************/
+
+
+
+
+/***Top, bottom, and miscelaneous spacers for centering and page structure****/
+#topspacer  /*50 pixels of spacing from the top*/
+{
+	float: left;
+	
+	min-width: var(--box-size);
+	margin-top: 50px;
+}
+
+#spacer100 /*100 pixels of spacing*/
+{
+	float: left;
+
+	min-width: var(--box-size);
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+#spacer50 /*50 pixels of spacing*/
+{
+	float: left;
+
+	min-width: var(--box-size);
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+#bottomspacer  /*50 pixels of spacing from the bottom*/
+{
+	float: left;
+	
+	min-width: var(--box-size);
+	margin-bottom: 50px;
+}
+#divpadding
+{
+	padding: 14px;
+}
+/*****************************************************************************/
+
+
+
+
+/***headers and configurations************************************/
+#header
+{
+	float: left;
+	
+	min-width: var(--box-size);
+
+	padding: var(--box-padding);
+	clear: right;
+
+	border-top: 2px;
+	border-right: 2px;
+	border-bottom: 0px;
+	border-left: 2px;
+	border-style: solid;
+	border-color: #EEEEEE;
+}
+
+#headernonav /*header for pages that don't have a navigation bar*/
+{
+	float: left;
+	
+	min-width: var(--box-size);
+
+	padding: var(--box-padding);
+	clear: right;
+
+	border-top: 2px;
+	border-right: 2px;
+	border-bottom: 0px;
+	border-left: 2px;
+	border-style: solid;
+	border-color: #EEEEEE;
+}
+/*****************************************************************************/
+
+
+
+
+/***This is the Main Menu Navigation at the top of every page*****************/
+/*NEEDS WORK...*/
+#nav
+{
+	float: left;
+	
+	min-width: var(--box-size);
+
+	padding: var(--box-padding);
+	
+	background-color: #000000;
+	border-top: 2px;
+	border-right: 2px;
+	border-bottom: 2px;
+	border-left: 2px;
+	border-style: solid;
+	border-color: #EEEEEE;
+}
+#nav ul
+{
+	margin: 0px;
+	padding: 0px;
+	list-style: none; /*no bullets*/
+	display: inline; /*horizontal instead of using a block for vertical stacking*/
+}
+
+#nav ul li
+{
+	display: inline; /*horizontal instead of vertical stacking block display*/
+}
+
+#nav ul li span
+{
+	font-family: arial, sans-serif;
+	font-weight: bold;
+	color: #FF0000;
+
+	padding: 7px 10px 7px 10px;
+}
+
+#nav ul li a:link, #nav ul li a:visited
+{
+	background-color: #000000;
+
+	font-family: arial, sans-serif;
+	font-size: 12pt;
+	font-style: normal;
+	font-weight: bold;
+	color: #AA0000;
+	text-decoration: none;
+
+	padding: 7px 10px 7px 10px;
+}
+
+#nav ul li a:hover, #nav ul li a:active
+{
+	background-color: #303030;
+
+	font-family: arial, sans-serif;
+	font-size: 12pt;
+	font-style: normal;
+	font-weight: bold;
+	color: #FF0000;
+	text-decoration: none;
+
+	padding: 7px 10px 7px 10px;	
+}
+/*****************************************************************************/
+
+
+
+
+
+/***Other navigation**********************************************************/
+/*NEEDS WORK*/
+a:link.nomenu
+{
+	font-family: arial, sans-serif;
+	font-size: 12pt;
+	font-style: normal;
+	font-weight: medium;
+	color: #CCCCCC;
+	
+	text-decoration: none;
+
+	text-align: left;
+}
+
+a:visited.nomenu
+{
+	font-family: arial, sans-serif;
+	font-size: 12pt;
+	font-style: normal;
+	font-weight: medium;
+	color: #3FAAAA;
+	
+	text-decoration: none;
+
+	text-align: left;
+}
+a:hover.nomenu, a:active.nomenu
+{
+	font-family: arial, sans-serif;
+	font-size: 12pt;
+	font-style: normal;
+	font-weight: medium;
+	color: #3FFFFF;
+	
+	text-decoration: none;
+
+	text-align: left;
+}	
+/*****************************************************************************/
+
+
+
+
+/***Used to create content squares in a vertical block pattern****************/
+#content
+{
+	float: left;
+	
+	min-width: var(--box-size);
+
+	padding: var(--box-padding);
+	margin: 0px;
+
+	border-top: 0px;
+	border-right: 2px;
+	border-bottom: 2px;
+	border-left: 2px;
+	border-style: solid;
+	border-color: #EEEEEE;
+}
+
+#content-noborder
+{
+	float: left;
+	
+	padding: var(--box-padding);
+	min-width: var(--box-size);
+
+	padding: 0px;
+	margin: 0px;
+	border: 0px;
+}
+/*****************************************************************************/
+
+
+
+
+/***Creative Commons Attribution styling**************************************/
+span.CC p
+{
+	font-family: DejaVu Sans Mono, arial, sans-serif;
+	font-size: 8pt;
+	font-style: italic;
+	font-weight: medium;
+	color: #CC00CC;
+	text-align: left;
+}
+span.CC a:link
+{
+	font-weight: bold;
+	color: #00CC00;
+	text-decoration: none;
+	text-align: left;
+
+}
+
+span.CC a:visited
+{
+	font-weight: bold;
+	color: #00AA00;
+	text-decoration: none;
+	text-align: left;
+}
+
+span.CC a:hover, span.CC a:active
+{
+	font-weight: bold;
+	color: #00FF00;
+	text-decoration: none;
+	text-align: left;
+}
+/*****************************************************************************/
+
+
+
+
+/***Miscellaneous font adjustments********************************************/
+h1.date, h2.date, h3.date, h4.date, h5.date, h6.date, td.date
+{
+	font-weight: bold;
+	color: #00DDCC;
+	text-decoration: none;
+	text-align: left;
+}
+
+
+
+	
+
+
+
+
+/***EVERYTHING BELOW HAS NOT BEEN EDITED FOR USE, YET***/
+
+/***Spcialization of fonts and settings for the Files Page***/
+/*
+span.file a:link
+{
+	font-family: arial, sans-serif;
+	text-decoration: none;
+	font-size: 12pt;
+	line-height: 14pt;
+	font-style: normal;
+	font-weight: medium;
+	color: #00CC00;
+}
+span.file a:hover
+{
+	font-family: arial, sans-serif;
+	text-decoration: none;
+	font-size: 12pt;
+	line-height: 14pt;
+	font-style: normal;
+	font-weight: medium;
+	color: #00FF00;
+}
+span.file a:active
+{
+	font-family: arial, sans-serif;
+	text-decoration: none;
+	font-size: 12pt;
+	line-height: 14pt;
+	font-style: normal;
+	font-weight: medium;
+	color: #00FF00;
+}
+span.file a:visited
+{
+	font-family: arial, sans-serif;
+	text-decoration: none;
+	font-size: 12pt;
+        line-height: 14pt;
+	font-style: normal;
+	font-weight: medium;
+	color: #60CC00;
+}
+
+span.file ul
+{
+	list-style: none; //no bullets
+}
+span.file li
+{
+	display: block;
+	
+	font-family: arial, sans-serif;
+	font-size: 12pt;
+	font-style: normal;
+	font-weight: bold;
+	color: #00AFAF;
+	
+	text-align: left;
+   	line-height: 14pt;
+}
+span.file h1
+{
+	display: block;
+	
+	font-family: arial, sans-serif;
+	font-size: 14pt;
+	font-style: normal;
+	font-weight: bold;
+	color: #CC0000;
+	
+	text-align: left;
+   	line-height: 14pt;
+}
+
+span.file h2
+{
+	display: block;
+	
+	font-family: arial, sans-serif;
+	font-size: 14pt;
+	font-style: normal;
+	font-weight: medium;
+	color: #CC6600;
+	
+	text-align: left;
+   	line-height: 16pt;
+}
+*/
+/*****************************************************/
+
+
+
+
+
+
+
+
+
