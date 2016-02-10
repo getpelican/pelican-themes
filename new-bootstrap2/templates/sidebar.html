@@ -7,7 +7,9 @@
 {% endif %}
 {% if SOCIAL %}
 <li class="nav-header"><h4><i class="icon-home icon-large"></i> social</h4></li>
+{% if FEED_ATOM %}
 <li><a href="{{ SITEURL }}/{{ FEED_ATOM }}" rel="alternate"><i class="icon-bookmark icon-large"></i>atom feed</a></li>
+{% endif %}
 {% if FEED_RSS %}
 <li><a href="{{ SITEURL }}/{{ FEED_RSS }}" rel="alternate"><i class="icon-bookmark icon-large"></i>rss feed</a></li>
 {% endif %}
@@ -25,6 +27,7 @@
 </li>
 {% endfor %}
 
+{% if 'tag_cloud' in PLUGINS %}
 <li class="nav-header"><a href="{{ SITEURL }}/tags.html"><h4><i class="icon-tags icon-large"></i>Tags</h4></a></li>
 {# <li>
 <div id="tags">
@@ -36,6 +39,7 @@
         </a>
     </li>
 {% endfor %}
+{% endif %}
 {#  </ul>
 </div>
 <div id="myCanvasContainer">
