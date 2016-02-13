@@ -205,3 +205,6 @@
 [submodule "pelican-blue"]
 	path = pelican-blue
 	url = https://github.com/Parbhat/pelican-blue
+[submodule "pelican-hss"]
+	path = pelican-hss
+	url = https://github.com/laughk/pelican-hss.git
