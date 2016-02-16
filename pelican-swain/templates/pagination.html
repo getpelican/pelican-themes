@@ -1,0 +1,11 @@
+{% if DEFAULT_PAGINATION %}
+<div class="text-center" id="index-pagination">
+<div class="btn-group" role="group" aria-label="...">
+        <a type="button" class="btn btn-default {% if articles_page.has_previous() %}{% else%}disabled{% endif %}" href="{{ SITEURL }}/index.html"><i class="fa fa-chevron-left"></i><i class="fa fa-chevron-left"></i></a>
+        <a type="button" class="btn btn-default {% if articles_page.has_previous() %}{% else%}disabled{% endif %}" href="{{ SITEURL }}/{{ articles_previous_page.url }}"><i class="fa fa-chevron-left"></i></a>
+    <button type="button" class="btn btn-default disabled">{{ articles_page.number }} / {{ articles_paginator.num_pages }}</button>
+        <a type="button" class="btn btn-default  {% if articles_page.has_next() %}{% else%}disabled{% endif %}" href="{{ SITEURL }}/{{ articles_next_page.url }}"><i class="fa fa-chevron-right"></i></a>
+        <a type="button" class="btn btn-default {% if articles_page.has_next() %}{% else%}disabled{% endif %}" href="{{ SITEURL }}/index{{ articles_paginator.num_pages }}.html"><i class="fa fa-chevron-right"></i><i class="fa fa-chevron-right"></i></a>
+</div>
+</div>
+{% endif %}

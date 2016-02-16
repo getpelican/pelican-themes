@@ -1,0 +1,40 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">Article <i class="fa fa-info-circle"></i>nfo</div>
+    <div class="panel-body">
+      <div class="published">
+                <h5>Published</h5>
+                <p><time>{{ article.locale_date }}</time></p>
+      </div>
+      {% if article.modified %}
+      <div class="modified">
+                <h5>Updated</h5>
+                <p><time>{{ article.locale_modified }}</time></p>
+      </div>
+      {% endif %}
+      <div class="category">
+              <h5>Category</h5>
+              <p><a class="btn btn-default btn-xs" type="button" href="{{ SITEURL }}/categories.html#{{ category.slug }}-ref">{{ article.category }}</a></p>
+      </div>
+      <div class="tags">
+        {% if article.tags and article.tags[0]|trim|count > 0 %}
+            <h5>Tags</h5>
+            <ul class="list-inline list-of-tags tags-in-article">
+                {% for tag in article.tags|sort %}
+                <li><a class="btn btn-default btn-xs" type="button" href="{{ SITEURL }}/tags.html#{{ tag.slug }}-ref">{{ tag }}
+                    {% for aTag, tagged_articles in tags if aTag == tag %}
+                    <span class="badge">{{ tagged_articles|count }}</span>
+                    {% endfor %}</a></li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+      </div>
+      {% if article.authors %}
+      <address class="vcard author">
+                By {% for author in article.authors %}
+      <a class="url fn" href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a>
+        {% endfor %}
+      </address>
+      {% endif %}
+
+    </div>
+</div>

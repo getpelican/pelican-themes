@@ -1,0 +1,15 @@
+{% from '_includes/_defaults.html' import PROJECTS with context %}
+{% if PROJECTS %}
+<div class="panel panel-primary">
+  <div class="panel-heading"><i class="fa fa-hand-spock-o"></i> My Projects</div>
+  <div class="panel-body">
+  {% for project in PROJECTS %}
+        <ul class="list-unstyled">
+        <li>
+        <a href="{{ project.url }}" title="{{ project.url }}" target="_blank">{{ project.name }}</a> <span class="proj-desc">{{ project.description }}</span>
+        </li>
+        </ul>
+        {%endfor %}
+  </div>
+</div>
+{% endif %}

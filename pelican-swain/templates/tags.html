@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}
+All Tags · {{ super() }}
+{% endblock title %}
+
+{% block meta_tags_in_head %}
+{{ super() }}
+<meta property="og:title" content="All Tags · {{ SITENAME|striptags|e }}"/>
+<meta property="og:url" content="{{ SITEURL }}/tags.html" />
+<meta property="og:description" content="All tags used in the {{ SITENAME|striptags|e }} blog" />
+<meta property="og:site_name" content="{{ SITENAME|striptags|e }}" />
+<meta property="og:article:author" content="{{ AUTHOR }}" />
+{% endblock meta_tags_in_head %}
+
+{% block content %}
+<div class="row">
+    <header class="page-header text-center">
+    <h1><a href="{{ SITEURL }}/tags.html">All Tags</a></h1>
+    </header>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <ul class="list-of-tags list-inline">
+            {% for tag, articles in tags|sort %}
+            <li>
+            {% set num = articles|count %}
+            <a class="btn btn-default btn-sm" type="button" href="#{{ tag.slug }}-ref">{{ tag }}<span class="badge"> {{ num }}</span></a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        {% for tag, articles in tags|sort %}
+        <h2 id="{{ tag.slug }}-ref" class="tag-title">{{ tag }}</h2>
+        <ul class="articles-in-tag list-articles-category list-unstyled list-group">
+            {% for article in articles|sort(reverse = true, attribute = 'date') %}
+            <a class="list-group-item" href="{{ SITEURL }}/{{ article.url }}"><time pubdate="pubdate" datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time>{{ article.title }} {%if article.subtitle %} <small> {{ article.subtitle }} </small> {% endif %} </a></li>
+            {% endfor %}
+        </ul>
+
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}

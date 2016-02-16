@@ -1,0 +1,31 @@
+@font-face {
+    font-family: Fixedsys500c;
+    src: url('/theme/fonts/Fixedsys500c.eot');
+    src: url('/theme/fonts/Fixedsys500c.eot?#iefix') format('embedded-opentype'),
+         url('/theme/fonts/Fixedsys500c.woff') format('woff'),
+         url('/theme/fonts/Fixedsys500c.ttf') format('truetype'),
+         url('/theme/fonts/Fixedsys500c.svg#fontawesomeregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+div > div > h4 > a,
+a.label.label-default,
+a.btn.btn-default.btn-sm,
+a.btn.btn-default.btn-xs,
+footer,time,
+#center_page > div > div > div > div > span {
+    font-family: Fixedsys500c;
+    font-size: inherit;
+}
+#posts-list > li > article > div.row > div.comment-count.col-md-3 > a {
+    font-family: Fixedsys500c;
+    font-size: 18px;
+}
+span.h01 {
+    font-family: Fixedsys500c;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: Fixedsys500c;
+}

@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% block title %}{{ article.title|striptags }}{% endblock %}
+
+{% block meta_tags_in_head %}
+{{ super() }}
+{% if article.tags or article.category or article.keywords %}
+<meta name="keywords" content="{{ [article.tags|join(', '), article.category, article.keywords]|join(', ') }}" />
+{% endif %}
+{% endblock meta_tags_in_head %}
+
+{% block content %}
+<section id="content" class="body">
+  <article>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <header>
+          <h1 class="entry-title">
+            <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark"
+               title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h1>
+        </header>
+        <hr/>
+        <div class="entry-content">
+          {{ article.content }}
+        </div><!-- /.entry-content -->
+    </div>
+  </div>      
+    {% if article.related_posts %}
+    <div class="panel panel-default">
+      <div class="panel-heading">Related posts</div>
+      <div class="panel-body">
+        <ul class="list-unstyled">
+        {% for related_post in article.related_posts %}
+        <li><a href="{{ SITEURL }}/{{ related_post.url }}">{{ related_post.title }}</a></li>
+        {% endfor %}
+        </ul>
+      </div>
+    </div>
+    {% endif %}
+
+
+    {% if DISQUS_SITENAME and SITEURL and article.status != "draft" %}
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="comments">
+          <div id="disqus_thread"></div>
+            <script type="text/javascript">
+                var disqus_shortname = '{{ DISQUS_SITENAME }}';
+                {% if article.disqus_identifier %}
+                    var disqus_identifier = '{{ article.disqus_identifier }}';
+                {% else %}
+                    var disqus_identifier = '{{ SITEURL }}/{{ article.url }}';
+                {% endif %}
+                var disqus_url = '{{ SITEURL }}/{{ article.url }}';
+
+                (function() {
+                     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                     dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                 })();
+            </script>
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+            </div>
+    </div>
+    {% endif %}
+
+    {% if DUOSHUO_SHORTNAME %}
+    <div class="panel panel-default">
+      <div class="panel-body">
+        {% include '_includes/duoshuo.html' %}
+      </div>
+    </div>
+    {% endif %}
+
+  </article>
+</section>
+{% endblock %}
+
+{% block sidebar_right %}
+      {% include '_includes/article_infos.html' %}
+{% endblock%}
+
+{% block sidebar_left %}
+      {% include '_includes/toc.html' %}
+{% endblock%}

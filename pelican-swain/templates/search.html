@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Search · {{ super() }}
+{% endblock title %}
+
+{% block head_description %}
+Search results for {{ SITENAME|striptags|e }} blog.
+{% endblock head_description %}
+
+{% block meta_tags_in_head %}
+{{ super() }}
+<meta property="og:title" content="Search · {{ SITENAME|striptags|e }}"/>
+<meta name="twitter:title" content="Search · {{ SITENAME|striptags|e }}">
+<meta property="og:url" content="{{ SITEURL }}/search.html" />
+<meta property="og:description" content="Search results for {{ SITENAME|striptags|e }} blog" />
+<meta name="twitter:description" content="Search results for {{ SITENAME|striptags|e }} blog">
+<meta property="og:site_name" content="{{ SITENAME|striptags|e }}" />
+<meta property="og:article:author" content="{{ AUTHOR }}" />
+{% endblock meta_tags_in_head %}
+
+
+{% block content %}
+<div class="row-fluid">
+    <header class="page-header text-center">
+    <h1><i class="fa fa-search"></i></h1>
+    </header>
+</div>
+
+<article>
+    <div class="col-md-12">
+        <div id="tipue_search_content"><div id="tipue_search_loading"></div></div>
+    </div>
+</article>
+{% endblock content %}
+
+
+{% block script %}
+<script>
+$(document).ready(function() {
+     $('#tipue_search_input').tipuesearch({
+         {% if 'tipue_search' in PLUGINS %}
+             'mode' : 'json',
+         {% else %}
+             'mode': 'live',
+         {% endif %}
+         {# I cannot place following statements in the conditionals above because then Tipue Search fails to work. Possibly a bug in Tipue Search. #}
+         {% if 'tipue_search' in PLUGINS %}
+             'contentLocation': 'tipuesearch_content.json'
+         {% else %}
+             'liveDescription': '.article-content'
+         {% endif %}
+     });
+});
+</script>
+{% endblock script %}

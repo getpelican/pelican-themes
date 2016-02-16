@@ -1,0 +1,15 @@
+{% if LINKS %}
+<div class="panel panel-primary">
+  <div class="panel-heading"><i class="fa fa-link"></i> Links</div>
+  <div class="panel-body">
+        <ul class="list-unstyled">
+        {{ entry }}
+        {% for entry in LINKS %}
+        <li>
+        <a href="{{ entry[1] }}" title="{{ entry[1] }}">{{ entry[0] }}</a>
+        </li>
+        {% endfor %}
+        </ul>
+  </div>
+</div>
+{% endif %}

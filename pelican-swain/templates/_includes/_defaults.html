@@ -1,0 +1,32 @@
+{# License of your site that appears in the footer of every page #}
+{% if not SITE_LICENSE %}
+{% set SITE_LICENSE = '' %}
+{% else %}
+{% set SITE_LICENSE = SITE_LICENSE %}
+{% endif %}
+
+{# It is displayed along with the SITENAME in the footer of every page #}
+{% if not SITESUBTITLE %}
+{% set SITESUBTITLE = '' %}
+{% else %}
+{% set SITESUBTITLE = SITESUBTITLE %}
+{% endif %}
+
+
+{# It is an array of dictionaries. Each distionary has three keys: name, url,
+description.
+PROJECTS = [{
+    'name': 'Logpad + Duration',
+    'url': 'https://github.com/talha131/logpad-plus-duration#logpad--duration',
+    'description': 'Vim plugin to emulate Windows Notepad logging feature,'
+    ' and log duration of each entry'},
+    {'name': 'Elegant Theme for Pelican',
+    'url': 'http://oncrashreboot.com/pelican-elegant',
+    'description': 'A clean and distraction free theme, with search and a'
+    ' lot more unique features, using Jinja2 and Bootstrap'}]
+#}
+{% if not PROJECTS %}
+{% set PROJECTS = '' %}
+{% else %}
+{% set PROJECTS = PROJECTS %}
+{% endif %}
