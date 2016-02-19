@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+{% for article in articles %}
+  <url>
+    <loc>{{ SITEURL }}/{{ article.url }}</loc>
+    <priority>0.8</priority>
+  </url>
+
+  {% for translation in article.translations %}
+  <url>
+    <loc>{{ SITEURL }}/{{ translation.url }}</loc>
+    <priority>0.8</priority>
+  </url>
+  {% endfor %}
+{% endfor %}
+
+{% for page in pages %}
+  <url>
+    <loc>{{ SITEURL }}/{{ page.url }}</loc>
+    <priority>1.0</priority>
+  </url>
+
+  {% for translation in page.translations %}
+  <url>
+    <loc>{{ SITEURL }}/{{ translation.url }}</loc>
+    <priority>1.0</priority>
+  </url>
+  {% endfor %}
+{% endfor %}
+
+</urlset>
