@@ -208,3 +208,6 @@
 [submodule "pelican-hss"]
 	path = pelican-hss
 	url = https://github.com/laughk/pelican-hss.git
+[submodule "nice-blog"]
+	path = nice-blog
+	url = https://github.com/guilherme-toti/nice-blog
