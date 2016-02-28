@@ -211,3 +211,6 @@
 [submodule "nice-blog"]
 	path = nice-blog
 	url = https://github.com/guilherme-toti/nice-blog
+[submodule "apricot"]
+	path = apricot
+	url = https://github.com/livibetter-backup/apricot.git
