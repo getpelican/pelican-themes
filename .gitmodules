@@ -214,3 +214,6 @@
 [submodule "apricot"]
 	path = apricot
 	url = https://github.com/livibetter-backup/apricot.git
+[submodule "lab"]
+	path = lab
+	url = https://github.com/mothsART/pelican-lab
