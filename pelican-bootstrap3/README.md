@@ -1,7 +1,9 @@
+### CURRENT STATUS: Due to a busy work schedule, I've been unable to commit to this project for the past 6 months. The planning is to pick up work for this project near the end of Jan 2016. Thanks for your patience!
+
 # pelican-bootstrap3
 
-This is a Bootstrap 3 theme for Pelican. It's fully responsive. Bootstrap 3 has seen an official, final release now, so
-I don't expect any breaking changes anymore. I will try to keep it up-to-date.
+This is a Bootstrap 3 theme for Pelican. It's fully responsive. Pelican-bootstrap3 is compatible with Pelican 3.3.0 and 
+higher. I will try to regularly update this theme with new features and newer versions of Bootstrap & Bootswatch.
 
 ## CONTRIBUTING
 
@@ -123,6 +125,16 @@ If you wish to use the inverse navbar from Bootstrap, set the flag `BOOTSTRAP_NA
 
 This theme has support for the [Related Posts plugin](https://github.com/getpelican/pelican-plugins/tree/master/related_posts). All you have to do, is enable the plugin, and the theme will do the rest.
 
+### Series
+
+This theme supports the [Series plugin](https://github.com/getpelican/pelican-plugins/tree/master/series). If you enable the plugin you will find in the footer the links to the previous and next articles in the series.
+
+You may customize the header of this list setting the `SERIES_TEXT` variable, which can also include the `index` and `name` variables. The first is the index of the current article in the series (starting from 1) and the second is the name of the series. The default string is `Part %(index)s of the %(name)s series`.
+
+You may display on the sidebar the link to the previous and next article in the series setting `DISPLAY_SERIES_ON_SIDEBAR` to `True`.
+
+You may display information on the series just under the article title setting `SHOW_SERIES` to `True`.
+
 ### IPython Notebook support
 
 This theme supports including IPython notebooks through the [Liquid Tags plugin](https://github.com/getpelican/pelican-plugins/tree/master/liquid_tags). If you enable the plugin, the theme will automatically include the right CSS/JS to make the notebooks work.
@@ -169,10 +181,14 @@ The following things can be displayed on the sidebar:
 ```
 SOCIAL = (('twitter', 'http://twitter.com/DaanDebie'),
           ('linkedin', 'http://www.linkedin.com/in/danieldebie'),
-          ('github', 'http://github.com/DandyDev'),)
+          ('github', 'http://github.com/DandyDev'),
+          ('stackoverflow', 'http://stackoverflow.com/users/872397/dandydev', 'stack-overflow')
 ```
-* **Tags** will be shown if `DISPLAY_TAGS_ON_SIDEBAR` is set to _True_. Normally, tags are shown as a list.
+The first string in each item will be used for both the name as shown in the sidebar, and to determine the [FontAwesome](http://fontawesome.io/icons/)
+icon to show. You can provide an alternative icon string as the third string (as shown in the _stackoverflow_ item).
+* **Tags** will be shown if `DISPLAY_TAGS_ON_SIDEBAR` is set to _True_ and the [tag_cloud](https://github.com/getpelican/pelican-plugins/tree/master/tag_cloud) plugin is enabled. Normally, tags are shown as a list.
 	* Set `DISPLAY_TAGS_INLINE` to _True_, to display the tags inline (ie. as tagcloud)
+	* Set `TAGS_URL` to the relative URL of the tags index page (typically `tags.html`)
 * **Categories** will be shown if `DISPLAY_CATEGORIES_ON_SIDEBAR` is set to _True_
 * **Recent Posts** will be shown if `DISPLAY_RECENT_POSTS_ON_SIDEBAR` is set to _True_
 	* Use `RECENT_POST_COUNT` to control the amount of recent posts. Defaults to **5**
@@ -201,6 +217,13 @@ You can optionally declare a [Creative Commons license](http://creativecommons.o
 * Optionally, you can include attribution markup in the license mark by setting `CC_ATTR_MARKUP` to _True_.
 
 The license choice mirrors the [Creative Commons License Chooser](http://creativecommons.org/choose/). Source for the macro that renders the mark is at http://github.com/hlapp/cc-tools.
+
+Alternatively, if you want to use another license type, you can instead use the `CUSTOM_LICENSE` property to set a license string that will be showed at the bottom of every page.
+Raw HTML is allowed.
+As `CC_*` variables take precedence, be sure to avoid `CC_*` variables when using `CUSTOM_LICENSE`.
+
+For example, if you want to use the WTFPL license, you can set:
+`CUSTOM_LICENSE='Unless otherwise stated, all articles are published under the <a href="http://www.wtfpl.net/about/">WTFPL</a> license.'`
 
 ### GitHub
 
@@ -261,12 +284,19 @@ This theme has support for the
 All you have to do, is:
 - enable the plugin, and the theme will add a search box on the right
   side of the menu
-- Add `DIRECT_TEMPLATES = (('search',))` in your `pelicanconf.py`.
-
+- Add `'search'` to the `DIRECT_TEMPLATES` in your `pelicanconf.py`. E.g. `DIRECT_TEMPLATES = ('index', 'categories', 'authors', 'archives', 'search').
+By default, the Tipue search page is configured at "/search.html", but you can override that with the `SEARCH_URL` 
+setting, which comes in handy if you have fancy rewrite rules in your Apache or Nginx configuration.
 
 ### Footer
 
 The footer will display a copyright message using the AUTHOR variable and the year of the latest post. If a content license mark is enabled (see above), that will be shown as well.
+
+### Sidebar Images
+
+Include a series of images in the sidebar.
+
+SIDEBAR_IMAGES = ["/path/to/image1.png", "/path/to/image2.png"]
 
 ## Live example
 
