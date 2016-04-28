@@ -1,0 +1,18 @@
+{% extends "index.html" %}
+{% import 'html_macros.html' as html_macros %}
+
+{% block head %}
+{{ super() }} {{ html_macros.get_meta(category) }}
+{% endblock head %}
+{% block titlename %}{{category|capitalize}}{% endblock titlename %}
+
+{% block heading %}
+{#
+<h1 class="{% if CAPITALIZE_HEADINGS %}capitalize{% endif %}">
+#}
+<!--
+<h1 class="heading uk-text-primary">
+    Articles in the category <span class="entity">{{ category }}</span>
+</h1>
+-->
+{% endblock heading %}

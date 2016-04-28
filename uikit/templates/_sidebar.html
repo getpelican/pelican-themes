@@ -1,0 +1,50 @@
+{% macro limit_items(items, name, link, limit, class, line=False, tuple=False) %}
+  <div class="uk-panel">
+    <h3 class="uk-panel-title">{{ name | capitalize() }}</h3>
+    <ul class="uk-list {% if line %}uk-list-line{% endif %}">
+      {% if limit == 0 %}
+        {% set limit = items|length %}
+      {% endif %}
+        {% for item in items %}
+          {% if (limit > 0) and (loop.index > limit) %}
+          <li class="uk-hidden hidden-{{ name }}"><a href="{% if tuple %}{{item.1}}{% else %}/{{ item.0.url }}{% endif %}" class="{{ class }}">{% if tuple %}{{ item.0 }}{% else %}{{ item.0.name }}{% endif %}</a></li>
+            {% if loop.last %}
+              </ul>
+              <button class="uk-button hidden-{{ name }}" data-uk-toggle="{target:'.hidden-{{ name }}'}">More {{ name | capitalize() }}</button>
+              <button class="uk-hidden uk-button hidden-{{ name }}" data-uk-toggle="{target:'.hidden-{{ name }}'}">Less {{ name | capitalize() }}</button>
+            {% endif %}
+          {% else %}
+          <li><a href="{% if tuple %}{{ item.1 }}{% else %}/{{ item.0.url }}{% endif %}" class="{{ class }}">{% if tuple %}{{ item.0 }}{% else %}{{ item.0.name }}{% endif %}</a></li>
+            {% if (loop.last) %}
+    </ul>
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+    </div>
+{% endmacro %}
+
+  <div class="uk-panel uk-panel-box uk-text-center">
+    <a href="/author/{{AUTHOR}}.html">
+      <img alt="A picture of the author of this content." class="uk-border-circle" src="/theme/img/{{AUTHOR_IMAGE}}"/><h3>{{AUTHOR}}</h3></a>
+      <p>
+      Hi there! My name is {{AUTHOR_REAL}}, check out more <a href="{{MOREABOUTMEURL}}">about me</a>.
+      </p>
+  </div>
+
+  <div class="uk-panel">
+      <h3 class="uk-panel-title">Social Links</h3>
+      <div class="icons">
+        {% for name, link in SOCIAL %}
+          <a href="{{ link }}" class="uk-icon-button uk-icon-justify uk-icon-{{name}}"></a>
+        {% endfor %}
+      </div>
+  </div>
+
+{% if DISPLAY_TAGS_ON_SIDEBAR_LIMIT >= 0 %}
+  {{ limit_items(tags, 'tags', SITEURL ~ '/tag/', DISPLAY_TAGS_ON_SIDEBAR_LIMIT, 'uk-icon-tag', True, False) }}
+{% endif %}
+
+{% if DISPLAY_LINKS_ON_SIDEBAR_LIMIT >= 0 %}
+  {{ limit_items(LINKS, 'links', '', DISPLAY_LINKS_ON_SIDEBAR_LIMIT, 'uk-icon-external-link', True, True) }}
+{% endif %}
+

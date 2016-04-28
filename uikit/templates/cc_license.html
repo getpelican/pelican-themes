@@ -1,0 +1,53 @@
+{% macro license(SITEURL, LICENSE={'cc_name':'by', 'hosted':False, 'compact':True, 'brief':True}) %}
+  {% set cc_name = LICENSE['cc_name']|lower|trim|replace("cc-","") %}
+  {% if LICENSE['compact'] %}
+    {% set cc_size = "80x15" -%}
+  {% else %}
+    {% set cc_size = "88x31" -%}
+  {% endif %}
+  {% if not LICENSE['hosted']  %}
+    {% set cc_icon = [SITEURL|lower|trim,
+    "/theme/ico/cc/",
+    cc_name,
+    "/4.0/",
+    cc_size,
+    ".png"
+    ]|join("")
+    %}
+  {% else %}
+    {% set cc_icon = ["https://licensebuttons.net/l/",
+    cc_name,
+    "/4.0/",
+    cc_size,
+    ".png"
+    ]|join("")
+    %}
+  {% endif %}
+  {% set cc_title = ["Creative Commons Attribution 4.0 International",
+    cc_name|upper,
+    " License"
+    ]|join("")
+    %}
+    {% set cc_uri = ["http://creativecommons.org/licenses/",
+      cc_name,
+      "/4.0/"
+      ]|join("")
+    %}
+  {% if not LICENSE['brief']  %}
+    {% set cc_intro = "This work is licensed under a " %}
+    {% set cc_linktext = "Creative Commons CC_NAME 4.0 International License"|replace("CC_NAME", cc_name|upper, 1) %}
+  {% else %}
+    {% set cc_intro = "" %}
+    {% set cc_intro = "License " %}
+    {% set cc_linktext = "CC_NAME 4.0 "|replace("CC_NAME", cc_name|upper, 1) %}
+  {% endif %}
+  {% set license = [
+    '<a class="license" rel="license" href="http://creativecommons.org/licenses/CC_NAME/4.0/">',
+    '<img alt="Creative Commons License" style="border-width:0" src="CC_ICON" /></a>'|replace("CC_ICON", cc_icon|trim),
+    cc_intro,
+    '<a class="license" rel="license" href="http://creativecommons.org/licenses/CC_NAME/4.0/">',
+    cc_linktext,
+    '</a>'
+  ] | join("") %}
+{{ license|replace("CC_NAME", cc_name,2)|trim }}
+{% endmacro %}

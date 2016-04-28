@@ -1,0 +1,26 @@
+{% extends "index.html" %}
+{% import 'html_macros.html' as html_macros %}
+
+{% block head %}
+{{ super() }} {{ html_macros.get_meta(tags) }}
+{% endblock head %}
+{% block titlename %}{{'all the tags'|capitalize}}{% endblock titlename %}
+
+{% block content %}
+{% block heading %}
+
+<h1>{{'all the tags'|capitalize}}</h1>
+
+{% for tag, articles in tags|sort %}
+    <h2>
+        <span class="entity">{{ tag }}</span>
+    </h2>
+    <ul>
+    {% for article in articles|sort(reverse=True,attribute='date') %}
+        <li><a class="{% if CAPITALIZE_HEADINGS %}capitalize{% endif %}" href="/{{ article.url }}">{{ article.title }}</a></li>
+    {% endfor %}
+    </ul>
+{% endfor %}
+
+{% endblock heading %}
+{% endblock content %}

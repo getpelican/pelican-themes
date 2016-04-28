@@ -1,0 +1,32 @@
+{% extends "uikit.html" %}
+{% import 'article_macros.html' as article_macros %}
+{% block head %}
+{{super()}}
+{% endblock head %}
+{% block titlename %}{{'welcome!'|capitalize}}{% endblock titlename %}
+{% block content %}
+{% block heading %}
+<h1 class="heading uk-text-primary">
+{{ HEADING }}
+</h1>
+{% endblock heading %}
+{% if articles %}
+    {% for article in articles|sort(reverse=True,attribute='date') %}
+        <h1 class="{% if CAPITALIZE_HEADINGS %}capitalize{% endif %} uk-article-title">
+            <a href="/{{ article.url }}">{{ article.title }}</a>
+        </h1>
+        <p class="uk-article-meta">
+        {{ article_macros.get_meta(SITEURL, article) }}
+        </p>
+        {{ article.summary }}
+        <p>
+        <a class="uk-button uk-button-primary" href="{{SITEURL}}/{{article.url}}">Continue Reading</a>
+        <!--
+        <a class="uk-button" href="">Comments</a>
+        -->
+        </p>
+    {% endfor %}
+    {#
+    #}
+{% endif %}
+{% endblock content %}

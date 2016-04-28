@@ -1,0 +1,13 @@
+{% for title, link in MENUITEMS %}
+    <li><a href="{{ link }}">{{ title }}</a></li>
+{% endfor %}
+{% if DISPLAY_PAGES_ON_MENU %}
+  {% for p in PAGES %}
+    <li{% if p == page %} class="uk-active"{% endif %}><a href="/{{ p.url }}">{{ p.title }}</a></li>
+  {% endfor %}
+  {% if DISPLAY_CATEGORIES_ON_MENU %}
+    {% for cat, null in categories %}
+      <li{% if cat == category %} class="uk-active"{% endif %}><a href="/{{ cat.url }}">{{ cat }}</a></li>
+    {% endfor %}
+  {% endif %}
+{% endif %}
