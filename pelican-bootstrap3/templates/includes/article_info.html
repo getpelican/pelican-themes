@@ -11,6 +11,14 @@
             </span>
         {% endif %}
     {% endif %}
+
+    {% if SHOW_SERIES %}
+        {% if article.series %}
+            <span class="label label-default">Series</span>
+            Part {{ article.series.index}} of {{ article.series.name }}
+        {% endif %}
+    {% endif %}
+
     {% if SHOW_ARTICLE_AUTHOR %}
         {% if article.author %}
             <span class="label label-default">By</span>
