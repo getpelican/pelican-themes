@@ -1,20 +1,23 @@
 # pelican-bootstrap3
 
-This is a Bootstrap 3 theme for Pelican, originally developed by [DandyDev](https://github.com/DandyDev). 
-It's fully responsive and contains sub-themes from the Bootswatch project. 
-Pelican-bootstrap3 is compatible with Pelican 3.3.0 and higher.
+This is a Bootstrap 3 theme for Pelican, originally developed by
+[DandyDev](https://github.com/DandyDev).  It's fully responsive and contains
+sub-themes from the Bootswatch project.  Pelican-bootstrap3 is compatible with
+Pelican 3.3.0 and higher.
 
 ## CONTRIBUTING
 
-If you want to adjust this theme to your own liking, we encourage you to fork it. This theme has started to gather more
-and more attention in the form of stars and forks. If you make improvements that are useful to others and can make the
-theme better in general **please don't hesitate to make a pull request**. For contributing guidelines, [look here](CONTRIBUTING.md)
+If you want to adjust this theme to your own liking, we encourage you to fork
+it. This theme has started to gather more and more attention in the form of
+stars and forks. If you make improvements that are useful to others and can
+make the theme better in general **please don't hesitate to make a pull
+request**. For contributing guidelines, [look here](CONTRIBUTING.md)
 
 ## Installation
 
 First:
 
-`git clone https://github.com/DandyDev/pelican-bootstrap3.git`
+`git clone https://github.com/getpelican/pelican-themes.git`
 
 Then:
 
@@ -38,27 +41,42 @@ This theme honors the following standard Pelican settings:
 	* `DISQUS_SITENAME`
 	* `PIWIK_URL`, `PIWIK_SSL_URL` and `PIWIK_SITE_ID`
 
-It uses the `tag_cloud` variable for displaying tags in the sidebar. You can control the amount of tags shown with: `TAG_CLOUD_MAX_ITEMS`
+It uses the `tag_cloud` variable for displaying tags in the sidebar. You can
+control the amount of tags shown with: `TAG_CLOUD_MAX_ITEMS`
 
 ## Extras
 
 ### Bootswatch and other Bootstrap 3 themes
 
-Part of the versatility of this theme comes from the fact that I included all the lovely Bootstrap 3 themes from [Bootswatch](http://bootswatch.com/), built by [Thomas Park](https://github.com/thomaspark). You can tell Pelican what Bootswatch theme to use, by setting `BOOTSTRAP_THEME` to the desired theme, in lowercase (ie. 'readable' or 'cosmo' etc.). My own site is using _Simplex_. If you want to use any other Bootstrap 3 compatible theme, just put the minified CSS in the `static/css` directory and rename it using the following naming scheme: `bootstrap.{theme-name}.min.css`. Then update the `BOOTSTRAP_THEME` variable with the _theme-name_ used.
+Part of the versatility of this theme comes from the fact that I included all
+the lovely Bootstrap 3 themes from [Bootswatch](http://bootswatch.com/), built
+by [Thomas Park](https://github.com/thomaspark). You can tell Pelican what
+Bootswatch theme to use, by setting `BOOTSTRAP_THEME` to the desired theme, in
+lowercase (ie. 'readable' or 'cosmo' etc.). My own site is using _Simplex_. If
+you want to use any other Bootstrap 3 compatible theme, just put the minified
+CSS in the `static/css` directory and rename it using the following naming
+scheme: `bootstrap.{theme-name}.min.css`. Then update the `BOOTSTRAP_THEME`
+variable with the _theme-name_ used.
 
 ### Article info
 
-Set `SHOW_ARTICLE_AUTHOR` to True to show the author of the article at the top of the article and in the index of articles. Set `SHOW_ARTICLE_CATEGORY` to show the Category of each article. Set `SHOW_DATE_MODIFIED` to True to show the article modified date next to the published date.
+Set `SHOW_ARTICLE_AUTHOR` to True to show the author of the article at the top
+of the article and in the index of articles. Set `SHOW_ARTICLE_CATEGORY` to
+show the Category of each article. Set `SHOW_DATE_MODIFIED` to True to show the
+article modified date next to the published date.
 
 ### Custom CSS
 
-If you want to add custom css to the theme, without having to clone and maintain your own version of the theme, you can use the `CUSTOM_CSS` variable. The value is the location where you tell Pelican to put the file (see below):
+If you want to add custom css to the theme, without having to clone and
+maintain your own version of the theme, you can use the `CUSTOM_CSS` variable.
+The value is the location where you tell Pelican to put the file (see below):
 
 ```
 CUSTOM_CSS = 'static/custom.css'
 ```
 
-To tell Pelican to copy the relevant file to the desired destination, add the path to `STATIC_PATHS` and the destination to `EXTRA_PATH_METADATA`, like so:
+To tell Pelican to copy the relevant file to the desired destination, add the
+path to `STATIC_PATHS` and the destination to `EXTRA_PATH_METADATA`, like so:
 
 ```
 # Tell Pelican to add 'extra/custom.css' to the output dir
@@ -72,7 +90,9 @@ EXTRA_PATH_METADATA = {
 
 ### Pygments
 
-You can choose the syntax highlighting style by using the `PYGMENTS_STYLE` variable to specify one of the built-in Pygments styles. By default the `native` style is used. The following styles are avaiable:
+You can choose the syntax highlighting style by using the `PYGMENTS_STYLE`
+variable to specify one of the built-in Pygments styles. By default the
+`native` style is used. The following styles are avaiable:
 
 - autumn
 - borland
@@ -100,21 +120,29 @@ For a demo of the different Pygment styles, have a look [here](http://pygments.o
 
 ### Pagination
 
-Pelican-Bootstrap3 follows the standard Pagination settings of Pelican and uses the Bootstrap3 [Pagination component](http://getbootstrap.com/components/#pagination), but you can optionally use the Boostrap3 _Pager_ by setting `USE_PAGER` to `True`.
+Pelican-Bootstrap3 follows the standard Pagination settings of Pelican and uses
+the Bootstrap3 [Pagination
+component](http://getbootstrap.com/components/#pagination), but you can
+optionally use the Boostrap3 _Pager_ by setting `USE_PAGER` to `True`.
 
 ### Bootstrap fluid layout
 
-If you'd like to use the fluid container layout from Bootstrap, set the flag `BOOTSTRAP_FLUID` to _True_.
+If you'd like to use the fluid container layout from Bootstrap, set the flag
+`BOOTSTRAP_FLUID` to _True_.
 
 ### Site Brand
 
-You can provide a logo for your site using `SITELOGO`. For example: `SITELOGO = 'images/my_site_logo.png'`. You can then define the size of the logo using `SITELOGO_SIZE`. The `width` of the `<img>` element will be set accordingly.
+You can provide a logo for your site using `SITELOGO`. For example: `SITELOGO =
+'images/my_site_logo.png'`. You can then define the size of the logo using
+`SITELOGO_SIZE`. The `width` of the `<img>` element will be set accordingly.
 
 By default the `SITENAME` will be shown as well. It's also possible to hide the site name using the `HIDE_SITENAME` flag.
 
 ### Breadcrumbs
 
-It's possible to show breadcrumbs in your site using the `DISPLAY_BREADCRUMBS` flag. By default the article category isn't shown in the breadcrumbs, if you wish to enable it, set the `DISPLAY_CATEGORY_IN_BREADCRUMBS` flag to _True_.
+It's possible to show breadcrumbs in your site using the `DISPLAY_BREADCRUMBS`
+flag. By default the article category isn't shown in the breadcrumbs, if you
+wish to enable it, set the `DISPLAY_CATEGORY_IN_BREADCRUMBS` flag to _True_.
 
 ### Navbar
 
@@ -122,29 +150,46 @@ If you wish to use the inverse navbar from Bootstrap, set the flag `BOOTSTRAP_NA
 
 ### Related Posts
 
-This theme has support for the [Related Posts plugin](https://github.com/getpelican/pelican-plugins/tree/master/related_posts). All you have to do, is enable the plugin, and the theme will do the rest.
+This theme has support for the [Related Posts
+plugin](https://github.com/getpelican/pelican-plugins/tree/master/related_posts).
+All you have to do, is enable the plugin, and the theme will do the rest.
 
 ### Series
 
-This theme supports the [Series plugin](https://github.com/getpelican/pelican-plugins/tree/master/series). If you enable the plugin you will find in the footer the links to the previous and next articles in the series.
+This theme supports the [Series
+plugin](https://github.com/getpelican/pelican-plugins/tree/master/series). If
+you enable the plugin you will find in the footer the links to the previous and
+next articles in the series.
 
-You may customize the header of this list setting the `SERIES_TEXT` variable, which can also include the `index` and `name` variables. The first is the index of the current article in the series (starting from 1) and the second is the name of the series. The default string is `Part %(index)s of the %(name)s series`.
+You may customize the header of this list setting the `SERIES_TEXT` variable,
+which can also include the `index` and `name` variables. The first is the index
+of the current article in the series (starting from 1) and the second is the
+name of the series. The default string is `Part %(index)s of the %(name)s
+series`.
 
-You may display on the sidebar the link to the previous and next article in the series setting `DISPLAY_SERIES_ON_SIDEBAR` to `True`.
+You may display on the sidebar the link to the previous and next article in the
+series setting `DISPLAY_SERIES_ON_SIDEBAR` to `True`.
 
-You may display information on the series just under the article title setting `SHOW_SERIES` to `True`.
+You may display information on the series just under the article title setting
+`SHOW_SERIES` to `True`.
 
 ### IPython Notebook support
 
-This theme supports including IPython notebooks through the [Liquid Tags plugin](https://github.com/getpelican/pelican-plugins/tree/master/liquid_tags). If you enable the plugin, the theme will automatically include the right CSS/JS to make the notebooks work.
+This theme supports including IPython notebooks through the [Liquid Tags
+plugin](https://github.com/getpelican/pelican-plugins/tree/master/liquid_tags).
+If you enable the plugin, the theme will automatically include the right CSS/JS
+to make the notebooks work.
 
 ### Favicon
 
-Set the `FAVICON` option in your `pelicanconf.py`. For example: `FAVICON = 'images/favicon.png'`
+Set the `FAVICON` option in your `pelicanconf.py`. For example: `FAVICON =
+'images/favicon.png'`
 
 ### Index page
 
-* If `DISPLAY_ARTICLE_INFO_ON_INDEX` is set to _True_, article info (date, tags) will be show under the title for each article, otherwise only title and summary will be shown (default).
+* If `DISPLAY_ARTICLE_INFO_ON_INDEX` is set to _True_, article info (date,
+  tags) will be show under the title for each article, otherwise only title and
+  summary will be shown (default).
 
 ### Short menu labels for pages
 
