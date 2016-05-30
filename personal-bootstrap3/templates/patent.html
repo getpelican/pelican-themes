@@ -71,13 +71,25 @@
     <section id="content">
         <article>
             <header class="page-header">
-                <h1>
+                <h4>
                     <a href="{{ SITEURL }}/{{ article.url }}"
                        rel="bookmark"
                        title="Permalink to {{ article.title|striptags }}">
                         {{ article.title }}
                     </a>
-                </h1>
+                </h4>
+                <h5>
+                    <a href="http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO1&Sect2=HITOFF&d=PALL&p=1&u=/netahtml/PTO/srchnum.htm&r=1&f=G&l=50&s1={{
+                   article.patent_number }}.PN.&OS=PN/{{
+                   article.patent_number }}&RS=PN/{{
+                   article.patent_number }})">Patent office: {{
+                   article.patent_number }}</a>
+
+                    <a href="https://www.google.com/patents/US{{
+                    article.patent_number|replace(",", "")  }}">Google
+                        Patents {{ article.patent_number }}</a>
+
+                </h5>
             </header>
             <div class="entry-content">
                 <div class="panel">
