@@ -231,3 +231,11 @@ figure.floatcenter, .align-center {
   margin:-50px 0 0;
   /* negative fixed header height */
 }
+
+.gap-right {
+    margin-right: 10px;
+}
+
+.gap-left {
+  margin-left: 10px;
+}
