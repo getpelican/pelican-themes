@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}404 Page Not Found! - {{ SITENAME }}{% endblock %}
+
+{% block breadcrumbs %}
+    {% if DISPLAY_BREADCRUMBS %}
+    <ol class="breadcrumb">
+        <li><a href="{{ SITEURL }}" title="{{ SITENAME }}"><i class="fa fa-home fa-lg"></i></a></li>
+        <li class="active">Page Not Found!</li>
+    </ol>
+    {% endif %}
+{% endblock %}
+{% block content %}
+
+    <h1>It appears that the page you are looking for is no longer at this location.</h1>
+    <p>Please try entering the URL again. Alternatively, you can return to the <a href="{{ SITEURL }}" title="{{ SITENAME }}">home page</a></p>
+
+{% endblock %}

@@ -46,7 +46,9 @@
 
 {% block content %}
     <section id="content" class="body">
+        {% if page.title %}
         <h1 class="entry-title">{{ page.title }}</h1>
+        {% endif %}
         {% import 'includes/translations.html' as translations with context %}
         {{ translations.translations_for(page) }}
         {% if PDF_PROCESSOR %}
