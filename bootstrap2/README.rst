@@ -3,10 +3,11 @@ Bootstrap 2 theme
 
 This is (yet another) theme for Pelican inspired by `Twitter Bootstrap 2.0 <http://twitter.github.com/bootstrap/>`_.
 
-It makes use of `Font-Awesome <http://fortawesome.github.com/Font-Awesome/>`_ icons, supports tag_cloud, translation,
-and try to keep other features from Pelican's default theme ``notmyidea``.
+It supports `Font-Awesome <http://fortawesome.github.com/Font-Awesome/>`_ icons,
+tag clouds, translations, and other features from Pelican's default ``notmyidea`` theme.
 
-Also you can see its result from `my Github Page <http://farseerfc.github.com/>`_. It will be updated using latest theme.
+You can see this theme live via `my Github Page <http://farseerfc.github.com/>`_,
+which will be kept up-to-date with the latest version of this theme.
 
 Feel free to use it.
 

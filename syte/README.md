@@ -24,12 +24,12 @@ your settings file.
 Settings
 --------
 
-This theme uses the SOCIAL setting from Pelican and build social integration on top of it with JavaScript calls.
-All these settings are optional, not using them will simply not enable the social integration and the links will remain just links.
+This theme uses the ``SOCIAL`` setting to build social integration via JavaScript calls.
+All these settings are optional — not using them will skip the social integration, and the links will remain just links.
 
 #### HTML (OPTIONAL)
 
-* ABOUT = u'Describe yourself or your site here, this will go right under the site name'
+* ABOUT = u'Describe yourself or your site here — this will go right under the site name'
 * SITE_DESCRIPTION = u'Used in HTML meta tag for description'
 * SITE_KEYWORDS = u'Used in the HTML meta tag for keywords'
 
