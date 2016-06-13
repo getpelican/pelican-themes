@@ -219,4 +219,4 @@
 	url = https://github.com/mothsART/pelican-lab
 [submodule "eevee"]
 	path = eevee
-	url = git@github.com:kura/eevee.git
+	url = https://github.com/kura/eevee.git
