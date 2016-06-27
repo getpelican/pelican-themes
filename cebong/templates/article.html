@@ -1,5 +1,33 @@
 {% extends "base.html" %}
+{% block robots %}
+{% if article.robots %}{{ article.robots }}{% else %}index,follow{% endif %}
+{% endblock %}
+{% block head_description %}
+{% if article.summary %}
+{{ article.summary|striptags }}
+{% endif %}
+{% endblock head_description %}
 {% block title %}{{ article.title|striptags }}{% endblock %}
+{% block meta_tags_in_head %}
+{% if article.tags and article.category %}
+        <meta name="keywords" content="{{ [article.tags|join(', '), article.category]|join(', ') }}" />
+{% endif %}
+{% if article.category %}
+        <meta name="category" content="{{ article.category|striptags }}" />
+{% endif %}
+{% if article.description %}
+        <meta name="description" content="{{ article.description|striptags  }}" />
+{% elif article.summary %}
+        <meta name="description" content="{{ article.summary|striptags  }}" />
+{% endif %}
+{% if article.author %}
+        <meta name="author" content="{{ article.author }}" />
+        <meta name="copyright" content="{{ article.author }}" />
+{% endif %}
+{% if article.date %}
+        <meta name="date" content="{{ article.date }}">
+{% endif %}
+{% endblock meta_tags_in_head %}
 {% block content %}
 <section id="content" class="body">
   <article>
@@ -22,7 +50,7 @@
         var disqus_identifier = "{{ article.url }}";
         (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = 'http://{{ DISQUS_SITENAME }}.disqus.com/embed.js';
+        dsq.src = 'https://{{ DISQUS_SITENAME }}.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
       </script>

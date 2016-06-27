@@ -3,6 +3,14 @@
     <span class="published">
         <i class="fa fa-calendar"></i><time datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }}</time>
     </span>
+    {% if SHOW_DATE_MODIFIED %}
+        {% if article.modified %}
+            <span class="label label-default">Modified</span>
+            <span class="modified">
+                <i class="fa fa-calendar"></i><time datetime="{{ article.modified.isoformat() }}"> {{ article.locale_modified }}</time>
+            </span>
+        {% endif %}
+    {% endif %}
 
     {% if SHOW_SERIES %}
         {% if article.series %}
@@ -10,7 +18,6 @@
             Part {{ article.series.index}} of {{ article.series.name }}
         {% endif %}
     {% endif %}
-
 
     {% if SHOW_ARTICLE_AUTHOR %}
         {% if article.author %}

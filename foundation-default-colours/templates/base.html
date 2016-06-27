@@ -72,7 +72,7 @@
 							<li {% if cat == category %}class="active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
 						{% endfor %}
 
-						<li><label>Places</label></li>
+						<li><label>Links</label></li>
 							{% for name, link in LINKS %}
 							<li><a href="{{ link }}">{{ name }}</a></li>
 							{% endfor %}
@@ -93,7 +93,7 @@
 							{% endfor %}
 						{% endif %}
 
-						<li><label>Links</label></li>
+						<li><label>Social</label></li>
 							{% for name, link in SOCIAL|sort %}
 							<li><a href="{{ link }}">{{ name }}</a></li>
 							{% endfor %}
@@ -114,6 +114,15 @@
 								<li {% if cat == category %}class="active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
 							{% endfor %}
 						</ul>
+                        <ul class="right">                                                                                                                                           
+                             {% for pg in PAGES | sort(attribute='index') %}                                                                                                          
+                                 {% if 'http://' in pg.url -%}                                                                                                                        
+                                     <li><a href="{{ pg.url }}">{{ pg.title }}</a></li>                                                                                               
+                                 {% else %}····                                                                                                                                       
+                                     <li{% if pg == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ pg.url }}">{{ pg.title }}</a></li>                                    
+                                 {% endif %}                                                                                                                                          
+                             {% endfor %}                                                                                                                                             
+                        </ul>  
 					</section>
 				</nav>
 
@@ -135,7 +144,7 @@
 						<!-- Sidebar -->
 						<aside class="medium-3 hide-for-small-only columns">
 							<div class="panel">
-								<h5>Places</h5>
+								<h5>Links</h5>
 								<ul class="side-nav">
 									{% for name, link in LINKS %}
 									<li><a href="{{ link }}">{{ name }}</a></li>
@@ -147,7 +156,7 @@
 								<h5>Tags</h5>
 								<ul class="tag-cloud">
 									{% for tag in tag_cloud %}
-										<li class="tag-{{ tag.1 }}"><a href="{{ SITEURL }}/{{ tag.0.url }}">{{ tag.0 }}</a></li>
+									<li><a href="/tag/{{ tag.0|lower|replace(' ', '-') }}.html" class="tag-{{ tag.1 }}">{{ tag.0 }}</a></li>
 									{% endfor %}
 								</ul>
 							</div>
@@ -166,7 +175,7 @@
 							{% endif %}
 
 							<div class="panel">
-								<h5>Links</h5>
+								<h5>Social</h5>
 								<ul class="side-nav">
 									{% for name, link in SOCIAL|sort %}
 									<li><a href="{{ link }}">{{ name }}</a></li>

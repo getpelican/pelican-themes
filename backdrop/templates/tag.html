@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}{{ tag|striptags }}{% endblock title %}
+
+{% block content %}
+{% import 'macros.html' as macros %}
+<div class="row">
+    <div class="small-12 columns">
+        <h2>Articles with tag &ldquo;{{ tag }}&rdquo;</h2>
+        {{ macros.page_list(articles_page, articles_paginator.num_pages, page_name, SITEURL, DISQUS_SITENAME ) }}
+    </div>
+</div>
+{% endblock content %}

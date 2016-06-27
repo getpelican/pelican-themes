@@ -8,7 +8,7 @@
 						{% for article in dates %}
                                                     <dt>{{ article.locale_date }}</dt>
                                                     <dd><a href='{{ article.url }}'>{{ article.title }}</a></dd>
-                                                    <dd>Catégorie : <a href="{{ article.category }}">{{ article.category }}</a></dd>
+                                                    <dd>Catégorie : <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a></dd>
                                                 {% endfor %}
                                                 </dl>
 					</div>

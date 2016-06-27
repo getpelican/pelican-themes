@@ -36,7 +36,7 @@
         {% for url, name in SOCIAL %}
           <li><a href="{{ url|e }}">{{ name }}</a></li>
         {% endfor %}
-          <li><a href="{{ SITEURL }}/{{ FEED }}" rel="alternate">Flux Atom</a></li>
+          <li><a href="{{ SITEURL }}/{{ FEED_ATOM }}" rel="alternate">Flux Atom</a></li>
         {% if FEED_RSS %}
           <li><a href="{{ SITEURL }}/{{ FEED_RSS }}" rel="alternate">Flux RSS</a></li>
         {% endif %}

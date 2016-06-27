@@ -15,8 +15,10 @@
     {% endif %}
 {% endblock %}
 {% block opengraph %}
-    {% if OPEN_GRAPH_FB_APP_ID %}
-        <meta property="fb:app_id" content="{{ OPEN_GRAPH_FB_APP_ID }}"/>
+    {% if USE_OPEN_GRAPH %}
+        {% if OPEN_GRAPH_FB_APP_ID %}
+            <meta property="fb:app_id" content="{{ OPEN_GRAPH_FB_APP_ID }}"/>
+        {% endif %}
         <meta property="og:site_name" content="{{ SITENAME }}" />
         <meta property="og:type" content="article"/>
         <meta property="og:title" content="{{ article.title|striptags|escape }}"/>
@@ -89,8 +91,22 @@
             {% include 'includes/related-posts.html' %}
             {% include 'includes/series.html' %}
             {% include 'includes/addthis.html' %}
+            {% include 'includes/shariff.html' %}
             {% include 'includes/comments.html' %}
         </article>
     </section>
 
+{% endblock %}
+
+{% block scripts %}
+{% if ADDTHIS_PROFILE %}
+    {% if ADDTHIS_DATA_TRACK_ADDRESSBAR|default(true) %}
+        <script type="text/javascript">var addthis_config = {"data_track_addressbar": true};</script>
+    {% endif %}
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid={{ ADDTHIS_PROFILE }}"></script>
+{% endif %}
+{% if SHARIFF|default(false) %}
+    <!-- add shariff support -->
+    <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/shariff.min.js"></script>
+{% endif %}
 {% endblock %}

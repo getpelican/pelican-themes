@@ -136,9 +136,6 @@
 [submodule "nikhil-theme"]
 	path = nikhil-theme
 	url = https://github.com/gunchu/nikhil-theme
-[submodule "ptemplate"]
-	path = ptemplate
-	url = https://github.com/spinner-dev/ptemplate.git
 [submodule "chameleon"]
 	path = chameleon
 	url = https://github.com/yuex/pelican-iliork.git
@@ -148,3 +145,78 @@
 [submodule "martin-pelican"]
 	path = martin-pelican
 	url = https://github.com/cpaulik/martin-pelican
+[submodule "nest"]
+	path = nest
+	url = https://github.com/molivier/nest.git
+[submodule "alchemy"]
+	path = alchemy
+	url = https://github.com/nairobilug/pelican-alchemy.git
+[submodule "Nuja"]
+	path = Nuja
+	url = https://github.com/allenskd/Nuja.git
+[submodule "pjport"]
+	path = pjport
+	url = https://github.com/xm3ron/pjport.git
+[submodule "cid"]
+	path = cid
+	url = https://github.com/hdra/Pelican-Cid
+[submodule "Flex"]
+	path = Flex
+	url = https://github.com/alexandrevicenzi/Flex.git
+[submodule "Casper2Pelican"]
+	path = Casper2Pelican
+	url = https://github.com/abr4xas/Casper2Pelican
+[submodule "octopress"]
+	path = octopress
+	url = https://github.com/duilio/pelican-octopress-theme
+[submodule "smoothie"]
+	path = smoothie
+	url = https://github.com/kdheepak89/pelican-smoothie
+[submodule "material"]
+	path = material
+	url = https://github.com/greizgh/pelican-material
+[submodule "w3-personal-blog"]
+	path = w3-personal-blog
+	url = https://github.com/samael500/w3-personal-blog.git
+[submodule "free-agent"]
+	path = free-agent
+	url = https://github.com/callmefish/pelican-free-agent
+[submodule "mediumfox"]
+	path = mediumfox
+	url = https://github.com/cprieto/pelican-mediumfox
+[submodule "medius"]
+	path = medius
+	url = https://github.com/onuraslan/medius
+[submodule "materialistic"]
+	path = materialistic
+	url = https://github.com/eswarm/materialistic-pelican
+[submodule "hyde"]
+	path = hyde
+	url = https://github.com/jvanz/pelican-hyde.git
+[submodule "clean-blog"]
+	path = clean-blog
+	url = https://github.com/gilsondev/pelican-clean-blog
+[submodule "semantic-ui"]
+	path = semantic-ui
+	url = https://github.com/ellisonleao/pelican-semantic-ui
+[submodule "yapeme"]
+	path = yapeme
+	url = https://github.com/kplaube/yapeme
+[submodule "pelican-blue"]
+	path = pelican-blue
+	url = https://github.com/Parbhat/pelican-blue
+[submodule "pelican-hss"]
+	path = pelican-hss
+	url = https://github.com/laughk/pelican-hss.git
+[submodule "nice-blog"]
+	path = nice-blog
+	url = https://github.com/guilherme-toti/nice-blog
+[submodule "apricot"]
+	path = apricot
+	url = https://github.com/livibetter-backup/apricot.git
+[submodule "lab"]
+	path = lab
+	url = https://github.com/mothsART/pelican-lab
+[submodule "eevee"]
+	path = eevee
+	url = https://github.com/kura/eevee.git

@@ -9,9 +9,9 @@ If your website is listed here, but you don't want it to be, let me know and I'l
 
 [DandyDev.net](http://dandydev.net) by [DandyDev](https://github.com/DandyDev) (Main author of pelican-bootstrap3) - Basic pelican-bootstrap3 setup using the _Simplex_ Bootswatch theme.
 
-[Winlus blog](http://www.heroicdebugging.biz/) by [ingwinlu](https://github.com/ingwinlu) - Customized pelican-bootstrap3 based design using panels. Shows off the `USE_PAGER` setting.
-
 [Mind Bending](http://mindbending.org/en) by [magnunleno](https://github.com/magnunleno) - Heavily customized design based on pelican-bootstrap3 with lots of stuff added. Some of that stuff was neatly contributed back to pelican-boostrap3.
+
+[Beneath Data](http://beneathdata.com) by [tylerhartley](https://github.com/tylerhartley) - Customized pelican-boostrap3 to include a homepage banner, a footer containing the "About Me" and other social content, plus other small UI tweaks.
 
 [toumorokoshi](http://toumorokoshi.github.io/) by [toumorokoshi](https://github.com/toumorokoshi) - Clean version of pelican-bootstrap3 with a nice profile area added in.
 
@@ -47,4 +47,15 @@ If your website is listed here, but you don't want it to be, let me know and I'l
 
 [Bryce Boe](http://bryceboe.com/) by [bboe](https://github.com/bboe)
 
-[higeblog](http://www.higebu.com/) by [higebu](https://github.com/higebu)
+[Crashdump.io blog](http://blog.crashdump.io/)
+
+[Landscape.io blog](https://blog.landscape.io/)
+
+[Eldelshell](http://www.eldelshell.com/)
+
+[For The Science - a blog about scientific programming](http://forthescience.org/blog/)
+
+[Podsnap](http://blog.podsnap.com/)
+
+[The Digital Cat](http://lgiordani.com/) by [lgiordani](https://github.com/lgiordani)
+

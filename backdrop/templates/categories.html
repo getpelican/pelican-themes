@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Categories{%endblock%}
+
+{% block content %}
+{% import 'macros.html' as macros %}
+<div class="row">
+    <div class="small-12 columns article">
+    {% for cat, articles in categories|sort %}
+        <h2><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></h2>
+        {% for a in articles %}
+            {% if loop.index < 4 %}
+              {{ macros.article_summary(a,SITEURL,False,False,disqus=DISQUS_SITENAME) }}
+            {% elif loop.index == 4 %}
+              <a class="button" href="{{ SITEURL }}/{{ cat.url }}">See All&hellip;</a>
+            {% endif %}
+        {% endfor %}
+        {% if not loop.last %}
+            <hr>
+        {% endif %}
+    {% endfor %}
+    </div>
+</div>
+{% endblock content %}

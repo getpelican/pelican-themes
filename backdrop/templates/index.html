@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+{% import 'macros.html' as macros %}
+<div class="row">
+    <div class="small-12 medium-12 columns">
+        {{ macros.article_summary(articles[0],SITEURL,True,disqus=DISQUS_SITENAME) }}
+    </div>
+    <div class="small-12 medium-6 columns small-articles">
+        {{ macros.article_summary(articles[1],SITEURL,False,False,disqus=DISQUS_SITENAME) }}
+    </div>
+    <div class="small-12 medium-6 columns small-articles">
+        {{ macros.article_summary(articles[2],SITEURL,False,False,disqus=DISQUS_SITENAME) }}
+    </div>
+</div>
+<div class="row">
+    <div class="small-12 columns">
+        <a class="button" href="{{ SITEURL }}/archives.html">Older Articles&hellip;</a>
+    </div>
+</div>
+{% endblock content %}
