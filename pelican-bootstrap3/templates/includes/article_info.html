@@ -40,4 +40,46 @@
     {% include 'includes/taglist.html' %}
     {% import 'includes/translations.html' as translations with context %}
     {{ translations.translations_for(article) }}
+
+    {% if SHOW_NEIGHBORS and article.status == 'published'%}
+    <div class="row pager">
+      <div class="col-md-6 text-left">
+          <ul>
+              {% if article.prev_article.url %}
+              <li class="previous">
+                  <a href="{{ SITEURL }}/{{ article.prev_article.url }}"><span class="glyphicon glyphicon-chevron-left"></span>{{ article.prev_article.title }}</a>
+              </li>
+              {% endif %}
+      </div>
+      <div class="col-md-6 text-right">
+          {% if article.next_article.url %}
+          <li class="next">
+              <a href="{{ SITEURL }}/{{ article.next_article.url }}">{{ article.next_article.title }}<span class="glyphicon glyphicon-chevron-right"></span></a>
+          </li>
+          {% endif %}
+          </ul>
+      </div>
+    </div>
+    {% endif %}
+
+    {% if SHOW_CATEGORY_NEIGHBORS and article.status == 'published'%}
+    <div class="row pager">
+        <div class="col-md-6 text-left">
+            <ul>
+                {% if article.prev_article_in_category.url %}
+                <li class="previous">
+                    <a href="{{ SITEURL }}/{{ article.prev_article_in_category.url }}"><span class="glyphicon glyphicon-chevron-left"></span>{{ article.prev_article_in_category.title }}</a>
+                </li>
+                {% endif %}
+        </div>
+        <div class="col-md-6 text-right">
+            {% if article.next_article_in_category.url %}
+            <li class="next">
+                <a href="{{ SITEURL }}/{{ article.next_article_in_category.url }}">{{ article.next_article_in_category.title }}<span class="glyphicon glyphicon-chevron-right"></span></a>
+            </li>
+            {% endif %}
+            </ul>
+        </div>
+    </div>
+    {% endif %}
 </footer><!-- /.post-info -->

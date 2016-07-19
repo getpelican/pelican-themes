@@ -1,9 +1,15 @@
 # pelican-bootstrap3
 
+<<<<<<< HEAD
+This is a Bootstrap 3 theme for Pelican, originally developed by [DandyDev](https://github.com/DandyDev).
+It's fully responsive and contains sub-themes from the Bootswatch project.
+Pelican-bootstrap3 is compatible with Pelican 3.3.0 and higher.
+=======
 This is a Bootstrap 3 theme for Pelican, originally developed by
 [DandyDev](https://github.com/DandyDev).  It's fully responsive and contains
 sub-themes from the Bootswatch project.  Pelican-bootstrap3 is compatible with
 Pelican 3.3.0 and higher.
+>>>>>>> fd0a6ceb4158701ca63e9b40169d5a1be4ba7772
 
 ## CONTRIBUTING
 
@@ -328,9 +334,20 @@ This theme has support for the
 All you have to do, is:
 - enable the plugin, and the theme will add a search box on the right
   side of the menu
-- Add `'search'` to the `DIRECT_TEMPLATES` in your `pelicanconf.py`. E.g. `DIRECT_TEMPLATES = ('index', 'categories', 'authors', 'archives', 'search').
-By default, the Tipue search page is configured at "/search.html", but you can override that with the `SEARCH_URL` 
+- Add `'search'` to the `DIRECT_TEMPLATES` in your `pelicanconf.py`. E.g. `DIRECT_TEMPLATES = ('index', 'categories', 'authors', 'archives', 'search')`.
+By default, the Tipue search page is configured at "/search.html", but you can override that with the `SEARCH_URL`
 setting, which comes in handy if you have fancy rewrite rules in your Apache or Nginx configuration.
+
+### Neighbors
+
+This theme has support for the [Neighbors plugin](https://github.com/getpelican/pelican-plugins/tree/master/neighbors).
+
+All you have to do is enable the plugin and add one or both of the following variables to your `pelicanconf.py`.
+
+ - `SHOW_NEIGHBORS = True` will add a pager to the bottom of your articles that contains the next and previous pages chronologically.
+ - `SHOW_CATEGORY_NEIGHBORS = True` will add a pager to the bottom of your articles that contains the next and previous pages chronologically only in that category.
+
+It should be noted that while the plugin, itself, does have support for the subcategories plugin, this theme does not. 
 
 ### Footer
 
@@ -358,5 +375,3 @@ If you want more examples of what you could do with this theme, have a [look her
 ![](screenshot.png)
 
 ![](screenshot-article.png)
-
-
