@@ -292,11 +292,7 @@ The same image options for Open Graph (see above) can be used for setting images
 
 ### Twitter Timeline
 
-The theme can show your twitter timeline in the sidebar. To enable, provide a `TWITTER_USERNAME` and a `TWITTER_WIDGET_ID`.
-
-To get a `TWITTER_WIDGET_ID`, go to: https://twitter.com/settings/widgets and select `Create new`. You'll find the TWITTER_WIDGET_ID under the html or in the site url:
-
-`https://twitter.com/settings/widgets/TWITTER_WIDGET_ID/edit`
+The theme can show your twitter timeline in the sidebar. To enable, provide a `TWITTER_USERNAME` and set `TWITTER_TIMELINE` to `TRUE`.
 
 ### AddThis
 
