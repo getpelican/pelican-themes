@@ -1,1 +1,0 @@
-This work is derived in part from Bootstrap, from Twitter http://twitter.github.com/bootstrap/
