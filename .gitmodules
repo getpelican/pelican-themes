@@ -220,3 +220,6 @@
 [submodule "eevee"]
 	path = eevee
 	url = https://github.com/kura/eevee.git
+[submodule "bootstrap"]
+	path = bootstrap
+	url = https://github.com/ricyik/bootstrap-pelican-theme.git
