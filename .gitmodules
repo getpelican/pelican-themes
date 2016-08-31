@@ -1,9 +1,9 @@
 [submodule "pelicanthemes-generator"]
 	path = pelicanthemes-generator
-	url = https://github.com/badele/pelicanthemes-generator
+	url = https://github.com/badele/pelicanthemes-generator.git
 [submodule "Responsive-Pelican"]
 	path = Responsive-Pelican
-	url = git://github.com/ir193/Responsive-Pelican.git
+	url = https://github.com/ir193/Responsive-Pelican.git
 [submodule "hauntr"]
         path = hauntr
         url = https://github.com/kura/hauntr.git
@@ -27,31 +27,31 @@
 	url = https://github.com/BYK/pelican-neat.git
 [submodule "pelican-mockingbird"]
 	path = pelican-mockingbird
-	url = git://github.com/wrl/pelican-mockingbird.git
+	url = https://github.com/wrl/pelican-mockingbird.git
 [submodule "bold"]
 	path = bold
-	url = git://github.com/demianbrecht/pelican-bold.git
+	url = https://github.com/demianbrecht/pelican-bold.git
 [submodule "lannisport"]
 	path = lannisport
-	url = git://github.com/siovene/lannisport.git
+	url = https://github.com/siovene/lannisport.git
 [submodule "fresh"]
 	path = fresh
-	url = git://github.com/jsliang/pelican-fresh
+	url = https://github.com/jsliang/pelican-fresh.git
 [submodule "variant-note"]
 	path = pelican-variant-note
-	url = git://github.com/mpancorbo/pelican-variant-note.git
+	url = https://github.com/mpancorbo/pelican-variant-note.git
 [submodule "water-iris"]
 	path = water-iris
-	url = git://github.com/jarv/water-iris
+	url = https://github.com/jarv/water-iris.git
 [submodule "whispers"]
 	path = whispersTheme
-	url = git://github.com/deBorn/whispersTheme.git
+	url = https://github.com/deBorn/whispersTheme.git
 [submodule "bluegrasshopper"]
 	path = bluegrasshopper
 	url = https://github.com/gregseth/pelican-bgh.git
 [submodule "pelican-cait"]
 	path = pelican-cait
-	url = git://github.com/hdra/pelican-cait.git
+	url = https://github.com/hdra/pelican-cait.git
 [submodule "irfan"]
 	path = irfan
 	url = https://github.com/erfaan/pelican-theme-irfan.git
@@ -96,7 +96,7 @@
 	url = https://github.com/if1live/pelican-sora.git
 [submodule "pelican-simplegrey"]
 	path = pelican-simplegrey
-	url = https://github.com/fle/pelican-simplegrey
+	url = https://github.com/fle/pelican-simplegrey.git
 [submodule "pujangga"]
 	path = pujangga
 	url = https://github.com/habibillah/pujangga.git
@@ -120,7 +120,7 @@
 	url = https://github.com/fle/pelican-sober.git
 [submodule "twenty-html5up"]
 	path = twenty-html5up
-	url = git://github.com/frankV/twenty-pelican-html5up.git
+	url = https://github.com/frankV/twenty-pelican-html5up.git
 [submodule "lazystrap"]
 	path = lazystrap
 	url = https://github.com/lazycoder-ru/lazystrap.git
@@ -132,10 +132,10 @@
 	url = https://github.com/22decembre/dev-random3.git
 [submodule "blue-penguin"]
 	path = blue-penguin
-	url = https://github.com/jody-frankowski/blue-penguin
+	url = https://github.com/jody-frankowski/blue-penguin.git
 [submodule "nikhil-theme"]
 	path = nikhil-theme
-	url = https://github.com/gunchu/nikhil-theme
+	url = https://github.com/gunchu/nikhil-theme.git
 [submodule "chameleon"]
 	path = chameleon
 	url = https://github.com/yuex/pelican-iliork.git
@@ -144,7 +144,7 @@
 	url = https://github.com/lucachr/pelican-mg.git
 [submodule "martin-pelican"]
 	path = martin-pelican
-	url = https://github.com/cpaulik/martin-pelican
+	url = https://github.com/cpaulik/martin-pelican.git
 [submodule "nest"]
 	path = nest
 	url = https://github.com/molivier/nest.git
@@ -159,64 +159,64 @@
 	url = https://github.com/xm3ron/pjport.git
 [submodule "cid"]
 	path = cid
-	url = https://github.com/hdra/Pelican-Cid
+	url = https://github.com/hdra/Pelican-Cid.git
 [submodule "Flex"]
 	path = Flex
 	url = https://github.com/alexandrevicenzi/Flex.git
 [submodule "Casper2Pelican"]
 	path = Casper2Pelican
-	url = https://github.com/abr4xas/Casper2Pelican
+	url = https://github.com/abr4xas/Casper2Pelican.git
 [submodule "octopress"]
 	path = octopress
-	url = https://github.com/duilio/pelican-octopress-theme
+	url = https://github.com/duilio/pelican-octopress-theme.git
 [submodule "smoothie"]
 	path = smoothie
-	url = https://github.com/kdheepak89/pelican-smoothie
+	url = https://github.com/kdheepak89/pelican-smoothie.git
 [submodule "material"]
 	path = material
-	url = https://github.com/greizgh/pelican-material
+	url = https://github.com/greizgh/pelican-material.git
 [submodule "w3-personal-blog"]
 	path = w3-personal-blog
 	url = https://github.com/samael500/w3-personal-blog.git
 [submodule "free-agent"]
 	path = free-agent
-	url = https://github.com/callmefish/pelican-free-agent
+	url = https://github.com/callmefish/pelican-free-agent.git
 [submodule "mediumfox"]
 	path = mediumfox
-	url = https://github.com/cprieto/pelican-mediumfox
+	url = https://github.com/cprieto/pelican-mediumfox.git
 [submodule "medius"]
 	path = medius
-	url = https://github.com/onuraslan/medius
+	url = https://github.com/onuraslan/medius.git
 [submodule "materialistic"]
 	path = materialistic
-	url = https://github.com/eswarm/materialistic-pelican
+	url = https://github.com/eswarm/materialistic-pelican.git
 [submodule "hyde"]
 	path = hyde
 	url = https://github.com/jvanz/pelican-hyde.git
 [submodule "clean-blog"]
 	path = clean-blog
-	url = https://github.com/gilsondev/pelican-clean-blog
+	url = https://github.com/gilsondev/pelican-clean-blog.git
 [submodule "semantic-ui"]
 	path = semantic-ui
-	url = https://github.com/ellisonleao/pelican-semantic-ui
+	url = https://github.com/ellisonleao/pelican-semantic-ui.git
 [submodule "yapeme"]
 	path = yapeme
-	url = https://github.com/kplaube/yapeme
+	url = https://github.com/kplaube/yapeme.git
 [submodule "pelican-blue"]
 	path = pelican-blue
-	url = https://github.com/Parbhat/pelican-blue
+	url = https://github.com/Parbhat/pelican-blue.git
 [submodule "pelican-hss"]
 	path = pelican-hss
 	url = https://github.com/laughk/pelican-hss.git
 [submodule "nice-blog"]
 	path = nice-blog
-	url = https://github.com/guilherme-toti/nice-blog
+	url = https://github.com/guilherme-toti/nice-blog.git
 [submodule "apricot"]
 	path = apricot
 	url = https://github.com/livibetter-backup/apricot.git
 [submodule "lab"]
 	path = lab
-	url = https://github.com/mothsART/pelican-lab
+	url = https://github.com/mothsART/pelican-lab.git
 [submodule "eevee"]
 	path = eevee
 	url = https://github.com/kura/eevee.git
