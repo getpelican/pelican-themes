@@ -17,9 +17,11 @@ If your website is listed here, but you don't want it to be, let me know and I'l
 
 [Christine Doig](http://chdoig.github.io/) by [chdoig](https://github.com/chdoig) - Barely recognizable anymore as pelican-boostrap3, but it is in fact [based on this theme](http://chdoig.github.io/create-pelican-blog.html). The Twitter widget has been contributed back to pelican-bootstrap3
 
-[Rebecca Weiss](http://www.rebeccaweiss.info/) by [rjweiss](https://github.com/rjweiss)
+[Rebecca Weiss](https://rjweiss.github.io/) by [rjweiss](https://github.com/rjweiss)
 
 [Theory And Practice](http://theoryandpractice.org/) by [cranmer](https://github.com/cranmer) - Nice customization of the frontpage, using widgets.
+
+[Camerata Musica](https://colinbrislawn.github.io/CamerataMusica/) by [Colin Brislawn](https://www.github.com/colinbrislawn) - Showcases past and present seasons for a performance arts group.
 
 [The official ncf website](http://www.ncf.io/) by [Normation](https://github.com/Normation)
 
@@ -33,9 +35,7 @@ If your website is listed here, but you don't want it to be, let me know and I'l
 
 [Toni Mueller](http://www.tonimueller.org/) by [muellert](https://github.com/muellert)
 
-[Caffeinated Engineering](http://caffeinatedengineering.com/) by [mattyjones](https://github.com/mattyjones)
-
-[Duncan Murdock](http://www.duncanmurdock.name/) by [damurdock](https://github.com/damurdock)
+[Caffeinated Engineering](https://caffeinatedengineering.github.io/) by [mattyjones](https://github.com/mattyjones)
 
 [Ryan Gregory James](http://csc.ucdavis.edu/~rgjames/) by [Autoplectic](https://github.com/Autoplectic)
 
@@ -51,11 +51,8 @@ If your website is listed here, but you don't want it to be, let me know and I'l
 
 [Landscape.io blog](https://blog.landscape.io/)
 
-[Eldelshell](http://www.eldelshell.com/)
-
 [For The Science - a blog about scientific programming](http://forthescience.org/blog/)
 
 [Podsnap](http://blog.podsnap.com/)
 
 [The Digital Cat](http://lgiordani.com/) by [lgiordani](https://github.com/lgiordani)
-
