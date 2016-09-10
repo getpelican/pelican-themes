@@ -68,7 +68,7 @@
 						<h4>Categories</h4>
 						<ul class="list-unstyled my-list-style">
 							{% for cat, art in categories %}
-							<li><a href="{{SITEURL}}/category/{{cat | replace(" ", "-") }}.html">{{cat}} ({{art | count}})</a></li>
+							<li><a href="{{SITEURL}}/category/{{cat | replace(" ", "-") | lower }}.html">{{cat}} ({{art | count}})</a></li>
 							{% endfor %}
 						</ul>
 					</div>
