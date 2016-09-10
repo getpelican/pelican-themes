@@ -6,6 +6,11 @@
 	<meta name="description" content="{% block description %}Coding, scientific development, finance, data analysis, visualization, statistics, and machine learning{% endblock %}">
 	<meta name="author" content="{{ AUTHOR }}">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% if article %}
+            {% if TWITTER_CARD_USE %}
+                {% include 'twitter_card.html' %}
+            {% endif %}
+        {% endif %}
 	<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
 	<!--[if lt IE 9]>
 		<script src="{{ SITEURL }}/theme/html5.js"></script>
@@ -68,7 +73,7 @@
 						<h4>Categories</h4>
 						<ul class="list-unstyled my-list-style">
 							{% for cat, art in categories %}
-							<li><a href="{{SITEURL}}/category/{{cat | replace(" ", "-") }}.html">{{cat}} ({{art | count}})</a></li>
+							<li><a href="{{SITEURL}}/category/{{cat | replace(" ", "-") | lower }}.html">{{cat}} ({{art | count}})</a></li>
 							{% endfor %}
 						</ul>
 					</div>
