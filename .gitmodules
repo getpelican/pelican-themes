@@ -220,3 +220,6 @@
 [submodule "eevee"]
 	path = eevee
 	url = https://github.com/kura/eevee.git
+[submodule "genus"]
+	path = genus
+	url = https://github.com/vaiski/genus.git
