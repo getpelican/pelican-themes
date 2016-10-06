@@ -3,7 +3,11 @@
       <hr>
       <div class="row">
          {% if articles %}
-            {% set copy_date = articles[0].date.strftime('%Y') %}
+           {% if articles[0].modified %}
+             {% set copy_date = articles[0].modified.strftime('%Y') %}
+           {% else %}
+             {% set copy_date = articles[0].date.strftime('%Y') %}
+           {% endif %}
          {% else %}
             {% set copy_date = '' %}
          {% endif %}
