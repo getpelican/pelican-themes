@@ -1,17 +1,17 @@
 {% extends "base.html" %}
-{% block title %}Archives - {{ SITENAME }}{% endblock %}
+{% block title %}{{ _('Archives') }} - {{ SITENAME }}{% endblock %}
 {% block breadcrumbs %}
     {% if DISPLAY_BREADCRUMBS %}
     <ol class="breadcrumb">
         <li><a href="{{ SITEURL }}" title="{{ SITENAME }}"><i class="fa fa-home fa-lg"></i></a></li>
-        <li class="active">Archives</li>
+        <li class="active">{{ _('Archives') }}</li>
     </ol>
     {% endif %}
 {% endblock %}
 
 {% block content %}
     <section id="content">
-        <h1>Archives for {{ SITENAME }}</h1>
+      <h1>{{ _('Archives for') }} {{ SITENAME }}</h1>
         <div id="archives">
             {% for article in dates %}
                 <p>
