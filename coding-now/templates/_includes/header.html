@@ -1,0 +1,10 @@
+<section class="header">
+    <div class="circular" style="background: url({{ HEADER }} ) no-repeat; background-position: center;"></div>
+    <h2 class="title">{{ SITENAME }}</h2>
+    <h4 class="subtitle">{{ SITEDESCRIPTION }}</h4>
+    {% for title,url in SOCIAL %}
+        <a href="{{ url }}">
+            <img class="social-icon" src="{{ SITEURL }}/theme/images/{{ title }}-128.png" style="width: 64px;">
+        </a>
+    {% endfor %}
+</section>
