@@ -70,18 +70,46 @@
 {% block content %}
     <section id="content">
         <article>
+            <header class="page-header">
+                <h4>
+                    <a href="{{ SITEURL }}/{{ article.url }}"
+                       rel="bookmark"
+                       title="Permalink to {{ article.title|striptags }}">
+                        {{ article.title }}
+                    </a>
+                </h4>
+            </header>
             <div class="entry-content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <img src="/images/developerworks-images/{{
+                            article.shortname }}_thumbnail.png"></img>
+                        </div>
+                        <div class="col-sm-4" style="margin-top:20px">
+                            <h5>
+                            Click <a href="/files/cached_developerworks_html/{{
+                                article.shortname}}">Here</a> for the
+                            full article.
+                            </h5>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div style="padding: 10px">
+                </div>
+                {{ article.content }}
+                <div style="padding: 20px">
+                    <a href="{{ article.devworks_link }}{{ article.shortname }}">Original</a>
+                    link at IBM developerworks. Please use the <a
+                       href="/files/cached_developerworks_html/{{
+                       article.shortname}}">cached copy</a> if the link is dead.
+                </div>
                 <div class="panel">
                     <div class="panel-body">
                         {% include "includes/article_info.html" %}
                     </div>
                 </div>
-                {% if article.thumbnail_image %}
-                    <div style="padding-bottom:20px">
-                        <img src="{{article.thumbnail_image}}"></img>
-                    </div>
-                {% endif %}
-                {{ article.content }}
             </div>
             <!-- /.entry-content -->
             {% include 'includes/related-posts.html' %}

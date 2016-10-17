@@ -3,17 +3,35 @@
     {% if articles %}
         {% for article in (articles_page.object_list if articles_page else articles) %}
             <article>
-                <h2><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h2>
-                {% if DISPLAY_ARTICLE_INFO_ON_INDEX %}
-                    <div class="well well-sm">
-                        {% include "includes/article_info.html" %}
+                <h4><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h4>
+                <div class="container-fluid">
+                    <div class="row">
+                            {% if article.shortname %}
+                                <div class="col-md-4">
+                                    <a href="{{ SITEURL }}/{{ article.url
+                                    }}">
+                                        <img src="/images/developerworks-images/{{
+                                            article.shortname }}_thumbnail.png"></img>
+                                    </a>
+                                </div>
+                            {% endif %}
+                            {% if article.thumbnail_image %}
+                                <div class="col-md-4">
+                                    <a href="{{ SITEURL }}/{{ article.url
+                                    }}">
+                                        <img width="200px" src="{{
+                                            article.thumbnail_image}}"></img>
+                                    </a>
+                                </div>
+                            {% endif %}
+                        <div class="col-md-8">
+                            <div class="summary">{{ article.summary }}
+                            </div>
+                        </div>
                     </div>
-                {% endif %}
-                <div class="summary">{{ article.summary }}
-                    {% include 'includes/comment_count.html' %}
-                    <a class="btn btn-default btn-xs" href="{{ SITEURL }}/{{ article.url }}">more ...</a>
                 </div>
             </article>
+
             <hr/>
         {% endfor %}
     {% endif %}
