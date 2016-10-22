@@ -1,7 +1,7 @@
 
 /*
-Tipue Search 4.0
-Copyright (c) 2014 Tipue
+Tipue Search 5.0
+Copyright (c) 2015 Tipue
 Tipue Search is released under the MIT License
 http://www.tipue.com/search
 */
@@ -17,7 +17,7 @@ http://www.tipue.com/search
 	border-radius: 0;
 	-moz-appearance: none;
 	-webkit-appearance: none;
-     box-shadow: none;
+     box-shadow: none; 
 	outline: 0;
 	margin: 0;
 	background: #fff url('img/search.png') no-repeat 15px 15px;
@@ -29,42 +29,29 @@ http://www.tipue.com/search
 	padding-top: 15px;
 	margin: 0;
 }
-#tipue_search_loading
-{
-     padding-top: 60px;
-     background: #fff url('img/loader.gif') no-repeat left;
-}
-
-#tipue_search_warning_head
+#tipue_search_warning
 {
      font: 300 15px/1.6 'Open Sans', sans-serif;
 	color: #555;
-}
-#tipue_search_warning
-{
-     font: 300 13px/1.6 'Open Sans', sans-serif;
-	color: #333;
 	margin: 7px 0;
 }
 #tipue_search_warning a
 {
-     color: #36c;
-     font-weight: 300;
+     color: #396;
      text-decoration: none;
 }
 #tipue_search_warning a:hover
 {
-     color: #333;
+     color: #555;  
 }
 #tipue_search_results_count
 {
-     font: 300 13px/1.6 'Open Sans', sans-serif;
-	color: #333;
+     font: 300 15px/1.7 'Open Sans', sans-serif;
+	color: #555;
 }
 .tipue_search_content_title
 {
-     font: 300 25px/1.7 'Open Sans', sans-serif;
-     text-rendering: optimizelegibility;
+     font: 300 21px/1.7 'Open Sans', sans-serif;
 	margin-top: 23px;
 }
 .tipue_search_content_title a
@@ -78,32 +65,32 @@ http://www.tipue.com/search
 }
 .tipue_search_content_url
 {
-     font: 300 13px/1.7 'Open Sans', sans-serif;
-     word-break: break-all;
-     word-break: break-word;
-     -webkit-hyphens: auto;
-     -moz-hyphens: auto;
+     font: 300 14px/1.9 'Open Sans', sans-serif;
+     word-wrap: break-word;
      hyphens: auto;
 }
 .tipue_search_content_url a
 {
-     color: #06c;
+     color: #396;
      text-decoration: none;
 }
 .tipue_search_content_url a:hover
 {
-     color: #333;
+     color: #555;   
 }
 .tipue_search_content_text
 {
      font: 300 15px/1.6 'Open Sans', sans-serif;
 	color: #555;
-     word-break: break-all;
-     word-break: break-word;
-     -webkit-hyphens: auto;
-     -moz-hyphens: auto;
+     word-wrap: break-word;
      hyphens: auto;
      margin-top: 3px;
+}
+.tipue_search_content_debug
+{
+     font: 300 13px/1.6 'Open Sans', sans-serif;
+	color: #555;
+     margin: 5px 0;
 }
 .h01
 {
@@ -119,7 +106,7 @@ http://www.tipue.com/search
 {
 	padding: 0;
 	margin: 0;
-     font: 12px/1 'Open Sans', sans-serif;
+     font: 12px 'Open Sans', sans-serif;
 }
 #tipue_search_foot_boxes li
 {
@@ -130,9 +117,9 @@ http://www.tipue.com/search
 }
 #tipue_search_foot_boxes li a
 {
-	padding: 9px 15px 10px 15px;
-     background-color: #f1f1f1;
-     border: 1px solid #dcdcdc;
+	padding: 10px 17px 11px 17px;
+     background-color: #fff;
+     border: 1px solid #e2e2e2;
      border-radius: 1px;
 	color: #333;
 	margin-right: 7px;
@@ -141,9 +128,9 @@ http://www.tipue.com/search
 }
 #tipue_search_foot_boxes li.current
 {
-	padding: 9px 15px 10px 15px;
-     background: #fff;
-     border: 1px solid #dcdcdc;
+	padding: 10px 17px 11px 17px;
+     background: #f6f6f6;
+     border: 1px solid #e2e2e2;
      border-radius: 1px;
 	color: #333;
 	margin-right: 7px;
@@ -151,6 +138,66 @@ http://www.tipue.com/search
 }
 #tipue_search_foot_boxes li a:hover
 {
-	border: 1px solid #ccc;
-	background-color: #f3f3f3;
+     background: #f6f6f6;
 }
+
+
+/* spinner */
+
+
+.tipue_search_spinner
+{
+     padding: 31px 0;
+     width: 50px;
+     height: 28px;
+}
+.tipue_search_spinner > div
+{
+     background-color: #777;
+     height: 100%;
+     width: 3px;
+     display: inline-block;
+     margin-right: 2px;
+     -webkit-animation: stretchdelay 1.2s infinite ease-in-out;
+     animation: stretchdelay 1.2s infinite ease-in-out;
+}
+.tipue_search_spinner .tipue_search_rect2
+{
+     -webkit-animation-delay: -1.1s;
+     animation-delay: -1.1s;
+}
+.tipue_search_spinner .tipue_search_rect3
+{
+     -webkit-animation-delay: -1.0s;
+     animation-delay: -1.0s;
+}
+@-webkit-keyframes stretchdelay
+{
+     0%, 40%, 100%
+     {
+          -webkit-transform: scaleY(0.4)
+     }  
+     20%
+     {
+          -webkit-transform: scaleY(1.0)
+     }
+}
+@keyframes stretchdelay
+{
+     0%, 40%, 100%
+     { 
+          transform: scaleY(0.4);
+          -webkit-transform: scaleY(0.4);
+     }
+     20%
+     { 
+          transform: scaleY(1.0);
+          -webkit-transform: scaleY(1.0);
+     }
+}
+
+
+
+
+
+
