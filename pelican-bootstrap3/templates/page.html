@@ -46,11 +46,11 @@
 
 {% block content %}
     <section id="content" class="body">
+        {% import 'includes/translations.html' as translations with context %}
+        {{ translations.translations_for(page) }}
         {% if page.title %}
         <h1 class="entry-title">{{ page.title }}</h1>
         {% endif %}
-        {% import 'includes/translations.html' as translations with context %}
-        {{ translations.translations_for(page) }}
         {% if PDF_PROCESSOR %}
             <a href="{{ SITEURL }}/pdf/{{ page.slug }}.pdf">
                 get the pdf

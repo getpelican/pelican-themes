@@ -71,6 +71,8 @@
     <section id="content">
         <article>
             <header class="page-header">
+                {% import 'includes/translations.html' as translations with context %}
+                {{ translations.translations_for(article) }}
                 <h1>
                     <a href="{{ SITEURL }}/{{ article.url }}"
                        rel="bookmark"
