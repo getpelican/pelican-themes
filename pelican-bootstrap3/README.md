@@ -237,7 +237,7 @@ icon to show. You can provide an alternative icon string as the third string (as
 * **Recent Posts** will be shown if `DISPLAY_RECENT_POSTS_ON_SIDEBAR` is set to _True_
 	* Use `RECENT_POST_COUNT` to control the amount of recent posts. Defaults to **5**
 
-To remove the sidebar entirely, set `HIDE_SIDEBAR` to _True_.
+To remove the sidebar entirely, set `HIDE_SIDEBAR` to _True_. To move the sidebar to the left, set `SIDEBAR_ON_LEFT` to _True_.
 
 ### reStructuredText styles
 
