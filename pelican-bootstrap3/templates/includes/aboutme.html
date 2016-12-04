@@ -4,8 +4,10 @@
             <img width="100%" class="img-thumbnail" src="{{ AVATAR }}"/>
         </p>
     {% endif %}
+    {% if ABOUT_ME %}
     <p>
         <strong>About {{ AUTHOR }}</strong><br/>
         {{ ABOUT_ME }}
     </p>
+    {% endif %}
 </div>
