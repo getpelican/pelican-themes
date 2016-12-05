@@ -237,7 +237,11 @@ icon to show. You can provide an alternative icon string as the third string (as
 * **Recent Posts** will be shown if `DISPLAY_RECENT_POSTS_ON_SIDEBAR` is set to _True_
 	* Use `RECENT_POST_COUNT` to control the amount of recent posts. Defaults to **5**
 
-To remove the sidebar entirely, set `HIDE_SIDEBAR` to _True_.
+Other sidebar related options include:
+
+* To remove the sidebar entirely, set `HIDE_SIDEBAR` to _True_.
+* To turn off inlined icons in the titles set `DISABLE_SIDEBAR_TITLE_ICONS` to
+  _True_.
 
 ### reStructuredText styles
 
