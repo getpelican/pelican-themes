@@ -168,7 +168,7 @@
 <!-- End Banner -->
 <div class="container{% if BOOTSTRAP_FLUID %}-fluid{% endif %}">
     <div class="row">
-        {% if not HIDE_SIDEBAR or ABOUT_ME %}
+        {% if not HIDE_SIDEBAR or ABOUT_ME or AVATAR %}
         <div class="col-sm-9">
         {% else %}
         <div class="col-lg-12">
@@ -178,10 +178,10 @@
         {% block content %}
         {% endblock %}
         </div>
-        {% if not HIDE_SIDEBAR or ABOUT_ME %}
+        {% if not HIDE_SIDEBAR or ABOUT_ME or AVATAR %}
         <div class="col-sm-3" id="sidebar">
             <aside>
-            {% if ABOUT_ME %}
+            {% if ABOUT_ME or AVATAR %}
                 {% include 'includes/aboutme.html' %}
             {% endif %}
             {% if not HIDE_SIDEBAR %}
