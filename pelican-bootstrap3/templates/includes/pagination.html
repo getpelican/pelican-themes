@@ -2,15 +2,15 @@
     {% if USE_PAGER %}
         <ul class="pager">
             {% if articles_page.has_previous() %}
-                <li class="previous"><a href="{{ SITEURL }}/{{ articles_previous_page.url }}">&larr; Newer</a></li>
+                <li class="previous"><a href="{{ SITEURL }}/{{ articles_previous_page.url }}">&larr; {{ _('Newer') }}</a></li>
             {% else %}
-                <li class="previous disabled"><a href="#">&larr; Newer</a></li>
+                <li class="previous disabled"><a href="#">&larr; {{ _('Newer') }}</a></li>
             {% endif %}
             {% if articles_page.has_next() %}
                 <li class="next"><a
-                        href="{{ SITEURL }}/{{ articles_next_page.url }}">Older &rarr;</a></li>
+                        href="{{ SITEURL }}/{{ articles_next_page.url }}">{{ _('Older') }} &rarr;</a></li>
             {% else %}
-                <li class="next disabled"><a href="#">Older &rarr;</a></li>
+                <li class="next disabled"><a href="#">{{ _('Older') }} &rarr;</a></li>
             {% endif %}
         </ul>
     {% else %}
