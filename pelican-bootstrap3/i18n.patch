@@ -1,0 +1,832 @@
+diff --git a/Makefile b/Makefile
+new file mode 100644
+index 0000000..aa45c0d
+--- /dev/null
++++ b/Makefile
+@@ -0,0 +1,19 @@
++help:
++	@echo 'Makefile for translation                                                  '
++	@echo '                                                                          '
++	@echo 'Usage:                                                                    '
++	@echo '   make extract                      Extract message strings              '
++	@echo '   make update                       Extract strings and update po files  '
++	@echo '   make compile                      Compile po files to mo files         ' 
++	@echo '                                                                          '
++
++extract:
++	pybabel extract --mapping babel.cfg --output messages.pot ./
++
++update: extract
++	pybabel update --input-file messages.pot --output-dir translations/ --domain messages
++
++compile:
++	pybabel compile --directory translations/ --domain messages
++
++.PHONY: help extract update compile
+diff --git a/README.md b/README.md
+index 1ddb48a..7e7a260 100644
+--- a/README.md
++++ b/README.md
+@@ -17,7 +17,12 @@ First:
+ 
+ Then:
+ 
+-Point the `THEME` variable in your `pelicanconf.py` to `/path/to/pelican-bootstrap3`
++Point the `THEME` variable in your `pelicanconf.py` to
++`/path/to/pelican-bootstrap3` and add 
++
++`JINJA_EXTENSIONS = ['jinja2.ext.i18n']`
++
++to your Pelican configuration, as this template can be translated (see below).
+ 
+ ## Usage
+ 
+@@ -296,6 +301,11 @@ Include a series of images in the sidebar.
+ 
+ SIDEBAR_IMAGES = ["/path/to/image1.png", "/path/to/image2.png"]
+ 
++### Translations
++
++This template can be translated using pybabel and the enclosed Makefile. See
++[Localizing themes with Jinja2](https://github.com/getpelican/pelican-plugins/blob/master/i18n_subsites/localizing_using_jinja2.rst) for more details and pointers.
++
+ ## Live example
+ 
+ [This is my website](http://dandydev.net)
+diff --git a/babel.cfg b/babel.cfg
+new file mode 100644
+index 0000000..2274808
+--- /dev/null
++++ b/babel.cfg
+@@ -0,0 +1 @@
++[jinja2: templates/**.html]
+diff --git a/messages.pot b/messages.pot
+new file mode 100644
+index 0000000..8730b65
+--- /dev/null
++++ b/messages.pot
+@@ -0,0 +1,148 @@
++# Translations template for PROJECT.
++# Copyright (C) 2016 ORGANIZATION
++# This file is distributed under the same license as the PROJECT project.
++# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
++#
++#, fuzzy
++msgid ""
++msgstr ""
++"Project-Id-Version: PROJECT VERSION\n"
++"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
++"POT-Creation-Date: 2016-01-08 00:30+0100\n"
++"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
++"Language-Team: LANGUAGE <LL@li.org>\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=utf-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Generated-By: Babel 1.3\n"
++
++#: templates/archives.html:2 templates/archives.html:7 templates/base.html:147
++msgid "Archives"
++msgstr ""
++
++#: templates/archives.html:14
++msgid "Archives for"
++msgstr ""
++
++#: templates/article.html:77
++msgid "Permalink to"
++msgstr ""
++
++#: templates/article_list.html:14
++msgid "more"
++msgstr ""
++
++#: templates/author.html:3
++msgid "Articles by"
++msgstr ""
++
++#: templates/author.html:9 templates/authors.html:3 templates/authors.html:9
++msgid "Authors"
++msgstr ""
++
++#: templates/authors.html:15
++msgid "Authors on"
++msgstr ""
++
++#: templates/categories.html:2 templates/categories.html:8
++#: templates/category.html:11 templates/includes/sidebar.html:45
++msgid "Categories"
++msgstr ""
++
++#: templates/categories.html:15
++msgid "All Categories for"
++msgstr ""
++
++#: templates/search.html:4
++msgid "Search"
++msgstr ""
++
++#: templates/tags.html:16
++msgid "Tags for"
++msgstr ""
++
++#: templates/includes/aboutme.html:8
++msgid "About"
++msgstr ""
++
++#: templates/includes/article_info.html:8
++msgid "Modified"
++msgstr ""
++
++#: templates/includes/article_info.html:17 templates/includes/sidebar.html:80
++msgid "Series"
++msgstr ""
++
++#: templates/includes/article_info.html:24
++msgid "By"
++msgstr ""
++
++#: templates/includes/article_info.html:30
++msgid "Category"
++msgstr ""
++
++#: templates/includes/cc-license.html:62
++msgid "Content"
++msgstr ""
++
++#: templates/includes/cc-license.html:64
++msgid "licensed under a"
++msgstr ""
++
++#: templates/includes/cc-license.html:64
++msgid "except where indicated otherwise"
++msgstr ""
++
++#: templates/includes/comment_count.html:1
++msgid "View comments"
++msgstr ""
++
++#: templates/includes/comments.html:4
++msgid "Comments"
++msgstr ""
++
++#: templates/includes/footer.html:11
++msgid "Powered by"
++msgstr ""
++
++#: templates/includes/footer.html:21
++msgid "Back to top"
++msgstr ""
++
++#: templates/includes/links.html:2
++msgid "Links"
++msgstr ""
++
++#: templates/includes/pagination.html:5 templates/includes/pagination.html:7
++msgid "Newer"
++msgstr ""
++
++#: templates/includes/pagination.html:11 templates/includes/pagination.html:13
++msgid "Older"
++msgstr ""
++
++#: templates/includes/sidebar.html:8
++msgid "Social"
++msgstr ""
++
++#: templates/includes/sidebar.html:31
++msgid "Recent Posts"
++msgstr ""
++
++#: templates/includes/sidebar.html:64 templates/includes/taglist.html:2
++msgid "Tags"
++msgstr ""
++
++#: templates/includes/sidebar.html:84
++msgid "Previous article"
++msgstr ""
++
++#: templates/includes/sidebar.html:90
++msgid "Next article"
++msgstr ""
++
++#: templates/includes/translations.html:3
++msgid "Lang"
++msgstr ""
++
+diff --git a/templates/archives.html b/templates/archives.html
+index 8875de0..2a8dcfc 100644
+--- a/templates/archives.html
++++ b/templates/archives.html
+@@ -1,17 +1,17 @@
+ {% extends "base.html" %}
+-{% block title %}Archives - {{ SITENAME }}{% endblock %}
++{% block title %}{{ _('Archives') }} - {{ SITENAME }}{% endblock %}
+ {% block breadcrumbs %}
+     {% if DISPLAY_BREADCRUMBS %}
+     <ol class="breadcrumb">
+         <li><a href="{{ SITEURL }}" title="{{ SITENAME }}"><i class="fa fa-home fa-lg"></i></a></li>
+-        <li class="active">Archives</li>
++        <li class="active">{{ _('Archives') }}</li>
+     </ol>
+     {% endif %}
+ {% endblock %}
+ 
+ {% block content %}
+     <section id="content">
+-        <h1>Archives for {{ SITENAME }}</h1>
++      <h1>{{ _('Archives for') }} {{ SITENAME }}</h1>
+         <div id="archives">
+             {% for article in dates %}
+                 <p>
+diff --git a/templates/article.html b/templates/article.html
+index 4cb6a70..957d9e7 100644
+--- a/templates/article.html
++++ b/templates/article.html
+@@ -74,7 +74,7 @@
+                 <h1>
+                     <a href="{{ SITEURL }}/{{ article.url }}"
+                        rel="bookmark"
+-                       title="Permalink to {{ article.title|striptags }}">
++                       title="{{ _('Permalink to') }} {{ article.title|striptags }}">
+                         {{ article.title }}
+                     </a>
+                 </h1>
+diff --git a/templates/article_list.html b/templates/article_list.html
+index 2d3c8cd..885a880 100644
+--- a/templates/article_list.html
++++ b/templates/article_list.html
+@@ -11,7 +11,7 @@
+                 {% endif %}
+                 <div class="summary">{{ article.summary }}
+                     {% include 'includes/comment_count.html' %}
+-                    <a class="btn btn-default btn-xs" href="{{ SITEURL }}/{{ article.url }}">more ...</a>
++                    <a class="btn btn-default btn-xs" href="{{ SITEURL }}/{{ article.url }}">{{ _('more') }} ...</a>
+                 </div>
+             </article>
+             <hr/>
+diff --git a/templates/author.html b/templates/author.html
+index 07dab6e..72cff95 100644
+--- a/templates/author.html
++++ b/templates/author.html
+@@ -1,12 +1,12 @@
+ {% extends "article_list.html" %}
+ 
+-{% block title %}Articles by {{ author }} - {{ SITENAME }}{% endblock %}
++{% block title %}{{ _('Articles by') }} {{ author }} - {{ SITENAME }}{% endblock %}
+ 
+ {% block breadcrumbs %}
+     {% if DISPLAY_BREADCRUMBS %}
+         <ol class="breadcrumb">
+             <li><a href="{{ SITEURL }}" title="{{ SITENAME }}"><i class="fa fa-home fa-lg"></i></a></li>
+-            <li><a href="{{ SITEURL }}/{{ AUTHORS_URL|default('authors.html') }}" title="Authors">Authors</a></li>
++            <li><a href="{{ SITEURL }}/{{ AUTHORS_URL|default('authors.html') }}" title="{{ _('Authors') }}">{{ _('Authors') }}</a></li>
+             <li class="active">{{ AUTHOR }}</li>
+         </ol>
+     {% endif %}
+diff --git a/templates/authors.html b/templates/authors.html
+index 9aa93ac..54589bf 100644
+--- a/templates/authors.html
++++ b/templates/authors.html
+@@ -1,18 +1,18 @@
+ {% extends "base.html" %}
+ 
+-{% block title %}Authors - {{ SITENAME }}{% endblock %}
++{% block title %}{{ _('Authors') }} - {{ SITENAME }}{% endblock %}
+ 
+ {% block breadcrumbs %}
+     {% if DISPLAY_BREADCRUMBS %}
+         <ol class="breadcrumb">
+             <li><a href="{{ SITEURL }}" title="{{ SITENAME }}"><i class="fa fa-home fa-lg"></i></a></li>
+-            <li class="active">Authors</li>
++            <li class="active">{{ _('Authors') }}</li>
+         </ol>
+     {% endif %}
+ {% endblock %}
+ 
+ {% block content %}
+-    <h1>Authors on {{ SITENAME }}</h1>
++  <h1>{{ _('Authors on') }} {{ SITENAME }}</h1>
+     {% for author, articles in authors|sort %}
+         <li><a href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a> ({{ articles|count }})</li>
+     {% endfor %}
+diff --git a/templates/base.html b/templates/base.html
+index 610d050..23fb8a2 100644
+--- a/templates/base.html
++++ b/templates/base.html
+@@ -144,7 +144,7 @@
+                 </form></span>
+               </li>
+             {% endif %}
+-              <li><a href="{{ SITEURL }}/{{ ARCHIVES_URL | default('archives.html') }}"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
++            <li><a href="{{ SITEURL }}/{{ ARCHIVES_URL | default('archives.html') }}"><i class="fa fa-th-list"></i><span class="icon-label">{{ _('Archives') }}</span></a></li>
+             </ul>
+         </div>
+         <!-- /.navbar-collapse -->
+diff --git a/templates/categories.html b/templates/categories.html
+index 6898f97..6f3e8f5 100644
+--- a/templates/categories.html
++++ b/templates/categories.html
+@@ -1,18 +1,18 @@
+ {% extends "base.html" %}
+-{% block title %}Categories - {{ SITENAME }}{% endblock %}
++{% block title %}{{ _('Categories') }} - {{ SITENAME }}{% endblock %}
+ 
+ {% block breadcrumbs %}
+     {% if DISPLAY_BREADCRUMBS %}
+     <ol class="breadcrumb">
+         <li><a href="{{ SITEURL }}" title="{{ SITENAME }}"><i class="fa fa-home fa-lg"></i></a></li>
+-        <li class="active">Categories</li>
++        <li class="active">{{ _('Categories') }}</li>
+     </ol>
+     {% endif %}
+ {% endblock %}
+ 
+ {% block content %}
+     <section id="categories">
+-        <h1>All Categories for {{ SITENAME }}</h1>
++      <h1>{{ _('All Categories for')  }} {{ SITENAME }}</h1>
+         <div class="panel-group" id="accordion">
+             {% for category, articles in categories %}
+             <div class="panel panel-default">
+diff --git a/templates/category.html b/templates/category.html
+index 0eac7dd..bf87bf5 100644
+--- a/templates/category.html
++++ b/templates/category.html
+@@ -8,7 +8,7 @@
+     {% if DISPLAY_BREADCRUMBS %}
+     <ol class="breadcrumb">
+         <li><a href="{{ SITEURL }}" title="{{ SITENAME }}"><i class="fa fa-home fa-lg"></i></a></li>
+-        <li><a href="{{ SITEURL}}/{{ CATEGORIES_URL }}" title="{{ SITENAME }} Categories">Categories</a></li>
++        <li><a href="{{ SITEURL}}/{{ CATEGORIES_URL }}" title="{{ SITENAME }} {{ _('Categories') }}">{{ _('Categories') }}</a></li>
+         <li class="active">{{ category }}</li>
+     </ol>
+     {% endif %}
+diff --git a/templates/includes/aboutme.html b/templates/includes/aboutme.html
+index f38f0bc..01a940f 100644
+--- a/templates/includes/aboutme.html
++++ b/templates/includes/aboutme.html
+@@ -5,7 +5,7 @@
+         </p>
+     {% endif %}
+     <p>
+-        <strong>About {{ AUTHOR }}</strong><br/>
++      <strong>{{ _('About') }} {{ AUTHOR }}</strong><br/>
+         {{ ABOUT_ME }}
+     </p>
+-</div>
+\ No newline at end of file
++</div>
+diff --git a/templates/includes/article_info.html b/templates/includes/article_info.html
+index e0c93b5..1cb85d5 100644
+--- a/templates/includes/article_info.html
++++ b/templates/includes/article_info.html
+@@ -5,7 +5,7 @@
+     </span>
+     {% if SHOW_DATE_MODIFIED %}
+         {% if article.modified %}
+-            <span class="label label-default">Modified</span>
++          <span class="label label-default">{{ _('Modified') }}</span>
+             <span class="modified">
+                 <i class="fa fa-calendar"></i><time datetime="{{ article.modified.isoformat() }}"> {{ article.locale_modified }}</time>
+             </span>
+@@ -14,20 +14,20 @@
+ 
+     {% if SHOW_SERIES %}
+         {% if article.series %}
+-            <span class="label label-default">Series</span>
++            <span class="label label-default">{{ _('Series') }}</span>
+             Part {{ article.series.index}} of {{ article.series.name }}
+         {% endif %}
+     {% endif %}
+ 
+     {% if SHOW_ARTICLE_AUTHOR %}
+         {% if article.author %}
+-            <span class="label label-default">By</span>
++            <span class="label label-default">{{ _('By') }}</span>
+             <a href="{{ SITEURL }}/{{ article.author.url }}"><i class="fa fa-user"></i> {{ article.author }}</a>
+         {% endif %}
+     {% endif %}
+ 
+     {% if SHOW_ARTICLE_CATEGORY %}
+-        <span class="label label-default">Category</span>
++        <span class="label label-default">{{ _('Category') }}</span>
+         <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>
+     {% endif %}
+ 
+diff --git a/templates/includes/cc-license.html b/templates/includes/cc-license.html
+index c64f265..42234f6 100644
+--- a/templates/includes/cc-license.html
++++ b/templates/includes/cc-license.html
+@@ -54,12 +54,12 @@
+     {% endif %}
+   {% endif %}
+   {% set cc_title, cc_uri, cc_icon = ("Creative Commons AttributionCCSUFFIX 4.0 International License","http://creativecommons.org/licenses/CCNAME/4.0/","//i.creativecommons.org/l/CCNAME/4.0/80x15.png") %}
+-  <a rel="license" href="{{ cc_uri|replace('CCNAME',cc_name) }}"><img alt="Creative Commons License" style="border-width:0" src="{{ cc_icon|replace('CCNAME',cc_name) }}" /></a>
++  <a rel="license" href="{{ cc_uri|replace('CCNAME',cc_name) }}deed.{{ attr_props['lang'] }}"><img alt="Creative Commons License" style="border-width:0" src="{{ cc_icon|replace('CCNAME',cc_name) }}" /></a>
+   {% if br_after_img %}<br/>{% endif %}
+   {% if attr_markup %}
+     &quot;<span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">{{ attr_props['title'] }}</span>&quot; by <a xmlns:cc="http://creativecommons.org/ns#" href="{{ attr_props['url'] }}" property="cc:attributionName" rel="cc:attributionURL">{{ attr_props['name'] }}</a> is
+   {% else %}
+-    Content
++    {{ _('Content') }}
+   {% endif %}
+-  licensed under a <a rel="license" href="{{ cc_uri|replace('CCNAME',cc_name) }}">{{ cc_title|replace('CCSUFFIX',cc_title_suffix) }}</a>, except where indicated otherwise.
++  {{ _('licensed under a') }} <a rel="license" href="{{ cc_uri|replace('CCNAME',cc_name) }}deed.{{ attr_props['lang'] }}">{{ cc_title|replace('CCSUFFIX',cc_title_suffix) }}</a>, {{ _('except where indicated otherwise') }}.
+ {% endmacro %}
+diff --git a/templates/includes/comment_count.html b/templates/includes/comment_count.html
+index 4b42dde..1e83035 100644
+--- a/templates/includes/comment_count.html
++++ b/templates/includes/comment_count.html
+@@ -1 +1 @@
+-{% if DISQUS_SITENAME and DISQUS_DISPLAY_COUNTS %}<p><small><a href="{{ SITEURL }}/{{ article.url }}#disqus_thread" {% if not DISQUS_NO_ID %}data-disqus-identifier="{{ article.date|strftime('%Y-%m-') ~ article.slug if DISQUS_ID_PREFIX_SLUG else article.slug }}"{% endif %}>View comments</a>.</small></p>{% endif %}
++{% if DISQUS_SITENAME and DISQUS_DISPLAY_COUNTS %}<p><small><a href="{{ SITEURL }}/{{ article.url }}#disqus_thread" {% if not DISQUS_NO_ID %}data-disqus-identifier="{{ article.date|strftime('%Y-%m-') ~ article.slug if DISQUS_ID_PREFIX_SLUG else article.slug }}"{% endif %}>{{ _('View comments') }}</a>.</small></p>{% endif %}
+diff --git a/templates/includes/comments.html b/templates/includes/comments.html
+index eade006..b37e2bf 100644
+--- a/templates/includes/comments.html
++++ b/templates/includes/comments.html
+@@ -1,7 +1,7 @@
+ {% if DISQUS_SITENAME %}
+     <hr/>
+     <section class="comments" id="comments">
+-        <h2>Comments</h2>
++        <h2>{{ _('Comments') }}</h2>
+ 
+         <div id="disqus_thread"></div>
+         <script type="text/javascript">
+diff --git a/templates/includes/footer.html b/templates/includes/footer.html
+index 29be389..4cecc55 100644
+--- a/templates/includes/footer.html
++++ b/templates/includes/footer.html
+@@ -8,17 +8,17 @@
+             {% set copy_date = '' %}
+          {% endif %}
+          <div class="col-xs-10">&copy; {{ copy_date }} {{ AUTHOR }}
+-            &middot; Powered by <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
++           &middot; {{ _('Powered by') }} <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+             <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>
+             {%- if CC_LICENSE or CC_LICENSE_DERIVATIVES or CC_LICENSE_COMMERCIAL %}
+               {% from 'includes/cc-license.html' import cc_license_mark %}
+-              <p><small>{{ cc_license_mark(cc_name=CC_LICENSE,derivatives=CC_LICENSE_DERIVATIVES,commercial=CC_LICENSE_COMMERCIAL,attr_markup=CC_ATTR_MARKUP,attr_props={'title':SITENAME,'name':article.author if article else AUTHOR,'url':SITEURL}) }}</small></p>
++              <p><small>{{ cc_license_mark(cc_name=CC_LICENSE,derivatives=CC_LICENSE_DERIVATIVES,commercial=CC_LICENSE_COMMERCIAL,attr_markup=CC_ATTR_MARKUP,attr_props={'title':SITENAME,'name':article.author if article else AUTHOR,'url':SITEURL,'lang':DEFAULT_LANG}) }}</small></p>
+             {% elif CUSTOM_LICENSE %}
+               <p><small>{{ CUSTOM_LICENSE }}</small></p>
+             {% endif %}
+          </div>
+-         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
++         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">{{ _('Back to top') }}</a></p></div>
+       </div>
+    </div>
+ </footer>
+diff --git a/templates/includes/links.html b/templates/includes/links.html
+index 3286b5a..34898c4 100644
+--- a/templates/includes/links.html
++++ b/templates/includes/links.html
+@@ -1,5 +1,5 @@
+ {% if LINKS %}
+-    <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
++    <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">{{ _('Links') }}</span></h4>
+       <ul class="list-group" id="links">
+         {% for name, link in LINKS %}
+         <li class="list-group-item">
+@@ -10,4 +10,4 @@
+         {% endfor %}
+       </ul>
+     </li>
+-{% endif %}
+\ No newline at end of file
++{% endif %}
+diff --git a/templates/includes/pagination.html b/templates/includes/pagination.html
+index 9ae4285..f5b473c 100644
+--- a/templates/includes/pagination.html
++++ b/templates/includes/pagination.html
+@@ -2,15 +2,15 @@
+     {% if USE_PAGER %}
+         <ul class="pager">
+             {% if articles_page.has_previous() %}
+-                <li class="previous"><a href="{{ SITEURL }}/{{ articles_previous_page.url }}">&larr; Newer</a></li>
++                <li class="previous"><a href="{{ SITEURL }}/{{ articles_previous_page.url }}">&larr; {{ _('Newer') }}</a></li>
+             {% else %}
+-                <li class="previous disabled"><a href="#">&larr; Newer</a></li>
++                <li class="previous disabled"><a href="#">&larr; {{ _('Newer') }}</a></li>
+             {% endif %}
+             {% if articles_page.has_next() %}
+                 <li class="next"><a
+-                        href="{{ SITEURL }}/{{ articles_next_page.url }}">Older &rarr;</a></li>
++                        href="{{ SITEURL }}/{{ articles_next_page.url }}">{{ _('Older') }} &rarr;</a></li>
+             {% else %}
+-                <li class="next disabled"><a href="#">Older &rarr;</a></li>
++                <li class="next disabled"><a href="#">{{ _('Older') }} &rarr;</a></li>
+             {% endif %}
+         </ul>
+     {% else %}
+@@ -34,4 +34,4 @@
+             {% endif %}
+         </ul>
+     {% endif %}
+-{% endif %}
+\ No newline at end of file
++{% endif %}
+diff --git a/templates/includes/sidebar.html b/templates/includes/sidebar.html
+index ea4134d..f6dec63 100644
+--- a/templates/includes/sidebar.html
++++ b/templates/includes/sidebar.html
+@@ -5,7 +5,7 @@
+ <section class="well well-sm">
+     <ul class="list-group list-group-flush">
+         {% if SOCIAL %}
+-            <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
++        <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">{{ _('Social') }}</span></h4>
+               <ul class="list-group" id="social">
+                 {% for s in SOCIAL %}
+                     {% if s[2] %}
+@@ -28,7 +28,7 @@
+             {% if RECENT_POST_COUNT is not defined %}
+                 {% set RECENT_POST_COUNT = 5 %}
+             {% endif %}
+-            <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Recent Posts</span></h4>
++            <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">{{ _('Recent Posts') }}</span></h4>
+                 <ul class="list-group" id="recentposts">
+                 {% for article in articles[:RECENT_POST_COUNT] %}
+                     <li class="list-group-item">
+@@ -42,7 +42,7 @@
+         {% endif %}
+ 
+         {% if DISPLAY_CATEGORIES_ON_SIDEBAR %}
+-            <li class="list-group-item"><a href="{{ SITEURL }}/{{ CATEGORIES_URL }}"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Categories</span></h4></a>
++            <li class="list-group-item"><a href="{{ SITEURL }}/{{ CATEGORIES_URL }}"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">{{ _('Categories') }}</span></h4></a>
+                 <ul class="list-group" id="categories">
+                 {% for cat, null in categories %}
+                     <li class="list-group-item">
+@@ -61,7 +61,7 @@
+             {% else %}
+                 {% set tags = tag_cloud | sort(attribute='1') %}
+             {% endif %}
+-            <li class="list-group-item"><a href="{{ SITEURL }}/{{ TAGS_URL }}"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
++            <li class="list-group-item"><a href="{{ SITEURL }}/{{ TAGS_URL }}"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">{{ _('Tags') }}</span></h4></a>
+                 <ul class="list-group {% if DISPLAY_TAGS_INLINE %}list-inline tagcloud{% endif %}" id="tags">
+                 {% for tag in tags %}
+                     <li class="list-group-item tag-{{ tag.1 }}">
+@@ -77,17 +77,17 @@
+         {% if DISPLAY_SERIES_ON_SIDEBAR %}
+             {% if article %}
+                 {% if article.series %}
+-                    <li class="list-group-item"><h4><i class="fa fa-tags fa-list-ul"></i><span class="icon-label">Series</span></h4>
++                    <li class="list-group-item"><h4><i class="fa fa-tags fa-list-ul"></i><span class="icon-label">{{ _('Series') }}</span></h4>
+                         <ul class="list-group">
+                             <li class="list-group-item">
+                             {% if article.series.previous %}
+-                                <h5></i> Previous article</h5>
++                                <h5></i>{{ _('Previous article') }}</h5>
+                                 <a href="{{ SITEURL }}/{{ article.series.previous.url }}">{{ article.series.previous.title }}</a>
+                             {% endif %}
+                             </li>
+                             <li class="list-group-item">
+                             {% if article.series.next %}
+-                                <h5>Next article</h5>
++                                <h5>{{ _('Next article') }}</h5>
+                                 <a href="{{ SITEURL }}/{{ article.series.next.url }}">{{ article.series.next.title }}</a>
+                             {% endif %}
+                             </li>
+diff --git a/templates/includes/taglist.html b/templates/includes/taglist.html
+index bcaa470..2aa0237 100644
+--- a/templates/includes/taglist.html
++++ b/templates/includes/taglist.html
+@@ -1,5 +1,5 @@
+ {% if article.tags %}
+-<span class="label label-default">Tags</span>
++<span class="label label-default">{{ _('Tags') }}</span>
+ {% for tag in article.tags %}
+ 	<a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
+     {% if not loop.last %}
+diff --git a/templates/includes/translations.html b/templates/includes/translations.html
+index ea693df..2d79217 100644
+--- a/templates/includes/translations.html
++++ b/templates/includes/translations.html
+@@ -1,8 +1,8 @@
+ {% macro translations_for(article) %}
+ {% if article.translations %}
+-<span class="label label-default">Lang</span>
++<span class="label label-default">{{ _('Lang') }}</span>
+ {% for translation in article.translations %}
+ 	<a href="{{ SITEURL }}/{{ translation.url }}">{{ translation.lang }}</a>
+ {% endfor %}
+ {% endif %}
+-{% endmacro %}
+\ No newline at end of file
++{% endmacro %}
+diff --git a/templates/search.html b/templates/search.html
+index 04e308b..ec49a40 100644
+--- a/templates/search.html
++++ b/templates/search.html
+@@ -1,7 +1,7 @@
+ {% extends 'base.html' %}
+ 
+ {% block title %}
+-Search - {{ super() }}
++{{ _('Search') }} - {{ super() }}
+ {% endblock %}
+ 
+ {% block scripts %}
+diff --git a/templates/tags.html b/templates/tags.html
+index 3f29a36..08c1c23 100644
+--- a/templates/tags.html
++++ b/templates/tags.html
+@@ -13,7 +13,7 @@
+ 
+ {% block content %}
+     <section id="tags">
+-        <h1>Tags for {{ SITENAME }}</h1>
++        <h1>{{ _('Tags for') }} {{ SITENAME }}</h1>
+         <div class="panel-group" id="accordion">
+             {%- for tag, articles in tags|sort %}
+             <div class="panel panel-default">
+diff --git a/translations/de/LC_MESSAGES/messages.mo b/translations/de/LC_MESSAGES/messages.mo
+new file mode 100644
+index 0000000000000000000000000000000000000000..47f54ca9f28c7bf24ac0b3d71a0ec39638dc5bd2
+GIT binary patch
+literal 1648
+zcmZvbPiz}S6vhW=DYz8T2nkg}XbMPB(G7M(OXQL&cH&k}oy4+D4i%U2?(^=%>ltfy
+zHg4d;0SO5>A@za~;t&am3qs<Aa`OrG-UCA1IB@TQBj0n@afPtf^P4yO=KY!Z_Rpm=
+z4+MUf@qZQnH=kl_@w@u85NBZq;1ak3J_p_gUjTQ(^WaC|IWPfB;J8@-1jHjgFV?>R
+zdH;ig-+{dE2k;E|6Ug~~Dc=8D*i(@6{Z`nI3i}U`^ZgCJ1U@d-&pso>v#^&6UMeU-
+z&hr+?bzB86fY(6@Zh#yo0@*JIzrvY(402uPFuV+206G5aAoqWz;B}DusTFn;ya@Y4
+z5Ftbia=k<FdGMgHKLt77mmu%|8pI>M!N7jsgZ%zSkmLOfvfmVZ5qt=8+}}aIr@spR
+z1L6_qv6*=h<T$Tj;Qn3%IsO|U?+d_7;5x|Xa1Ug^At-8nn|o19Q@No$#nx%c<iI*n
+zb77(nC_9}Lt6qmGT>6KimixpyIGj*gBkC#~N^kLuMg34LLe8gHv!f9ipJ8G=CZeTG
+zELz$OGqG(WJ<t@19h#8Cc;8FqW*Nn98eyqTZlqE;BZX*Ncu~Z)v>hF2n`fu)9SRX#
+zwrz$~T~g=<;O<1%hFYbfr{Zij%o^L%G?C%FHo70u*vm<R_)?olhd7)_T91W^&Pb#h
+z;WI4d24zVlM%EFku=^DHpcw^w<T7ndRkl03TaAsL+-r2Y&E1_+hsM_VU^|O-6x8!L
+z3wpLH8{4&JYrVF)*=cmUrS@(w*l?sgA_SXAU6t3$l^a315|meExm;Z-zf-Q1%Ww=j
+zXq+?s*YAB<d9S*1<HWC}G9UDuGFhs;byc}#6J-qUv7^k8<OlnOy$qirt?#=@e>tLC
+zCBB?o#T4{NjjA$&Ypb=M>SgQVTcviIJCz2vts7-kX~r`%Tf25so=n%?HuCbCtXwH=
+zH@6#$GpQ_>OU3mEy~8ou^SJ7F$EnihrVJD1GV*J=9|WrlKdyd2E@+q#GBI&guJ*Mr
+z-62DcZzrf9R%KoFDV3Gwm6Di#+lOGFY?629(l&B1J)Ud3Q1*Pu>mjxtK*bO=Zu68<
+z<pXgqchh5t+o&*+wvV@a@LU95OvT+36)6a!X%dxs(H%Q%qeA6(XnMq|@ep_pfr*{z
+zQJ7>NI;uhJs6tFXOJPD#r*faw{e<B6tb-PH{KTfM>9L6sM%GDtH$93;baPHS)BXR*
+to{wTtti<_Jg2pCR8XYG1^teiVQYNODxaAyQtV=b;UXsSKixDMG{0o@3oK64$
+
+literal 0
+HcmV?d00001
+
+diff --git a/translations/de/LC_MESSAGES/messages.po b/translations/de/LC_MESSAGES/messages.po
+new file mode 100644
+index 0000000..81eb722
+--- /dev/null
++++ b/translations/de/LC_MESSAGES/messages.po
+@@ -0,0 +1,151 @@
++# German translations for pelican-bootstrap3
++# Copyright (C) 2016 Johannes Ranke
++# This file is distributed under the same license as pelican-bootstrap3
++# Johannes Ranke <johannes.ranke@jrwb.de>, 2016.
++#
++msgid ""
++msgstr ""
++"Project-Id-Version: PROJECT VERSION\n"
++"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
++"POT-Creation-Date: 2016-01-08 00:30+0100\n"
++"PO-Revision-Date: 2016-01-07 14:36+0100\n"
++"Last-Translator: Johannes Ranke <johannes.ranke@jrwb.de>\n"
++"Language-Team: de <LL@li.org>\n"
++"Plural-Forms: nplurals=2; plural=(n != 1)\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=utf-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Generated-By: Babel 1.3\n"
++
++#: templates/archives.html:2 templates/archives.html:7 templates/base.html:147
++msgid "Archives"
++msgstr "Archiv"
++
++#: templates/archives.html:14
++msgid "Archives for"
++msgstr "Archiv für"
++
++#: templates/article.html:77
++msgid "Permalink to"
++msgstr "Permalink für"
++
++#: templates/article_list.html:14
++msgid "more"
++msgstr "mehr"
++
++#: templates/author.html:3
++msgid "Articles by"
++msgstr "Artikel von"
++
++#: templates/author.html:9 templates/authors.html:3 templates/authors.html:9
++msgid "Authors"
++msgstr "Autoren"
++
++#: templates/authors.html:15
++msgid "Authors on"
++msgstr "Autoren auf"
++
++#: templates/categories.html:2 templates/categories.html:8
++#: templates/category.html:11 templates/includes/sidebar.html:45
++msgid "Categories"
++msgstr "Kategorien"
++
++#: templates/categories.html:15
++msgid "All Categories for"
++msgstr "Alle Kategorien für"
++
++#: templates/search.html:4
++msgid "Search"
++msgstr "Suche"
++
++#: templates/tags.html:16
++msgid "Tags for"
++msgstr "Tags für"
++
++#: templates/includes/aboutme.html:8
++msgid "About"
++msgstr "Über"
++
++#: templates/includes/article_info.html:8
++msgid "Modified"
++msgstr "Geändert"
++
++#: templates/includes/article_info.html:17 templates/includes/sidebar.html:80
++msgid "Series"
++msgstr "Serie"
++
++#: templates/includes/article_info.html:24
++msgid "By"
++msgstr "Von"
++
++#: templates/includes/article_info.html:30
++msgid "Category"
++msgstr "Kategorie"
++
++#: templates/includes/cc-license.html:62
++msgid "Content"
++msgstr "Inhalt"
++
++#: templates/includes/cc-license.html:64
++msgid "licensed under a"
++msgstr "unterliegt einer"
++
++#: templates/includes/cc-license.html:64
++msgid "except where indicated otherwise"
++msgstr "wo nicht anders angegeben"
++
++#: templates/includes/comment_count.html:1
++msgid "View comments"
++msgstr "Kommentare ansehen"
++
++#: templates/includes/comments.html:4
++msgid "Comments"
++msgstr "Kommentare"
++
++#: templates/includes/footer.html:11
++msgid "Powered by"
++msgstr "Powered by"
++
++#: templates/includes/footer.html:21
++msgid "Back to top"
++msgstr "Zurück nach oben"
++
++#: templates/includes/links.html:2
++msgid "Links"
++msgstr "Links"
++
++#: templates/includes/pagination.html:5 templates/includes/pagination.html:7
++msgid "Newer"
++msgstr "Neuere"
++
++#: templates/includes/pagination.html:11 templates/includes/pagination.html:13
++msgid "Older"
++msgstr "Ältere"
++
++#: templates/includes/sidebar.html:8
++msgid "Social"
++msgstr "Social"
++
++#: templates/includes/sidebar.html:31
++msgid "Recent Posts"
++msgstr "Jüngste Beiträge"
++
++#: templates/includes/sidebar.html:64 templates/includes/taglist.html:2
++msgid "Tags"
++msgstr "Tags"
++
++#: templates/includes/sidebar.html:84
++msgid "Previous article"
++msgstr "Vorheriger Artikel"
++
++#: templates/includes/sidebar.html:90
++msgid "Next article"
++msgstr "Nächster Artikel"
++
++#: templates/includes/translations.html:3
++msgid "Lang"
++msgstr "Sprache"
++
++#~ msgid "Related Posts:"
++#~ msgstr "Verwandte Beiträge"
++
+-- 
+2.1.4
+

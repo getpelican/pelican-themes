@@ -105,7 +105,7 @@
 <div class="navbar {% if BOOTSTRAP_NAVBAR_INVERSE %}navbar-inverse{% else %}navbar-default{% endif %} navbar-fixed-top" role="navigation">
 	<div class="container{% if BOOTSTRAP_FLUID %}-fluid{% endif %}">
         <div class="navbar-header">
-            {% if MENUITEMS or (PAGES and DISPLAY_PAGES_ON_MENU) or (categories and DISPLAY_CATEGORIES_ON_MENU) %}
+            {% if MENUITEMS or (pages and DISPLAY_PAGES_ON_MENU) or (categories and DISPLAY_CATEGORIES_ON_MENU) %}
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
@@ -123,11 +123,16 @@
                 {% for title, link in MENUITEMS %}
                     <li><a href="{{ link }}">{{ title }}</a></li>
                 {% endfor %}
+                {% if not PAGES_SORT_ATTRIBUTE -%}
+                    {% set PAGES_SORT_ATTRIBUTE = 'title' %}
+                {%- endif %}
                 {% if DISPLAY_PAGES_ON_MENU %}
-                    {% for p in pages %}
+                    {% for p in pages | sort(attribute=PAGES_SORT_ATTRIBUTE) %}
+                        {% if p.url %}
                          <li{% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">
                              {{ p.menulabel|default(p.title) }}
                           </a></li>
+                        {% endif %}
                       {% endfor %}
                 {% endif %}
                 {% if DISPLAY_CATEGORIES_ON_MENU %}
@@ -147,7 +152,7 @@
               </li>
             {% endif %}
             {% if ARCHIVES_SAVE_AS %}
-              <li><a href="{{ SITEURL }}/{{ ARCHIVES_URL | default('archives.html') }}"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+              <li><a href="{{ SITEURL }}/{{ ARCHIVES_URL | default('archives.html') }}"><i class="fa fa-th-list"></i><span class="icon-label">{{ _('Archives') }}</span></a></li>
             {% endif %}
             </ul>
         </div>
@@ -163,7 +168,7 @@
 <!-- End Banner -->
 <div class="container{% if BOOTSTRAP_FLUID %}-fluid{% endif %}">
     <div class="row">
-        {% if not HIDE_SIDEBAR or ABOUT_ME %}
+        {% if not HIDE_SIDEBAR or ABOUT_ME or AVATAR %}
         <div class="col-sm-9">
         {% else %}
         <div class="col-lg-12">
@@ -173,10 +178,10 @@
         {% block content %}
         {% endblock %}
         </div>
-        {% if not HIDE_SIDEBAR or ABOUT_ME %}
+        {% if not HIDE_SIDEBAR or ABOUT_ME or AVATAR %}
         <div class="col-sm-3" id="sidebar">
             <aside>
-            {% if ABOUT_ME %}
+            {% if ABOUT_ME or AVATAR %}
                 {% include 'includes/aboutme.html' %}
             {% endif %}
             {% if not HIDE_SIDEBAR %}
