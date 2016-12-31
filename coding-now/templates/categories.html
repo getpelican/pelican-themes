@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ SITENAME }} - Categories {% endblock %}
+
+{% block container %}
+    <section id="content">
+        <header class="header">
+            <h2 class="blogpost-title">Categories</h2>
+        </header>
+        <dl>
+            {% for category, articles in categories %}
+                <dd>
+                    <a href="{{ SITEURL }}/{{ category.url }}">{{ category }}</a>({{ articles|count }})
+                </dd>
+            {% endfor %}
+        </dl>
+    </section>
+    <br/><br/><br/>
+
+{% endblock %}
+
+{% block footer %}
+    {% include '_includes/footer.html' %}
+{% endblock %}

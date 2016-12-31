@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ SITENAME }} - Archives {% endblock %}
+
+{% block container %}
+    <section id="content">
+        <header class="header">
+            <h2 class="blogpost-title">Archives</h2>
+        </header>
+        <dl>
+            {% for article in dates %}
+                <dt>{{ article.locale_date }}</dt>
+                <dd>
+
+                    <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
+                </dd>
+            {% endfor %}
+        </dl>
+    </section>
+    <br/><br/><br/>
+{% endblock %}
+
+{% block footer %}
+    {% include '_includes/footer.html' %}
+{% endblock %}
