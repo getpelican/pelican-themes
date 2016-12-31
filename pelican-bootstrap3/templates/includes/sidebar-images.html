@@ -1,4 +1,4 @@
-{% if SIDEBAR_IMAGES %}
+{% if SIDEBAR_IMAGES or SIDEBAR_IMAGES_WITH_ATTRIBUTES %}
     {% if SIDEBAR_IMAGES_HEADER %}
         <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">{{ SIDEBAR_IMAGES_HEADER }}</span></h4>
     {% endif %}
@@ -6,6 +6,9 @@
         <ul class="list-group" id="links">
         {% for image in SIDEBAR_IMAGES %}
             <img width="100%" class="img-thumbnail" src="{{ image }}"/>
+        {% endfor %}
+        {% for name, attributes in SIDEBAR_IMAGES_WITH_ATTRIBUTES.iteritems() %}
+            {% if attributes.href is defined %}<a href="{{ attributes.href }}">{% endif %}<img width="{% if attributes.width is defined %}{{ attributes.width }}{% else %}100%{% endif %}" class="{% if attributes.class is defined %}{{ attributes.class }}{% else %}img-thumbnail{% endif %}" src="{{ attributes.src }}"/>{% if attributes.href is defined %}</a>{% endif %}
         {% endfor %}
         </ul>
     </li>
