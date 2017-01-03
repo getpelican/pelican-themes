@@ -226,3 +226,6 @@
 [submodule "bulrush"]
 	path = bulrush
 	url = https://github.com/textbook/bulrush.git
+[submodule "minimalX"]
+	path = minimalX
+	url = https://github.com/art1fa/minimalX.git
