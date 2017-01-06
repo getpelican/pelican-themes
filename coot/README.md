@@ -4,13 +4,13 @@ Coot is a theme for [Pelican](http://getpelican.com/),a static site generator wr
 [Demo](http://c0u1d.lol)
 
 ##Screenshots
-![Homepage](pelican-themes/coot/homepage.jpg?raw=true)
+![Homepage](homepage.jpg)
 
-![Article](pelican-themes/coot/artice.jpg?raw=true)
+![Article](artice.jpg)
 
-![Comments](pelican-themes/coot/comments.jpg?raw=true)
+![Comments](comments.jpg)
 
-![Mobile style](pelican-themes/coot/mobile.jpg?raw=true)
+![Mobile style](mobile.jpg)
 
 ##Configuration
 Index background image should be located in content/images directory,and don't forget to configure `COOT_HEADER_IMAGES`
