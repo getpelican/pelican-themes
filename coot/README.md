@@ -1,7 +1,7 @@
 ##Coot
 Coot is a theme for [Pelican](http://getpelican.com/),a static site generator written in Python.
 
-[Demo](http://c0u1d.lol)
+[See my blog](http://c0u1d.lol)
 
 ##Screenshots
 ![Homepage](homepage.jpg)
