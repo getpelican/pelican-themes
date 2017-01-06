@@ -4,8 +4,12 @@ Coot is a theme for [Pelican](http://getpelican.com/),a static site generator wr
 [Demo](http://c0u1d.lol)
 
 ##Screenshots
-
-
+![Homepage](homepage.png)
+![Article](article.png)
+![Page](page.png)
+![Comments](comments.png)
+![Mobile style](mobile.png)
+![Mobile menu](mobile_menu.png)
 ##Configuration
 Index background image should be located in content/images directory,and don't forget to configure `COOT_HEADER_IMAGES`
 just in `pelicanconf.py`
@@ -22,5 +26,7 @@ Example:
     Author: c0u1d
     Background: background.jpg
 
-more configuration detail see file pelicanconf.py
+more configuration detail see file [pelicanconf.py](https://raw.githubusercontent.com/c0u1d/pelican-themes/master/coot/pelicanconf.py)
+
+	
 
