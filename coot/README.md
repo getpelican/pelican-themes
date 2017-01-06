@@ -4,17 +4,14 @@ Coot is a theme for [Pelican](http://getpelican.com/),a static site generator wr
 [Demo](http://c0u1d.lol)
 
 ##Screenshots
-![Homepage](https://github.com/c0u1d/pelican-themes/raw/master/coot/homepage.png)
+![Homepage](pelican-themes/coot/homepage.jpg?raw=true)
 
-![Article](https://github.com/c0u1d/pelican-themes/raw/master/coot/article.png)
+![Article](pelican-themes/coot/artice.jpg?raw=true)
 
-![Page](https://github.com/c0u1d/pelican-themes/raw/master/coot/page.png)
+![Comments](pelican-themes/coot/comments.jpg?raw=true)
 
-![Comments](https://github.com/c0u1d/pelican-themes/raw/master/coot/comments.png)
+![Mobile style](pelican-themes/coot/mobile.jpg?raw=true)
 
-![Mobile style](https://github.com/c0u1d/pelican-themes/raw/master/coot/mobile.png)
-
-![Mobile menu](https://github.com/c0u1d/pelican-themes/raw/master/coot/mobile_menu.png)
 ##Configuration
 Index background image should be located in content/images directory,and don't forget to configure `COOT_HEADER_IMAGES`
 just in `pelicanconf.py`
