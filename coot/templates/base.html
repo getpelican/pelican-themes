@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="{{ DEFAULT_LANG }}">
+    <head>
+    {% block head %}
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="author" content="c0u1d">
+        <meta name="description" content="{% block description %}{% endblock description %}">
+        <meta name="keywords" content="{% block keywords %}{% endblock keywords %}">
+        <link rel="icon" href="/favicon.ico">
+        <title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="{{ SITEURL }}/theme/css/materialize.css">
+        <link rel="stylesheet" href="{{ SITEURL }}/theme/css/coot.css">
+        <link rel="stylesheet" href="{{ SITEURL }}/theme/css/pygment.css">
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script> 
+        <script type="text/javascript">
+            $( document ).ready(function() {
+                $(".button-collapse").sideNav();
+            });
+        </script>
+    {% endblock head %}
+    </head>
+
+    <body>
+        <!-- header -->
+        {% block headerstyle %}
+
+        {% endblock headerstyle %}
+                <nav class="semi-transparent">
+                    <div class="container">
+                        <div class="nav-wrapper">
+                            <a href="/" class="brand-logo left"><span class="white-text">{{ SITENAME }}</span></a>
+                            <a href="#" class="button-collapse right" data-activates="mobile-menu"><span class="white-text"><i class=" material-icons" style="font-size: 2.7rem;">menu</i></span></a>
+                            <ul class="browser-default right hide-on-med-and-down">
+                                {% for title, link in MENUITEMS %}
+                                    <li><a href="{{ link }}"><span class="white-text">{{ title }}</span></a></li>
+                                {% endfor %}
+                            </ul>
+                            <ul id="mobile-menu" class="browser-default side-nav black-text">
+                                <li><span class="black-text">{{ SITENAME }}</span></li>
+                                {% for title, link in MENUITEMS %}
+                                    <li><a href="{{ link }}">{{ title }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            <div class="container">
+                <div class="header-content">
+                <!-- Header -->
+                    {% block header %}
+                    {% endblock header %}
+                    
+                </div>
+            </div>
+        </div>
+        <!-- content -->
+        {% block content %}
+        {% endblock content %}
+        
+        <footer class="page-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col l4 m4 s12">
+                        <p class="footer-title">{{ COOT_FOOTER_HEADER }}</p>
+                        <p class="footer-content">{{ COOT_FOOTER_CONTENT }}</p>
+                    </div>
+                    <div class="col l4 m4 s6">
+                        <p class="footer-title">Sitemap</p>
+                        <ul class="browser-default">
+                        {% for title,link in MENUITEMS %}
+                            <li><a class="footer-content" href="{{ link }}">{{ title }}</a></li>
+                        {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="col l4 m4 s6">
+                        <p class="footer-title">Links</p>
+                        <ul class="browser-default">
+                            <li><a class="footer-content" href="http://getpelican.com/" target="_blank">Pelican</a></li>
+                            <li><a class="footer-content" href="http://jinja.pocoo.org/" target="_blank">Jinja2</a></li>
+                            <li><a class="footer-content" href="http://python.org/" target="_blank">Python</a></li>
+                            <li><a class="footer-content" href="#!" target="_blank">Link 4</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <div class="container center">
+                    {{ COPYRIGHT }} | Powered by Pelican | Theme by <a class="footer-content" href="https://github.com/c0u1d">c0u1d</a>.
+                </div>
+            </div>
+        </footer>  
+    </body>
+</html>

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}{{ article.title }} - {{ super() }}{% endblock title %}
+{% block description %}{{ article.content|striptags|truncate(200)|escape }}{% endblock description %}
+{% block keywords %}{% for tag in article.tags|sort %}{{ tag }}{% if not loop.last %},{% endif %}{% endfor %}{% endblock keywords %}
+
+{% block headerstyle %}
+    {% if article.background %}
+    <div class="header-img" style="background: url('/images/{{ article.background }}') no-repeat 0% 0%;background-position: center;background-size: cover;">
+    {% else %}
+    <div class="head-img" style="background-color: rgb(33,34,35);">
+    {% endif %}
+{% endblock headerstyle %}
+
+{% block header %}
+    <p class="header-title">{{ article.title }}</p>
+    <p class="header-subtitle"><a href="/{{ article.author.url }}" style="color: white;">{{ article.author }}</a>, {{ article.date|strftime('%d %b %Y') }}</p>
+{% endblock header %}
+
+{% block content %}
+<div class="container content">
+<div class="row">
+    <div class="col s12 m10 offset-m1 l6 offset-l3">
+    {{ article.content }}
+    <div class="divider"></div>
+	{% include "comments.html" %}
+    </div>
+</div>
+</div>
+{% endblock content %}
