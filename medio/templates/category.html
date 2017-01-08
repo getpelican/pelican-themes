@@ -1,0 +1,153 @@
+{% extends "base.html" %}
+{% block title %}{{ category|striptags }}{% endblock %}
+{% block content %}
+<div class="category-page-container">
+    <div class="category-logo">
+        {% if category|string in MEDIUS_CATEGORIES and MEDIUS_CATEGORIES.get(category|string).logo %}
+        <a href="{{ SITEURL }}/{{ category.url }}" rel="bookmark" title="Permalink to {{ category|striptags }}"><img src="{{ MEDIUS_CATEGORIES.get(category|string).logo }}" alt="{{ category|striptags }}"/></a>
+        {% else %}
+        <h1><a href="{{ SITEURL }}/{{ category.url }}" rel="bookmark" title="Permalink to {{ category|striptags }}">{{ category }}</a></h1>
+        {% endif %}
+    </div>
+
+    <div class="section-header">
+        Latest
+    </div>
+
+
+
+    {% set i = 0 %}
+    {% for article in articles_page.object_list %}
+    {% if i == 0 %}
+    <div class="pure-g article-row">
+        {% if article.cover or article.thumbnail %}
+        <div class="pure-u-1 pure-u-md-2-3">
+           <div class="col">
+               {% if article.cover %}
+               <a href="{{ SITEURL }}/{{ article.url }}" class="article-thumbnail article-thumbnail-1" style="background-image:url({{ article.cover }})"><span class="header">{{ article.title }}</span></a>
+               {% elif article.thumbnail %}
+               <a href="{{ SITEURL }}/{{ article.url }}" class="article-thumbnail article-thumbnail-1" style="background-image:url({{ article.thumbnail }})"><span class="header">{{ article.title }}</span></a>
+               {% endif %}
+           </div>
+        </div>
+        {% endif %}
+        <div class="pure-u-1{% if article.cover or article.thumbnail %} pure-u-md-1-3{% endif %} article-info">
+           <div class="col">
+
+               <h1><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h1>
+
+               {{ article.summary }}
+
+               {% for author in article.authors %}
+               <div class="post-meta pure-g">
+                   {% if author|string in MEDIUS_AUTHORS %}
+                   <div class="pure-u">
+                       <img src="{{ MEDIUS_AUTHORS.get(author|string).image }}" class="post-avatar" alt="Go to the profile of {{ author|striptags }}">
+                   </div>
+                   {% endif %}
+                   <div class="pure-u-3-4 meta-data">
+                       <a href="{{ SITEURL }}/{{ author.url }}" class="category">{{ author }}</a><br />
+                       <abbr title="{{ article.date.isoformat() }}">{{ article.locale_date }}</abbr>
+                       {% if article.readtime_minutes %}
+                       &mdash; {{ article.readtime_minutes }} min read
+                       {% endif %}
+                   </div>
+               </div>
+               {% endfor %}
+
+           </div>
+
+        </div>
+
+    </div>
+    {% elif i < 3 %}
+    {% if i == 1 %}
+    <div class="pure-g article-row">
+    {% endif %}
+
+    <div class="pure-u-1 pure-u-sm-1-2 article-info">
+        <div class="col">
+            {% if article.cover %}
+            <a href="{{ SITEURL }}/{{ article.url }}" class="article-thumbnail article-thumbnail-2" style="background-image:url({{ article.cover }})"><span class="header">{{ article.title }}</span></a>
+            {% elif article.thumbnail %}
+            <a href="{{ SITEURL }}/{{ article.url }}" class="article-thumbnail article-thumbnail-2" style="background-image:url({{ article.thumbnail }})"><span class="header">{{ article.title }}</span></a>
+            {% endif %}
+
+            <h2><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h2>
+            {{ article.summary }}
+
+            {% for author in article.authors %}
+            <div class="post-meta pure-g">
+                {% if author|string in MEDIUS_AUTHORS %}
+                <div class="pure-u">
+                    <img src="{{ MEDIUS_AUTHORS.get(author|string).image }}" class="post-avatar" alt="Go to the profile of {{ author|striptags }}">
+                </div>
+                {% endif %}
+                <div class="pure-u-3-4 meta-data">
+                    <a href="{{ SITEURL }}/{{ author.url }}" class="category">{{ author }}</a><br />
+                    <abbr title="{{ article.date.isoformat() }}">{{ article.locale_date }}</abbr>
+                    {% if article.readtime_minutes %}
+                    &mdash; {{ article.readtime_minutes }} min read
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+
+    {% if i == 2 %}
+    </div>
+    {% endif %}
+    {% else %}
+    {% if i % 3 == 0 %}
+    <div class="pure-g article-row">
+    {% endif %}
+
+
+    <div class="pure-u-1 pure-u-lg-1-3 article-info">
+        <div class="col">
+            {% if article.cover %}
+            <a href="{{ SITEURL }}/{{ article.url }}" class="article-thumbnail article-thumbnail-3" style="background-image:url({{ article.cover }})"><span class="header">{{ article.title }}</span></a>
+            {% elif article.thumbnail %}
+            <a href="{{ SITEURL }}/{{ article.url }}" class="article-thumbnail article-thumbnail-3" style="background-image:url({{ article.thumbnail }})"><span class="header">{{ article.title }}</span></a>
+            {% endif %}
+
+            <h2><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h2>
+            {{ article.summary }}
+
+            {% for author in article.authors %}
+            <div class="post-meta pure-g">
+                {% if author|string in MEDIUS_AUTHORS %}
+                <div class="pure-u">
+                    <img src="{{ MEDIUS_AUTHORS.get(author|string).image }}" class="post-avatar" alt="Go to the profile of {{ author|striptags }}">
+                </div>
+                {% endif %}
+                <div class="pure-u-3-4 meta-data">
+                    <a href="{{ SITEURL }}/{{ author.url }}" class="category">{{ author }}</a><br />
+                    <abbr title="{{ article.date.isoformat() }}">{{ article.locale_date }}</abbr>
+                    {% if article.readtime_minutes %}
+                    &mdash; {{ article.readtime_minutes }} min read
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+
+
+    {% if i % 3 == 2 %}
+    </div>
+    {% endif %}
+    {% endif %}
+    {% set i = i + 1 %}
+    {% endfor %}
+
+    {% if articles_page.object_list|length % 3 != 0 %}
+    </div>
+    {% endif %}
+
+    {% include "pagination.html" %}
+</div>
+{% endblock %}

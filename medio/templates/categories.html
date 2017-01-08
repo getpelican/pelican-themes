@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="page-container archive-container">
+
+    <div class="article-header-container">
+        <div class="background-image-container">
+
+            {# title with big background image #}
+            <div class="background-image-small">
+                <div class="title-container">
+                    <h1>Categories for {{ SITENAME }}</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="entry-content" style="min-height:100vh">
+
+        <ul>
+        {% for category, articles in categories %}
+            <li><a href="{{ SITEURL }}/{{ category.url }}">{{ category }}</a></li>
+        {% endfor %}
+        </ul>
+
+    </div>
+
+</div>
+{% endblock %}
