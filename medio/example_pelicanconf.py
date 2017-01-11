@@ -43,7 +43,7 @@ PLUGINS = ['pelican_dynamic']
 
 DIRECT_TEMPLATES = ('index', 'tags', 'categories', 'archives', 'blogroll')
 
-MEDIUS_AUTHORS = {
+BLOG_AUTHORS = {
     'John Doe': {
         'description': """
             This is an example of description
@@ -57,7 +57,7 @@ MEDIUS_AUTHORS = {
     }
 }
 
-MEDIUS_CATEGORIES = {
+BLOG_CATEGORIES = {
     'ggplot2': {
         'description': 'ggplot2 is a plotting system for R, based on the grammar of graphics, which tries to take the good parts of base and lattice graphics and none of the bad parts. It takes care of many of the fiddly details that make plotting a hassle (like drawing legends) as well as providing a powerful model of graphics that makes it easy to produce complex multi-layered graphics.',
         'thumbnail': '../theme/images/categories/ggplot2.png'
