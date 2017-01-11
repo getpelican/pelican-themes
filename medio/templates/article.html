@@ -5,14 +5,14 @@
     <div class="entry-content">
       {% for author in article.authors %}
       <div class="post-meta pure-u-10-24">
-          {% if author|string in MEDIUS_AUTHORS %}
+          {% if author|string in BLOG_AUTHORS %}
           <div class="pure-u">
-              <img src="{{ MEDIUS_AUTHORS.get(author|string).image }}" class="post-avatar" alt="Go to the profile of {{ author|striptags }}">
+              <img src="{{ BLOG_AUTHORS.get(author|string).image }}" class="post-avatar" alt="Go to the profile of {{ author|striptags }}">
           </div>
           {% endif %}
           <div class="pure-u meta-data">
               <a href="{{ SITEURL }}/{{ author.url }}" class="category">{{ author }}</a><br />
-              {{ MEDIUS_AUTHORS.get(author|string).short_description }}<br />
+              {{ BLOG_AUTHORS.get(author|string).short_description }}<br />
               <abbr title="{{ article.date.isoformat() }}">{{ article.locale_date }}</abbr>
               {% if article.readtime_minutes %}
               &mdash; {{ article.readtime_minutes }} min read
@@ -90,16 +90,16 @@
             <div class="pure-g">
                 {% for author in article.authors %}
                 <div class="pure-g poster-info">
-                    {% if author|string in MEDIUS_AUTHORS %}
+                    {% if author|string in BLOG_AUTHORS %}
                     <div class="pure-u">
-                        <a href="{{ SITEURL }}/{{ author.url }}"><img src="{{ MEDIUS_AUTHORS.get(author|string).image }}" alt=""></a>
+                        <a href="{{ SITEURL }}/{{ author.url }}"><img src="{{ BLOG_AUTHORS.get(author|string).image }}" alt=""></a>
                     </div>
                     {% endif %}
                     <div class="pure-u">
                         <h3 class="author-name"><a href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a></h3>
                         <p class="author-description">
-                          {% if MEDIUS_AUTHORS %}
-                          {{ MEDIUS_AUTHORS.get(author|string).description }}
+                          {% if BLOG_AUTHORS %}
+                          {{ BLOG_AUTHORS.get(author|string).description }}
                           {% endif %}
                         </p>
                     </div>
@@ -110,17 +110,17 @@
 
 
             <!--
-            {% if article.category|string in MEDIUS_CATEGORIES %}
+            {% if article.category|string in BLOG_CATEGORIES %}
             <div class="pure-u-1 pure-u-md-1-2">
 
                 <div class="pure-g post-category-info">
                     <div class="pure-u">
-                        <a href="{{ SITEURL }}/{{ article.category.url }}"><img src="{{ MEDIUS_CATEGORIES.get(article.category|string).thumbnail }}" alt=""></a>
+                        <a href="{{ SITEURL }}/{{ article.category.url }}"><img src="{{ BLOG_CATEGORIES.get(article.category|string).thumbnail }}" alt=""></a>
                     </div>
                     <div class="pure-u-3-4">
                         <h3 class="author-name"><a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a></h3>
                         <p class="author-description">
-                          {{ MEDIUS_CATEGORIES.get(article.category|string).description }}
+                          {{ BLOG_CATEGORIES.get(article.category|string).description }}
                         </p>
                     </div>
                 </div>

@@ -53,16 +53,16 @@
             <div class="pure-u-1">
                 {% for author in page.authors %}
                 <div class="pure-g poster-info">
-                    {% if author|string in MEDIUS_AUTHORS %}
+                    {% if author|string in BLOG_AUTHORS %}
                     <div class="pure-u">
-                        <a href="{{ SITEURL }}/{{ author.url }}"><img src="{{ MEDIUS_AUTHORS.get(author|string).image }}" alt=""></a>
+                        <a href="{{ SITEURL }}/{{ author.url }}"><img src="{{ BLOG_AUTHORS.get(author|string).image }}" alt=""></a>
                     </div>
                     {% endif %}
                     <div class="pure-u-3-4">
                         <h3 class="author-name"><a href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a></h3>
                         <p class="author-description">
-                          {% if MEDIUS_AUTHORS %}
-                          {{ MEDIUS_AUTHORS.get(author|string).description }}
+                          {% if BLOG_AUTHORS %}
+                          {{ BLOG_AUTHORS.get(author|string).description }}
                           {% endif %}
                         </p>
                     </div>

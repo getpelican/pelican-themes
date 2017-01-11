@@ -3,8 +3,8 @@
 {% block content %}
 <div class="category-page-container">
     <div class="category-logo">
-        {% if category|string in MEDIUS_CATEGORIES and MEDIUS_CATEGORIES.get(category|string).logo %}
-        <a href="{{ SITEURL }}/{{ category.url }}" rel="bookmark" title="Permalink to {{ category|striptags }}"><img src="{{ MEDIUS_CATEGORIES.get(category|string).logo }}" alt="{{ category|striptags }}"/></a>
+        {% if category|string in BLOG_CATEGORIES and BLOG_CATEGORIES.get(category|string).logo %}
+        <a href="{{ SITEURL }}/{{ category.url }}" rel="bookmark" title="Permalink to {{ category|striptags }}"><img src="{{ BLOG_CATEGORIES.get(category|string).logo }}" alt="{{ category|striptags }}"/></a>
         {% else %}
         <h1><a href="{{ SITEURL }}/{{ category.url }}" rel="bookmark" title="Permalink to {{ category|striptags }}">{{ category }}</a></h1>
         {% endif %}
@@ -40,9 +40,9 @@
 
                {% for author in article.authors %}
                <div class="post-meta pure-g">
-                   {% if author|string in MEDIUS_AUTHORS %}
+                   {% if author|string in BLOG_AUTHORS %}
                    <div class="pure-u">
-                       <img src="{{ MEDIUS_AUTHORS.get(author|string).image }}" class="post-avatar" alt="Go to the profile of {{ author|striptags }}">
+                       <img src="{{ BLOG_AUTHORS.get(author|string).image }}" class="post-avatar" alt="Go to the profile of {{ author|striptags }}">
                    </div>
                    {% endif %}
                    <div class="pure-u-3-4 meta-data">
@@ -78,9 +78,9 @@
 
             {% for author in article.authors %}
             <div class="post-meta pure-g">
-                {% if author|string in MEDIUS_AUTHORS %}
+                {% if author|string in BLOG_AUTHORS %}
                 <div class="pure-u">
-                    <img src="{{ MEDIUS_AUTHORS.get(author|string).image }}" class="post-avatar" alt="Go to the profile of {{ author|striptags }}">
+                    <img src="{{ BLOG_AUTHORS.get(author|string).image }}" class="post-avatar" alt="Go to the profile of {{ author|striptags }}">
                 </div>
                 {% endif %}
                 <div class="pure-u-3-4 meta-data">
@@ -118,9 +118,9 @@
 
             {% for author in article.authors %}
             <div class="post-meta pure-g">
-                {% if author|string in MEDIUS_AUTHORS %}
+                {% if author|string in BLOG_AUTHORS %}
                 <div class="pure-u">
-                    <img src="{{ MEDIUS_AUTHORS.get(author|string).image }}" class="post-avatar" alt="Go to the profile of {{ author|striptags }}">
+                    <img src="{{ BLOG_AUTHORS.get(author|string).image }}" class="post-avatar" alt="Go to the profile of {{ author|striptags }}">
                 </div>
                 {% endif %}
                 <div class="pure-u-3-4 meta-data">
