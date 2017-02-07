@@ -24,7 +24,9 @@ Then:
 Point the `THEME` variable in your `pelicanconf.py` to
 `/path/to/pelican-bootstrap3` and add 
 
-`JINJA_EXTENSIONS = ['jinja2.ext.i18n']`
+```
+JINJA_ENVIRONMENT = {'extensions': ['jinja2.ext.i18n']}
+```
 
 to your Pelican configuration, as this template can be
 translated (see `Translations` below). You also
