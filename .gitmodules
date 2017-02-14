@@ -229,3 +229,6 @@
 [submodule "minimalX"]
 	path = minimalX
 	url = https://github.com/art1fa/minimalX.git
+[submodule "jojo"]
+	path = jojo
+	url = https://github.com/dokelung/jojo.git
