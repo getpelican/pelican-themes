@@ -1,0 +1,13 @@
+{%- if page.lang %}{% set DEFAULT_LANG = page.lang %}{% endif -%}
+{% extends "base.html" %}
+{% block title %}{{ super() }} : {{ page.title }}{% endblock %}
+{% block content %}        
+<header>
+<h1><a href="{{ SITEURL }}" id="site-title">{{ SITENAME }} {% if SITESUBTITLE %} <strong>{{ SITESUBTITLE }}</strong>{% endif %}</a> :
+<a href="{{ SITEURL }}/{{ page.url }}" id="page-title">{{ page.title }}</a></h1>
+</header>
+<article>
+<div class="meta" style="text-align:right;">{% if page.translations %}{% for translation in page.translations %}{{ page.lang or DEFAULT_LANG }}&nbsp;|&nbsp;<a href="{{ SITEURL }}/{{ translation.url }}"><u>{{ translation.lang }}</u></a>{% endfor %}{% endif %}</div>
+{{ page.content }}
+</article>
+{% endblock %}
