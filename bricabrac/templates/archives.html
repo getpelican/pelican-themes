@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<header>
+<h1>
+<a href="{{ SITEURL }}" id="site-title">{{ SITENAME }} {% if SITESUBTITLE %} <strong>{{ SITESUBTITLE }}</strong>{% endif %}</a> :
+<a href="{{ SITEURL }}/archives.html" id="page-title">archives</a></h1>
+</header>
+<section id="content" class="body">
+<dl>
+{% for article in dates %}
+<dt>{{ article.locale_date }}</dt>
+<dd><a href='{{ SITEURL }}/{{ article.url }}'>{{ article.title }}</a></dd>
+{% endfor %}
+</dl>
+</section>
+{% endblock %}

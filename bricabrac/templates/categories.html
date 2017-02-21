@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<header>
+<h1>
+<a href="{{ SITEURL }}" id="site-title">{{ SITENAME }} {% if SITESUBTITLE %} <strong>{{ SITESUBTITLE }}</strong>{% endif %}</a> :
+<a href="{{ SITEURL }}/archives.html" id="page-title">catégories</a></h1>
+</header>
+<section id="content" class="body">
+<ul>
+{% for category, articles in categories %}
+    <li><a href="{{ SITEURL }}/{{ category.url }}">{{ category }}</a></li>
+{% endfor %}
+</ul>
+</section>
+{% endblock %}
