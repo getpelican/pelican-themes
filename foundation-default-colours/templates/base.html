@@ -115,7 +115,7 @@
 							{% endfor %}
 						</ul>
                         <ul class="right">                                                                                                                                           
-                             {% for pg in PAGES | sort(attribute='index') %}                                                                                                          
+                             {% for pg in pages | sort(attribute='index') %}                                                                                                          
                                  {% if 'http://' in pg.url -%}                                                                                                                        
                                      <li><a href="{{ pg.url }}">{{ pg.title }}</a></li>                                                                                               
                                  {% else %}····                                                                                                                                       

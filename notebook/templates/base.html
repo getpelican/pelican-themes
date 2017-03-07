@@ -45,10 +45,10 @@
     {% for title, link in MENUITEMS %}
     <li><a href="{{ link }}">{{ title }}</a></li>
     {% endfor %}
-    {% if DISPLAY_PAGES_ON_MENU and PAGES %}
+    {% if DISPLAY_PAGES_ON_MENU and pages %}
     <h2>Pages</h2>
     <ul class="navbar">
-      {% for p in PAGES %}
+      {% for p in pages %}
       <li><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
       {% endfor %}
     </ul>

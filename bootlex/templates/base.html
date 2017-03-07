@@ -33,9 +33,9 @@
               <li {% block menu_entry_tag %}{% endblock %}><a href="{{ SITEURL }}/tags/">Tags</a></li>
               <li {% block menu_entry_archive %}{% endblock %}><a href="{{ SITEURL }}/archives/">Archiv</a></li>
               {% if DISPLAY_PAGES_ON_MENU %}
-              {% if PAGES %}
+              {% if pages %}
               <li class="nav-header">Seiten</li>
-              {% for p in PAGES %}
+              {% for p in pages %}
               <li{% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
               {% endfor %}
               {% endif %}

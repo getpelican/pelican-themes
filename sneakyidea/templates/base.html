@@ -31,7 +31,7 @@
                 <h1><a href="{{ SITEURL }}">{{ SITENAME }} {% if SITESUBTITLE %} <strong>{{ SITESUBTITLE }}</strong>{% endif %}</a></h1>
                 <nav><ul>
                 {% if DISPLAY_PAGES_ON_MENU %}
-                    {% for current_page in PAGES %}
+                    {% for current_page in pages %}
                         <li {% if page %}{% if page == current_page%}class="active"{% endif %}{% endif %}>
                             <a href="{{ SITEURL }}/{{ current_page.url }}">{{ current_page.title }}</a>
                         </li>
