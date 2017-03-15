@@ -326,7 +326,7 @@ As an alternative, you may use [Shariff](https://github.com/heiseonline/shariff)
   * To customize the social media buttons, set
     * `SHARIFF_BACKEND_URL` (see [Shariff Backends](https://github.com/heiseonline/shariff#backends))
     * `SHARIFF_LANG` (`de` (default), `en` or `fr`)
-    * `SHARIFF_ORIENTATION` (`horizontal` (defualt) or `vertical`)
+    * `SHARIFF_ORIENTATION` (`horizontal` (default) or `vertical`)
     * `SHARIFF_SERVICES` (default: `[&quot;facebook&quot;,&quot;googleplus&quot;]`)
     * `SHARIFF_THEME` (`standard` or `gray`)
     * `SHARIFF_TWITTER_VIA` (`True`/`False`, uses `TWITTER_USERNAME`)
