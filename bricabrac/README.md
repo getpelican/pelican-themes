@@ -10,7 +10,11 @@ Note: templates include hard-coded French words, you must edit the .html files i
 To use this theme, just extract the archive and copy the bricabrac theme folder to the `themes` folder in your Pelican site path. Then add the line below to your pelicanconf.py :
 
     THEME = 'themes/bricabrac-pelican-theme'
-    
+
+## Live demo
+
+You can see a live demo of this theme on my personal web-log : [bricabraque.github.com](https://bricabraque.github.io).
+
 ## Screenshots
 
 ![Home page](index.png)

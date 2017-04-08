@@ -22,18 +22,23 @@
 <footer>
 <nav>
 <ul>
-<li><a href="https://blog.getpelican.com/">Pelican</a> & <a href="">brc theme</a></li> 
-{% for page in PAGES %}
-<li>:: <a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a>{% if not loop.last %} ::{% endif %}</li>
+<li><a href="https://blog.getpelican.com/">Pelican</a> & <a href="https://github.com/Bricabraque/bricabrac-pelican-theme">bricabrac</a></li>
+{% for page in pages %}
+<li> :: <a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a>{% if not loop.last %}{% endif %}</li>
 {% endfor %}
+<li> :: <a href="{{ SITEURL }}/archives.html">archives</a></li>
 {% if categories|length > 1 %}
-<li>:: <a href="{{ SITEURL }}/categories.html">catégories</a></li>
+<li> :: <a href="{{ SITEURL }}/categories.html">catégories</a></li>
 {% endif %}
 {% if tags|length > 1 %}
-<li>:: <a href="{{ SITEURL }}/tags.html">tags</a></li>
+<li> :: <a href="{{ SITEURL }}/tags.html">tags</a></li>
 {% endif %}
-<li>:: <a href="{{ SITEURL }}/archives.html">archives</a></li>
-<li>:: <a href="{{ SITEURL }}/{{ FEED_ALL_ATOM }}">atom</a></li>
+<li> :: <a href="{{ SITEURL }}/{{ FEED_ALL_ATOM }}">atom</a></li>
+{% if SOCIAL %}
+{% for name, link in SOCIAL %}
+<li> :: <a href="{{ link }}">{{ name }}</a></li>
+{% endfor %}
+{% endif %}
 </ul>
 </nav>
 </footer>

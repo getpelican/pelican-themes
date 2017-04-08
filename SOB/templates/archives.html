@@ -1,0 +1,17 @@
+	{% extends "base.html" %}
+	{% block content %}
+		<div id="content">
+		<h3>Archives</h3>
+		<table>
+		<tbody>
+		{% for article in dates %}
+			<tr>
+                        
+			<td class="date">{{ article.locale_date }}</td>
+			<td><a href='{{ article.url }}'>{{ article.title }}</a></td>
+			</tr>
+		{% endfor %}
+		</tbody>
+		</table>
+		</div>
+	{% endblock %}

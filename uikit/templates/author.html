@@ -1,0 +1,20 @@
+{% extends "index.html" %}
+{% import 'html_macros.html' as html_macros %}
+
+{% block head %}
+{{ super() }} {{ html_macros.get_meta(author) }}
+{% endblock head %}
+{% block titlename %}{{author.name|capitalize}}{% endblock titlename %}
+{#
+#}
+
+{% block heading %}
+{#
+<h1 class="{% if CAPITALIZE_HEADINGS %}capitalize{% endif %}">
+#}
+<!--
+<h1 class="heading uk-text-primary">
+    Articles by <span class="entity">{{ author }}</span>
+</h1>
+-->
+{% endblock heading %}

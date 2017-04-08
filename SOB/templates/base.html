@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description"
+          content="Main page.">
+    <meta name="keywords"
+          content="sassafrass">
+    <meta name="author"
+          content="YOU">
+    <link rel="stylesheet"
+          type="text/css"
+          href="{{ SITEURL }}/theme/css/main.css">
+    <!--<link rel="icon"
+          type="image/png"
+          href=".png">  -->
+    <title>
+	{% block title %}{{ SITENAME }}
+	{%endblock%}
+    </title>
+  </head>
+
+  <body>
+    <div id="container">
+      <div id="topspacer">
+      </div>
+      <div id="header">
+        <h1 style="text-align: center"><a href="{{ SITEURL }}">{{ SITENAME }}</a></h1>
+      </div>
+      <div id="nav">
+        <ul>
+	{% for title, link in MENUITEMS %}
+          <li><a href="{{ link }}">{{ title }}</a></li>
+	{% endfor %}
+
+	{% if DISPLAY_PAGES_ON_MENU %}
+		{% for page in PAGES %}
+          <li><a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a></li>
+		{% endfor %}
+	{% endif %}
+        </ul>
+      </div>
+      <div id="content">
+        <p>
+Return to <a href="http://somewhere32132132.com">somewhere32132132.com</a>
+        </p>
+      </div>
+
+	{% block content %}
+	{% endblock %}
+
+
+      <div id="content">
+        <ul>
+          <li><a href="{{ SITEURL }}/archives.html">Archives</a>
+          <li><a href="{{ SITEURL }}/tags.html">Tags</a>
+        </ul>
+      </div>
+	{% if categories %}
+      <div id="content">		
+        <h3 style="text-align: center">Categories</h3>
+        <p>
+		{% for cat, null in categories %}
+          <a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a>, 
+		{% endfor %}
+        </p>
+      </div>
+	{% endif %}
+
+	{% if LINKS %}
+      <div id="content">
+        <h5>Links</h5>
+        <ul>
+            {% for name, link in LINKS %}
+          <li><a href="{{ link }}">{{ name }}</a></li>
+            {% endfor %}
+        </ul>
+      </div>
+	{% endif %}
+		
+	{% if SOCIAL %}
+      <div id="content">
+        <h5>Social</h5>
+        <ul>
+		{% for name, link in SOCIAL %}
+          <li><a href="{{ link }}">{{ name }}</a></li>
+		{% endfor %}
+        </ul>
+      </div>
+	{% endif %}
+        {% include "disclaimer.html" %}
+      <div id="bottomspacer">
+      </div>
+    </div>
+  </body>
+</html>

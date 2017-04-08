@@ -1,0 +1,21 @@
+{% import 'time_macros.html' as time_macros %}
+
+{% macro get_meta(SITEURL, article, has_category=True) -%}
+
+Published on {{ time_macros.get_time(article, article.date) }}
+    {% if article.modified %}
+    and updated on {{ time_macros.get_time(article, article.locale_modified) }}
+    {% endif %}
+    {% if article.authors %}
+        by {% for author in article.authors %}
+        <a class="url fn" href="/{{ article.author.url }}">{{ author }}</a>
+        {% endfor %}
+    {% endif %}
+    {% if has_category %}
+    posted in <a href="/{{ article.category.url }}">{{ article.category }}</a>
+    {% endif %}
+    <br/>
+    {% for tag in article.tags %}
+    <a href="/{{ tag.url }}" class="uk-icon-tag">{{ tag }}</a>
+    {% endfor %}
+{%- endmacro %}

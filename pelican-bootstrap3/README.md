@@ -24,7 +24,9 @@ Then:
 Point the `THEME` variable in your `pelicanconf.py` to
 `/path/to/pelican-bootstrap3` and add 
 
-`JINJA_EXTENSIONS = ['jinja2.ext.i18n']`
+```
+JINJA_ENVIRONMENT = {'extensions': ['jinja2.ext.i18n']}
+```
 
 to your Pelican configuration, as this template can be
 translated (see `Translations` below). You also
@@ -250,7 +252,11 @@ icon to show. You can provide an alternative icon string as the third string (as
 * **Recent Posts** will be shown if `DISPLAY_RECENT_POSTS_ON_SIDEBAR` is set to _True_
 	* Use `RECENT_POST_COUNT` to control the amount of recent posts. Defaults to **5**
 
-To remove the sidebar entirely, set `HIDE_SIDEBAR` to _True_.
+Other sidebar related options include:
+
+* To remove the sidebar entirely, set `HIDE_SIDEBAR` to _True_.
+* To move the sidebar to the left, set `SIDEBAR_ON_LEFT` to _True_.
+* To turn off inlined icons in the titles set `DISABLE_SIDEBAR_TITLE_ICONS` to
 
 ### reStructuredText styles
 
@@ -326,7 +332,7 @@ As an alternative, you may use [Shariff](https://github.com/heiseonline/shariff)
   * To customize the social media buttons, set
     * `SHARIFF_BACKEND_URL` (see [Shariff Backends](https://github.com/heiseonline/shariff#backends))
     * `SHARIFF_LANG` (`de` (default), `en` or `fr`)
-    * `SHARIFF_ORIENTATION` (`horizontal` (defualt) or `vertical`)
+    * `SHARIFF_ORIENTATION` (`horizontal` (default) or `vertical`)
     * `SHARIFF_SERVICES` (default: `[&quot;facebook&quot;,&quot;googleplus&quot;]`)
     * `SHARIFF_THEME` (`standard` or `gray`)
     * `SHARIFF_TWITTER_VIA` (`True`/`False`, uses `TWITTER_USERNAME`)

@@ -1,0 +1,25 @@
+{% extends "index.html" %}
+{% import 'html_macros.html' as html_macros %}
+
+{% block head %}
+{{ super() }}
+{% endblock head %}
+{% block titlename %}{{'all articles'|capitalize}}{% endblock titlename %}
+
+{% block content %}
+{% block heading %}
+<ul>
+{% for article in articles|sort(reverse=True,attribute='date') %}
+{% endfor %}
+</ul>
+
+
+<h1>Archives for {{ period | reverse | join(' ') }}</h1>
+
+<ul>
+{% for article in dates %}
+<li>{{ article.locale_date }} <a class="{% if CAPITALIZE_HEADINGS %}capitalize{% endif %}" href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
+{% endfor %}
+</ul>
+{% endblock heading %}
+{% endblock content %}

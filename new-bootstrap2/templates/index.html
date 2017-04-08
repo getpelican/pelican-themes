@@ -43,11 +43,11 @@
 </div>
 {#
 {% else %}
-    {% if PAGES %}
+    {% if pages %}
         <section id="content" class="body">
         <h3>Pages</h3>
         <ul class="nav nav-list">
-        {% for page in PAGES %}
+        {% for page in pages %}
             <li><div><i class="icon-external-link"></i><a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a></div></li>
         {% endfor %}
         </ul>

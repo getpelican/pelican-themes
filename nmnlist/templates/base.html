@@ -29,7 +29,7 @@
         <footer>
             <nav>
                 <ul>
-                {% for page in PAGES %}
+                {% for page in pages %}
                     <li><a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a>{% if not loop.last %} ::{% endif %}</li>
                 {% endfor %}
                 {% if categories|length > 1 %}
