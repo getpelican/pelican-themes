@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<div id="content">
+<div class="inner">
+<article class="box post post-excerpt">
+<h2>Archives for {{ SITENAME }}</h2>
+
+<header> 
+{% for article in dates %}
+    <h2>{{ article.locale_date }}</h2>
+    <p><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></p>
+    <p>{{article.headline}}</p>
+{% endfor %}
+</header>
+</article>
+</div>
+</div>
+{% endblock %}

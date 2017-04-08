@@ -1,0 +1,97 @@
+@import 'libs/vars';
+@import 'libs/functions';
+@import 'libs/mixins';
+@import 'libs/skel';
+
+/*
+	Striped by Pixelarity
+	pixelarity.com | hello@pixelarity.com
+	License: pixelarity.com/license
+*/
+
+	form {
+		input[type="text"],
+		input[type="email"],
+		input[type="password"],
+		select,
+		textarea {
+			position: relative;
+			box-shadow: none !important;
+			-ms-behavior: url('assets/js/ie/PIE.htc');
+		}
+	}
+
+	input[type="button"],
+	input[type="submit"],
+	input[type="reset"],
+	button,
+	.button {
+		position: relative;
+		box-shadow: none !important;
+		-ms-behavior: url('assets/js/ie/PIE.htc');
+	}
+
+	.pagination {
+		.pages {
+			a {
+				position: relative;
+				box-shadow: none !important;
+				-ms-behavior: url('assets/js/ie/PIE.htc');
+			}
+		}
+	}
+
+	.box {
+		&.calendar {
+			td {
+				a, span {
+					position: relative;
+					box-shadow: none !important;
+					-ms-behavior: url('assets/js/ie/PIE.htc');
+				}
+			}
+		}
+
+		&.text-style1 {
+			.inner {
+				position: relative;
+				box-shadow: none !important;
+				-ms-behavior: url('assets/js/ie/PIE.htc');
+			}
+		}
+	}
+
+	#nav {
+		li {
+			a {
+				position: relative;
+				box-shadow: none !important;
+				-ms-behavior: url('assets/js/ie/PIE.htc');
+			}
+		}
+	}
+
+	.box {
+		&.post {
+			.info {
+				box-shadow: none !important;
+				-ms-behavior: url('assets/js/ie/PIE.htc');
+
+				.stats {
+					li {
+						a {
+							position: relative;
+							box-shadow: none !important;
+							-ms-behavior: url('assets/js/ie/PIE.htc');
+						}
+					}
+				}
+			}
+		}
+	}
+
+	#logo {
+		position: relative;
+		box-shadow: none !important;
+		-ms-behavior: url('assets/js/ie/PIE.htc');
+	}

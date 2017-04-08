@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ SITENAME }} - {{ page.title }} {% endblock %}
+
+{% block container %}
+    {% if page.title == 'blog' %}
+        <section id="content">
+            <header class="header">
+                <h2 class="blogpost-title">Articles in {{ AUTHOR }}'s blog</h2>
+            </header>
+            <dl>
+                {% for category,articles in categories %}
+                    <h3>
+                        {{ category }}
+                    </h3>
+                    {% for article in articles %}
+                        <dd>
+                            <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
+                        </dd>
+                    {% endfor %}
+                {% endfor %}
+            </dl>
+        </section>
+        <br/><br/><br/>
+    {% else %}
+        <section id="content">
+            <header class="header">
+                <h2 class="blogpost-title">{{ page.title }}</h2>
+            </header>
+            {{ page.content }}
+        </section>
+        <br/> <br/> <br/>
+    {% endif %}
+{% endblock %}
+
+{% block footer %}
+    {% include '_includes/footer.html' %}
+{% endblock %}
