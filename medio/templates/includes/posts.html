@@ -1,0 +1,24 @@
+{% for article in articles_page.object_list %}
+<div class="post">
+    <div class="post-meta pure-g">
+
+        {% if article.category|string in MEDIUS_CATEGORIES %}
+        <div class="pure-u">
+            <img src="{{ MEDIUS_CATEGORIES.get(article.category|string).thumbnail }}" class="post-avatar" alt="{{ article.category|striptags }}">
+        </div>
+        {% endif %}
+
+        {% include "includes/post_metadata.html" %}
+    </div>
+    {% if article.thumbnail %}
+    <a href="{{ SITEURL }}/{{ article.url }}"><img src="{{ article.thumbnail }}" alt="{{ article.title|striptags }}" class="post-image"/></a>
+    {% endif %}
+    <h2><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h2>
+    <div class="post-content">
+        {{ article.summary }}
+    </div>
+    <div class="post-footer">
+        <a href="{{ SITEURL }}/{{ article.url }}">Read more</a>
+    </div>
+</div>
+{% endfor %}
