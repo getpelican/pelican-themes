@@ -1,0 +1,18 @@
+{% extends "index.html" %}
+{% import 'html_macros.html' as html_macros %}
+
+{% block head %}
+{{ super() }} {{ html_macros.get_meta(tags) }}
+{% endblock head %}
+{% block titlename %}{{tag}}{% endblock titlename %}
+
+{% block heading %}
+{#
+<h1 class="{% if CAPITALIZE_HEADINGS %}capitalize{% endif %}">
+#}
+<!--
+<h1 class="heading uk-text-primary">
+    Articles with the tag <span class="entity">{{ tag }}</span>
+</h1>
+-->
+{% endblock heading %}

@@ -1,0 +1,7 @@
+{% macro get_meta(object) -%}
+
+  {% if object.tags %} {% set tags=object.tags|join(", ")|e %} <meta name="tags" content="{{ tags }}" /> {% endif %}
+  {% if object.summary %} {% set summary=object.summary|striptags()|truncate(159)|e %}<meta name="description" content="{{ summary }}" /> {% endif %}
+  {% if object.category %} {% set category=object.tags|join(", ")|e %}<meta name="category" content="{{object.category}}" /> {% endif %}
+  {% if object.categories %} {% set categories=object.categories|join(", ")|e %}<meta name="tags" content="{{object.categories}}" /> {% endif %}
+{%- endmacro %}

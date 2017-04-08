@@ -1,0 +1,65 @@
+.capitalize {
+    text-transform: capitalize;
+}
+
+.uk-navbar-nav li {
+    text-transform: capitalize;
+    line-height: 1em;
+    vertical-align: middle;
+}
+
+/*
+ * add vertical spacing to social icons
+*/
+.icons>a {
+    margin-bottom: 0.3em;
+}
+
+/*
+ * add spacing between the icon and the description
+*/
+.uk-icon-tag::before,
+.uk-icon-rss-square::before,
+.uk-icon-external-link::before
+{
+    margin-right: 0.2em;
+}
+
+/*
+ * add additional spacing because the description should be separated from the
+ * next icon more thant the icon from the description
+*/
+/*
+.uk-icon-rss-square,
+*/
+.uk-icon-tag
+{ margin-right: 0.5em; }
+
+/*
+ * add spacing to the license links
+*/
+.license
+{ padding-right: 0.5em; }
+
+/*
+ * the special entity in a heading that
+ * needs to be formatted differently
+.entity {
+    text-transform: none;
+    font-family: italic;
+    font-weight: lighter;
+}
+ */
+
+/* 
+ * a heading for small messages
+ * */
+.heading {
+    text-transform: uppercase;
+    text-align: left;
+    font-family: sans-serif;
+    font-style: italic;
+    font-size: 1.0em;
+    opacity: 0.4;
+}
+

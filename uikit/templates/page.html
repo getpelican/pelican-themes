@@ -1,0 +1,20 @@
+{% extends "uikit.html" %}
+{% import 'article_macros.html' as article_macros %}
+{% import 'html_macros.html' as html_macros %}
+
+{% block head %}
+{{ super() }} {{ html_macros.get_meta(page) }}
+{% endblock head %}
+{% block titlename %}{{page.title}}{% endblock titlename %}
+
+{% block content %}
+<article class="uk-article">
+    <h1 class="{% if CAPITALIZE_HEADINGS %}capitalize{% endif %} uk-article-title">
+        <a href="/{{ page.url }}">{{ page.title }}</a>
+    </h1>
+    <p class="uk-article-meta">
+    {{ article_macros.get_meta(SITEURL, page, False) }}
+    </p>
+    {{ page.content }}
+</article>
+{% endblock content %}
