@@ -39,7 +39,7 @@
             <div class="header">
                 <ul class="nav nav-pills pull-right">
                     <li class="{% block navclass %}{{ NAVCLASS }}{% endblock navclass %}"><a href="{{ SITEURL }}">Home</a></li>
-                {% for p in PAGES %}
+                {% for p in pages %}
                     <li{% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
                 {% endfor %}
                     <li{% if author or tag %} class="active"{% endif %}{% block archclass %}{{ ARCHCLASS }}{% endblock archclass %}><a href="{{ SITEURL }}/archives.html">Archives</a></li>

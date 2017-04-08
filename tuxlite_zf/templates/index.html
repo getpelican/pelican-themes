@@ -41,7 +41,7 @@
 {% else %}
 
     <h3>Pages</h3>
-    {% for page in PAGES %}
+    {% for page in pages %}
         <li><a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a></li>
     {% endfor %}
 

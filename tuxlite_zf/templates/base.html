@@ -49,7 +49,7 @@
     {% endfor %}
 
     {% if DISPLAY_PAGES_ON_MENU %}
-        {% for page in PAGES %}
+        {% for page in pages %}
             <li><a href="{{ SITEURL }}/{{ page.url }}" class="button secondary small">{{ page.title }}</a></li>
         {% endfor %}
     {% endif %}

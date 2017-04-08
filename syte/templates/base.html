@@ -32,7 +32,7 @@
       {% endif %}
 
       {% if DISPLAY_PAGES_ON_MENU %}
-        {% for current_page in PAGES %}
+        {% for current_page in pages %}
       <li><a href="{{ SITEURL }}/{{ current_page.url }}">{{ current_page.title }}</a></li>
         {% endfor %}
       {% endif %}

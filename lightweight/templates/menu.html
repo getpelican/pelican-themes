@@ -1,7 +1,7 @@
 <nav id="menu">
   <a href="{{ SITEURL }}/index.html">Accueil</a>
   {% if DISPLAY_PAGES_ON_MENU != False%}
-    {% for p in PAGES %}
+    {% for p in pages %}
   <a {% if p == page %}class="active" {% endif %}href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a>
     {% endfor %}
   {% else %}
