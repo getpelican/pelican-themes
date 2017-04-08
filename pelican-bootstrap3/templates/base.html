@@ -210,6 +210,10 @@
 {% include 'includes/ga.html' %}
 {% include 'includes/piwik.html' %}
 
+{% if 'liquid_tags.notebook' in PLUGINS %}
+    {% include 'includes/liquid_tags_nb_footer.html' %}
+{% endif %}
+
 {% block scripts %}{% endblock %}
 </body>
 </html>
