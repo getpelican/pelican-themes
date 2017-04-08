@@ -47,7 +47,7 @@
                     <a href="{{ link }}">{{ title }}</a>&nbsp;
                 {% endfor %}
                 {% if DISPLAY_PAGES_ON_MENU %}
-                {% for page in PAGES %}
+                {% for page in pages %}
                     <a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a>&nbsp;
                 {% endfor %}
                 {% endif %}

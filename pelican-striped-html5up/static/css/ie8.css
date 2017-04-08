@@ -1,0 +1,64 @@
+/*
+	Striped by Pixelarity
+	pixelarity.com | hello@pixelarity.com
+	License: pixelarity.com/license
+*/
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form select,
+form textarea {
+	position: relative;
+	box-shadow: none !important;
+	-ms-behavior: url("assets/js/ie/PIE.htc");}
+
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+button,
+.button {
+	position: relative;
+	box-shadow: none !important;
+	-ms-behavior: url("assets/js/ie/PIE.htc");}
+
+.pagination .pages a {
+	position: relative;
+	box-shadow: none !important;
+	-ms-behavior: url("assets/js/ie/PIE.htc");
+}
+
+.box.calendar td a, .box.calendar td span {
+	position: relative;
+	box-shadow: none !important;
+	-ms-behavior: url("assets/js/ie/PIE.htc");
+}
+
+.box.text-style1 .inner {
+	position: relative;
+	box-shadow: none !important;
+	-ms-behavior: url("assets/js/ie/PIE.htc");
+}
+
+#nav li a {
+	position: relative;
+	box-shadow: none !important;
+	-ms-behavior: url("assets/js/ie/PIE.htc");
+}
+
+.box.post .info {
+	box-shadow: none !important;
+	-ms-behavior: url("assets/js/ie/PIE.htc");
+}
+
+	.box.post .info .stats li a {
+		position: relative;
+		box-shadow: none !important;
+		-ms-behavior: url("assets/js/ie/PIE.htc");
+	}
+
+#logo {
+	position: relative;
+	box-shadow: none !important;
+	-ms-behavior: url("assets/js/ie/PIE.htc");
+}

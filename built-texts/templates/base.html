@@ -41,7 +41,7 @@
       <div class="span3" id="blog-nav">
 	<ul class="nav nav-pills pull-right">
 	  {% if DISPLAY_PAGES_ON_MENU %}
-          {% for page in PAGES %}
+          {% for page in pages %}
             <li><a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a></li>
             {% endfor %}
             {% endif %}

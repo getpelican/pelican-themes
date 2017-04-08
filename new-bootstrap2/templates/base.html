@@ -69,7 +69,7 @@
                   <li><a href="{{ link }}">{{ title }}</a></li>
               {% endfor %}
               {% if DISPLAY_PAGES_ON_MENU %}
-              {% for gpage in PAGES %}
+              {% for gpage in pages %}
                 <li {% if page == gpage %}class="active"{% endif %}><a href="{{ SITEURL }}/{{ gpage.url }}">{{ gpage.title }}</a></li>
               {% endfor %}
                 <li class="divider-vertical"></li>

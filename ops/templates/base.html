@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} {{ SITENAME }}{% endblock %}</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="wb:webmaster" content="ba29596b8c7c7ae7" /> 
+
+    <meta name="description" content="{{ SITEDESCRIPTION }}">
+    <meta name="author" content="{{ AUTHOR }}">
+
+    <link href="{{ SITEURL }}/theme/css/fonts.css" rel="stylesheet" />
+
+    <link href="{{ SITEURL }}/theme/css/normalize.css" rel="stylesheet"/>
+    <link href="{{ SITEURL }}/theme/css/skeleton.css" rel="stylesheet"/>
+    <link href="{{ SITEURL }}/theme/css/github-prettify-theme.css" rel="stylesheet"/>
+    <link href="{{ SITEURL }}/theme/css/custom.css" rel="stylesheet"/>
+    <link href="{{ SITEURL }}/theme/css/pygement.css" rel="stylesheet"/>
+
+    <script src="{{ SITEURL }}/theme/js/jquery.min.js"></script>
+    <script src="{{ SITEURL }}/theme/js/run_prettify.js"></script>
+    <script src="{{ SITEURL }}/theme/js/site.js"></script>
+</head>
+<body class="code-snippets-visible">
+
+<div class="navbar-spacer"></div>
+<nav class="navbar">
+    <div class="container">
+        <ul class="navbar-list">
+            <li class="navbar-item">
+                <a class="navbar-link" href="{{ SITEURL }}/">
+                    HOME
+                </a>
+            </li>
+            {% for page in pages|sort %}
+                <li class="navbar-item">
+                    <a class="navbar-link" href="{{ SITEURL }}/{{ page.url }}">
+                        {{ page.title }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+        <div class="navbar-link">
+            <a href="{{ SITEURL }}/"><img src="{{ SITEURL }}/{{ SITEICON }}" class="site-icon"/></a>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    {% block container %}
+    {% endblock %}
+</div>
+
+{% block footer %}
+{% endblock %}
+
+<script>
+{% if BAIDUID %}
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?{{ BAIDUID }}";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+    })();
+{% endif %}
+{% if DUOSHUONAME %}
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+var duoshuoQuery = {short_name:"{{ DUOSHUONAME }}"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+<!-- 多说公共JS代码 end -->
+{% endif %}
+</script>
+</body>
+</html>
