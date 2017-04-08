@@ -226,3 +226,12 @@
 [submodule "attila"]
 	path = attila
 	url = https://github.com/arulrajnet/attila
+[submodule "bulrush"]
+	path = bulrush
+	url = https://github.com/textbook/bulrush.git
+[submodule "minimalX"]
+	path = minimalX
+	url = https://github.com/art1fa/minimalX.git
+[submodule "jojo"]
+	path = jojo
+	url = https://github.com/dokelung/jojo.git

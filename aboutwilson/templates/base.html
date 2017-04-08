@@ -44,7 +44,7 @@
 							<li><a href="{{ SITEURL }}/{{ link }}"><i class="fa fa-{{ title }} "></i> {{title}}</a></li>
 							{% endfor %}
 							{% if DISPLAY_PAGES_ON_MENU %}
-							{% for page in PAGES %}
+							{% for page in pages %}
 							<li><a href="{{ SITEURL }}/{{ page.url }}"><i class="fa fa-{{ page.title }} "></i> {{page.title}}</a></li>
 							{% endfor %}
 							{% endif %}
@@ -68,7 +68,7 @@
 						<h4>Categories</h4>
 						<ul class="list-unstyled my-list-style">
 							{% for cat, art in categories %}
-							<li><a href="{{SITEURL}}/category/{{cat | replace(" ", "-") }}.html">{{cat}} ({{art | count}})</a></li>
+							<li><a href="{{SITEURL}}/category/{{cat | replace(" ", "-") | lower }}.html">{{cat}} ({{art | count}})</a></li>
 							{% endfor %}
 						</ul>
 					</div>

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<div id="content">
+<div class="inner">
+<!-- {% block content_title %}
+<h2>All articles</h2>
+{% endblock %} -->
+
+{% for article in articles_page.object_list %}
+        <article class="box post post-excerpt">
+                <header> 
+                <h2><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h2> 
+                <p>{{article.headline}}</p>
+                </header>
+                <div class="info">
+                    <span class="date" datetime="{{ article.date.isoformat() }}"><span class="month">{{ article.date | strftime('%b')  }}</span> <span class="day">{{ article.date | strftime('%d')  }}</span> <span class="month"> {{ article.date | strftime('%Y')  }}</span></span>
+                    <!-- <ul class="stats">
+                                    <li><a href="#" class="icon fa-comment">16</a></li>
+                                    <li><a href="#" class="icon fa-heart">32</a></li>
+                                    <li><a href="#" class="icon fa-twitter">64</a></li>
+                                    <li><a href="#" class="icon fa-facebook">128</a></li>
+                                </ul> -->
+                </div><!-- /.post-info -->
+                <div class="entry-content"> &nbsp; </div><!-- /.entry-content -->
+        </article>
+{% endfor %}
+<!-- /#posts-list -->
+{% if articles_page.has_other_pages() %}
+    {% include 'pagination.html' %}
+{% endif %}
+</div>
+</div><!-- /#content -->
+{% endblock content %}

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %} {{ SITENAME }} - Tags {% endblock %}
+
+{% block container %}
+
+    <section id="tags">
+        <header class="header">
+            {% for tag,articles in tags|sort %}
+                <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>({{ articles|count }})
+            {% endfor %}
+        </header>
+    </section><br/><br/><br/>
+
+{% endblock %}
+
+{% block footer %}
+    {% include '_includes/footer.html' %}
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}{{ SITENAME }} - {{ author }}{% endblock %}
+{% block content %}
+<div class="author-page-header">
+    {% if author|string in BLOG_AUTHORS %}
+    <!--
+    {% if BLOG_AUTHORS.get(author|string).cover %}
+    <div class="cover" style="background-image: url({{ BLOG_AUTHORS.get(author|string).cover }});background-color: rgba(102, 102, 102, 0.3);background-blend-mode: multiply;"></div>
+    {% endif %}
+    -->
+    <div class="author-profile" style="text-align:left;padding-top:5%">
+      <div class="pure-u-17-24">
+        <h1>{{ author }}</h1>
+        <p class="author-description">
+            {{ BLOG_AUTHORS.get(author|string).description }}
+            {% for icon, link in BLOG_AUTHORS.get(author|string).links %}
+            <a href="{{ link }}" style="color:rgba(0,0,0,0.6)"><i class="fa fa-{{ icon }}"></i></a>
+            {% endfor %}
+        </p>
+        <!--
+        <ul class="author-links">
+            {% for icon, link in BLOG_AUTHORS.get(author|string).links %}
+            <li><a href="{{ link }}"><i class="fa fa-{{ icon }}"></i></a>
+            {% endfor %}
+        </ul>
+        -->
+      </div>
+      <div class="pure-u-6-24" style="padding-top:1%">
+        <div class="avatar{% if not BLOG_AUTHORS.get(author|string).cover %}-no-cover{% endif %}"><img src="{{ BLOG_AUTHORS.get(author|string).image}}" alt="{{ author|striptags }}"></div>
+      </div>
+    </div>
+    {% endif %}
+</div>
+
+<div class="author-page-divider">
+    <span>Latest Posts</span>
+</div>
+
+
+<div class="main-container">
+    <div class="pure-g">
+        <div class="pure-u-1">
+
+            {% include "includes/posts.html" %}
+
+            {% include "pagination.html" %}
+
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

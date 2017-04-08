@@ -1,0 +1,154 @@
+{% extends "base.html" %}
+{% block title %}{{ article.title|striptags }}{% endblock %}
+{% block content %}
+<div class="page-container">
+    <div class="entry-content">
+      {% for author in article.authors %}
+      <div class="post-meta pure-u-10-24">
+          {% if author|string in BLOG_AUTHORS %}
+          <div class="pure-u">
+              <img src="{{ BLOG_AUTHORS.get(author|string).image }}" class="post-avatar" alt="Go to the profile of {{ author|striptags }}">
+          </div>
+          {% endif %}
+          <div class="pure-u meta-data">
+              <a href="{{ SITEURL }}/{{ author.url }}" class="category">{{ author }}</a><br />
+              {{ BLOG_AUTHORS.get(author|string).short_description }}<br />
+              <abbr title="{{ article.date.isoformat() }}">{{ article.locale_date }}</abbr>
+              {% if article.readtime_minutes %}
+              &mdash; {{ article.readtime_minutes }} min read
+              {% endif %}
+          </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="article-header-container">
+        <div class="background-image-container">
+
+            {# title with big background image #}
+            {% if article.cover %}
+            <div class="background-image" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url({{ article.cover }});">
+                <img src="{{ article.cover }}" alt="{{ article.title|striptags }}">
+                <div class="title">
+                <h1>
+                    {{ article.title }}
+                </h1>
+                {% if article.subtitle %}
+                <h2>
+                    {{ article.subtitle }}
+                </h2>
+                {% endif %}
+                </div>
+            </div>
+            {% else %}
+            <div class="background-image-small">
+                {% if article.thumbnail %}
+                <img src="{{ article.thumbnail }}" alt="{{ article.title|striptags }}">
+                {% endif %}
+                <div class="title-container">
+                    <h1>{{ article.title }}</h1>
+                    {% if article.subtitle %}
+                    <h4>{{ article.subtitle }}</h4>
+                    {% endif %}
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="entry-content">
+        <!--
+        <div align="right">
+          {% set i = article.authors|count %}
+          {% if i != 1 %}
+          Authors:<br>
+          {% endif %}
+          {% if i == 1 %}
+          Author:<br>
+          {% endif %}
+          {% if article.authors %}
+            {% for author in article.authors %}
+              <a href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a><br>
+            {% endfor %}
+          {% endif %}
+        </div>
+        -->
+
+        {{ article.content }}
+    </div>
+
+    <footer>
+        {% if article.tags %}
+        <div class="tags">
+            {% for tag in article.tags %}
+            <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag | escape }}</a>
+            {% endfor %}
+        </div>
+        {% endif %}
+        <div class="pure-g post-footer">
+            {% if article.authors %}
+            <div class="pure-g">
+                {% for author in article.authors %}
+                <div class="pure-g poster-info">
+                    {% if author|string in BLOG_AUTHORS %}
+                    <div class="pure-u">
+                        <a href="{{ SITEURL }}/{{ author.url }}"><img src="{{ BLOG_AUTHORS.get(author|string).image }}" alt=""></a>
+                    </div>
+                    {% endif %}
+                    <div class="pure-u">
+                        <h3 class="author-name"><a href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a></h3>
+                        <p class="author-description">
+                          {% if BLOG_AUTHORS %}
+                          {{ BLOG_AUTHORS.get(author|string).description }}
+                          {% endif %}
+                        </p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+
+            <!--
+            {% if article.category|string in BLOG_CATEGORIES %}
+            <div class="pure-u-1 pure-u-md-1-2">
+
+                <div class="pure-g post-category-info">
+                    <div class="pure-u">
+                        <a href="{{ SITEURL }}/{{ article.category.url }}"><img src="{{ BLOG_CATEGORIES.get(article.category|string).thumbnail }}" alt=""></a>
+                    </div>
+                    <div class="pure-u-3-4">
+                        <h3 class="author-name"><a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a></h3>
+                        <p class="author-description">
+                          {{ BLOG_CATEGORIES.get(article.category|string).description }}
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+            {% endif %}
+            -->
+
+        </div>
+
+
+    </footer>
+
+    {% if DISQUS_SITENAME %}
+    <div class="entry-content">
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            var disqus_shortname = '{{ DISQUS_SITENAME }}';
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    </div>
+    {% endif %}
+
+</div>
+
+{% endblock %}

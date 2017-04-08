@@ -4,6 +4,7 @@
   <head>
     {% block head %}
     <title>{% block title %}{% endblock title %} - {{ SITENAME }}</title>
+    <meta charset="utf-8" />
     <link href="http://fonts.googleapis.com/css?family=Arimo:400,700|Inika" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/pastie.css" />
@@ -32,9 +33,9 @@
               <li {% block menu_entry_tag %}{% endblock %}><a href="{{ SITEURL }}/tags/">Tags</a></li>
               <li {% block menu_entry_archive %}{% endblock %}><a href="{{ SITEURL }}/archives/">Archiv</a></li>
               {% if DISPLAY_PAGES_ON_MENU %}
-              {% if PAGES %}
+              {% if pages %}
               <li class="nav-header">Seiten</li>
-              {% for p in PAGES %}
+              {% for p in pages %}
               <li{% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
               {% endfor %}
               {% endif %}

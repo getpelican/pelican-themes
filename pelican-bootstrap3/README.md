@@ -21,7 +21,22 @@ First:
 
 Then:
 
-Point the `THEME` variable in your `pelicanconf.py` to `/path/to/pelican-bootstrap3`
+Point the `THEME` variable in your `pelicanconf.py` to
+`/path/to/pelican-bootstrap3` and add 
+
+```
+JINJA_ENVIRONMENT = {'extensions': ['jinja2.ext.i18n']}
+```
+
+to your Pelican configuration, as this template can be
+translated (see `Translations` below). You also
+need to activate a plugin that initializes the i18n jinja extension. One
+possibility is an up to date version of the
+[`i18n_subsites`](https://github.com/getpelican/pelican-plugins/tree/master/i18n_subsites)
+plugin:
+
+`PLUGIN_PATHS = ['/path/to/git/pelican-plugins']`
+`PLUGINS = ['i18n_subsites']`
 
 ## Usage
 
@@ -237,7 +252,11 @@ icon to show. You can provide an alternative icon string as the third string (as
 * **Recent Posts** will be shown if `DISPLAY_RECENT_POSTS_ON_SIDEBAR` is set to _True_
 	* Use `RECENT_POST_COUNT` to control the amount of recent posts. Defaults to **5**
 
-To remove the sidebar entirely, set `HIDE_SIDEBAR` to _True_.
+Other sidebar related options include:
+
+* To remove the sidebar entirely, set `HIDE_SIDEBAR` to _True_.
+* To move the sidebar to the left, set `SIDEBAR_ON_LEFT` to _True_.
+* To turn off inlined icons in the titles set `DISABLE_SIDEBAR_TITLE_ICONS` to
 
 ### reStructuredText styles
 
@@ -313,7 +332,7 @@ As an alternative, you may use [Shariff](https://github.com/heiseonline/shariff)
   * To customize the social media buttons, set
     * `SHARIFF_BACKEND_URL` (see [Shariff Backends](https://github.com/heiseonline/shariff#backends))
     * `SHARIFF_LANG` (`de` (default), `en` or `fr`)
-    * `SHARIFF_ORIENTATION` (`horizontal` (defualt) or `vertical`)
+    * `SHARIFF_ORIENTATION` (`horizontal` (default) or `vertical`)
     * `SHARIFF_SERVICES` (default: `[&quot;facebook&quot;,&quot;googleplus&quot;]`)
     * `SHARIFF_THEME` (`standard` or `gray`)
     * `SHARIFF_TWITTER_VIA` (`True`/`False`, uses `TWITTER_USERNAME`)
@@ -346,6 +365,11 @@ SIDEBAR_IMAGES = ["/path/to/image1.png", "/path/to/image2.png"]
 Originally developed for including certification marks in your sidebar. E.g.,
 
 http://dmark.github.io
+
+### Translations
+
+This template can be translated using pybabel and the enclosed Makefile. See
+[Localizing themes with Jinja2](https://github.com/getpelican/pelican-plugins/blob/master/i18n_subsites/localizing_using_jinja2.rst) for more details and pointers.
 
 ## Live example
 

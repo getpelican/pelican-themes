@@ -1,18 +1,18 @@
 {% extends "base.html" %}
-{% block title %}Categories - {{ SITENAME }}{% endblock %}
+{% block title %}{{ _('Categories') }} - {{ SITENAME }}{% endblock %}
 
 {% block breadcrumbs %}
     {% if DISPLAY_BREADCRUMBS %}
     <ol class="breadcrumb">
         <li><a href="{{ SITEURL }}" title="{{ SITENAME }}"><i class="fa fa-home fa-lg"></i></a></li>
-        <li class="active">Categories</li>
+        <li class="active">{{ _('Categories') }}</li>
     </ol>
     {% endif %}
 {% endblock %}
 
 {% block content %}
     <section id="categories">
-        <h1>All Categories for {{ SITENAME }}</h1>
+      <h1>{{ _('All Categories for')  }} {{ SITENAME }}</h1>
         <div class="panel-group" id="accordion">
             {% for category, articles in categories %}
             <div class="panel panel-default">
