@@ -1,6 +1,5 @@
 # pelican-bootstrap3
 
-<<<<<<< HEAD
 This is a Bootstrap 3 theme for Pelican, originally developed by [DandyDev](https://github.com/DandyDev).
 It's fully responsive and contains sub-themes from the Bootswatch project.
 Pelican-bootstrap3 is compatible with Pelican 3.3.0 and higher.
@@ -9,7 +8,6 @@ This is a Bootstrap 3 theme for Pelican, originally developed by
 [DandyDev](https://github.com/DandyDev).  It's fully responsive and contains
 sub-themes from the Bootswatch project.  Pelican-bootstrap3 is compatible with
 Pelican 3.3.0 and higher.
->>>>>>> fd0a6ceb4158701ca63e9b40169d5a1be4ba7772
 
 ## CONTRIBUTING
 
