@@ -9,7 +9,7 @@
         </header>
         <dl>
             <h3>{{ category }}</h3>
-            {% for article in articles|sort %}
+            {% for article in articles %}
                 <dd>
                     <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
                 </dd>
