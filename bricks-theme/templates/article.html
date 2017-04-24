@@ -27,9 +27,6 @@
         <div class="entry-content">
             {{ article.content }}
         </div>
-        {% if ADD_TO_SOCIAL %}
-        {% include 'article_addsocial.html' %}
-        {% endif %}
     </section>
     <footer class="footer-article">
         <div class="tags-and-categories">Filed under <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>
@@ -44,7 +41,5 @@
         {% endfor %}
         -->
     </footer>
-    <!-- disqus {{ DISQUS_SITENAME }} -->
-    {% include 'article_discus.html' %}
 </div>
 {% endblock %}
