@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block meta_tags_in_head %}
+{{ super() }}
+<meta property="og:url" content="{{ SITEURL }}" />
+<meta property="og:site_name" content="{{ SITENAME|striptags|e }}" />
+<meta property="og:article:author" content="{{ AUTHOR }}" />
+{% endblock meta_tags_in_head %}
+
+
+{% block sidebar_left %}
+    {% include '_includes/dashboard.html' %}
+{% endblock sidebar_left %}
+
+{% block sidebar_right %}
+    {% include '_includes/projects.html' %}
+    {% include '_includes/links.html' %}
+{% endblock sidebar_right%}
+
+
+{% block content %}
+{% if articles %}
+    <div id="content" class="row">
+        <ul class="list-group list-unstyled" id="posts-list">
+            {% for article in articles_page.object_list %}
+                <li class="list-group-item">
+                    <article class="hentry">
+                        <header>
+                            <h2><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h2>
+                        </header>
+                        <div class="tagged">
+                            {% if article.tags %}
+                                <i class="fa fa-tags"></i>
+                                {% for tag in article.tags %}
+                                    <a class="label label-default" href="{{ SITEURL }}/tags.html#{{ tag.slug }}-ref">{{ tag }}</a>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                        <div class="entry-content">
+                            {{ article.summary }}
+                        </div>
+                        <div class="row">
+                        <div class="read-me col-md-9"><a class="btn btn-success"  type="button" href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">Read more</a>
+                        </div>
+                        <div class="comment-count col-md-3">{% include '_includes/comments.html' %}</div>
+                        </div>
+                        <!-- /.entry-content -->
+                    </article>
+                </li>
+                {% if loop.last %}
+                    {% if loop.length > 1 or articles_page.has_other_pages() %}
+                        </ul><!-- /#posts-list -->
+                        {% if articles_page.has_other_pages() %}
+                            <br/>
+                            <div>{% include 'pagination.html' %}</div>
+                        {% endif %}
+                        </div><!-- /#content -->
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+{% endif %}
+{% endblock content %}
+

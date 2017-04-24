@@ -1,0 +1,47 @@
+{% if SOCIAL %}
+{% for entry in SOCIAL %}
+{% set f_entry = [] %}
+    {%for item in entry %}
+        {# first is for name #}
+        {% if loop.first %}
+            {% set link_title = 'My ' + item + ' Profile' %}
+            {% set link_icon = item.lower() %}
+            {% if item.lower() == 'email' %}
+                {% set link_title = 'My ' + item + ' Address' %}
+                {% set link_icon = 'envelope-o' %}
+            {% elif item.lower() == 'rss' %}
+                {% set link_title = 'Subscribe in a reader' %}
+                {% set link_icon = 'rss' %}
+            {% endif %}
+            {% if f_entry.insert(0, link_title) %}{% endif %}
+            {% if f_entry.insert(1, link_icon) %}{% endif %}
+        {% elif loop.index0 == 1 %}
+            {% set url = item|e %}
+            {% if f_entry.insert(2, url) %}{% endif %}
+        {% elif loop.index0 == 2 %}
+            {% set link_icon = item.lower() %}
+            {% if f_entry.pop(1) %}{% endif %}
+            {% if f_entry.insert(1, link_icon) %}{% endif %}
+        {% endif %}
+    {% endfor %}
+    {% if f_entry[1] == 'qq' %}
+        <li><a id="qq" tabindex="0" role="button" data-toggle="popover" data-trigger="focus" data-content='<img src="{{ SITEURL }}/theme/images/qq_qrcode.jpg" width=100% height=100% />' data-title="{{ f_entry[2] }}">
+        <i class="fa fa-{{f_entry[1]}} sidebar-social-infos"></i></a></li>
+        <script type="text/javascript">
+            $(function () {
+                  $('#qq').popover({html : true })
+                })
+        </script>
+    {% elif f_entry[1] == 'weixin' %}
+        <li><a id="weixin" tabindex="0" role="button" data-toggle="popover" data-trigger="focus" data-content='<img src="{{ SITEURL }}/theme/images/weixin_qrcode.jpg" width=100% height=100% />' data-title="{{ f_entry[2] }}">
+        <i class="fa fa-{{f_entry[1]}} sidebar-social-infos"></i></a></li>
+        <script type="text/javascript">
+            $(function () {
+                  $('#weixin').popover({html : true })
+                })
+        </script>
+    {% else %} 
+        <li><a href="{{f_entry[2]}}" title="{{f_entry[0]}}" class="sidebar-social-info" target="_blank"><i class="fa fa-{{f_entry[1]}} sidebar-social-infos"></i></a></li>
+    {% endif %}   
+{% endfor %}
+{% endif %}

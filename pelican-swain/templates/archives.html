@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}
+All Posts · {{ super() }}
+{% endblock title %}
+
+{% block meta_tags_in_head %}
+{{ super() }}
+<meta property="og:title" content="All Posts · {{ SITENAME|striptags|e }}"/>
+<meta name="twitter:title" content="All Posts · {{ SITENAME|striptags|e }}">
+<meta property="og:url" content="{{ SITEURL }}/archives.html" />
+<meta property="og:description" content="Full archives of {{ SITENAME|striptags|e }} blog" />
+<meta name="twitter:description" content="Full archives of {{ SITENAME|striptags|e }} blog">
+<meta property="og:site_name" content="{{ SITENAME|striptags|e }}" />
+<meta property="og:article:author" content="{{ AUTHOR }}" />
+{% endblock meta_tags_in_head %}
+
+
+{% block content %}
+<div class="row">
+    <header class="text-center page-header">
+    <h1><a href="{{ SITEURL }}/archives.html">All Posts</a></h1>
+    </header>
+</div>
+{% set last_year = 0 %}
+{% for article in dates %}
+{% set year = article.date.strftime('%Y') %}
+{% if last_year != year %}
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">    
+            <div class="panel-heading"><i class="fa fa-pencil-square-o"></i><span>{{ year }}</span></div>
+            <ul class="list-group">
+            {% for article in dates %}
+            {% if article.date.strftime('%Y') == year %}
+            <a class="list-group-item" href="{{ SITEURL }}/{{ article.url }}"><time pubdate="pubdate" datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time>{{ article.title }} {%if article.subtitle %} <small> {{ article.subtitle }} </small> {% endif %}</a>
+            {% endif %}
+            {% endfor %}
+            </ul>
+        </div>    
+    </div>
+</div>
+{% set last_year = year %}
+{% endif %}
+{% endfor %}
+{% endblock content %}

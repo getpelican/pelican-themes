@@ -1,0 +1,13 @@
+{% if ABOUT_ME %}
+<div class="panel panel-primary">
+    <div class="panel-heading"><i class="fa fa-user"></i></div>
+    <div class="panel-body">
+        <img class="img-rounded" src="{{ SITEURL }}/theme/images/author.jpg" alt="..." width="100%" height="100%"/>
+        {% if AUTHOR %}<h3>{{ AUTHOR }}</h3>{% endif %}
+        <ul class="list-inline">
+        {% include '_includes/social_info.html' %}
+        </ul>
+        {{ABOUT_ME}}
+    </div>
+</div>
+{% endif %}

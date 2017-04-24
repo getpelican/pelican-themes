@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="{{ DEFAULT_LANG }}">
+<head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, height=device-width, initial-scale=1">
+        {% if article and article.author %}
+        <meta name="author" content="{{ article.author }}" />
+        <meta name="copyright" content="{{ article.author }}" />
+        {% elif page and page.author %}
+        <meta name="author" content="{{ page.author }}" />
+        <meta name="copyright" content="{{ page.author }}" />
+        {% else %}
+        <meta name="author" content="{{ AUTHOR }}" />
+        <meta name="copyright" content="{{ AUTHOR }}" />
+        {% endif %}
+        {% block meta_tags_in_head %}
+        <meta property="og:type" content="article" />
+        {% endblock meta_tags_in_head %}
+
+        <title>{% block title %}{{ SITENAME }}{%endblock%}</title>
+        {% include '_includes/head_script.html' %}
+
+        {% include '_includes/head_css.html' %}
+
+        {% if FEED_ALL_ATOM %}
+        <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed" />
+        {% endif %}
+        {% if FEED_ALL_RSS %}
+        <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS Feed" />
+        {% endif %}
+        <link rel="icon" href="{{ SITEURL }}/theme/images/favicon.ico" type="image/x-icon" />
+        {% block head_links %}
+        {% endblock head_links %}
+        {% block feed_links %}
+        {% endblock feed_links %}
+</head>
+
+<body>
+    <!-- navbar start -->
+    <nav class="navbar navbar-inverse navbar-static-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <i class="fa fa-bars fa-lg fa-inverse"></i>
+<!--                 <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span> -->
+                </button>
+                <a class="navbar-brand" href="{{ SITEURL }}">{{ SITENAME }}</a>
+            </div>
+
+            <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li {% if page_name == 'index' %} class="active"{% endif %}><a href="{{ SITEURL }}">Home</a></li>
+                    {% if DISPLAY_PAGES_ON_MENU %}
+                        {% for p in pages %}
+                        <li {% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
+                        {% endfor %}
+                    {% endif %}
+                    <li {% if page_name == 'categories' %} class="active"{% endif %}><a href="{{ SITEURL }}/categories.html">Categories</a></li>
+                    <li {% if page_name == 'tags' %} class="active"{% endif %}><a href="{{ SITEURL }}/tags.html">Tags</a></li>
+                    <li {% if page_name == 'archives' %} class="active"{% endif %}><a href="{{ SITEURL }}/archives.html">Archives</a></li>
+                </ul>
+                <form class="navbar-search navbar-form navbar-right" action="{{ SITEURL }}/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form>
+            </div>
+        </div>
+    </nav>
+    <!-- navbar end -->
+    <div class="container-fluid" id="container">
+        <div class="row-fluid">
+            <div class="col-md-2" id="sidebar_left">
+                {% block sidebar_left %}
+                {% endblock sidebar_left %}
+            </div>
+            <div class="col-md-8" id="center_page">
+                {% block content %}
+                {% endblock content %}
+            </div>
+            <div class="col-md-2" id="sidebar_right">
+                {% block sidebar_right %}
+                {% endblock sidebar_right %}
+            </div>
+        </div>
+    </div>
+
+    <!-- go to top -->
+    <div id ="go-top" style="display:none;">
+    <a>
+    <i class="fa fa-arrow-circle-o-up fa-lg fa-4x" id="go-top-i"></i>
+    </a>
+    </div>
+    <!-- footer -->
+    <div id="push"></div>
+    {% include '_includes/footer.html' %}
+    
+    {% include '_includes/disqus_scripts.html' %}
+    {% block script %}
+    {% endblock script %}
+</body>
+</html>

@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block title %}
+All Categories · {{ super() }}
+{% endblock title %}
+
+{% block head_description %}
+All categories of the {{ SITENAME|striptags|e }} blog. 
+{% endblock head_description %}
+
+{% block meta_tags_in_head %}
+{{ super() }}
+<meta property="og:title" content="All Categories · {{ SITENAME|striptags|e }}"/>
+<meta property="og:url" content="{{ SITEURL }}/categories.html" />
+<meta property="og:description" content="All categories of the {{ SITENAME|striptags|e }} blog" />
+<meta property="og:site_name" content="{{ SITENAME|striptags|e }}" />
+<meta property="og:article:author" content="{{ AUTHOR }}" />
+{% endblock meta_tags_in_head %}
+
+{% block content %}
+<div class="row">
+    <header class="page-header text-center">
+    <h1><a href="{{ SITEURL }}/categories.html">All Categories</a></h1>
+    </header>
+</div>
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+            {% for category, articles in categories %}
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="{{ category.slug }}-id">
+                    <h4 class="panel-title">
+                    <a type="button" data-toggle="collapse" data-parent="#accordion" href="#{{ category.slug }}-ref" aria-expanded="true" aria-controls="{{ category.slug }}-ref">
+                        {% set num = articles|count %}
+                        {{ category }}<span class="badge">{{ num }}</span>
+                    </a>
+                    </h4>
+                </div>
+                <div id="{{ category.slug }}-ref" class="panel-collapse collapse" role="tabpanel" aria-labelledby="{{ category.slug }}-id">
+                    <div class="panel-body">
+                        <ul class="list-unstyled">
+                            {% for article in articles %} 
+                            <li><time class="col-md-2 col-xs-12" pubdate="pubdate" datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time><a class="col-md-10 col-xs-12" href="{{ SITEURL }}/{{ article.url }}">{{ article.title }} {%if article.subtitle %} <small> {{ article.subtitle }} </small> {% endif %} </a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+{% block script %}
+<script  language="javascript" type="text/javascript">
+    function uncollapse() {
+            $(window.location.hash).collapse('show')
+    }
+</script>
+
+<script type="text/javascript" language="JavaScript">
+    uncollapse(); 
+</script>
+{% endblock script %}
