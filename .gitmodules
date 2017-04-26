@@ -85,9 +85,6 @@
 [submodule "jesuislibre"]
 	path = jesuislibre
 	url = https://github.com/badele/pelican-theme-jesuislibre.git
-[submodule "pelipress"]
-	path = pelipress
-	url = https://github.com/jjimenezlopez/pelipress.git
 [submodule "blueidea"]
 	path = blueidea
 	url = https://github.com/blueicefield/pelican-blueidea.git
@@ -168,7 +165,7 @@
 	url = https://github.com/abr4xas/Casper2Pelican.git
 [submodule "octopress"]
 	path = octopress
-	url = https://github.com/duilio/pelican-octopress-theme.git
+	url = https://github.com/MrSenko/pelican-octopress-theme
 [submodule "smoothie"]
 	path = smoothie
 	url = https://github.com/kdheepak89/pelican-smoothie.git
