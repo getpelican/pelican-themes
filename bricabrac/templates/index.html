@@ -12,21 +12,22 @@
 </header>
 <article>
 {{ article.summary }}
-<p><a href="{{ SITEURL }}/{{ article.url }}" id="page-title"><u>lire la suite</u></a></p>
 </article>
+<p id="continue"><a href="{{ SITEURL }}/{{ article.url }}" id="page-title"><u>{{ gettext('lire la suite') }}</u></a></p>
             {% if loop.length > 1 %}
 <section id="article-list">
-<h2>Tous les articles</h2>
-<ol>
+<h2>{{ gettext('Tous les articles') }}</h2>
+<dl>
             {% endif %}
         {# other items #}
-        {% else %} 
-<li><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalien vers {{ article.title|striptags }}">{{ article.title }}</a></li>
+        {% else %}
+<dt>{{ article.locale_date }}</dt>
+<dd><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark">{{ article.title }}</a></dd>
         {% endif %}
 {% endfor %}
-    </ol>
-    </section><!-- #article-list -->
+    </dl>
 {% else %}
-    No posts found.
+    <p>{{ gettext('Aucun article') }}.</p>
+    </section><!-- #article-list -->
 {% endif %}
 {% endblock content %}
