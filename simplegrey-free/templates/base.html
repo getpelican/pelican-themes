@@ -1,0 +1,153 @@
+﻿<!doctype html>
+<html lang="{{ HTML_LANG }}">	
+<head>
+	<meta charset="utf-8"/>
+	<title>{% block title %}{{ SITENAME }}{%endblock%}</title>	
+	<meta name="author" content="{{ AUTHOR }}">
+	
+	{% block extra_meta %}
+	{% endblock %}
+
+	<link rel="top" href="#" />
+	<link rel="stylesheet" href="{{ SITEURL }}/theme/css/{{ CSS_FILE }}" type="text/css" />
+		
+	{% block scripts %}
+{% if FRIENDICA_COMMENTS %}
+<script type="text/javascript">
+var friendica_domain = "{{ FRIENDICA_COMMENTS }}"
+</script>
+{% endif %}
+	{% endblock %}
+
+    {% if FEED_ALL_ATOM %}
+        <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed" />
+    {% endif %}
+    {% if FEED_ALL_RSS %}
+        <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS Feed" />
+    {% endif %}
+    {% if GNUSOCIAL_TIMELINE %}
+        <script type="text/javascript">
+            {% for variable, value in GNUSOCIAL_TIMELINE %}
+                var  {{ variable }} = '{{ value }}';
+            {% endfor %}
+             parseInt(max);
+             var tag = 'elitimeline';
+        </script>
+    {% endif %}
+</head>
+	
+<body>
+{{ FEED_ATOM }}
+    <div class="container">
+	  
+        <header role="banner">
+	    <div class="feeds">
+                {% if FEED_ALL_ATOM %}
+                    <a href="{{ SITEURL }}/{{ FEED_ALL_ATOM }}" rel="alternate"><img src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/icons/feed-32px.png" alt="atom feed"/></a>
+                {% endif %}
+                {% if FEED_ALL_RSS %}
+                    <a href="{{ SITEURL }}/{{ FEED_ALL_RSS }}" rel="alternate"><img src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/icons/feed-32px.png" alt="rss feed"/></a>
+                {% endif %}
+	    </div>
+	    {% if PAGES %}
+	      <nav class="pages">
+	        {% for p in PAGES %}
+			  <a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a>
+			  {% if not loop.last %}-{% endif %}
+		{% endfor %}
+	      </nav>
+	    {% endif %}
+		<a href="{{ SITEURL }}" class="title">{{ SITENAME }}</a>
+        </header>
+	
+        <div class="wrapper">
+		  
+            <div role="main" class="content">
+                   {% block content %}{% endblock %}
+            </div>	
+		  
+            <div class="sidebar">
+
+	        <nav>
+	          <h2>Categories</h2>
+	          <ul>
+	            {% for cat, null in categories %}
+	              <li {% if cat == category %}class="active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
+	            {% endfor %}
+	          </ul>
+	        </nav>
+
+            {% if DISPLAY_TAGS_ON_SIDEBAR %}
+                <h2>Tags</h2>
+                <ul class="tagcloud">
+                    {% for tag in tag_cloud %}
+                    <li class="tag-{{ tag.1 }}"><a href="{{ SITEURL }}/{{ tag.0.url }}">{{ tag.0 }}</a></li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+            {% if GNUSOCIAL_TIMELINE %}
+                <h2>GNU Social</h2>
+                <div id="elitimeline">
+                    <p>Enable Javascript to view GNU Social timeline!</p>
+                </div>
+	            <script type="text/javascript" src="{{ SITEURL }}/theme/js/eli.js"></script>
+            {% endif %}
+    	    {% if SOCIAL %}
+                <aside>
+                 <h2>Social Networks</h2>
+                    <ul class="social">
+			 {% for name, link in SOCIAL %}
+                            <li><a href="{{ link }}" id="{{ name }}">{{ name }}</a><i></i></li>
+			 {% endfor %}
+		    </ul>
+                </aside>
+            {% endif %}
+
+	        {% if LINKS %}
+                <aside>
+                 <h2>Blogroll</h2>
+                        <ul>
+                            {% for name, link in LINKS %}
+                                <li><a href="{{ link }}">{{ name }}</a></li>
+                            {% endfor %}
+                        </ul>
+	            </aside>
+	        {% endif %}
+        </div>
+  </div>
+
+      <footer>
+		<p role="contentinfo">
+		    {% if LICENSE=="CC-BY" %}
+                        <a href="http://creativecommons.org/licenses/by/4.0/legalcode" rel="alternate"><img src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/licenses/cc-by-88x31.png" alt="CC-BY"/></a>   
+                    {% endif %}
+                    {% if LICENSE=="CC-BY-NC" %}
+                        <a href="http://creativecommons.org/licenses/by-nc/4.0/legalcode" rel="alternate"><img src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/licenses/cc-by-nc-88x31.png" alt="CC-BY-NC"/></a>   
+                    {% endif %}
+                    {% if LICENSE=="CC-BY-SA" %}
+                        <a href="http://creativecommons.org/licenses/by-sa/4.0/legalcode" rel="alternate"><img src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/licenses/cc-by-sa-88x31.png" alt="CC-BY-SA"/></a>   
+                    {% endif %}
+                    {% if LICENSE=="CC-BY-NC-SA" %}
+                        <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/legalcode" rel="alternate"><img src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/licenses/cc-by-nc-sa-88x31.png" alt="CC-BY-NC-SA"/></a>   
+                    {% endif %}
+                    {% if LICENSE=="ALL-RIGHTS-RESERVED" %}
+                        All rights reserved.   
+                    {% endif %}
+                </p>
+                <p role="contentinfo">
+                    © 2015 {{ AUTHOR }} - 
+                    {% if EMAIL %}
+                        E-Mail: {{ EMAIL }}   
+                    {% endif %}
+                </p>
+                <p role="contentinfo">     
+                        Proudly powered by <a href="http://alexis.notmyidea.org/pelican/">pelican</a>.
+                </p>     
+	</footer>	
+
+	</div>
+
+    
+</body>
+</html>

@@ -1,0 +1,18 @@
+﻿{% extends "base.html" %}
+{% block title %}{{ article.title }} - {{ SITENAME }}{% endblock %}
+{% block extra_meta %}
+<meta name="description" content="{{ article.summary|striptags }}">
+
+{% endblock %}
+{% block content %}
+<article class="full">
+<h1>{{ article.title }}</h1>
+{% include 'metadata.inc.html' %}
+{{ article.content }}
+</article>
+{% if FRIENDICA_COMMENTS %}
+<div id="comments">
+</div>
+<script type="text/javascript" src=./theme/js/friendica_comments.js></script>
+{% endif %}
+{% endblock %}
