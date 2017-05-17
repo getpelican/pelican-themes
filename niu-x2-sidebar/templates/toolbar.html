@@ -1,0 +1,11 @@
+{% if NIUX2_TOOLBAR %}
+<div id="niu2-toolbar">
+    <ul class="list-unstyled">
+        <li><a id="niu2-toolbar-ctrlsidebar" href="#" title="{{ NIUX2_HIDE_SIDEBAR_TRANSL | default('Hide Sidebar') }}"><i class="fa fa-3x fa-arrow-circle-right"></i></a></li>
+        <li><a id="niu2-toolbar-revhistory" href="#" title="{{ NIUX2_REVISION_HISTORY_TRANSL | default('Revision History') }}"><i class="fa fa-3x fa-clock-o"></i></a></li>
+        <li><a id="niu2-toolbar-viewsource" href="#" title="{{ NIUX2_VIEW_SOURCE_TRANSL | default('View Source') }}"><i class="fa fa-3x fa-file-o"></i></a></li>
+    </ul>
+    <div id="niu2-toolbar-showsidebar" data-title="{{ NIUX2_SHOW_SIDEBAR_TRANSL | default('Show Sidebar') }}"></div>
+    <div id="niu2-toolbar-github" data-repo="{{ NIUX2_GITHUB_REPO | default('') }}"></div>
+</div>
+{% endif %}

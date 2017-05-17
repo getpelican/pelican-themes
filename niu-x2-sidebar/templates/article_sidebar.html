@@ -1,0 +1,39 @@
+<div id="niu2-sidebar-meta" class="niu2-sidebar">
+    <div class="niu2-sidebar-label"><i class="fa fa-calendar"></i>{{ NIUX2_PUBLISHED_TRANSL | default("Published") }}:</div>
+    <div class="niu2-sidebar-value">{{ article.date.strftime("%Y-%m-%d %H:%M") }}</div>
+    {% if article.updatedate and article.updatedate != article.date %}
+    <div class="niu2-sidebar-label"><i class="fa fa-pencil"></i>{{ NIUX2_LASTMOD_TRANSL | default("Last modified") }}:</div>
+    <div class="niu2-sidebar-value">{{ article.updatedate.strftime("%Y-%m-%d %H:%M") }}</div>
+    {% endif %}
+    {% if NIUX2_CATEGORY_MAP and NIUX2_CATEGORY_MAP[article.category] %}
+    <div class="niu2-sidebar-label"><i class="fa {{ NIUX2_CATEGORY_MAP[article.category][1] }}"></i>{{ NIUX2_CATEGORY_TRANSL | default("Category") }}:</div>
+    <div class="niu2-sidebar-value"><a href="{{ SITEURL }}/{{ article.category.url }}">{{ NIUX2_CATEGORY_MAP[article.category][0] }}</a></div>
+    {% else %}
+    <div class="niu2-sidebar-label"><i class="fa fa-open-folder"></i>{{ NIUX2_CATEGORY_TRANSL | default("Category") }}:</div>
+    <div class="niu2-sidebar-value"><a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a></div>
+    {% endif %}
+    <div class="niu2-sidebar-label"><i class="fa fa-tag"></i>{{ NIUX2_TAG_TRANSL | default("Tag") }}:</div>
+    {% if article.tags %} 
+    {% for tag in article.tags %} 
+    <div class="niu2-sidebar-inter-value niu2-sidebar-tag"><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a></div>
+    {% endfor %} 
+    {% endif %}
+</div>
+
+<div id="niu2-sidebar-toc" class="niu2-sidebar" data-status="closed">
+    {% if article %}
+    <div class="niu2-sidebar-label">
+        <i id="niu2-sidebar-toc-ctrl" class="fa fa-plus"></i>{{ NIUX2_HEADER_TOC_TRANSL | default("TOC") }}
+    </div>
+    <ol id="niu2-sidebar-toc-list">
+        <li><a href="#content-heading">{{ article.title }}</a></li>
+        {{ article.html_toc }}
+        {% if (article.metadata['comment'] is not defined) or (article.metadata['comment'] | trim | upper == 'ON') %}
+        {% if DISQUS_SITENAME or NIUX2_DUOSHUO_SHORTNAME %}
+        <li><a href="#content-comments">{{ NIUX2_COMMENTS_TRANSL | default("Comments") }}</a></li>
+        {% endif %}
+        {% endif %}
+    </ol>
+    {% endif %}
+</div>
+
