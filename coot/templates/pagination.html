@@ -1,0 +1,12 @@
+{% if DEFAULT_PAGINATION %}
+<div class="row">
+    <div class="col s10 offset-s1 m10 offset-m1 l6 offset-l3">
+    {% if articles_page.has_previous() %}
+    <a href="{{ SITEURL }}/{{ articles_previous_page.url }}" style="color: black;"><i class=" left small material-icons" style="font-size: 3rem;">navigate_before</i></a>
+    {% endif %}
+    {% if articles_page.has_next() %}
+    <a href="{{ SITEURL }}/{{ articles_next_page.url }}" style="color: black;"><i class="right small material-icons" style="font-size: 3rem;">navigate_next</i></a>
+    {% endif %}
+    </div>
+</div>
+{% endif %}

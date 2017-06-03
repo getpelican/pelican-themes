@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}{{ page.title }} - {{ super() }}{% endblock title %}    
+{% block description %}{{ SITENAME }}, {{ SITESUBTITLE }}{% endblock description %}
+{% block keywords %}{{ SITENAME }}, {{ SITESUBTITLE }}{% endblock keywords %}
+
+{% block headerstyle %}
+    {% if COOT_HEADER_IMAGES %}
+    <div class="header-img" style="background: url('/images/{{ COOT_HEADER_IMAGES }}') no-repeat 0% 0%;background-position: center;background-size: cover;">
+    {% else %}
+    <div class="head-img" style="background-color: rgb(33,34,35);">
+    {% endif %}
+{% endblock headerstyle %}
+
+{% block header %}
+    <p class="header-title">{{ page.title }}</p>
+    <!-- <p class="header-subtitle">{{ COOT_INDEX_HEADER_SUBTITLE }}</p> -->
+{% endblock header %}
+
+{% block content}
+{% for article in articles %}
+<div class="row">
+    <div class="col s10 offset-s1 m10 offset-m1 l6 offset-l3">
+    {{ page.content }}
+    </div>
+</div>
+{% endfor %}
+{% endblock content %}

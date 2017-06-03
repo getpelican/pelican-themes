@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}{{ author }}- {{ super() }}{% endblock title %}    
+{% block description %}{{ SITENAME }}, {{ SITESUBTITLE }}{% endblock description %}
+{% block keywords %}{{ SITENAME }}, {{ SITESUBTITLE }}{% endblock keywords %}
+
+{% block headerstyle %}
+    {% if COOT_HEADER_IMAGES %}
+    <div class="header-img" style="background: url('/images/{{ COOT_HEADER_IMAGES }}') no-repeat 0% 0%;background-position: center;background-size: cover;">
+    {% else %}
+    <div class="head-img" style="background-color: rgb(33,34,35);">
+    {% endif %}
+{% endblock headerstyle %}
+
+{% block header %}
+    <p class="header-title">{{ author }}</p>
+    <p class="header-subtitle">{{ COOT_AUTHOR_HEADER_SUBTITLE }}</p>
+{% endblock header %}
+
+{% block content %}
+{% for article in articles %}
+<div class="row">
+    <div class="col s10 offset-s1 m10 offset-m1 l6 offset-l3">
+    <a href="/{{ article.url }}"><p class="article-list">{{ article.title }}</p></a>
+    <p class="article-info">
+        <span><a class="grey-text text-lighten-1" href="/{{ article.author.url }}">{{ article.author }}</a> | {{ article.date|strftime('%d %b %Y') }} | </span>
+        {% for tag in article.tags|sort %}
+        <a href="/{{ tag.url }}"><span class="chip">{{ tag }}</span></a>
+        {% endfor %}
+    </p>
+    <div class="divider"></div>
+    </div>
+</div>
+{% endfor %}
+{% endblock content %}
