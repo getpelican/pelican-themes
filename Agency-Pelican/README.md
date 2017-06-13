@@ -1,13 +1,13 @@
 # Agency 
 ## A One Page Portfolio Theme For Pelican
 ### Ported from [Agency](http://startbootstrap.com/template-overviews/agency/) by [Start Bootstrap](http://startbootstrap.com/).
-Configurable options in pelicanconf.py:  
-`SITETITLE (_also used in menu navigation_)
-	SITESUBTITLE
-	INTRO_LG
-	INTRO_SM
-	PORTFOLIO_TITLE = 'Portfolio'
-	PORTFOLIO_SUBTITLE`  
+Additional configurable options in pelicanconf.py:  
+SITETITLE (_also used in menu navigation_)  
+SITESUBTITLE  
+INTRO\_LG (_top line of landing page_)  
+INTRO\_SM (_second line of landing page_)  
+PORTFOLIO\_TITLE  
+PORTFOLIO\_SUBTITLE
 
 The `contents` folder contains portfolio, team, about and 'client logos' images (*see sample content folder*).  
 Each section (services, about, team, contact, clients' aside, etc) is a seperate include of the index template, making it easy to customize the order -- or removal -- of any section.
