@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}{{super()}} - Archives {% endblock title %}
+
+{% block content %}
+<header>
+    <h2> Archives for {{SITENAME}}</h2>
+</header>
+{% for year, year_articles in articles|groupby('date.year')|sort(reverse=True) %}
+<h2>{{ year }}</h2>
+{% for month, month_articles in year_articles|groupby('date.month')|sort(reverse=True) %}
+          {% for article in month_articles|sort(attribute='date',reverse=True) %}
+
+    <h4 >{{ article.date | strftime('%B')}} {{  article.date.day| ordinal() }}: <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a> {% if article.subtitle %}  - {{ article.subtitle | striptags }}{% endif %}</h4>
+    {% endfor %}
+{% endfor %}
+{% endfor %}
+{% endblock content %}

@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}{{ category }} — {{ SITENAME }}{% endblock %}
+{% block content %}
+<header>
+    <h2> Blog entries in the "{{ category }}" category</h2>
+</header>
+    {% for article in articles %}
+         <h4 >{{ article.date | strftime('%B')}} {{  article.date.day| ordinal() }}, {{ article.date.year}}: <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a> {% if article.subtitle %}  - {{ article.subtitle | striptags }}{% endif %}</h4>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<!--
+	halcyonic by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="/{{THEME_STATIC_DIR}}/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="/{{THEME_STATIC_DIR}}/css/main.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="/{{THEME_STATIC_DIR}}/css/ie9.css" /><![endif]-->
+	{% block opengraph %}
+		<meta property="og:locale" content="{{ DEFAULT_LANG }}">
+		<meta property="og:site_name" content="{{ SITENAME }}">
+	{% endblock opengraph %}
+	</head>
+	<body class="subpage">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<div id="header-wrapper">
+					<header id="header" class="container">
+						<div class="row">
+							<div class="12u">
+
+								<!-- Logo -->
+									<h1><a href="/" id="logo">{{ SITENAME }}</a></h1>
+
+								<!-- Nav -->
+									<nav id="nav">
+                                        {% for title, link in MENUITEMS %}
+										<a href="{{link}}">{{title}}</a>
+										{% endfor %}
+									</nav>
+
+							</div>
+						</div>
+					</header>
+				</div>
+
+			<!-- Content -->
+				<div id="content-wrapper">
+					<div id="content">
+						<div class="container">
+							<div class="row">
+								<div class="9u 12u(mobile)">
+
+									<!-- Main Content -->
+
+										<section>
+											{% block content %}
+											
+											{% endblock content %}
+										</section>
+
+								</div>
+								<div class="3u 12u(mobile)">
+
+									<!-- Sidebar -->
+										{% include "includes/sidebar.html" %}
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			<!-- Footer -->
+				{% include "includes/footer.html" %}
+
+
+
+		</div>
+
+		<!-- Scripts -->
+			{% include "includes/scripts.html" %}
+
+	</body>
+</html>
+
+

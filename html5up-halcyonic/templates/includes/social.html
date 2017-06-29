@@ -1,0 +1,13 @@
+                                        <section>
+                                            <header>
+                                                <h2>Social</h2>
+                                            </header>
+                                            <p>
+                                                Vehicula fermentum ligula at pretium. 
+                                            </p>
+                                            <ul class="link-list">
+                                                {% for title, link in SOCIAL %}
+                                                <li><a class="red" href="{{link}}">{{title}}</a></li>
+                                                {% endfor %}
+                                            </ul>
+                                        </section>

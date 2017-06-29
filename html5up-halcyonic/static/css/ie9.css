@@ -1,0 +1,19 @@
+/*
+	halcyonic by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+*/
+
+/* Multi-use */
+
+	.button-big {
+		background-image: url("images/ie/button-big.svg");
+	}
+
+	.button-big:hover {
+		background-image: url("images/ie/button-big-hover.svg");
+	}
+
+	.button-big:active {
+		background-image: url("images/ie/button-big-active.svg");
+	}

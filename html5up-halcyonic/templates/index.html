@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}{{super()}} - {{ SITEDESCRIPTION }}{% endblock title %}
+{% block content %}
+    {% for article in articles_page.object_list %}
+            <header>
+            <h2>{{ article.title}}</h2>
+            {% if article.subtitle %}<h3>{{article.subtitle |striptags}}</h3>{% endif %}
+            <h4>Published on {{ article.date | strftime('%B')  }} {{ article.date.day |ordinal() }}, {{ article.date | strftime('%Y')  }}</h4>
+
+            </header>
+            <p>
+            {{ article.content| striptags|truncate(250)}} (<a class = "red" href="{{article.url}}">Continue Reading</a>)
+            </p>
+    {% endfor %}
+{% include "pagination.html" %}
+{% endblock content %}
