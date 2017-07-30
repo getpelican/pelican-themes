@@ -251,6 +251,7 @@ icon to show. You can provide an alternative icon string as the third string (as
 * **Categories** will be shown if `DISPLAY_CATEGORIES_ON_SIDEBAR` is set to _True_
 * **Recent Posts** will be shown if `DISPLAY_RECENT_POSTS_ON_SIDEBAR` is set to _True_
 	* Use `RECENT_POST_COUNT` to control the amount of recent posts. Defaults to **5**
+* **Archive** will be shown if `DISPLAY_ARCHIVE_ON_SIDEBAR` is set to _True_ and `MONTH_ARCHIVE_SAVE_AS` is set up properly.
 
 Other sidebar related options include:
 
