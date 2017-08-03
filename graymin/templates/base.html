@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="{{ DEFAULT_LANG }}" itemscope itemtype="http://schema.org/Person">
+<head>
+  {% block head %}
+  <meta charset="utf-8">
+  <!-- Site Meta Data -->
+  <title>{% block title %} {{ SITENAME }} {% endblock %}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ AUTHOR_DESCRIPTION }}">
+  <meta name="author" content="{{ AUTHOR }}">
+
+  <link rel="shortcut icon" href="{{ FAVICON }}">
+
+  <!-- schema.org -->
+  <meta itemprop="name" content="{{ SITENAME }}">
+  <meta itemprop="image" content="{{ AVATAR}}">
+  <meta itemprop="description" content="{{ AUTHOR_DESCRIPTION }}">
+
+  <!-- Style Meta Data -->
+  <link rel="stylesheet" href="{{ SITEURL }}/theme/css/milligram.css" type="text/css" />
+  <link rel="stylesheet" href="{{ SITEURL }}/theme/css/custom.css" type="text/css" />
+
+  <!-- Feed Meta Data -->
+  {% if FEED_ALL_ATOM %}
+    <link href="{{ SITEURL }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} ATOM Feed" />
+  {% endif %}
+  {% if FEED_ALL_RSS %}
+    <link href="{{ SITEURL }}/{{ FEED_RSS }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} RSS Feed" />
+  {% endif %}
+
+  <!-- Twitter Feed -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="{{ TWITTER_USERNAME }}">
+  <meta name="twitter:image" content="">
+  {% endblock %}
+</head>
+
+<body>
+    <div class="container">
+
+    <!-- Navbar -->
+      <div class="navbar">
+        <ul>
+            <div>
+                <li>
+                    <a href="{{ SITEURL }}"><h3>{{ SITENAME }}</h3></a>
+                </li>
+                <li>
+                    {% if SITEDESCRIPTION  %}
+                        <em><h6>{{ SITEDESCRIPTION }}</h6></em>
+                    {% endif  %}
+                </li>
+            </div>
+        </ul>
+      </div>
+
+  <!-- Sidebar -->
+    <sidebar>
+        <ul class="static-item">
+        {% for title, link in MENUITEMS %}
+                <li><a href="{{ link }}">{{ title }}</a></li>
+        {% endfor %}
+
+        {% if DISPLAY_PAGES_ON_MENU and PAGES %}
+            {% for p in pages %}
+                <li><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
+            {% endfor %}
+        {% endif %}
+        </ul>        
+
+        <ul>
+        {% if DISPLAY_CATEGORIES_ON_MENU and categories %}
+                <div class="cat-border">
+                <li style="color: #F2F1EF; background-color: #6C7A89;">Categories</li>
+                {% for cat, null in categories %}
+                    <li{% if cat == category %}{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
+                {% endfor %}
+                </div>
+        {% endif %}
+        </ul>
+
+        {% if LINKS %}
+            <h2><br/>BLOGROLLS</h2>
+            <ul>
+                {% for name, link in LINKS %}
+                    <li><a href="{{ link }}">{{ name }}</a></li>
+                {% endfor %}
+            </ul> 
+        {% endif %}
+   
+        <p> 
+        {% if SOCIAL %}
+            {% for name, link in SOCIAL %}
+                <span>
+                    <a href="{{ link }}" target="_blank">
+                        <img class="social-icons-m" src="{{ SITEURL }}/theme/images/icons/{{ name|lower }}.png">
+                    </a>
+                </span>
+            {% endfor %}
+        {% endif %}
+        </p>
+        <p>
+        {% if FEED_ALL_ATOM %}
+            <a href="{{ SITEURL }}/{{ FEED_ALL_ATOM }}" rel="alternate">
+                <img class="social-icons-m" src="{{ SITEURL }}/theme/images/icons/rss.png"></a>
+        {% endif %}
+        </p>
+        <p>
+        {% if FEED_ALL_RSS %}
+            <a href="{{ SITEURL }}/{{ FEED_ALL_RSS }}" rel="alternate">
+                <img class="social-icons-m" src="{{ SITEURL }}/theme/images/icons/rss.png"></a>
+        {% endif %}
+        </p>
+    </sidebar>
+    
+    <maincontent>
+        {% block content %}
+        {% endblock %}
+    </maincontent>
+
+  <!-- Analytics -->
+  {% if GOOGLE_ANALYTICS %}
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', '{{ GOOGLE_ANALYTICS }}']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+  {% endif %}
+
+  </div>
+</body>
+
+</html>
