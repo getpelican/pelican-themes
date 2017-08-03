@@ -1,6 +1,6 @@
-## Graymin - A minimal Pelican theme.  
+## Graymill - A minimal Pelican theme.  
   
-Graymin is a minimal, responsive theme for the [Pelican](http://blog.getpelican.com/) static site generator. It is based on the [Milligram CSS framework](http://milligram.io/).  
+Graymill is a minimal, responsive theme for the [Pelican](http://blog.getpelican.com/) static site generator. It is based on the [Milligram CSS framework](http://milligram.io/).  
 
 ### Demo
 
@@ -18,18 +18,18 @@ See the theme in action at [muchBits](https://muchbits.com)
 
 * Clone the repository:
 ```python
-git clone https://github.com/rn4ir/graymin.git
+git clone https://github.com/rn4ir/graymill.git
 ```
-* Create a `THEME` variable in your `pelicanconf.py` file and set its value to the location of ***graymin*** theme, like so:
+* Create a `THEME` variable in your `pelicanconf.py` file and set its value to the location of ***graymill*** theme, like so:
 ```python
-THEME = 'path/to/graymin'
+THEME = 'path/to/graymill'
 ```
 
 ## Custom Variables
 
 (*Please refer to the sample pelicanconf.py contained in this repo for examples*)  
   
-The ***Graymin*** theme use the following settings in the `pelicanconf.py`:
+The ***Graymill*** theme use the following settings in the `pelicanconf.py`:
 
 ### pelicanconf.py
 

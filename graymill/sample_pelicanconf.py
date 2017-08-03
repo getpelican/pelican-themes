@@ -13,7 +13,7 @@ PATH = 'content'
 TIMEZONE = 'Asia/Kolkata'
 
 DEFAULT_LANG = u'en'
-THEME = 'themes/graymin'
+THEME = 'themes/graymill'
 
 # Social widgets
 SOCIAL = (('twitter', 'https://twitter.com/'),
