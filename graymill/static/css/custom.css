@@ -1,0 +1,272 @@
+body {
+    background-color: #ffffff;
+    font-size: 1.5rem;
+}
+
+a {
+    color: #6C7A89;
+    text-decoration: none;
+}
+
+.navbar {
+    margin-bottom: 10px;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.navbar li {
+    margin: 1em;
+    float: left;
+    line-height: 0.1em;
+    padding: 1em;
+}
+
+.navbar li a {
+    display: block;
+    color: #6C7A89;
+    text-align: center;
+    text-decoration: none;
+}
+
+.navbar li h4 {
+    margin: 5%;
+}
+
+.navbar li h6 {
+    line-height: 2.5;
+}
+.navbar li i {
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+}
+
+.social-img {
+    background-color: #6C7A89;
+}
+
+sidebar {
+    font-size: 1.25em;
+    width: 15%; 
+    height: 100%;
+    position: fixed;
+    right: 0;
+    padding: 2%;
+    text-align: center;
+    background-size: cover;
+}
+
+sidebar > ul {
+    list-style-type: none;
+    padding: 0px 10px;
+    margin-top: 0px;
+}
+
+.static-item {
+    text-transform: uppercase;
+    font-size: 1.5em;
+}
+
+.cat-border {
+    border: 2px solid #6C7A89;
+    text-transform: uppercase;
+}
+
+.cat-border a:focus,
+.cat-border a:hover {
+    color: #F2F1EF;
+    background-color: #6C7A89;
+    padding: 1%;
+}
+
+sidebar > ul > li > a:hover,
+sidebar > ul > li > a:focus {
+    color: #F2F1EF;
+    background-color: #6C7A89;
+    padding: 1%;
+}
+
+sidebar > h2 {
+    font-size: 15px;
+    margin-bottom: 5px;
+    padding-bottom: 3%;
+}
+
+maincontent {
+    display: block;
+    line-height: 1.6em;
+    width: 85%;
+}
+
+maincontent > ol {
+    list-style-type: none;
+}
+
+mainarticle ul {
+    list-style: square inside;
+}
+
+mainarticle ul li p {
+    padding-left: 3%;
+    margin-top: -2%;
+    font-size: 1.5em;
+}
+
+mainarticle a {
+    background: #f4f5f6;
+    font-weight: bold;
+    font-style: italic;
+}
+
+maincontent table {
+    max-width: 100%;
+    width: 0;
+}
+
+maincontent table tbody tr td pre {
+    padding-right: 20px;
+}
+
+maincontent table tbody tr td .highlight {
+    width: 90rem;
+}
+
+.page-title {
+    border-bottom: 1.5px solid #eee;
+    width: 85%;
+}
+
+hr {
+    border-top: 0.3rem double #6C7A89;
+}
+
+pre {
+    padding-left: 1.5%;
+    border-left: 0.3rem solid #6C7A89;
+}
+
+code {
+    font-size: 100%;
+    font-style: italic;
+}
+
+ul {
+   list-style: square inside;
+}
+
+.social-icons-a {
+    max-width: 3%;
+}
+
+.social-icons-m {
+    max-width: 20%;
+}
+
+.pagination-dir {
+    font-size: 2.5rem;
+    margin-top: 2%;
+}
+
+@media (max-width: 40.0rem) {
+
+  .navbar {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .navbar li {
+    float: none;
+    padding: initial;
+    text-align: center
+  }
+  
+  .navbar li h6 {
+    line-height: initial;
+    font-size: 0.75em;
+    letter-spacing: 0;
+  }
+
+  sidebar {
+    right: 0;
+    max-width: none;
+    position: fixed;
+    width: 25%;
+    padding: 0;
+    padding-top: 1px;
+    font-size: 8px;
+  }
+
+  maincontent {
+    width: 75%;
+    font-size: 10px;
+  }
+
+  maincontent h2 {
+    font-size: 2rem;
+  }
+
+  maincontent h5 {
+    font-size: 1.4rem;
+  }
+    
+  mainarticle ul li p {
+    padding-left: 5%;
+    margin-top: -6%;
+  }
+
+  .social-icons-a {
+    max-width: 10%;
+  }
+}
+
+@media (min-width: 41.0rem) and (max-width: 80.0rem){
+  .navbar {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .navbar li {
+    float: none;
+    padding: initial;
+    text-align: center
+  }
+
+  .navbar li h6 {
+    line-height: initial;
+    font-size: 0.75em;
+    letter-spacing: 0;
+  }
+
+  sidebar {
+    right: 0;
+    max-width: none;
+    position: fixed;
+    width: 15%;
+    padding: 0;
+    padding-top: 1px;
+    font-size: 8px;
+  }
+
+  maincontent {
+    width: 85%;
+    font-size: 10px;
+  }
+
+  maincontent h2 {
+    font-size: 2rem;
+  }
+
+  maincontent h5 {
+    font-size: 1.4rem;
+  }
+
+  mainarticle ul li p {
+    padding-left: 5%;
+    margin-top: -2%;
+  }
+}
