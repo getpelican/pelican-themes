@@ -38,6 +38,14 @@ plugin:
 `PLUGIN_PATHS = ['/path/to/git/pelican-plugins']`
 `PLUGINS = ['i18n_subsites']`
 
+If you are using
+[`i18n_subsites`](https://github.com/getpelican/pelican-plugins/tree/master/i18n_subsites)
+and you are not using English as your default language, make sure to
+also correctly specify the default language of the theme. Otherwise
+the translations will not be used on your default site.
+
+`I18N_TEMPLATES_LANG = 'en'`
+
 ## Usage
 
 This theme honors the following standard Pelican settings:
