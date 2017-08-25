@@ -235,3 +235,6 @@
 [submodule "jojo"]
 	path = jojo
 	url = https://github.com/dokelung/jojo.git
+[submodule "left"]
+	path = left
+	url = https://github.com/hernantz/pelican-left.git
