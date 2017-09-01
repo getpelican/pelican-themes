@@ -351,6 +351,10 @@ All you have to do, is:
 By default, the Tipue search page is configured at "/search.html", but you can override that with the `SEARCH_URL` 
 setting, which comes in handy if you have fancy rewrite rules in your Apache or Nginx configuration.
 
+### Flattr
+
+This theme has support for linking your domain with [Flattr](https://flattr.com). To enable this provide your `FLATTR_ID`. Be aware that you will also have to go [Flattr's domain settings](https://flattr.com/settings/domains) and link your domain.
+
 ### Footer
 
 The footer will display a copyright message using the AUTHOR variable and the year of the latest post. If a content license mark is enabled (see above), that will be shown as well.
