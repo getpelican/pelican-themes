@@ -53,6 +53,11 @@
     {# Twitter Cards tags #}
     {% include 'includes/twitter_cards.html' %}
 
+    {# Flattr ID for the Flattr browser plug-in #}
+    {% if FLATTR_ID %}
+        <meta name="flattr:id" content="m1qj28">
+    {% endif %}
+
     <!-- Bootstrap -->
     {% if BOOTSTRAP_THEME %}
         <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/bootstrap.{{ BOOTSTRAP_THEME }}.min.css" type="text/css"/>
