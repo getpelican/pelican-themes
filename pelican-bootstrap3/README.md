@@ -38,6 +38,14 @@ plugin:
 `PLUGIN_PATHS = ['/path/to/git/pelican-plugins']`
 `PLUGINS = ['i18n_subsites']`
 
+If you are using
+[`i18n_subsites`](https://github.com/getpelican/pelican-plugins/tree/master/i18n_subsites)
+and you are not using English as your default language, make sure to
+also correctly specify the default language of the theme. Otherwise
+the translations will not be used on your default site.
+
+`I18N_TEMPLATES_LANG = 'en'`
+
 ## Usage
 
 This theme honors the following standard Pelican settings:
@@ -252,6 +260,7 @@ icon to show. You can provide an alternative icon string as the third string (as
 * **Recent Posts** will be shown if `DISPLAY_RECENT_POSTS_ON_SIDEBAR` is set to _True_
 	* Use `RECENT_POST_COUNT` to control the amount of recent posts. Defaults to **5**
 * **Archive** will be shown if `DISPLAY_ARCHIVE_ON_SIDEBAR` is set to _True_ and `MONTH_ARCHIVE_SAVE_AS` is set up properly.
+* **Authors** will be shown if `DISPLAY_AUTHORS_ON_SIDEBAR` is set to _True_
 
 Other sidebar related options include:
 
@@ -351,6 +360,10 @@ All you have to do, is:
 - Add `'search'` to the `DIRECT_TEMPLATES` in your `pelicanconf.py`. E.g. `DIRECT_TEMPLATES = ('index', 'categories', 'authors', 'archives', 'search').
 By default, the Tipue search page is configured at "/search.html", but you can override that with the `SEARCH_URL` 
 setting, which comes in handy if you have fancy rewrite rules in your Apache or Nginx configuration.
+
+### Flattr
+
+This theme has support for linking your domain with [Flattr](https://flattr.com). To enable this provide your `FLATTR_ID`. Be aware that you will also have to go [Flattr's domain settings](https://flattr.com/settings/domains) and link your domain.
 
 ### Footer
 

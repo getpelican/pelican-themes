@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block head %}
+{{ super() }}
+<meta name="twitter:creator" content="{{ TWITTER_USERNAME }}">
+<meta name="twitter:url" content="{{ SITEURL }}/archives.html">
+<meta name="twitter:title" content="{{ SITENAME }} || Archives">
+<meta name="twitter:description" content="{{ SITENAME }} || Archives for this website">
+
+<!-- Facebook Meta Data -->
+<meta property="og:title" content="{{ SITENAME }} || Archives" />
+<meta property="og:description" content="{{ SITENAME }} || Archives for this website" />
+<meta property="og:image" content="{{ AVATAR }}" />
+{% endblock head %}
+{% block content %}
+<h2>Archives</h2>
+    {% for article in dates %}
+    <div class="row">
+        <div class="column column-25">
+            {{ article.locale_date }}
+        </div>
+
+        <div class="column column-75">
+            <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
+        </div>
+    </div>
+    {% endfor %}
+{% endblock %}
