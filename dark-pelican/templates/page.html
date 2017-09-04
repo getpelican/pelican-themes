@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block head %}
+  {{ super() }}
+  {% if page.author %}
+    <meta name="author" content="{{ page.author }}">
+  {% endif %}
+  {% if page.summary %}
+    <meta name="description" content="{{ page.summary|striptags }}">
+  {% endif %}
+  <meta name="tags" contents="{% for tag in page.tags %}{{ tag }}, {% endfor %}">
+{% endblock %}
+
+{% block title %}
+  {{ SITENAME }} &mdash; {{ page.title|striptags }}
+{% endblock %}
+
+
+{% block content %}
+	<div id="ortaBoard">
+		<div id="postTab">
+    {% if SOCIAL_ON_PAGE %}
+      <div id="postSosyalTab">
+        <a href="https://www.facebook.com/sharer/sharer.php?u={{ SITEURL }}/{{ page.url }}&title={{ SITENAME }} &mdash; {{ page.title|striptags }}" target="_new" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"><div class="facebookShare"></div></a>
+
+        <a href="https://twitter.com/share?url={{ SITEURL }}/{{ page.url }}&text={{ SITENAME }} &mdash; {{ page.title|striptags }}" target="_new" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"><div class="twitterShare"></div></a>
+        
+        <a href="https://plus.google.com/share?url={{ SITEURL }}/{{ page.url }}" target="_new" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"><div class="googleShare"></div></a>
+
+        <a href="https://www.linkedin.com/cws/share?url={{ SITEURL }}/{{ page.url }}" target="_new" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"><div class="linkedinShare"></div></a>
+      </div>
+      {% endif %}
+
+			<center><h1 class="title">{{ page.title }}</h1></center>
+
+			{{ page.content }}
+		</div>
+	</div>
+{% endblock %}
