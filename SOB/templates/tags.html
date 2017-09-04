@@ -6,7 +6,7 @@
 			<li><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a></li>
 			<ul class="square">
 
-			{% for article in articles|sort %}
+			{% for article in articles %}
 				<li><a href="{{ SITEURL }}/{{ article.url }}"><small>{{ article.title }}</small></li>
 			{% endfor %}
 			</ul>
