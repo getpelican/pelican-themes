@@ -238,3 +238,6 @@
 [submodule "resume"]
 	path = resume
 	url = https://github.com/suheb/resume.git
+[submodule "taman"]
+	path = taman
+	url = https://github.com/karambir/taman.git
