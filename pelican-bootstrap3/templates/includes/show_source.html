@@ -1,0 +1,10 @@
+{% if SHOW_SOURCE_IN_SECTION %}
+    {% if article and article.show_source_url %}
+    <section class="well" id="show-source">
+        <h4>This Page</h4>
+        <ul>
+            <a href="{{ SITEURL }}/{{ article.show_source_url }}">Show source</a>
+        </ul>
+    </section>
+    {% endif %}
+{% endif %}
