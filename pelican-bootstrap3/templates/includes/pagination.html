@@ -22,7 +22,7 @@
             {% else %}
                 <li class="prev disabled"><a href="#">&laquo;</a></li>
             {% endif %}
-            {% for num in range( 1, 1 + articles_paginator.num_pages ) %}
+            {% for num in range( 1, articles_paginator.num_pages ) %}
                     <li class="{{ 'active' if num == articles_page.number else '' }}"><a
                             href="{{ SITEURL }}/{{ articles_paginator.page(num).url if num > 1 else articles_paginator.page(1).url }}">{{ num }}</a></li>
                 {% endfor %}
