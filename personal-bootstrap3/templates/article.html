@@ -71,17 +71,17 @@
     <section id="content">
         <article>
             <div class="entry-content">
-                <div class="panel">
-                    <div class="panel-body">
-                        {% include "includes/article_info.html" %}
-                    </div>
-                </div>
                 {% if article.thumbnail_image %}
                     <div style="padding-bottom:20px">
                         <img src="{{article.thumbnail_image}}"></img>
                     </div>
                 {% endif %}
                 {{ article.content }}
+                <div class="panel">
+                    <div class="panel-body">
+                        {% include "includes/article_info.html" %}
+                    </div>
+                </div>
             </div>
             <!-- /.entry-content -->
             {% include 'includes/related-posts.html' %}
