@@ -5,10 +5,10 @@
 {% block container %}
     <section id="content">
         <header class="header">
-            <h2>{{ category }}</h2>
+            <h3>{{ category }}</h3>
         </header>
         <dl>
-            <h3>{{ category }}</h3>
+            <h4>{{ category }}</h4>
             {% for article in articles|sort %}
                 <dd>
                     <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>

@@ -6,7 +6,7 @@
     {% if page.title == 'blog' %}
         <section id="content">
             <header class="header">
-                <h2 class="blogpost-title">Articles in {{ AUTHOR }}'s blog</h2>
+                <h3 class="blogpost-title">Articles in {{ AUTHOR }}'s blog</h3>
             </header>
             <dl>
                 {% for category,articles in categories %}
@@ -25,7 +25,7 @@
     {% else %}
         <section id="content">
             <header class="header">
-                <h2 class="blogpost-title">{{ page.title }}</h2>
+                <h3 class="blogpost-title">{{ page.title }}</h3>
             </header>
             {{ page.content }}
         </section>

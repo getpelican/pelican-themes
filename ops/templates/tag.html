@@ -5,10 +5,10 @@
 {% block container %}
     <section id="content">
         <header class="header">
-            <h2 class="blogpost-title">Articles - {{ tag }}</h2>
+            <h3 class="blogpost-title">Articles - {{ tag }}</h3>
         </header>
         <dl>
-            <h3>{{ tag }}</h3>
+            <h4>{{ tag }}</h3>
             {% for article in articles|sort %}
 
                 <dd>

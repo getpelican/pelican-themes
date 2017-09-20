@@ -6,28 +6,22 @@
     </section>
 
     <section class="home-section">
-        <h2 class="home-header">
+        <h3 class="home-header">
             Recent blog posts
-        </h2>
+        </h3>
         <div>
-            {% for article in articles[0:3] %}
+            {% for article in articles %}
                 <div class="home-post">
-                    <p class="blogpost-date" style="float: right;">{{ article.locale_date }}</p>
-                    <h5><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h5>
-                    <p>
-                    <p>{{ article.summary }}</p>
-                </div>
-                <div class="row">
-                    <a class="button button-primary button-more" href="{{ SITEURL }}/{{ article.url }}">More...</a>
+                    <p class="blogpost-date" style="float: right;">{{ article.date.strftime('%Y-%m-%d')}}</p>
+                    <h6><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h6>
                 </div>
             {% endfor %}
         </div>
     </section>
-    <br/><br/><br/>
     <section class="home-section">
         <div class="row">
             <div class="">
-                <h2 class="blogpost-title">Links</h2>
+                <h3 class="blogpost-title">Links</h3>
                 <div class="home-post">
                     {% for title,url in LINKS %}
                         <a href="{{ url }}" target="_blank">{{ title }}</a>&nbsp; &nbsp;
@@ -36,6 +30,9 @@
             </div>
         </div>
     </section>
+    <br/>
+    <br/>
+    <br/>
 {% endblock %}
 
 

@@ -4,6 +4,13 @@
 {% block container %}
 
     <section id="tags">
+        <header class="article-header">
+            <a href="{{ SITEURL }}/tags.html" rel="bookmark" title="tags">
+                <h3 class="blogpost-title">
+                    Tags
+                </h3>
+            </a>
+        </header>
         <header class="header">
             {% for tag,articles in tags|sort %}
                 <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>({{ articles|count }})
