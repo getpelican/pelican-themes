@@ -12,7 +12,7 @@
             </a>
         </header>
         <header class="header">
-            {% for tag,articles in tags|sort %}
+            {% for tag,articles in tags %}
                 <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>({{ articles|count }})
             {% endfor %}
         </header>

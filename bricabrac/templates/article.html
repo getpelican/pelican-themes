@@ -1,0 +1,15 @@
+{%- if article.lang %}{% set DEFAULT_LANG = article.lang %}{% endif -%}
+{% extends "base.html" %}
+{% block title %}{{ super() }} : {{ article.title }}{% endblock %}
+{% block content %}        
+<header>
+<h1>
+<a href="{{ SITEURL }}" id="site-title">{{ SITENAME }} {% if SITESUBTITLE %} <strong>{{ SITESUBTITLE }}</strong>{% endif %}</a> :
+<a href="{{ SITEURL }}/{{ article.url }}" id="page-title">{{ article.title }}</a></h1>
+{% if not HIDE_DATE %}<time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time>{% endif %}
+</header>
+<article>
+<!--<div class="meta" style="text-align:right;">{% if article.translations %}{% for translation in article.translations %}{{ article.lang or DEFAULT_LANG }}&nbsp;|&nbsp;<a href="{{ SITEURL }}/{{ translation.url }}"><u>{{ translation.lang }}</u></a>{% endfor %}{% endif %}</div>-->
+{{ article.content }}
+</article>
+{% endblock %}

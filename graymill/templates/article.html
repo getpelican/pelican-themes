@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block head %}
+{{ super() }}
+<meta name="twitter:creator" content="{{ TWITTER_USERNAME }}">
+<meta name="twitter:url" content="{{ SITEURL }}/{{ article.url }}">
+<meta name="twitter:title" content="{{ SITENAME }} ~ {{ article.title }}">
+<meta name="twitter:description" content="{{ article.summary|striptags|escape }}">
+
+<!-- Facebook Meta Data -->
+<meta property="og:title" content="{{ SITENAME }} ~ {{ article.title }}" />
+<meta property="og:description" content="{{ article.summary|striptags|escape  }}" />
+<meta property="og:image" content="" />
+{% endblock head %}
+{% block title %}{{ article.title }}{% endblock %}
+{% block content %}
+<h2>
+    <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title }}">{{ article.title }}</a>
+</h2>
+
+<div>
+    <b>By: </b><a href="{{ SITEURL }}/{{ article.author.url }}">{{ article.author }}</a><b>    On: </b>{{ article.locale_date }}<br />
+    <b>In: </b><a href="{{ SITEURL }}/{{ article.category.url }}" rel="bookmark" title="Permalink to {{ article.category|striptags }}">{{ article.category }}</a><br />
+    <em><b>Tags: </b>
+        {% if article.tags %}
+            {% for tag in article.tags %}
+                <span><a href="{{ SITEURL }}/{{ tag.url }}">#{{ tag }} </a></span>
+            {% endfor %}
+        {% endif %}
+    </em>
+    <hr>
+</div>
+
+<div>
+    <mainarticle>
+    {{ article.content }}
+    </mainarticle>
+</div>
+<hr>
+        
+<div>
+        <i>If you found the article helpful, please share or cite the article, and spread the word:</i>
+            <p style="margin-top: 2%;">
+                <span><a target="_blank" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=700');return false;" title="Twitter" href="https://twitter.com/share?url={{ SITEURL }}/{{ article.url }}&text={{ article.title }}&via={{TWITTER_USERNAME}}"><img class="social-icons-a" src="{{ SITEURL }}/theme/images/icons/twitter.png"></a></span>
+                <span><a target="_blank" title="Facebook" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=700');return false;" href="https://www.facebook.com/sharer.php?u={{ SITEURL }}/{{article.url}}&t={{ article.title }}"><img class="social-icons-a" src="{{ SITEURL }}/theme/images/icons/facebook.png"></a></span>
+
+                <a  target="_blank" title="Linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url={{ SITEURL }}/{{ article.url }}&title={{ article.title }}" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;"><img class="social-icons-a" src="{{ SITEURL }}/theme/images/icons/linkedin.png"></a>
+            </p>
+</div>
+<hr>
+{% if AUTHOREMAIL %}
+    <p><i>For any feedback or corrections, please write in to: </i><b> {{ AUTHOREMAIL }} </b></p>
+{% else  %}
+    <p><i>For any feedback or corrections, please write in to: </i><b> {{ AUTHOR }} </b></p>
+{% endif %}
+        
+{% endblock %}

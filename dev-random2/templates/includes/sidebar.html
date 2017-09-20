@@ -13,7 +13,7 @@
               {% endfor %}
             {% endif %}
             {% if DISPLAY_PAGES_ON_MENU %}
-              {% for p in PAGES %}
+              {% for p in pages %}
               <li><a href="{{ SITEURL}}/{{ p.url }}"{% if p == page %} class="active"{% endif %}>{{ p.title }}</a></li>
               {% endfor %}
             {% endif %}

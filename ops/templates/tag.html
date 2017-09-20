@@ -10,7 +10,6 @@
         <dl>
             <h4>{{ tag }}</h3>
             {% for article in articles|sort %}
-
                 <dd>
                     <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
                 </dd>

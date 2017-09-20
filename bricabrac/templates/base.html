@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="{{ SITEURL }}/../theme/css/{{ CSS_FILE }}" type="text/css" />
+{% if FEED_ALL_ATOM %}
+<link href="./{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} ATOM Feed" />
+{% endif %}
+{% if FEED_ALL_RSS %}
+<link href="./{{ FEED_ALL_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS Feed" />
+{% endif %}
+<!--<link rel="icon" type="image/png" href="{{ SITEURL }}/theme/fav.png" />-->
+<title>{% block title %}{{ SITENAME }} {%endblock%}</title>
+</head>
+<body>
+<div id="conteneur">
+<!-- SNIP -->
+{% block content %}
+{% endblock %}
+<footer>
+<nav>
+<ul>
+{% if extra_siteurls %}
+{% for lang, url in extra_siteurls.items() %}
+<li><a href="{{ url }}/">{{ lang | lookup_lang_name }}</a></li>
+{% endfor %}
+{% endif %}
+<!--<li><a href="https://blog.getpelican.com/">Pelican</a> & <a href="https://github.com/Bricabraque/bricabrac-pelican-theme">bricabrac</a></li>-->
+{% for page in pages %}
+<li>:: <a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a>{% if not loop.last %}{% endif %}</li>
+{% endfor %}
+{% if categories|length > 1 %}
+<li> :: <a href="{{ SITEURL }}/categories.html">{{ gettext('catégories') }}</a></li>
+{% endif %}
+{% if tags|length > 1 %}
+<li> :: <a href="{{ SITEURL }}/tags.html">tags</a></li>
+{% endif %}
+{% if SOCIAL %}
+{% for name, link in SOCIAL %}
+<li> :: <a href="{{ link }}">{{ name }}</a></li>
+{% endfor %}
+{% endif %}
+</ul>
+</nav>
+</footer>
+</div>
+</body>
+</html>

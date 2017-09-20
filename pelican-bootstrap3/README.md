@@ -24,7 +24,9 @@ Then:
 Point the `THEME` variable in your `pelicanconf.py` to
 `/path/to/pelican-bootstrap3` and add 
 
-`JINJA_EXTENSIONS = ['jinja2.ext.i18n']`
+```
+JINJA_ENVIRONMENT = {'extensions': ['jinja2.ext.i18n']}
+```
 
 to your Pelican configuration, as this template can be
 translated (see `Translations` below). You also
@@ -35,6 +37,14 @@ plugin:
 
 `PLUGIN_PATHS = ['/path/to/git/pelican-plugins']`
 `PLUGINS = ['i18n_subsites']`
+
+If you are using
+[`i18n_subsites`](https://github.com/getpelican/pelican-plugins/tree/master/i18n_subsites)
+and you are not using English as your default language, make sure to
+also correctly specify the default language of the theme. Otherwise
+the translations will not be used on your default site.
+
+`I18N_TEMPLATES_LANG = 'en'`
 
 ## Usage
 
@@ -249,8 +259,14 @@ icon to show. You can provide an alternative icon string as the third string (as
 * **Categories** will be shown if `DISPLAY_CATEGORIES_ON_SIDEBAR` is set to _True_
 * **Recent Posts** will be shown if `DISPLAY_RECENT_POSTS_ON_SIDEBAR` is set to _True_
 	* Use `RECENT_POST_COUNT` to control the amount of recent posts. Defaults to **5**
+* **Archive** will be shown if `DISPLAY_ARCHIVE_ON_SIDEBAR` is set to _True_ and `MONTH_ARCHIVE_SAVE_AS` is set up properly.
+* **Authors** will be shown if `DISPLAY_AUTHORS_ON_SIDEBAR` is set to _True_
 
-To remove the sidebar entirely, set `HIDE_SIDEBAR` to _True_.
+Other sidebar related options include:
+
+* To remove the sidebar entirely, set `HIDE_SIDEBAR` to _True_.
+* To move the sidebar to the left, set `SIDEBAR_ON_LEFT` to _True_.
+* To turn off inlined icons in the titles set `DISABLE_SIDEBAR_TITLE_ICONS` to
 
 ### reStructuredText styles
 
@@ -326,7 +342,7 @@ As an alternative, you may use [Shariff](https://github.com/heiseonline/shariff)
   * To customize the social media buttons, set
     * `SHARIFF_BACKEND_URL` (see [Shariff Backends](https://github.com/heiseonline/shariff#backends))
     * `SHARIFF_LANG` (`de` (default), `en` or `fr`)
-    * `SHARIFF_ORIENTATION` (`horizontal` (defualt) or `vertical`)
+    * `SHARIFF_ORIENTATION` (`horizontal` (default) or `vertical`)
     * `SHARIFF_SERVICES` (default: `[&quot;facebook&quot;,&quot;googleplus&quot;]`)
     * `SHARIFF_THEME` (`standard` or `gray`)
     * `SHARIFF_TWITTER_VIA` (`True`/`False`, uses `TWITTER_USERNAME`)
@@ -344,6 +360,10 @@ All you have to do, is:
 - Add `'search'` to the `DIRECT_TEMPLATES` in your `pelicanconf.py`. E.g. `DIRECT_TEMPLATES = ('index', 'categories', 'authors', 'archives', 'search').
 By default, the Tipue search page is configured at "/search.html", but you can override that with the `SEARCH_URL` 
 setting, which comes in handy if you have fancy rewrite rules in your Apache or Nginx configuration.
+
+### Flattr
+
+This theme has support for linking your domain with [Flattr](https://flattr.com). To enable this provide your `FLATTR_ID`. Be aware that you will also have to go [Flattr's domain settings](https://flattr.com/settings/domains) and link your domain.
 
 ### Footer
 

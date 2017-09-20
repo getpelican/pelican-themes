@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% block title %}{{ page.title|striptags }}{% endblock %}
+{% block content %}
+<div class="page-container">
+    <div class="article-header-container">
+        <div class="background-image-container">
+
+            {# title with big background image #}
+            {% if page.image %}
+            <div class="background-image" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url({{ page.image }});">
+                <img src="{{ page.image }}" alt="{{ page.title|striptags }}">
+                <div class="title">
+                <h1>
+                    {{ page.title }}
+                </h1>
+                {% if page.subtitle %}
+                <h2>
+                    {{ page.subtitle }}
+                </h2>
+                {% endif %}
+                </div>
+            </div>
+            {% else %}
+            <div class="background-image-small">
+                {% if page.smallimage %}
+                <img src="{{ page.smallimage }}" alt="{{ page.title|striptags }}">
+                {% endif %}
+                <div class="title-container">
+                    <h1>{{ page.title }}</h1>
+                    {% if page.subtitle %}
+                    <h4>{{ page.subtitle }}</h4>
+                    {% endif %}
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="entry-content">
+        {{ page.content }}
+    </div>
+
+    <footer>
+        {% if page.tags %}
+        <div class="tags">
+            {% for tag in page.tags %}
+            <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag | escape }}</a>
+            {% endfor %}
+        </div>
+        {% endif %}
+        <div class="pure-g post-footer">
+            {% if page.authors %}
+            <div class="pure-u-1">
+                {% for author in page.authors %}
+                <div class="pure-g poster-info">
+                    {% if author|string in BLOG_AUTHORS %}
+                    <div class="pure-u">
+                        <a href="{{ SITEURL }}/{{ author.url }}"><img src="{{ BLOG_AUTHORS.get(author|string).image }}" alt=""></a>
+                    </div>
+                    {% endif %}
+                    <div class="pure-u-3-4">
+                        <h3 class="author-name"><a href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a></h3>
+                        <p class="author-description">
+                          {% if BLOG_AUTHORS %}
+                          {{ BLOG_AUTHORS.get(author|string).description }}
+                          {% endif %}
+                        </p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+        </div>
+
+
+    </footer>
+
+</div>
+
+{% endblock %}

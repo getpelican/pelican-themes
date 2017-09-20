@@ -1,0 +1,20 @@
+{% extends "index.html" %}
+{% import 'html_macros.html' as html_macros %}
+
+{% block head %}
+{{ super() }}
+{% endblock head %}
+{% block titlename %}{{'all articles'|capitalize}}{% endblock titlename %}
+
+{% block content %}
+{% block heading %}
+
+<h1>{{'all the articles'|capitalize}}</h1>
+
+<ul>
+{% for article in articles|sort %}
+    <li><a class="{% if CAPITALIZE_HEADINGS %}capitalize{% endif %}" href="/{{ article.url }}">{{ article.title }}</a></li>
+{% endfor %}
+</ul>
+{% endblock heading %}
+{% endblock content %}

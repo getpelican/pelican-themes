@@ -85,9 +85,6 @@
 [submodule "jesuislibre"]
 	path = jesuislibre
 	url = https://github.com/badele/pelican-theme-jesuislibre.git
-[submodule "pelipress"]
-	path = pelipress
-	url = https://github.com/jjimenezlopez/pelipress.git
 [submodule "blueidea"]
 	path = blueidea
 	url = https://github.com/blueicefield/pelican-blueidea.git
@@ -168,7 +165,7 @@
 	url = https://github.com/abr4xas/Casper2Pelican.git
 [submodule "octopress"]
 	path = octopress
-	url = https://github.com/duilio/pelican-octopress-theme.git
+	url = https://github.com/MrSenko/pelican-octopress-theme
 [submodule "smoothie"]
 	path = smoothie
 	url = https://github.com/kdheepak89/pelican-smoothie.git
@@ -220,12 +217,27 @@
 [submodule "eevee"]
 	path = eevee
 	url = https://github.com/kura/eevee.git
+[submodule "voce"]
+	path = voce
+	url = https://github.com/limbenjamin/voce.git
 [submodule "genus"]
 	path = genus
 	url = https://github.com/vaiski/genus.git
+[submodule "attila"]
+	path = attila
+	url = https://github.com/arulrajnet/attila
 [submodule "bulrush"]
 	path = bulrush
 	url = https://github.com/textbook/bulrush.git
 [submodule "minimalX"]
 	path = minimalX
 	url = https://github.com/art1fa/minimalX.git
+[submodule "jojo"]
+	path = jojo
+	url = https://github.com/dokelung/jojo.git
+[submodule "resume"]
+	path = resume
+	url = https://github.com/suheb/resume.git
+[submodule "taman"]
+	path = taman
+	url = https://github.com/karambir/taman.git
