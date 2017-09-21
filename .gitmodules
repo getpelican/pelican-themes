@@ -241,3 +241,6 @@
 [submodule "taman"]
 	path = taman
 	url = https://github.com/karambir/taman.git
+[submodule "MinimalXY"]
+	path = MinimalXY
+	url = https://github.com/petrnohejl/MinimalXY.git
