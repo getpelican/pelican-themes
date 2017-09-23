@@ -44,7 +44,7 @@
     {% endif %}
 {% endblock %}
 
-{% block content %}
+{% block top_content %}
     <section id="content" class="body">
         <h1 class="entry-title">{{ page.title }}</h1>
         {% import 'includes/translations.html' as translations with context %}
@@ -55,6 +55,30 @@
             </a>
         {% endif %}
         <div class="entry-content">
+            {{ page.content }}
+            {% if page.comments == 'enabled' %}
+                {% include 'includes/comments.html' %}
+            {% endif %}
+        </div>
+    </section>
+{% endblock %}
+
+{% block content %}
+    <section id="content" class="body">
+        {% import 'includes/translations.html' as translations with context %}
+        {{ translations.translations_for(page) }}
+        {% if PDF_PROCESSOR %}
+            <a href="{{ SITEURL }}/pdf/{{ page.slug }}.pdf">
+                get the pdf
+            </a>
+        {% endif %}
+        <div class="entry-content">
+            <center>
+            <img src="/images/NathanHarrington_HSV.png">
+            </center>
+            <div>
+                <br>
+            </div>
             {{ page.content }}
             {% if page.comments == 'enabled' %}
                 {% include 'includes/comments.html' %}
