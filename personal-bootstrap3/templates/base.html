@@ -150,7 +150,12 @@
                              {{ p.menulabel|default(p.title) }}
                           </a></li>
                       {% endfor %}
+                    <!-- custom link to blog roll/articles -->
+                    <li><a href="/category/articles.html">Blog</a></li>
                 {% endif %}
+
+<!--
+Don't display categories on menu
                 {% if DISPLAY_CATEGORIES_ON_MENU %}
                     {% for cat, null in categories %}
                         <li {% if cat == category %}class="active"{% endif %}>
@@ -158,6 +163,7 @@
                         </li>
                     {% endfor %}
                 {% endif %}
+-->
             </ul>
             <ul class="nav navbar-nav navbar-right">
             {% if 'tipue_search' in PLUGINS %}
