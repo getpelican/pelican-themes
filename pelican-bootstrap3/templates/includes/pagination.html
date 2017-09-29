@@ -13,6 +13,33 @@
                 <li class="next disabled"><a href="#">{{ _('Older') }} &rarr;</a></li>
             {% endif %}
         </ul>
+    {% elif PAGINATION_BOOTSTRAP3_IMPROVED %}
+        <ul class="{{ 'pagination' if not PAGINATION_BOOTSTRAP3_CSS_CLASSES else PAGINATION_BOOTSTRAP3_CSS_CLASSES }}">
+            {% if articles_page.number == 1 %}
+                <li class="prev disabled"><a href="#">&laquo;</a></li>
+            {% else %}
+                <li class="prev"><a href="{{ SITEURL }}/{{ articles_paginator.page(1).url }}">&laquo;</a></li>
+            {% endif %}
+            {% set pages_back = articles_page|pagination('pages_back') %}
+            {% if pages_back %}
+                <li><a href="{{ SITEURL }}/{{ articles_paginator.page(pages_back).url }}">&hellip;</a></li>
+            {% endif %}
+
+            {% for num in articles_page|pagination('pages_shown') %}
+                <li{{ ' class="active"' if num == articles_page.number }}>
+                    <a href="{{ SITEURL }}/{{ articles_paginator.page(num).url if num > 1 else articles_paginator.page(1).url }}">{{ num }}</a>
+                </li>
+            {% endfor %}
+            {% set pages_forward = articles_page|pagination('pages_forward') %}
+            {% if pages_forward %}
+                <li><a href="{{ SITEURL }}/{{ articles_paginator.page(pages_forward).url }}">&hellip;</a></li>
+            {% endif %}
+            {% if articles_page.number == articles_paginator.num_pages %}
+                <li class="last disabled"><a href="#">&raquo;</a></li>
+            {% else %}
+                <li class="last"><a href="{{ SITEURL }}/{{ articles_paginator.page(articles_paginator.num_pages).url }}">&raquo;</a></li>
+            {% endif %}
+        </ul>
     {% else %}
         <ul class="pagination">
             {% if articles_page.has_previous() %}
