@@ -54,7 +54,11 @@
 			{% endfor %}
 		</ul>
 	
-		<p role="contentinfo">© 2012 {{ AUTHOR }}<br>
+		<p role="contentinfo">{% if FOOTERTEXT %}
+		{{ FOOTERTEXT }}
+		{% else %}
+		© 2017 {{ AUTHOR }}
+		{% endif %}<br>
 		Proudly powered by <a href="http://alexis.notmyidea.org/pelican/">Pelican</a>.</p>
 	</div>
 </footer>
