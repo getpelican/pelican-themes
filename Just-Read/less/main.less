@@ -68,11 +68,10 @@ blockquote{
 	padding-left: (@line / 4px);
 }
 
-code, .codehilite{
+pre {
 	background: lighten(@black, 15%); // If you don't a dark scheme for code, we can't be friends
 	.box-shadow(inset 0 0 10px @black);
 	color: @white;
-	display: block;
 	margin-left: -(@line * 1px);
 	.mono();
 	padding: (@line * 1px);	
@@ -386,7 +385,7 @@ p[role="contentinfo"]{
 	width: 50%;
 }
 
-blockquote, code, .codehilite, .post ul, .post ol, p, .archive{
+blockquote, pre, .post ul, .post ol, p, .archive{
 	margin: 0 0 (@line * 1px) 0;
 }
 
@@ -463,7 +462,7 @@ blockquote, code, .codehilite, .post ul, .post ol, p, .archive{
 // @media screen and (min-width: 888px)
 @media screen and (min-width: 55.5em) {
 	
-	.post > p, .post blockquote, .post ul, .post ol{
+	pre, .post > p, .post blockquote, .post ul, .post ol{
 		width: 400/6%; // target 4 columns, context 6 columns
 	}
 	
@@ -562,12 +561,12 @@ blockquote, code, .codehilite, .post ul, .post ol, p, .archive{
 		margin-bottom: (@line * 1px);
 	}
 	
-	code, .codehilite{
+	.codehilite{
 		line-height: 1.5;
-		.massive;		
+		.normal;
 	}
 	
-	.post > p, .post blockquote, .post ul, .post ol{
+	pre, .post > p, .post blockquote, .post ul, .post ol{
 		width: 600/10%; // target 4 columns, context 6 columns
 	}
 	

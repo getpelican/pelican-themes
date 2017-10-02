@@ -26,7 +26,8 @@ body {
   color: #000;
   text-shadow: none;
 }
-a:hover, a:active {
+a:hover,
+a:active {
   outline: 0;
 }
 pre {
@@ -34,7 +35,8 @@ pre {
   white-space: pre-wrap;
   word-wrap: break-word;
 }
-ol, ul {
+ol,
+ul {
   margin: 0;
   padding: 0;
 }
@@ -43,7 +45,8 @@ img {
   -ms-interpolation-mode: bicubic;
   vertical-align: middle;
 }
-.clearfix:before, .clearfix:after {
+.clearfix:before,
+.clearfix:after {
   content: "";
   display: table;
 }
@@ -77,7 +80,9 @@ figcaption {
   position: relative;
   overflow: hidden;
 }
-.video-container iframe, .video-container object, .video-container embed {
+.video-container iframe,
+.video-container object,
+.video-container embed {
   height: 100%;
   left: 0;
   position: absolute;
@@ -90,7 +95,8 @@ figcaption {
   -o-box-sizing: border-box;
   box-sizing: border-box;
 }
-.sans, .fancy-font {
+.sans,
+.fancy-font {
   font-family: 'Droid Sans', sans-serif;
 }
 .mono {
@@ -120,7 +126,7 @@ figcaption {
   font-weight: 700;
 }
 body {
-  background: #ffffff;
+  background: #fff;
   color: #404040;
   line-height: 24px;
   font-size: 14px;
@@ -157,7 +163,9 @@ h3 {
   font-family: 'Droid Sans', sans-serif;
   font-weight: 700;
 }
-h4, h5, h6 {
+h4,
+h5,
+h6 {
   font-weight: 400;
   margin: 24px 0;
   font-size: 14px;
@@ -165,7 +173,8 @@ h4, h5, h6 {
   font-family: 'Droid Sans', sans-serif;
   font-weight: 700;
 }
-b, strong {
+b,
+strong {
   font-weight: 700;
 }
 blockquote {
@@ -175,10 +184,10 @@ blockquote {
 }
 pre {
   background: #262626;
-  -webkit-box-shadow: inset 0 0 10px #000000;
-  -moz-box-shadow: inset 0 0 10px #000000;
-  box-shadow: inset 0 0 10px #000000;
-  color: #ffffff;
+  -webkit-box-shadow: inset 0 0 10px #000;
+  -moz-box-shadow: inset 0 0 10px #000;
+  box-shadow: inset 0 0 10px #000;
+  color: #fff;
   margin-left: -24px;
   font-family: 'Droid Sans Mono', monospace;
   padding: 24px;
@@ -241,11 +250,13 @@ time {
 .ui-tabs-hide {
   display: none;
 }
-.tabmenu li a:hover, .ui-tabs-selected a, .ui-tabs-selected a {
+.tabmenu li a:hover,
+.ui-tabs-selected a,
+.ui-tabs-selected a {
   background-color: #f2f2f2;
 }
 .btn {
-  color: #ffffff;
+  color: #fff;
   background-color: #556270;
   border: none;
   -webkit-box-shadow: inset 0px -3px 1px rgba(0, 0, 0, 0.45), 0px 2px 2px rgba(0, 0, 0, 0.25);
@@ -263,7 +274,7 @@ time {
   -webkit-user-select: none;
 }
 .btn:hover {
-  color: #ffffff;
+  color: #fff;
   text-decoration: none;
 }
 .btn:active {
@@ -275,7 +286,7 @@ time {
 }
 .btn:active:after {
   content: "";
-  background: #ffffff;
+  background: #fff;
   bottom: -1px;
   height: 3px;
   left: 0;
@@ -297,7 +308,7 @@ time {
   -moz-border-radius-topright: 4px;
   -webkit-border-top-right-radius: 4px;
   border-top-right-radius: 4px;
-  color: #000000;
+  color: #000;
   background-color: #ddedfa;
   display: block;
   margin-left: 20px;
@@ -323,7 +334,7 @@ time {
 }
 .tag a:after {
   content: "";
-  background: #ffffff;
+  background: #fff;
   -webkit-box-shadow: -1px -1px 2px #000000;
   -moz-box-shadow: -1px -1px 2px #000000;
   box-shadow: -1px -1px 2px #000000;
@@ -384,7 +395,7 @@ header {
   background-image: linear-gradient(top, #556270, #48535f);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#556270', endColorstr='#48535f', GradientType=0);
   margin-bottom: 48px;
-  padding: 24px 5.555555555555555%;
+  padding: 24px 5.55555556%;
 }
 header h1 {
   margin: 0;
@@ -395,7 +406,7 @@ header a {
   text-shadow: 0 1px 0 #b3b3b3, 0 2px 0 #999999, 0 3px 0 #808080, 0 4px 0 #666666, 0 5px 0 #4d4d4d, 0 6px 0 #333333, 0px 7px 0 #1a1a1a, 0 8px 7px #0d0d0d;
 }
 header a:hover {
-  color: #ffffff;
+  color: #fff;
   text-decoration: none;
 }
 footer {
@@ -406,7 +417,7 @@ footer {
   border-image: url('../images/pages.png') 20 0 0 repeat;
   color: rgba(0, 0, 0, 0.6);
   margin-top: 96px;
-  padding: 48px 5.555555555555555% 24px;
+  padding: 48px 5.55555556% 24px;
 }
 .nav {
   margin-bottom: 24px;
@@ -515,7 +526,7 @@ p[role="contentinfo"] {
   padding: 0 0.75em;
 }
 .content {
-  margin: 0 5.555555555555555%;
+  margin: 0 5.55555556%;
 }
 .meta {
   background: #fafafa;
@@ -540,7 +551,7 @@ p[role="contentinfo"] {
   width: 50%;
 }
 blockquote,
-pre
+pre,
 .post ul,
 .post ol,
 p,
@@ -555,13 +566,14 @@ p,
     float: right;
     width: 75%;
   }
-  .meta, .pages {
+  .meta,
+  .pages {
     float: left;
     text-align: right;
     width: 25%;
   }
   .meta {
-    background: #ffffff;
+    background: #fff;
     margin-top: 0;
     padding-top: 60px;
   }
@@ -570,7 +582,9 @@ p,
     margin-left: 0;
     font-weight: 400;
   }
-  .post, .copy, .main {
+  .post,
+  .copy,
+  .main {
     float: right;
     width: 75%;
   }
@@ -604,7 +618,7 @@ p,
   .post blockquote,
   .post ul,
   .post ol {
-    width: 66.66666666666667%;
+    width: 66.66666667%;
   }
   .main {
     float: none;
@@ -613,7 +627,8 @@ p,
   }
 }
 @media screen and (min-width: 61.5em) {
-  .meta, .pages {
+  .meta,
+  .pages {
     width: 12.5%;
   }
   .pages {
@@ -637,7 +652,8 @@ p,
     font-size: 48px;
     margin-bottom: 48px;
   }
-  h2, header .huge {
+  h2,
+  header .huge {
     font-size: 36px;
   }
   h2 {
@@ -647,18 +663,22 @@ p,
     font-size: 24px;
     margin-top: 72px;
   }
-  h4, h5, h6 {
+  h4,
+  h5,
+  h6 {
     font-size: 18px;
     margin-top: 48px;
   }
-  .meta, .pages {
+  .meta,
+  .pages {
     padding-left: 6.25%;
     width: 18.75%;
   }
   .meta {
     padding-top: 96px;
   }
-  .post, .copy {
+  .post,
+  .copy {
     width: 75%;
   }
   .post {
@@ -670,8 +690,9 @@ p,
   .post li {
     margin-bottom: 24px;
   }
-  code, .codehilite {
-    font-size: 36px;
+  .codehilite {
+    line-height: 1.5;
+    font-size: 14px;
   }
   pre,
   .post > p,
@@ -695,17 +716,20 @@ p,
     -ms-filter: none !important;
     text-shadow: none !important;
   }
-  @page  {
+  @page {
     margin: 0.5cm;
   }
-  a, a:visited {
-    color: #000000 !important;
+  a,
+  a:visited {
+    color: #000 !important;
     text-decoration: underline;
   }
   a[href]:after {
     content: " (" attr(href) ")";
   }
-  a[href^="javascript:"]:after, a[href^="#"]:after, .ir a:after {
+  a[href^="javascript:"]:after,
+  a[href^="#"]:after,
+  .ir a:after {
     content: "";
   }
   abbr[title]:after {
@@ -714,32 +738,39 @@ p,
   body {
     font-size: 12pt;
   }
-  blockquote, pre {
+  blockquote,
+  pre {
     page-break-inside: avoid;
   }
-  blockquote, pre {
+  blockquote,
+  pre {
     margin-left: 0.5cm;
     border-left: 0.2cm solid #999;
     padding-left: 0.2cm;
   }
-  code, pre {
+  code,
+  pre {
     font: 10pt Courier, monospace;
   }
   h1 {
     font-size: 18pt;
   }
-  h2, h3 {
+  h2,
+  h3 {
     page-break-after: avoid;
     font-size: 16pt;
   }
-  h2, h3, p {
+  h2,
+  h3,
+  p {
     orphans: 3;
     widows: 3;
   }
   img {
     max-width: 100% !important;
   }
-  img, tr {
+  img,
+  tr {
     page-break-inside: avoid;
   }
   thead {
