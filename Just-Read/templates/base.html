@@ -9,7 +9,7 @@
 	<meta name="MobileOptimized" content="320">
 	<meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0">
 	
-	<link href='http://fonts.googleapis.com/css?family=Droid+Sans:700,400|Droid+Sans+Mono' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Droid+Sans:700,400|Droid+Sans+Mono' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="{{ SITEURL }}/theme/css/{{ CSS_FILE }}" type="text/css" />
 		
 	<!--[if lt IE 9]>
@@ -62,12 +62,13 @@
 		Proudly powered by <a href="http://alexis.notmyidea.org/pelican/">Pelican</a>.</p>
 	</div>
 </footer>
-	
+	{% if GOOGLE_ANALYTICS %}	
 	<script>
 	  var _gaq=[['_setAccount','{{ GOOGLE_ANALYTICS }}'],['_trackPageview']];
 	  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
 	  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
 	  s.parentNode.insertBefore(g,s)}(document,'script'));
 	</script>
+	{% endif %}
 </body>
 </html>
