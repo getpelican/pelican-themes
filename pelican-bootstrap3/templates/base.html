@@ -207,6 +207,10 @@
 <!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
 <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/respond.min.js"></script>
 
+{% if CUSTOM_JS %}
+    <script src="{{ SITEURL }}/{{ CUSTOM_JS }}"></script>
+{% endif %}
+
 {% if BANNER %}
     <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/bodypadding.js"></script>
 {% endif %}
