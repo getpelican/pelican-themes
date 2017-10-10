@@ -88,26 +88,31 @@ of the article and in the index of articles. Set `SHOW_ARTICLE_CATEGORY` to
 show the Category of each article. Set `SHOW_DATE_MODIFIED` to True to show the
 article modified date next to the published date.
 
-### Custom CSS
+### Custom CSS/JS
 
-If you want to add custom css to the theme, without having to clone and
-maintain your own version of the theme, you can use the `CUSTOM_CSS` variable.
+If you want to add custom css/js to the theme, without having to clone and
+maintain your own version of the theme, you can use `CUSTOM_CSS` and `CUSTOM_JS` variables.
 The value is the location where you tell Pelican to put the file (see below):
 
 ```
-CUSTOM_CSS = 'static/custom.css'
+CUSTOM_CSS = 'static/css/custom.css'
+CUSTOM_JS = 'static/js/custom.js'
 ```
 
 To tell Pelican to copy the relevant file to the desired destination, add the
 path to `STATIC_PATHS` and the destination to `EXTRA_PATH_METADATA`, like so:
 
 ```
-# Tell Pelican to add 'extra/custom.css' to the output dir
-STATIC_PATHS = ['images', 'extra/custom.css']
+# Tell Pelican to add files from 'extra' to the output dir
+STATIC_PATHS = [
+  'images',
+  'extra'
+]
 
 # Tell Pelican to change the path to 'static/custom.css' in the output dir
 EXTRA_PATH_METADATA = {
-    'extra/custom.css': {'path': 'static/custom.css'}
+    'extra/custom.css': {'path': 'static/css/custom.css'},
+    'extra/custom.js': {'path': 'static/js/custom.js'}
 }
 ```
 
