@@ -3,13 +3,58 @@
 <head>
 	<meta charset="utf-8"/>
 	<title>{% block title %}{{ SITENAME }}{%endblock%}</title>	
-	<meta name="author" content="{{ AUTHOR }}">
-	
-	<meta name="HandheldFriendly" content="True">
-	<meta name="MobileOptimized" content="320">
-	<meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0">
-	
-	<link href='https://fonts.googleapis.com/css?family=Droid+Sans:700,400|Droid+Sans+Mono' rel='stylesheet' type='text/css'>
+
+	{% if article and article.author %}
+	<meta name="author" content="{{ article.author }}" />
+	<meta name="copyright" content="{{ article.author }}" />
+	{% elif page and page.author %}
+	<meta name="author" content="{{ page.author }}" />
+	<meta name="copyright" content="{{ page.author }}" />
+	{% else %}
+	<meta name="author" content="{{ AUTHOR }}" />
+	<meta name="copyright" content="{{ AUTHOR }}" />
+	{% endif %}
+
+	<meta property="og:site_name" content="{{SITENAME}}" />
+
+	{% if GOOGLE_PLUS_PROFILE_URL %}
+	<link rel="author" href={{GOOGLE_PLUS_PROFILE_URL}} />
+	{% endif %}
+	{%if TWITTER_USERNAME %}
+	<meta name="twitter:site" content="@{{TWITTER_USERNAME}}" />
+	<meta name="twitter:creator" content="@{{TWITTER_USERNAME}}" />
+	{% endif %}
+
+	{%if article %}
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:title" content="{{article.title}}" />
+	<meta name="date" content="{{article.date}}" />
+	<meta property="og:type" content="article" />
+	<meta property="og:locale" content="{{article.lang}}" />
+	<meta property="og:published_time" content="{{article.date}}" />
+	<meta property="og:title" content="{{article.title}}" />
+	<meta property="og:url" content="{{SITEURL}}/{{ article.url }}" />
+	{% if  article.featured_image %}
+	<meta property="og:image" content="{{ article.featured_image }}" />
+	{% endif %}
+	{%if DESCRIPTION %}
+	<meta property="og:description" content="{{DESCRIPTION}} " />
+	<meta name="description" content="{{DESCRIPTION}}" />
+	{%else %}
+	<meta property="og:description" content="{{article.summary|striptags}}" />
+	<meta name="description" content="{{article.summary|striptags}}" />
+	{% endif %}
+	{%if FACEBOOK_PROFILE_URL %}
+	<meta property="article:author" content="{{FACEBOOK_PROFILE_URL}}" />
+	{% endif %}
+	{% endif %}
+
+	<meta name="HandheldFriendly" content="True" />
+	<meta name="MobileOptimized" content="320" />
+	<meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0" />
+	<link rel="shortcut icon" href="{{ SITEURL }}/favicon.ico" type="image/x-icon" />
+	<link rel="icon" href="{{ SITEURL }}/favicon.ico" type="image/x-icon" />
+	<link href='https://fonts.googleapis.com/css?family=Droid+Sans:700,400|Droid+Sans+Mono' rel='stylesheet' type='text/css' />
 	<link rel="stylesheet" href="{{ SITEURL }}/theme/css/{{ CSS_FILE }}" type="text/css" />
 		
 	<!--[if lt IE 9]>
