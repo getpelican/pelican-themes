@@ -9,6 +9,10 @@ Gum is a clean and responsive theme for [Pelican](https://github.com/getpelican/
 
 ### Configuration
 
+Make sure tag_cloud is listed in your PLUGINS
+
+PLUGINS = ["tag_cloud"]
+
 * Edit your settings file to include the following if desired (any values left blank won't show up in the theme):
 
 ```
