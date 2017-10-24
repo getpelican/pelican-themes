@@ -5,6 +5,7 @@ Gum is a clean and responsive theme for [Pelican](https://github.com/getpelican/
 ### Requirements
 
 * [Pelican](https://github.com/getpelican/pelican)
+* [Tag Cloud Plugin](https://github.com/getpelican/pelican-plugins/tree/master/tag_cloud)
 
 ### Configuration
 
