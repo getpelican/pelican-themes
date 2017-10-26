@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}  {{ page.title|striptags }} - {{ SITENAME }} {% endblock %}
+
+{% block content %}
+<div>
+    <h3 class="page-title">{{ page.title }}</h3>
+    <hr>
+    {{ page.content }}
+</div>
+{% endblock %}

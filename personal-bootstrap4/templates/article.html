@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %} {{ article.title|striptags }} - {{ SITENAME }} {% endblock %}
+
+{% block head %}
+    {{ super() }}
+    {% for tag in article.tags %}
+    <meta name="tags" content="{{tag}}" />
+    {% endfor %}
+{% endblock %}
+
+{% block content %}
+    <h3 class="entry-title">{{ article.title }}</h3>
+    <hr>{{ article.content }}<hr>
+    <div>
+        <p>
+            {% for tag in article.tags %}
+            <a href="{{ SITEURL }}/{{ tag.url }}" class="badge badge-success"> {{ tag }} </a>
+            {% endfor %}
+            <span class="badge badge-info float-right">{{ article.locale_date }}</span>
+        </p>
+    </div>
+{% endblock %}
