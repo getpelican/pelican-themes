@@ -385,6 +385,20 @@ Originally developed for including certification marks in your sidebar. E.g.,
 
 http://dmark.github.io
 
+### Sidebar Summary
+
+Include a text to the top of the sidebar. Useful to display a summary of your site on all the pages.
+
+```
+SIDE_SUMMARY_TITLE = "WHAT is your quest ?"  # Title to display
+SIDE_SUMMARY_ICON = "flash"  # If you want to add an icon to the title
+SIDE_SUMMARY_URL = "to_seek_the_holy_grail.html"  # If you want the title to target a page
+SIDE_SUMMARY = """
+Sir Bedevere: How do you know so much about swallows?
+<br>King Arthur: Well, you have to know these things when you're king, y'know. 
+""""
+```
+
 ### Translations
 
 This template can be translated using pybabel and the enclosed Makefile. See
