@@ -19,8 +19,8 @@
   {% endif %}
   </ul>
 
-{% if categories and categories|length > 1 %}
 <h4>Categories</h4>
+{% if categories %}
 <ul class="blank">
 	{% for cat, null in categories %}
 		<li><a href="{{ SITEURL }}/{{ cat.url|e }}">{{ cat }}</a></li>
