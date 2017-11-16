@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block opengraph %}
+  {{ super() }}
+  <meta property="og:type" content="article">
+  <meta property="article:author" content="{{ AUTHOR }}">
+  <meta property="og:url" content="{{ SITEURL }}/{{ article.url }}">
+  <meta property="og:title" content="{{ article.title }}">
+  {% if article.subtitle %}
+  <meta property="og:description" content="{{ article.subtitle }}">
+  {% else %}
+  <meta property="og:description" content="{{ article.summary|striptags|truncate(100) }}">
+  {% endif %}
+  <meta property="article:published_time" content="{{ article.date }}">
+{% endblock %}
+{% block title %}{{super()}} - {{article.title}}{% endblock title %}
+{% block content %}
+            <header>
+            <h2>{{ article.title}}</h2>
+            {% if article.subtitle %}<h3>{{article.subtitle |striptags}}</h3>{% endif %}
+            <h4>Published on {{ article.date | strftime('%B')  }} {{ article.date.day |ordinal() }}, {{ article.date | strftime('%Y')  }}</h4>
+
+            </header>
+            {{ article.content}}
+            <hr>
+              <!-- Pagination -->
+            <div class="pagination">
+            {% if article.prev_article %}
+              <a class="pagination" href="{{ SITEURL }}/{{ article.prev_article.url}}">
+             &larr; {{ article.prev_article.title }} ]
+         </a>
+            {% endif %}
+          {% if article.next_article %}
+              <a class="pagination" href="{{ SITEURL }}/{{ article.next_article.url}}" >[ {{ article.next_article.title }} &rarr;</a>
+              {% endif %}
+            </div>
+{% endblock content %}

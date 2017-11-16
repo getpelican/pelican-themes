@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}{{super()}} - {{page.title}}{% endblock title %}
+
+{% block content %}
+            <header>
+            <h2>{{ page.title}}</h2>
+            {% if page.subtitle %}<h3>{{page.subtitle |striptags}}</h3>{% endif %}
+            
+            </header>
+            <p>
+            {{ page.content}}
+            </p>
+{% endblock content %}

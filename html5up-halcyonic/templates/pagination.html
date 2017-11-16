@@ -1,0 +1,15 @@
+{% if DEFAULT_PAGINATION %}
+    <!-- Pager -->
+    <ul class="pagination">            <li>Page {{ articles_page.number }} / {{ articles_paginator.num_pages }}</li>
+
+        <li class="next">
+            {% if articles_page.has_previous() %}
+                <a href="{{ SITEURL }}/{{ articles_previous_page.url }}">Newest Posts &rarr;</a>
+            {% endif %}
+            {% if articles_page.has_next() %}
+                <a href="{{ SITEURL }}/{{ articles_next_page.url }}">Older Posts &rarr;</a>
+            {% endif %}
+        </li>
+    </ul>
+    
+{% endif %}

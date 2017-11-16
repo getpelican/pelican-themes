@@ -1,0 +1,13 @@
+                                        <section>
+                                            <header>
+                                                <h2>Recent Articles</h2>
+                                            </header>
+                                            <ul class="link-list">
+                                                {% for article in articles[0:4] %}
+
+                                                
+                                                <li><a class = "red" href="/{{article.url}}">{{article.title}}</a><br>{% if article.subtitle %}{{article.subtitle |striptags}}{% endif %}</li>
+                                                {% endfor %}
+                                                
+                                            </ul>
+                                        </section>
