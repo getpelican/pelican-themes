@@ -7,8 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-10-06 15:03+0200\n"
-"PO-Revision-Date: 2017-12-02 20:09+0300\n"
+"POT-Creation-Date: 2017-12-08 19:20+0300\n"
+"PO-Revision-Date: 2017-12-08 19:22+0300\n"
+"Last-Translator: dtluna <dtluna@openmailbox.org>\n"
 "Language: ru\n"
 "Language-Team: ru <LL@li.org>\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
@@ -17,10 +18,9 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.5.1\n"
-"Last-Translator: dtluna <dtluna@openmailbox.org>\n"
 "X-Generator: Poedit 2.0.4\n"
 
-#: templates/archives.html:2 templates/archives.html:7 templates/base.html:150
+#: templates/archives.html:2 templates/archives.html:7 templates/base.html:160
 msgid "Archives"
 msgstr "Архивы"
 
@@ -41,6 +41,7 @@ msgid "Articles by"
 msgstr "Статьи"
 
 #: templates/author.html:9 templates/authors.html:3 templates/authors.html:9
+#: templates/includes/sidebar/authors.html:6
 msgid "Authors"
 msgstr "Авторы"
 
@@ -49,7 +50,7 @@ msgid "Authors on"
 msgstr "Авторы"
 
 #: templates/categories.html:2 templates/categories.html:8
-#: templates/category.html:11 templates/includes/sidebar.html:45
+#: templates/category.html:11 templates/includes/sidebar/categories.html:6
 msgid "Categories"
 msgstr "Категории"
 
@@ -65,15 +66,20 @@ msgstr "Поиск"
 msgid "Tags for"
 msgstr "Теги для"
 
-#: templates/includes/aboutme.html:8
+#: templates/includes/aboutme.html:9
 msgid "About"
 msgstr "О"
+
+#: templates/includes/article_info.html:2
+msgid "Date"
+msgstr "Дата"
 
 #: templates/includes/article_info.html:8
 msgid "Modified"
 msgstr "Изменена"
 
-#: templates/includes/article_info.html:17 templates/includes/sidebar.html:80
+#: templates/includes/article_info.html:17
+#: templates/includes/sidebar/series.html:6
 msgid "Series"
 msgstr "Серия"
 
@@ -105,17 +111,13 @@ msgstr "Показать комментарии"
 msgid "Comments"
 msgstr "Комментарии"
 
-#: templates/includes/footer.html:11
+#: templates/includes/footer.html:15
 msgid "Powered by"
 msgstr "Работает на"
 
-#: templates/includes/footer.html:21
+#: templates/includes/footer.html:25
 msgid "Back to top"
 msgstr "Вернуться наверх"
-
-#: templates/includes/links.html:2
-msgid "Links"
-msgstr "Ссылки"
 
 #: templates/includes/pagination.html:5 templates/includes/pagination.html:7
 msgid "Newer"
@@ -125,26 +127,35 @@ msgstr "Новее"
 msgid "Older"
 msgstr "Старше"
 
-#: templates/includes/sidebar.html:8
-msgid "Social"
-msgstr "Социальные сети"
-
-#: templates/includes/sidebar.html:31
-msgid "Recent Posts"
-msgstr "Недавние посты"
-
-#: templates/includes/sidebar.html:64 templates/includes/taglist.html:2
+#: templates/includes/sidebar/tag_cloud.html:15
+#: templates/includes/taglist.html:2
 msgid "Tags"
 msgstr "Теги"
-
-#: templates/includes/sidebar.html:84
-msgid "Previous article"
-msgstr "Предыдущая статья"
-
-#: templates/includes/sidebar.html:90
-msgid "Next article"
-msgstr "Следующая статья"
 
 #: templates/includes/translations.html:3
 msgid "Lang"
 msgstr "Язык"
+
+#: templates/includes/sidebar/archive.html:6
+msgid "Archive"
+msgstr "Архив"
+
+#: templates/includes/sidebar/links.html:6
+msgid "Links"
+msgstr "Ссылки"
+
+#: templates/includes/sidebar/recent_posts.html:9
+msgid "Recent Posts"
+msgstr "Недавние посты"
+
+#: templates/includes/sidebar/series.html:10
+msgid "Previous article"
+msgstr "Предыдущая статья"
+
+#: templates/includes/sidebar/series.html:16
+msgid "Next article"
+msgstr "Следующая статья"
+
+#: templates/includes/sidebar/social.html:6
+msgid "Social"
+msgstr "Социальные сети"
