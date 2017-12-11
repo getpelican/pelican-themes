@@ -244,3 +244,7 @@
 [submodule "MinimalXY"]
 	path = MinimalXY
 	url = https://github.com/petrnohejl/MinimalXY.git
+[submodule "MinimalXYZ"]
+	path = MinimalXYZ
+	url = https://github.com/ELC/MinimalXYZ.git
+	branch = master
