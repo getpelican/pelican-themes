@@ -1,7 +1,7 @@
 <footer class="post-info">
     <span class="label label-default">{{ _('Date')}}</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="{{ article.date.isoformat() }}"> {{ article.date }}</time>
+        <i class="fa fa-calendar"></i><time datetime="{{ article.date.isoformat() }}"> {{ article.date.date() }}</time>
     </span>
     {% if SHOW_DATE_MODIFIED %}
         {% if article.modified %}
