@@ -244,3 +244,6 @@
 [submodule "MinimalXY"]
 	path = MinimalXY
 	url = https://github.com/petrnohejl/MinimalXY.git
+[submodule "bootstrap4"]
+	path = bootstrap4
+	url = https://github.com/rask004/pelican-theme-bootstrap4.git
