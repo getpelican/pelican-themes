@@ -244,3 +244,6 @@
 [submodule "MinimalXY"]
 	path = MinimalXY
 	url = https://github.com/petrnohejl/MinimalXY.git
+[submodule "pelican-fh5co-marble"]
+	path = pelican-fh5co-marble
+	url = https://github.com/claudio-walser/pelican-fh5co-marble.git
