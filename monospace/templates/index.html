@@ -23,11 +23,11 @@
         {% else %} 
             <li><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title}}">{{ article.title }}</a></li>
         {% endif %}
-{% endfor %}
-    {% if loop.length > 1 %}
-    </ol>
-    </section><!-- #article-list -->
-{% endif %}
+        {% if loop.length > 1 %}
+        </ol>
+        </section><!-- #article-list -->
+        {% endif %}
+    {% endfor %}
 {% else %}
     No posts found.
 {% endif %}

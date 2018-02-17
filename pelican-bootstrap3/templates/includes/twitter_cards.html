@@ -1,6 +1,7 @@
 {% if TWITTER_CARDS and USE_OPEN_GRAPH %}
     {# Do not include duplicates tag with og ones. #}
     {# Twitter is able to infer them from og. #}
+    <meta name="twitter:dnt" content="on">
     <meta name="twitter:card" content="summary">
     {% if TWITTER_USERNAME %}
         <meta name="twitter:site" content="@{{ TWITTER_USERNAME }}">

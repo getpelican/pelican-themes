@@ -235,3 +235,15 @@
 [submodule "jojo"]
 	path = jojo
 	url = https://github.com/dokelung/jojo.git
+[submodule "resume"]
+	path = resume
+	url = https://github.com/suheb/resume.git
+[submodule "taman"]
+	path = taman
+	url = https://github.com/karambir/taman.git
+[submodule "MinimalXY"]
+	path = MinimalXY
+	url = https://github.com/petrnohejl/MinimalXY.git
+[submodule "pelican-fh5co-marble"]
+	path = pelican-fh5co-marble
+	url = https://github.com/claudio-walser/pelican-fh5co-marble.git

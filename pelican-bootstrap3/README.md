@@ -38,6 +38,14 @@ plugin:
 `PLUGIN_PATHS = ['/path/to/git/pelican-plugins']`
 `PLUGINS = ['i18n_subsites']`
 
+If you are using
+[`i18n_subsites`](https://github.com/getpelican/pelican-plugins/tree/master/i18n_subsites)
+and you are not using English as your default language, make sure to
+also correctly specify the default language of the theme. Otherwise
+the translations will not be used on your default site.
+
+`I18N_TEMPLATES_LANG = 'en'`
+
 ## Usage
 
 This theme honors the following standard Pelican settings:
@@ -80,26 +88,31 @@ of the article and in the index of articles. Set `SHOW_ARTICLE_CATEGORY` to
 show the Category of each article. Set `SHOW_DATE_MODIFIED` to True to show the
 article modified date next to the published date.
 
-### Custom CSS
+### Custom CSS/JS
 
-If you want to add custom css to the theme, without having to clone and
-maintain your own version of the theme, you can use the `CUSTOM_CSS` variable.
+If you want to add custom css/js to the theme, without having to clone and
+maintain your own version of the theme, you can use `CUSTOM_CSS` and `CUSTOM_JS` variables.
 The value is the location where you tell Pelican to put the file (see below):
 
 ```
-CUSTOM_CSS = 'static/custom.css'
+CUSTOM_CSS = 'static/css/custom.css'
+CUSTOM_JS = 'static/js/custom.js'
 ```
 
 To tell Pelican to copy the relevant file to the desired destination, add the
 path to `STATIC_PATHS` and the destination to `EXTRA_PATH_METADATA`, like so:
 
 ```
-# Tell Pelican to add 'extra/custom.css' to the output dir
-STATIC_PATHS = ['images', 'extra/custom.css']
+# Tell Pelican to add files from 'extra' to the output dir
+STATIC_PATHS = [
+  'images',
+  'extra'
+]
 
 # Tell Pelican to change the path to 'static/custom.css' in the output dir
 EXTRA_PATH_METADATA = {
-    'extra/custom.css': {'path': 'static/custom.css'}
+    'extra/custom.css': {'path': 'static/css/custom.css'},
+    'extra/custom.js': {'path': 'static/js/custom.js'}
 }
 ```
 
@@ -251,6 +264,8 @@ icon to show. You can provide an alternative icon string as the third string (as
 * **Categories** will be shown if `DISPLAY_CATEGORIES_ON_SIDEBAR` is set to _True_
 * **Recent Posts** will be shown if `DISPLAY_RECENT_POSTS_ON_SIDEBAR` is set to _True_
 	* Use `RECENT_POST_COUNT` to control the amount of recent posts. Defaults to **5**
+* **Archive** will be shown if `DISPLAY_ARCHIVE_ON_SIDEBAR` is set to _True_ and `MONTH_ARCHIVE_SAVE_AS` is set up properly.
+* **Authors** will be shown if `DISPLAY_AUTHORS_ON_SIDEBAR` is set to _True_
 
 Other sidebar related options include:
 
@@ -350,6 +365,10 @@ All you have to do, is:
 - Add `'search'` to the `DIRECT_TEMPLATES` in your `pelicanconf.py`. E.g. `DIRECT_TEMPLATES = ('index', 'categories', 'authors', 'archives', 'search').
 By default, the Tipue search page is configured at "/search.html", but you can override that with the `SEARCH_URL` 
 setting, which comes in handy if you have fancy rewrite rules in your Apache or Nginx configuration.
+
+### Flattr
+
+This theme has support for linking your domain with [Flattr](https://flattr.com). To enable this provide your `FLATTR_ID`. Be aware that you will also have to go [Flattr's domain settings](https://flattr.com/settings/domains) and link your domain.
 
 ### Footer
 

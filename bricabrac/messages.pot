@@ -1,0 +1,35 @@
+# Translations template for Bricabrac pelican theme.
+# CC-BY 2017 Bricabrac
+# This file is distributed under the same license as the Bricabrac pelican theme project.
+# Bricabrac <bricabrac@grainedutopie.eu>, 2017.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.0\n"
+"Report-Msgid-Bugs-To: bricabrac@grainedutopie.eu\n"
+"POT-Creation-Date: 2017-03-15 14:06+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Bricabrac <bricabrac@grainedutopie.eu>\n"
+"Language-Team: none\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: templates/base.html:36 templates/categories.html:6
+msgid "catégories"
+msgstr "catégories"
+
+#: templates/index.html:15
+msgid "lire la suite"
+msgstr "lire la suite"
+
+#: templates/index.html:19
+msgid "Tous les articles"
+msgstr "Tous les articles"
+
+#: templates/index.html:30
+msgid "Aucun article"
+msgstr "Aucun article"
+

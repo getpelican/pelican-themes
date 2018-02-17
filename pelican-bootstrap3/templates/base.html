@@ -53,6 +53,11 @@
     {# Twitter Cards tags #}
     {% include 'includes/twitter_cards.html' %}
 
+    {# Flattr ID for the Flattr browser plug-in #}
+    {% if FLATTR_ID %}
+        <meta name="flattr:id" content="{{ FLATTR_ID }}">
+    {% endif %}
+
     <!-- Bootstrap -->
     {% if BOOTSTRAP_THEME %}
         <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/bootstrap.{{ BOOTSTRAP_THEME }}.min.css" type="text/css"/>
@@ -201,6 +206,10 @@
 
 <!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
 <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/respond.min.js"></script>
+
+{% if CUSTOM_JS %}
+    <script src="{{ SITEURL }}/{{ CUSTOM_JS }}"></script>
+{% endif %}
 
 {% if BANNER %}
     <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/bodypadding.js"></script>
