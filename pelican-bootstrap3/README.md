@@ -271,7 +271,7 @@ Other sidebar related options include:
 
 * To remove the sidebar entirely, set `HIDE_SIDEBAR` to _True_.
 * To move the sidebar to the left, set `SIDEBAR_ON_LEFT` to _True_.
-* To turn off inlined icons in the titles set `DISABLE_SIDEBAR_TITLE_ICONS` to
+* To turn off inlined icons in the titles set `DISABLE_SIDEBAR_TITLE_ICONS` to _True_.
 
 ### reStructuredText styles
 
