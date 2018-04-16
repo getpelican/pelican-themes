@@ -247,3 +247,6 @@
 [submodule "pelican-fh5co-marble"]
 	path = pelican-fh5co-marble
 	url = https://github.com/claudio-walser/pelican-fh5co-marble.git
+[submodule "aves"]
+	path = aves
+	url = https://github.com/vorakl/aves.git
