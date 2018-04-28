@@ -6,7 +6,13 @@
     {% endif %}
     {% if ABOUT_ME %}
     <p>
-      <strong>{{ _('About') }} {{ AUTHOR }}</strong><br/>
+        {% if ABOUT_ME_HEADER is defined %}
+            {% if ABOUT_ME_HEADER %}
+                <strong>{{ ABOUT_ME_HEADER }}</strong><br/>
+            {% endif %}
+        {% else %}
+            <strong>{{ _('About') }} {{ AUTHOR }}</strong><br/>
+        {% endif %}
         {{ ABOUT_ME }}
     </p>
     {% endif %}
