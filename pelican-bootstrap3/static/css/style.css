@@ -242,3 +242,12 @@ figure.floatcenter, .align-center {
 .gap-left {
   margin-left: 10px;
 }
+
+/* Hide the `In: []` and `Out: []` stuff from jupyter notebooks */
+.prompt {
+    display: none;
+}
+
+.collapseheader.inner_cell {
+    background-color: rgb(211, 211, 211);
+}
