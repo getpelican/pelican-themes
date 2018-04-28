@@ -4,6 +4,9 @@ body {
 
 #sidebar .list-group, #sidebar .list-group-item {
     background-color: transparent;
+    /* Tighter spacing between social and tags entries in sidebar */
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 /* for list-groups nested within a list-group-item, reset the bottom margin */
