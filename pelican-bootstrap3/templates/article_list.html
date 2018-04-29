@@ -5,13 +5,11 @@
             <article>
                 <h2><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h2>
                 {% if DISPLAY_ARTICLE_INFO_ON_INDEX %}
-                    <div class="well well-sm">
-                        {% include "includes/article_info.html" %}
-                    </div>
+                    {% include "includes/article_info.html" %}
                 {% endif %}
                 <div class="summary">{{ article.summary }}
                     {% include 'includes/comment_count.html' %}
-                    <a class="btn btn-info" href="{{ SITEURL }}/{{ article.url }}">{{ _('more') }} ...</a>
+                    <a class="btn btn-primary" href="{{ SITEURL }}/{{ article.url }}">{{ _('more') }} ...</a>
                 </div>
             </article>
             <hr/>

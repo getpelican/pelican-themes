@@ -248,6 +248,43 @@ figure.floatcenter, .align-center {
     display: none;
 }
 
+/* Gray background for Collapse/Expand button */
 .collapseheader.inner_cell {
     background-color: rgb(211, 211, 211);
+}
+
+.inner_cell pre {
+    /* Turn off border in expanded code */
+    border-style: none;
+    /* Turn off big gap in bottom of code blocks */
+    margin-bottom: 0;
+}
+
+/* Class to turn off link underline */
+/* .entry-content a.nounderline, .entry-content a.nounderline:hover { */
+a.nounderline, a.nounderline:hover {
+    text-decoration: none;
+    border-bottom: none;
+}
+
+/* Nice padding for article tags */
+button.tag-btn {
+    padding-top: 3px;
+    padding-right: 6px;
+    padding-bottom: 3px;
+    padding-left: 6px;
+    margin-top: 4px;
+    margin-right: 2px;
+    margin-bottom: 4px;
+    margin-left: 2px;
+    background-color: #f8f8f8;
+}
+
+button.tag-btn:hover {
+    background-color: #eee;
+}
+
+/* Hacky class to add blank divs for vertical space in html */
+.spacer {
+    height: 10px;
 }

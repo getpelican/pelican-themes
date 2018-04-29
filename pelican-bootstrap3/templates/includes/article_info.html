@@ -1,16 +1,25 @@
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }}</time>
-    </span>
-    {% if SHOW_DATE_MODIFIED %}
-        {% if article.modified %}
-          <span class="label label-default">{{ _('Modified') }}</span>
-            <span class="modified">
-                <i class="fa fa-calendar"></i><time datetime="{{ article.modified.isoformat() }}"> {{ article.locale_modified }}</time>
-            </span>
-        {% endif %}
-    {% endif %}
+<footer class="post-info row">
+  <div class="col-sm-12">
+    <time class="published" datetime="{{ article.date.isoformat() }}">
+      {{ article.locale_date }}
+    </time>
+    &nbsp; | &nbsp;
+    <a href="{{ SITEURL }}/{{ article.category.url }}"><i class="fa fa-folder-open"></i> {{ article.category }}</a>
+  </div>
+  <div class="spacer"></div>
+
+    <!-- <span class="label label-default">Date</span> -->
+    <!-- <span class="published"> -->
+    <!--     <i class="fa fa-calendar"></i><time datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }}</time> -->
+    <!-- </span> -->
+    <!-- {% if SHOW_DATE_MODIFIED %} -->
+    <!--     {% if article.modified %} -->
+    <!--       <span class="label label-default">{{ _('Modified') }}</span> -->
+    <!--         <span class="modified"> -->
+    <!--             <i class="fa fa-calendar"></i><time datetime="{{ article.modified.isoformat() }}"> {{ article.locale_modified }}</time> -->
+    <!--         </span> -->
+    <!--     {% endif %} -->
+    <!-- {% endif %} -->
 
     {% if SHOW_SERIES %}
         {% if article.series %}
@@ -37,7 +46,10 @@
         </span>
     {% endif %}
 
-    {% include 'includes/taglist.html' %}
+    <div class="col-sm-12">
+      {% include 'includes/taglist.html' %}
+    </div>
     {% import 'includes/translations.html' as translations with context %}
     {{ translations.translations_for(article) }}
+    <div class="col-sm-12 spacer"></div>
 </footer><!-- /.post-info -->
