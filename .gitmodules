@@ -247,3 +247,6 @@
 [submodule "pelican-fh5co-marble"]
 	path = pelican-fh5co-marble
 	url = https://github.com/claudio-walser/pelican-fh5co-marble.git
+[submodule "bootstrap-4-blog-theme"]
+	path = bootstrap-4-blog-theme
+	url = https://github.com/RonaldTheodoro/bootstrap-4-blog-theme.git
