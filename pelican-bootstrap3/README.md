@@ -272,6 +272,15 @@ Other sidebar related options include:
 * To remove the sidebar entirely, set `HIDE_SIDEBAR` to _True_.
 * To move the sidebar to the left, set `SIDEBAR_ON_LEFT` to _True_.
 * To turn off inlined icons in the titles set `DISABLE_SIDEBAR_TITLE_ICONS` to
+  _True_.
+
+### Padded, Single Column Content Style
+
+The main body of the pages will be generated centered and with padding on the sides when `PADDED_SINGLE_COLUMN_STYLE` is set to `True`.
+
+The values in `HIDE_SIDEBAR`, `ABOUT_ME`, and ` AVATAR` are ignored when `PADDED_SINGLE_COLUMN_STYLE` is set to `True`.  This means that none of the sidebar content will be rendered.
+
+Use of the `PADDED_SINGLE_COLUMN_STYLE` can be seen at [droun.in](https://droun.in/).  Note that the example blog is utilizing a modified [Bootstrap/Bootswatch configuration](https://github.com/digitalrounin/bootswatch/tree/drounin/drounin) with [custom CSS](https://droun.in/css/custom.css).
 
 ### reStructuredText styles
 
