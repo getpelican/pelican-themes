@@ -246,7 +246,7 @@
 	url = https://github.com/petrnohejl/MinimalXY.git
 [submodule "bootstrap4"]
 	path = bootstrap4
-	url = https://github.com/rask004/pelican-theme-bootstrap4.gits
+	url = https://github.com/rask004/pelican-theme-bootstrap4.git
 [submodule "pelican-fh5co-marble"]
 	path = pelican-fh5co-marble
 	url = https://github.com/claudio-walser/pelican-fh5co-marble.git
