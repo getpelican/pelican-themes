@@ -250,3 +250,6 @@
 [submodule "grid-focus"]
 	path = grid-focus
 	url = https://github.com/oulenz/pelican-grid-focus.git
+[submodule "brutalist"]
+	path = brutalist
+	url = git@github.com:mamcmanus/brutalist.git
