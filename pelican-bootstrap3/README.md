@@ -40,11 +40,13 @@ plugin:
 
 If you are using
 [`i18n_subsites`](https://github.com/getpelican/pelican-plugins/tree/master/i18n_subsites)
-and you are not using English as your default language, make sure to
-also correctly specify the default language of the theme. Otherwise
-the translations will not be used on your default site.
+and you are not using English as default language (`DEFAULT_LANG`) for your
+site, make sure to also correctly specify the default language of the theme
+(English):
 
 `I18N_TEMPLATES_LANG = 'en'`
+
+Otherwise the translations will not be used on your default site.
 
 ## Usage
 
