@@ -12,7 +12,7 @@
 <h1>{{'all the articles'|capitalize}}</h1>
 
 <ul>
-{% for article in articles|sort %}
+{% for article in articles %}
     <li><a class="{% if CAPITALIZE_HEADINGS %}capitalize{% endif %}" href="/{{ article.url }}">{{ article.title }}</a></li>
 {% endfor %}
 </ul>
