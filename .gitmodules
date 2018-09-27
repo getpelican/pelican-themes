@@ -256,3 +256,6 @@
 [submodule "mdshow"]
 	path = mdshow
 	url = https://github.com/kosmgco/pelican-theme-mdshow.git
+[submodule "pelican-theme-mdshow"]
+	path = pelican-theme-mdshow
+	url = https://github.com/kosmgco/pelican-theme-mdshow
