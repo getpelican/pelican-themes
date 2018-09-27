@@ -253,3 +253,6 @@
 [submodule "brutalist"]
 	path = brutalist
 	url = https://github.com/mamcmanus/brutalist.git
+[submodule "pelican-theme-mdshow"]
+	path = pelican-theme-mdshow
+	url = https://github.com/kosmgco/pelican-theme-mdshow
