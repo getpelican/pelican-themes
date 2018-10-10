@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %} {{ article.title }} {% endblock %}
+
+{% block extra_scripts %}
+
+{% endblock %}
+
+{% block content %}
+<hr role="none"/>
+<div class='row'>
+	<div class="col" role="none">
+		<div role="none" class="card card-body card-metadata my-3">{% include "metadata.html" %}</div>
+		<div class="my-4"  role="region">
+				{{ article.content }}
+		</div>
+		{% if DISQUS_SITENAME or FACEBOOK_APPID %}
+		<div class='article-comments my-5'>
+			<h2 tabindex="0">Comments</h2>
+            <hr/>
+            <br/>
+
+            {% include "disqus.html" %}
+
+			{% include "facebook.html" %}
+		</div>
+		{% endif %}
+
+        <div class='container sharing my-5'>
+        {% include "twitter.html" %}
+        </div>
+	</div>
+</div>
+{% endblock %}

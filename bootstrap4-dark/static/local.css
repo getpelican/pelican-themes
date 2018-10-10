@@ -1,0 +1,136 @@
+html {
+    font-size: 16px;
+}
+body {
+    background: url('/images/background.png') fixed ;
+}
+
+main {
+    width:100%;
+    padding-top: 1.5rem;
+}
+
+div#back-cover {
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    bottom:0;
+    right:0;
+    height:100%;
+    background-color: white;
+    overflow-y:visible;
+    overflow-x:hidden;
+}
+
+nav ul.navbar-nav {
+    flex-direction: row;
+}
+
+nav.navbar, .card.card-metadata, .btn.btn-summary {
+    background-color: #D4AC6A;
+    border: solid #573701 1px;
+}
+
+.navbar-toggler {
+    color: rgba(0,0,0,.5);
+    border-color: rgba(0,0,0,.5);
+}
+
+.navbar-toggler .navbar-toggler-icon-custom {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.dropdown-menu.show {
+    background-color: #FFDFAA;
+    padding-left: 1rem;
+}
+
+.dropdown-item {
+	color: #7F5815;
+}
+
+.dropdown-item:focus, .dropdown-item:hover {
+	color: #758AA8;
+	background-color: #FFDFAA;
+}
+
+.card {
+    border: solid #573701 1px;
+    background-color: #D4AC6A;
+}
+
+kbd {
+    color: #FFDFAA;
+}
+
+a {
+    color: #7F5815;
+}
+
+a:hover {
+    color: #758AA8;
+}
+
+.summary, .btn-summary {
+    display: inline;
+}
+
+p.lead {
+    margin-bottom: 2em;
+    font-weight: 500;
+}
+
+table.table {
+    background-color: #FFECCC;
+}
+
+table caption {
+    margin-top: 0.25rem;
+    background-color: #FFECCC;
+    padding-left: 1rem;
+}
+
+.list-group-item {
+    padding: 1rem;
+    background-color: #D4AC6A;
+    border: solid #573701 1px;
+}
+
+.page-link {
+	color: #7F5815;
+	background-color: #D4AC6A;
+	border-color: #573701;
+}
+
+.page-link:hover {
+	color: #FFDFAA;
+	background-color:#758AA8;
+	border-color: #573701;
+}
+
+.page-item.active .page-link {
+	color: #FFDFAA;
+	background-color: #573701;
+	border-color: #573701;
+}
+
+.page-item.disabled .page-link {
+	color: #D4AC6A;
+	background-color: #D4AC6A;
+	border-color: #573701;
+}
+
+.article-count {
+    float:right;
+    font-size:0.8rem;
+}
+
+.subscribe {
+    position:absolute;
+    right: 16px;
+    top: 4rem;
+    display:block;
+    font-size: 1rem;
+    color: #de6f13;
+}

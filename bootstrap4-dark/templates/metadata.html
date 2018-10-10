@@ -1,0 +1,18 @@
+<div tabindex="0" class="container-fluid" role="complementary">
+    {{ article.date }}
+
+    {% if SHOW_AUTHORS and article.author %}
+        <span class="ml-3">By</span> <a href="{{ SITEURL }}/{{ article.author.url }}"
+              aria-label="link to all articles by {{ article.author }}"
+              title="articles by {{ article.author }}">
+            {{ article.author }}
+        </a>
+    {% endif %} <span class="ml-3">category:</span> <a href="{{ SITEURL }}/{{ article.category.url }}"
+                      aria-label="link to articles in category {{ article.category }}"
+                      title="articles for {{ article.category }}">{{ article.category }}</a>
+    {% if article.tags %}
+        <span class="ml-3">tags: </span> {% for tag in article.tags %}
+        <a href="{{ SITEURL }}/{{ tag.url }}"
+            aria-label="link to articles tagged {{ tag }}"
+              title="articles for {{ tag }}">{{ tag }}</a>{% endfor %}{% endif %}
+</div>

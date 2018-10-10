@@ -1,0 +1,53 @@
+html {
+    font-size: 16px;
+}
+body {
+    background: url('/images/background.png') fixed ;
+}
+
+main {
+    width:100%;
+    padding-top: 5rem;
+}
+
+div#back-cover {
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    bottom:0;
+    right:0;
+    height:100%;
+    overflow-y:visible;
+    overflow-x:hidden;
+}
+
+.navbar, .card, .btn.btn-summary {
+    background-color: #E4E4FF;
+}
+
+nav.bottom-bar {
+    margin: 0 -1rem;
+}
+
+.navbar-toggler {
+    color: rgba(0,0,0,.5);
+    border-color: rgba(0,0,0,.5);
+}
+
+.navbar-toggler .navbar-toggler-icon-custom {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.dropdown-menu.show {
+    padding-left: 0.5rem;
+}
+
+p.lead {
+    margin-bottom: 2rem;
+}
+
+table caption {
+    margin-top: 0.25rem;
+    padding-left: 0.5rem;
+}

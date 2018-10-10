@@ -1,0 +1,11 @@
+{% if FACEBOOK_APPID %}
+<div tabindex="0" class="fb-comments" tabindex="200" aria-label="facebook comments" data-href="{{ FQ_SITEURL }}/{{ article.url }}" data-num-posts="10" data-width="760">
+<div tabindex="0" id="fb-root"></div>
+<script>(function(d){
+	var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}
+	js = d.createElement('script'); js.id = id; js.async = true;
+	js.src = "https://connect.facebook.net/en_US/all.js#xfbml=1&appId={{ FACEBOOK_APPID }}";
+	d.getElementsByTagName('head')[0].appendChild(js);
+	}(document));</script>
+</div>
+{% endif %}

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Categories{% endblock %}
+{% block content %}
+<hr role="none"/>
+
+<ul class="clear-list" aria-label="list of article categories">
+    {% for category, articles in categories %}
+    {% if article == articles|last %}
+	<li class="py-4" role="none">
+    {% else %}
+    <li class="pt-4" role="none">
+    {% endif %}
+        <div role="none" class="card card-body card-metadata">
+            <a href="{{ SITEURL }}/{{ category.url }}"
+               title="{{ category }}, {{ articles|count }} articles">{{ category }}</a>
+            <span class="article-count">{{ articles|count }}</span>
+        </div>
+	</li>
+{% endfor %}
+</ul>
+{% endblock %}

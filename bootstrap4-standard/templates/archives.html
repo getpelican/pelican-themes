@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Archive{% endblock %}
+
+{% block content %}
+<hr role="none"/>
+
+<ul class="clear-list" aria-label="list of archived articles">
+	{% for year, date_year in dates|groupby( 'date.year' ) %}
+    <li  role="none" class="pt-4"><h2 tabindex="-1">{{ year }}</h2>
+		<ul  role="none" class="clear-list">
+			{% for month, articles in date_year|groupby( 'date.month' ) %}
+            <li  role="none" class="pt-4"><h2 tabindex="-1">{{ articles[ 0 ].date.strftime( '%B' ) }}</h2>
+				<ul class="clear-list" role="none">
+					{% for article in articles %}
+					{% if article == articles|last %}
+					<li class="py-4" role="none">
+					{% else %}
+					<li class="pt-4" role="none">
+					{% endif %}
+                        <div class="card card-body card-metadata" role="none">
+                            <a href="{{ SITEURL }}/{{ article.url }}"
+                               title="{{ article.title }}"
+                               aria-label="{{ year }}, {{ articles[ 0 ].date.strftime( '%B' ) }}, {{ article.title }}">{{ article.title }}</a>
+                        </div>
+					</li>
+					{% endfor %}
+				</ul>
+			</li>
+			{% endfor %}
+		</ul>
+	</li>
+	{% endfor %}
+</ul>
+
+{% endblock %}
+
+
+
