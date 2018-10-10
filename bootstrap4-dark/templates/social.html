@@ -1,9 +1,0 @@
-{% if SOCIAL %}
-    {% for name, link, caption in SOCIAL %}
-      <a class="social" href="{{ link }}" aria-label="{{ caption }}"
-         title="{{ caption }}">
-        <i class="fab fa-{{ name }}"></i>
-        <span class="sr-only">{{ caption }}</span>
-      </a>
-    {% endfor %}
-{% endif %}

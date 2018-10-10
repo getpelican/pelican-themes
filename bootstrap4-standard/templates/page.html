@@ -1,17 +1,12 @@
 {% extends "base.html" %}
-{% block title %} {{ page.title }} {% endblock %}
-
-{% block extra_scripts %}
-
-{% endblock %}
-
+{% block content_title %} {{ page.title }} {% endblock %}
 {% block content %}
-	<hr role="none" />
-	<div class='row'>
-    	<div role="none" class="col">
-			<div class='my-4' role="region" title="content">
-					{{ page.content }}
-			</div>
-		</div>
-	</div>
+<div class="container" id="content">
+        {% if PDF_PROCESSOR %}
+                <a href="{{ SITEURL }}/pdf/{{ page.slug }}.pdf">
+                        get the pdf
+                </a>
+        {% endif %}
+        {{ page.content }}
+</div>
 {% endblock %}

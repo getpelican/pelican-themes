@@ -1,0 +1,20 @@
+.navbar.float-bottom, .navbar.fixed-top, .btn.btn-summary, .accordion .card-header {
+    background-color: #EAEAFF;
+}
+
+.btn.btn-summary {
+    border: rgba(0,0,0,.125);
+}
+
+.card-metadata {
+    background-color: #F1F1FF;
+}
+
+ul.clear-list {
+    list-style-type: none;
+    list-style-position: outside;
+}
+
+span.label {
+    display: inline-block;
+}

@@ -1,23 +1,21 @@
 {% extends "base.html" %}
-{% block title %}Archive{% endblock %}
+{% block content_title %} Archive {% endblock %}
 
 {% block content %}
-<hr role="none"/>
-
-<ul class="clear-list" aria-label="list of archived articles">
-	{% for year, date_year in dates|groupby( 'date.year' ) %}
-    <li  role="none" class="pt-4"><h2 tabindex="-1">{{ year }}</h2>
-		<ul  role="none" class="clear-list">
+<ul class="clear-list my-5" aria-label="list of archived articles">
+  {% for year, date_year in dates|groupby( 'date.year' ) %}
+    <li class="pt-4"><h2>{{ year }}</h2>
+		<ul class="clear-list">
 			{% for month, articles in date_year|groupby( 'date.month' ) %}
-            <li  role="none" class="pt-4"><h2 tabindex="-1">{{ articles[ 0 ].date.strftime( '%B' ) }}</h2>
-				<ul class="clear-list" role="none">
+            <li class="pt-4"><h3>{{ articles[ 0 ].date.strftime( '%B' ) }}</h2>
+				<ul class="clear-list">
 					{% for article in articles %}
 					{% if article == articles|last %}
-					<li class="py-4" role="none">
+					<li class="pt-4">
 					{% else %}
-					<li class="pt-4" role="none">
+					<li class="py-4">
 					{% endif %}
-                        <div class="card card-body card-metadata" role="none">
+                        <div class="card card-body card-metadata">
                             <a href="{{ SITEURL }}/{{ article.url }}"
                                title="{{ article.title }}"
                                aria-label="{{ year }}, {{ articles[ 0 ].date.strftime( '%B' ) }}, {{ article.title }}">{{ article.title }}</a>
@@ -33,6 +31,3 @@
 </ul>
 
 {% endblock %}
-
-
-

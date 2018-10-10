@@ -1,20 +1,19 @@
-<div tabindex="0" class="container-fluid" role="complementary">
-    <a aria-label="article, {{ article.title }}"
-                    href="{{ SITEURL }}/{{ article.url }}"
-                    title="Read more on {{ article.title }}">{{ article.date }}</a>
+<span class="label">Date</span>
+<span class="published" title="{{ article.date.isoformat() }}">
+  <i class="icon-calendar"></i>{{ article.locale_date }},</span>
+{% if article.author %}
+<span class="label"> By</span>
+<a class="px-2" href="{{ SITEURL }}/{{ article.author.url }}">{{ article.author }}</a>
+{% endif %}
+<span class="label"> Category</span>
+<a class="px-2" href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>
 
-    {% if SHOW_AUTHORS and article.author %}
-        <span class="ml-3">By</span> <a href="{{ SITEURL }}/{{ article.author.url }}"
-              aria-label="link to all articles by {{ article.author }}"
-              title="articles by {{ article.author }}">
-            {{ article.author }}
-        </a>
-    {% endif %} <span class="ml-3">category:</span> <a href="{{ SITEURL }}/{{ article.category.url }}"
-                      aria-label="link to articles in category {{ article.category }}"
-                      title="articles for {{ article.category }}">{{ article.category }}</a>
-    {% if article.tags %}
-        <span class="ml-3">tags: </span> {% for tag in article.tags %}
-        <a href="{{ SITEURL }}/{{ tag.url }}"
-            aria-label="link to articles tagged {{ tag }}"
-              title="articles for {{ tag }}">{{ tag }}</a>{% endfor %}{% endif %}
-</div>
+{% if PDF_PROCESSOR %}
+<span class="label">
+<a class="px-2" href="{{ SITEURL }}/pdf/{{ article.slug }}.pdf">PDF</a>
+</span>
+{% endif %}
+
+{% include 'taglist.html' %}
+{% include 'translations.html' %}
+

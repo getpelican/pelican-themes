@@ -1,29 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="utf-8">
-	<title>{% block windowtitle %}{{ SITENAME }}{% endblock %}</title>
-	<meta name="description" content="{{ SITE_DESCRIPTION }}">
-	<meta name="author" content="{{ AUTHOR }}">
+  <head>
     <meta charset="utf-8">
+    <title>{% block windowtitle %}{{ SITENAME }}{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="{{ SITE_DESCRIPTION }}">
+    <meta name="author" content="{{ AUTHOR }}">
 
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/all.min.css" type="text/css" />
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/brands.min.css" type="text/css" />
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/fontawesome.min.css" type="text/css" />
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/master.css" type="text/css" />
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/custom.css" type="text/css" />
 
-	<!-- Styles -->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/brands.css" integrity="sha384-rf1bqOAj3+pw6NqYrtaE1/4Se2NBwkIfeYbsFdtiR6TQz0acWiwJbv1IM/Nt/ite" crossorigin="anonymous">
-    <link href="{{ SITEURL }}/theme/local.css" rel="stylesheet">
-    {% block extra_css %} {% endblock %}
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/v4-shims.min.css" type="text/css" />
+    <script src="{{ SITEURL }}/theme/js/v4-shims.min.js"></script>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
 
-	<!-- Scripts -->
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="{{ SITEURL }}/theme/images/favicon.ico">
 
-	<script>
-	{% block extra_scripts %} {% endblock %}
-	</script>
+    {% if FEED %}
+    <link href="{{ SITEURL }}/{{ FEED }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} ATOM Feed" />
+    {% endif %}
 
-	<!-- Feeds -->
-	{% if FEED_ALL_ATOM %}
+    {% if FEED_ALL_ATOM %}
 	<link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed" />
 	{% endif %}
 
@@ -38,270 +43,155 @@
 	{% if FEED_RSS %}
         <link href="{{ FEED_RSS }}" rel="alternate" title="{{ SITENAME }}" type="application/rss+xml">
 	{% endif %}
+  </head>
 
-    </head>
-<body>
+  <body>
     <div id="back-cover">
+      <div class="navbar navbar-expand-sm fixed-top" role="navigation">
+          <a class="navbar-brand p-2 mr-3" href="/" id="navbar-home" arial-label="Link to home page">
+            <img width="30" height="30" alt="Home" src="/images/home.jpg" aria-labelledby="navbar-home" />
+            <span class="sr-only">Home</span>
+          </a>
+          <button class="p-2 navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarContent">
+            {% if DISPLAY_PAGES_ON_MENU %}
+			<ul class="navbar-nav float-left mr-auto" aria-label="pages">
+			    {% for page in pages %}
+				<li class="nav-item mr-2">
+				  <a class="nav-link p-1" href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a>
+				</li>
+				{% endfor %}
+			</ul>
+			{% endif %}
 
-	<nav class="navbar navbar-expand-sm fixed-top" role="navigation">
-        <div class="container-fluid">
-			<a id="navbar-brand" class="navbar-brand" href="{{ SITEURL }}/" aria-label="Link to home page"
-			   title="Home">
-				<img src="/images/sitebrand.png" aria-labelledby="navbar-brand"
-				width="30" height="30" alt="Website Brand">
-			</a>
-			<button type="button" class="navbar-toggler"
-					data-toggle="collapse" data-target="#navbarSupportedContent"
-					aria-controls="navbarSupportedContent" aria-expanded="false"
-					aria-label="Toggle navigation"
-					title="Main Navigation Bar">
-				<span class="navbar-toggler-icon navbar-toggler-icon-custom"></span>
-			</button>
+			{% if MENUITEMS %}
+			<ul class="navbar-nav float-left mr-auto" aria-label="menu items">
 
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				{% if DISPLAY_PAGES_ON_MENU %}
-				<ul class="navbar-nav float-left mr-auto" aria-label="pages">
-					{% for page in pages %}
-					<li role="none" class="nav-item"><a class="nav-link" href="{{ SITEURL }}/{{ page.url }}"
-						aria-label="The {{ page.title }} page"
-						title="{{ page.title }}">{{ page.title }}</a></li>
-					{% endfor %}
-				</ul>
-				{% endif %}
+			  {% for item, link in MENUITEMS %}
+			  <li class="nav-item mr-2">
+				<a class="nav-link p-1" href="{{ item }}">
+				  {{ item }}
+				</a>
+			  </li>
+			  {% endfor %}
+			</ul>
+			{% endif %}
 
-				{% if MENUITEMS %}
-				<ul class="navbar-nav float-left mr-auto" aria-label="menu items">
-					{% for title, link in MENUITEMS %}
-					<li role="none" class="nav-item">
-					    <a class="nav-link" aria-label="{{ title }}"
-					       title="{{ title }}" href="{{ link }}">{{ title }}</a></li>
-					{% endfor %}
-				</ul>
-				{% endif %}
+			<ul class="navbar-nav float-right">
+			{% if DISPLAY_LINKS_ON_MENU %}
+              <li class="nav-item dropdown mr-2">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCategories" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <small>Blogroll</small>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownCategories">
+                  {% for name, link in LINKS %}
+                  <a class="py-1 dropdown-item" href="{{ link }}">{{ name }}</a>
+                  {% endfor %}
+                </div>
+            {% endif %}
 
-				<ul class="navbar-nav float-right" aria-label="blogroll and site sections">
-    					<li role="none" class="nav-item dropdown">
-    						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlogroll"
-    						   role="button"
-    						   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-    						   title="Blogroll">
-    							<small>Blogroll</small>
-    						</a>
-    						<div class="dropdown-menu" aria-labelledby="navbarDropdownBlogroll">
-    							{% for name, link in LINKS %}
-    							<a class="dropdown-item" aria-label="Link to {{name}} blog"
-    							   title="{{ name }}" href="{{ link }}">
-    								{{ name }}</a>
-    							{% endfor %}
-    						</div>
-    					</li>
-					{% if SHOW_CATEGORIES %}
-    					<li role="none" class="nav-item">
-    						<a class="nav-link" aria-label="Categories section"
-    						   href="{{ SITEURL }}/categories.html" title="Categories">
-    							<small>Categories</small></a>
-    					</li>
-					{% endif %}
-					{% if SHOW_TAGS %}
-					    <li role="none" class="nav-item">
-    						<a class="nav-link" aria-label="Tags section"
-    						   href="{{ SITEURL }}/tags.html" title="Tags">
-    							<small>Tags</small></a>
-    					</li>
-					{% endif %}
-					{% if SHOW_AUTHORS %}
-    					<li role="none" class="nav-item">
-    						<a class="nav-link" aria-label="Authors Section"
-    						   href="{{ SITEURL }}/authors.html" title="Authors">
-    							<small>Authors</small></a>
-    					</li>
-					{% endif %}
-					<li role="none" class="nav-item">
-						<a class="nav-link" aria-label="Archives section"
-						   href="{{ SITEURL }}/archives.html" title="Archives">
-							<small>Archives</small></a>
-					</li>
-				</ul>
+			{% if DISPLAY_SOCIAL_ON_MENU %}
+              <li class="nav-item dropdown mr-2">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCategories" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <small>Social</small>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownCategories">
+                  {% if FEED_ALL_ATOM %}
+                  <a href="{{ SITEURL }}/{{ FEED_ALL_ATOM }}" rel="alternate"><i class="fas fa-rss-square mr-1"></i>atom feed</a>
+                  {% endif %}
+                  {% if FEED_RSS %}
+                  <a href="{{ SITEURL }}/{{ FEED_RSS }}" rel="alternate"><i class="fas fa-rss-square mr-1"></i>rss</a>
+                  {% endif %}
+                  {% for item in SOCIAL %}
+                  <a class="py-1 dropdown-item" href="{{ item.1 }}">{% if item|length > 2 %}<i class="fab {{ item.2 }} mr-1"></i>{% endif %}{{ item.0 }}</a>
+                  {% endfor %}
+                </div>
+            {% endif %}
+
+            {% if DISPLAY_CATEGORIES_ON_MENU %}
+              <li class="nav-item dropdown mr-2">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCategories" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <small>Categories</small>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownCategories">
+                  {% for cat, null in categories %}
+                  <a class="py-1 dropdown-item {% if cat == category %}active{% endif %}"
+                     href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a>
+                  {% endfor %}
+                </div>
+            {% endif %}
+
+            {% if DISPLAY_TAGS_ON_MENU %}
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownTags" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <small>Tags</small>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownTags">
+                  {% for tag, null in tags %}
+                  <a class="py-1 dropdown-item"
+                     href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
+                  {% endfor %}
+                </div>
+            {% endif %}
+
+              <li aria-label="archives" class="nav-item ml-2">
+                <a class="nav-link" href="{{ SITEURL }}/archives.html"><small>Archives</small></a>
+              </li>
+            </ul>
+          </div>
+      </div>
+
+      <main role="main" style="margin-top:4rem;">
+
+      {% include 'github.html' %}
+
+      <div class="container-fluid">
+      <div class="row">
+        {% if SIDEBAR %}
+        <div class="col-xs-12 col-sm-9">
+		{% else %}
+		<div class="col-12">
+		{% endif %}
+			<div id="index_content" class="container-fluid" role="document">
+			    <h1 class="my-5">{% block content_title %}{% endblock %}</h1>
+				{% block content %}{% endblock %}
 			</div>
 		</div>
-	</nav>
 
-    <noscript>
-        <main role="main">
-            <p tabindex="0" class="lead">
-                <em>This page uses bootstrap which relies on Javascript.
-                Until you enable Javascript, This site will not work properly.</em>
-            </p>
-        </main>
-    </noscript>
-
-    <main role="main">
-        <div class="container-fluid mt-5">
-            <div class="row">
-                {% include "subscribe.html" %}
-            </div>
+		{% if SIDEBAR %}
+        <div class="col-xs-12 col-sm-3" id="sidebar">
+            {% include 'sidebar.html' %}
         </div>
+        {% endif %}
 
+      </div>
+      </div>
+
+      </main>
+
+      <div class="navbar navbar-expand-sm float-bottom" role="contentinfo">
         <div class="container-fluid">
-            <div class="row">
+        <small class="navbar-text float-left mr-auto">
+            Proudly powered by <a href="http://pelican.notmyidea.org/">Pelican</a>,
+                                which makes use of <a href="http://python.org">Python</a>.
+        </small>
 
-                <div role="none" class="col-md-0 col-lg-1"></div>
-
-				{% if SHOW_BLOGROLL_SIDEBAR or SHOW_AUTHORS_SIDEBAR or SHOW_CATEGORIES_SIDEBAR or
-					SHOW_TAGS_SIDEBAR %}
-				<div role="none" class="col-sm-12 col-md-3 col-lg-2">
-					<div id="sidebar_content" role="tablist" class="mt-5">
-
-						{% if SHOW_BLOGROLL_SIDEBAR and LINKS|length > 0 %}
-						<div class="card" role="navigation">
-                            <div class="card-header" role="tab" id="blogroll_heading">
-                                <h3 class="mb-0">
-                                    <a tabindex="-1"
-                                       data-toggle="collapse" href="#blogroll_collapse"
-                                       aria-expanded="true"
-                                       aria-label="Blogroll Sidebar"
-                                       aria-controls="blogroll_collapse">
-                                        <small>Blogroll</small></a>
-                                </h3>
-                            </div>
-
-                            <div id="blogroll_collapse" class="collapse show" role="tabpanel"
-                                 aria-labelledby="blogroll_heading" data-parent="#sidebar_content">
-                                <div class="card-body" role="none">
-                                    {% for name, link in LINKS %}
-                                    <a tabindex="-1" href="{{ link }}">{{ name }}</a>
-                                    {% endfor %}
-                                </div>
-                            </div>
-						</div>
-						{% endif %}
-
-						{% if SHOW_CATEGORIES and SHOW_CATEGORIES_SIDEBAR and categories and
-                            categories|length > 0 %}
-                        <div class="card" role="navigation">
-                            <div class="card-header" role="tab" id="categories_heading">
-                                <h3 class="mb-0">
-                                    <a tabindex="-1"
-                                       data-toggle="collapse" href="#categories_collapse"
-                                       aria-expanded="false"
-                                       aria-label="Categories Sidebar"
-                                       aria-controls="categories_collapse">
-                                        <small>Categories</small></a>
-                                </h3>
-                            </div>
-
-                            <div id="categories_collapse" class="collapse hide" role="tabpanel"
-                                 aria-labelledby="categories_heading" data-parent="#sidebar_content">
-                                <div class="card-body" role="none">
-                                    {% for category, articles in categories %}
-                                    <a tabindex="-1" href="{{ SITEURL }}/{{ category.url }}">{{ category }}</a>
-                                    {% endfor %}
-                                </div>
-                            </div>
-                        </div>
-						{% endif %}
-
-						{% if SHOW_TAGS and SHOW_TAGS_SIDEBAR and tags and tags|length > 0 %}
-                        <div class="card" role="navigation">
-                            <div class="card-header" role="tab" id="tags_heading">
-                                <h3 class="mb-0">
-                                    <a tabindex="-1"
-                                       data-toggle="collapse" href="#tags_collapse"
-                                       aria-expanded="false"
-                                       aria-label="Tags Sidebar"
-                                       aria-controls="tags_collapse">
-                                        <small>Tags</small></a>
-                                </h3>
-                            </div>
-
-                            <div id="tags_collapse" class="collapse hide" role="tabpanel"
-                                 aria-labelledby="tags_heading"
-                                 data-parent="#sidebar_content">
-                                <div class="card-body" role="none">
-                                    {% for tag, articles in tags %}
-                                    <a tabindex="-1" href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
-                                    {% endfor %}
-                                </div>
-                            </div>
-                        </div>
-						{% endif %}
-
-                        {% if SHOW_AUTHORS and SHOW_AUTHORS_SIDEBAR and authors and authors|length > 1 %}
-                        <div class="card" role="navigation">
-                            <div class="card-header" role="tab" id="authors_heading">
-                                <h3 class="mb-0">
-                                    <a tabindex="-1"
-                                       data-toggle="collapse" href="#authors_collapse"
-                                       aria-expanded="false"
-                                       aria-label="Authors Sidebar"
-                                       aria-controls="authors_collapse>
-                                        <small>Authors</small>
-                                    </a>
-                                </h3>
-                            </div>
-
-                            <div id="authors_collapse" class="collapse hide" role="tabpanel"
-                                 aria-labelledby="authors_heading" data-parent="#sidebar_content">
-                                <div class="card-body" role="none">
-                                    {% for author, articles in authors %}
-                                    <a tabindex="-1" href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a>
-                                    {% endfor %}
-                                </div>
-                            </div>
-                        </div>
-                        {% endif %}
-					</div>
-                </div>
-				{% endif %}
-
-				{% if SHOW_BLOGROLL_SIDEBAR or SHOW_AUTHORS_SIDEBAR or SHOW_CATEGORIES_SIDEBAR or
-					SHOW_TAGS_SIDEBAR %}
-				<div role="none" class="col-sm-12 col-md-9 col-lg-8">
-				{% else %}
-				<div role="none" class="col-sm-12 col-md-12 col-lg-10">
-				{% endif %}
-					<div id="index_content" class="container-fluid" role="document" tabindex="0"
-						 style="margin-bottom: 60px;">
-						{% block indextitle %}<h1 class="my-5" tabindex="0">{% block
-						title %} {{ self.windowtitle() }} {% endblock %}</h1>{% endblock %}
-						{% block content %}{% endblock %}
-					</div>
-				</div>
-
-                <div role="none" class="col-md-0 col-lg-1"></div>
-
-			</div>
-			<div role="none" class="row">
-
-			</div>
-			<div class="row">
-    			<div role="none" class="col-md-12 col-lg-12">
-    			    <nav aria-label="copyright and supplementary info" class="navbar navbar-expand-sm bottom-bar" role="contentinfo">
-                        <div class="container-fluid">
-
-                            <small tabindex="0" class="navbar-text mr-auto">Powered by: <a href="http://getpelican.com/" aria-label="Pelican Static Site Generator ">Pelican</a><a href="http://getbootstrap.com/" aria-label="Bootstrap CSS Library ">Bootstrap</a><a href="http://python.com/" aria-label="Python Language">Python</a>
-                            </small>
-                            {% include "social.html" %}
-                            <small aria-label="copyright" tabindex="0" class="navbar-text" style="margin-left:8px;">&copy; {{ AUTHOR }}</small>
-                        </div>
-                    </nav>
-                </div>
-			</div>
+        <small class="navbar-text float-right">
+            Theme uses <a href="http://getbootstrap.com/docs/4.1/getting-started/introduction/">Bootstrap 4</a>,
+                <a href="http://jquery.com/">JQuery</a> and <a href="http://fortawesome.github.com/Font-Awesome/">Font-Awesome</a>.
+        </small>
         </div>
-    </main>
+      </div>
+    </div>
 
-	<div class="container-fluid">
+    <script src="{{ SITEURL }}/theme/js/jquery-3.3.1.slim.min.js"></script>
+    <script src="{{ SITEURL }}/theme/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ SITEURL }}/theme/js/fontawesome.min.js"></script>
+    <script src="{{ SITEURL }}/theme/js/all.min.js"></script>
+    <script src="{{ SITEURL }}/theme/js/brands.min.js"></script>
+    {% include "piwik.html" %}
     {% include "analytics.html" %}
-    </div>
-
-    </div>
-
-
-
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-	<script src="{{ SITEURL }}/theme/html5shiv-printshiv.min.js"></script>
-
-</body>
+  </body>
 </html>
