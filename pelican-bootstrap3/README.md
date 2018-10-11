@@ -40,11 +40,13 @@ plugin:
 
 If you are using
 [`i18n_subsites`](https://github.com/getpelican/pelican-plugins/tree/master/i18n_subsites)
-and you are not using English as your default language, make sure to
-also correctly specify the default language of the theme. Otherwise
-the translations will not be used on your default site.
+and you are not using English as default language (`DEFAULT_LANG`) for your
+site, make sure to also correctly specify the default language of the theme
+(English):
 
 `I18N_TEMPLATES_LANG = 'en'`
+
+Otherwise the translations will not be used on your default site.
 
 ## Usage
 
@@ -316,9 +318,11 @@ For example, if you want to use the WTFPL license, you can set:
 
 The theme can show your most recently active GitHub repos in the sidebar. To enable, provide a `GITHUB_USER`. Appearance and behaviour can be controlled using the following variables:
 
-* `GITHUB_REPO_COUNT`
-* `GITHUB_SKIP_FORK`
-* `GITHUB_SHOW_USER_LINK`
+* `GITHUB_REPO_COUNT`: An integer representing the number of repos to display (sorted by modification date, descending)
+* `GITHUB_SKIP_FORK`: Either `'false'` [default] or `'true'`. If `'true'`, exclude forked repositories from display in the sidebar. 
+* `GITHUB_SHOW_USER_LINK`: If undefined [default], don't show a link to the `GITHUB_USER`'s user page. If defined, show it.
+
+NOTE: Boolean values will _not_ work here! They will be interpreted as literal strings by JS, so instead use `'true'` and `'false'`
 
 ### Facebook Open Graph
 
