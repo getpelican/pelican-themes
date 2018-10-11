@@ -1,26 +1,5 @@
 <div class="accordion my-4" id="sidebar">
 
-  {% if GOOGLE_CUSTOM_SEARCH_SIDEBAR %}
-  <div class="card">
-    <div class="card-header" id="headingSearch">
-      <h3 class="mb-0">
-        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseSearch" aria-expanded="false" aria-controls="collapseSearch">
-          Search
-        </button>
-      </h3>
-    </div>
-
-    <div id="collapseSearch" class="collapse hide" aria-labelledby="headingSearch" data-parent="#sidebar">
-      <div class="card-body">
-        <ul class="list-group clear-list">
-          <li class="py-1">
-            {% include 'search_sidebar.html' %}
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  {% endif %}
   {% if LINKS %}
   <div class="card">
     <div class="card-header" id="headingBlogroll">

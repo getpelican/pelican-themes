@@ -33,15 +33,28 @@ DISPLAY_TAGS_ON_MENU                 False
 SIDEBAR			     False
 CATEGORIES_SIDEBAR           False
 TAGS_SIDEBAR                 False
-GOOGLE_CUSTOM_SEARCH_SIDEBAR False
 =========================== =========
 
 MENU variables create dropdowns listing respective blogroll, social menu, categories and tags.
 SIDEBAR makes an accordian sidebar appear, by default in the right 4th of the
 content area.
 Sidebar always contains the Blogroll and Social menu.
-Other SIDEBAR variables allow respective lists of categories, tags and a google
-search field to be shown there.
+Other SIDEBAR variables allow respective lists of categories and tags
+to be shown there.
+
+Custom CSS
+----------
+
+You can add custom CSS without changing the theme, using EXTRA_PATH_METADATA.
+The file "custom.css" is looked for by the theme, and will be loaded if exists.
+
+For Example:
+
+EXTRA_PATH_METADATA = {
+    'path/to/file.css': {'path': '/theme/static/css/custom.css'},
+}
+
+
 
 Screenshot
 ----------
