@@ -12,7 +12,7 @@ Acknowledgements and Reuse
 --------------------------
 
 To Jiachen Yang <farseerfc@gmail.com>, for the bootstrap2 theme,
-upon which this theme is partially based. 
+upon which this theme is partially based.
 
 Some code reused from the bootstrap2 theme: base, article, page, pagination,
 article_infos (changed to metadata), taglist, translations, piwik.
@@ -37,14 +37,17 @@ GOOGLE_CUSTOM_SEARCH_SIDEBAR False
 =========================== =========
 
 MENU variables create dropdowns listing respective blogroll, social menu, categories and tags.
-SIDEBAR makes an accordian sidebar appear, by default in the right 4th of the 
+SIDEBAR makes an accordian sidebar appear, by default in the right 4th of the
 content area.
 Sidebar always contains the Blogroll and Social menu.
-Other SIDEBAR variables allow respective lists of categories, tags and a google 
+Other SIDEBAR variables allow respective lists of categories, tags and a google
 search field to be shown there.
 
 Screenshot
 ----------
 
-.. image:: screenshot.png
+.. image:: screenshot1.png
+   :alt: Screenshot of the theme
+
+.. image:: screenshot2.png
    :alt: Screenshot of the theme

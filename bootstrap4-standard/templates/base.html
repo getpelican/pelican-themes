@@ -105,7 +105,7 @@
                   <a href="{{ SITEURL }}/{{ FEED_RSS }}" rel="alternate"><i class="fas fa-rss-square mr-1"></i>rss</a>
                   {% endif %}
                   {% for item in SOCIAL %}
-                  <a href="{{ item.1 }}">{% if item|length > 2 %}<i class="fab {{ item.2 }} mr-1"></i>{% endif %}{{ item.0 }}</a>
+                  <a class="py-1 dropdown-item" href="{{ item.1 }}">{% if item|length > 2 %}<i class="fab {{ item.2 }} mr-1"></i>{% endif %}{{ item.0 }}</a>
                   {% endfor %}
                 </div>
             {% endif %}
