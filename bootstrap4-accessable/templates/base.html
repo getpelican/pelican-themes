@@ -145,30 +145,29 @@
 
       <main role="main" style="margin-top:4rem;">
 
-      {% include 'github.html' %}
+        {% include 'github.html' %}
 
-      <div class="container-fluid">
-      <div class="row">
-        {% if SIDEBAR %}
-        <div class="col-xs-12 col-sm-9">
-		{% else %}
-		<div class="col-12">
-		{% endif %}
-			<div id="index_content" class="container-fluid" role="document">
-			    <h1 class="my-5">{% block content_title %}{% endblock %}</h1>
-				{% block content %}{% endblock %}
-			</div>
-		</div>
+        <div class="container-fluid">
+          <div class="row">
+            {% if SIDEBAR %}
+            <div class="col-xs-12 col-sm-9">
+            {% else %}
+            <div class="col-12">
+            {% endif %}
+              <div id="index_content" class="container-fluid" role="document">
+                  <h1 class="my-5">{% block content_title %}{% endblock %}</h1>
+                {% block content %}{% endblock %}
+              </div>
+            </div>
 
-		{% if SIDEBAR %}
-        <div class="col-xs-12 col-sm-3" id="sidebar">
-            {% include 'sidebar.html' %}
+            {% if SIDEBAR %}
+            <div class="col-xs-12 col-sm-3" id="sidebar">
+                {% include 'sidebar.html' %}
+            </div>
+            {% endif %}
+
+          </div>
         </div>
-        {% endif %}
-
-      </div>
-      </div>
-
       </main>
 
       <div class="navbar navbar-expand-sm float-bottom" role="contentinfo">
