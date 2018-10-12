@@ -244,3 +244,51 @@ pre code, code {
     background-color: var(--color-secondary-1-2);
 }
 
+.carousel-item.active {
+    background-color: transparent;
+}
+
+.carousel-caption-accessible {
+    color: var(--color-primary);
+}
+
+.carousel-indicators li {
+    background-color: var(--color-primary-1);
+}
+
+.carousel-indicators .active {
+	background-color: var(--color-primary);
+}
+
+.carousel-control-next-icon {
+    background-image: url("../images/chevron-right.svg");    
+}
+
+.carousel-control-prev-icon {
+    background-image: url("../images/chevron-left.svg");
+}
+
+.bg-accessible {
+    color: var(--color-primary-4);
+    background-color: var(--color-primary-1);
+}
+
+.bg-success-accessible {
+    color:white;
+    background-color: var(--color-complement-4);
+}
+
+.bg-danger-accessible {
+    color:white;
+    background-color: var(--color-secondary-1-3);
+}
+
+.bg-info-accessible {
+    color:white;
+    background-color: var(--color-secondary-1-2);
+}
+
+.bg-warning-accessible {
+    color: var(--color-primary-4);
+    background-color: var(--color-complement-1);
+}
