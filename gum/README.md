@@ -38,6 +38,29 @@ JUVIA_URL = ''
 JUVIA_ID = ''
 ```
 
+To use Discus, fill out the following values, again the url without leading `http://` and trailing `/`.
+
+```
+DISQUS_SITENAME = ''
+```
+
+Other Features include:
+
+```
+SITESUBTITLE = 'your site subtitle'
+```
+
+
+The following standard pelican settings are honored:
+
+```
+DISPLAY_CATEGORIES_ON_MENU
+DISPLAY_PAGES_ON_MENU
+DEFAULT_LANG
+SOCIAL
+```
+
+
 ### Screenshot ###
 
 ![screenshot](screenshot.png)
