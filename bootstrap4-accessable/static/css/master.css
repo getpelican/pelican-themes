@@ -45,7 +45,7 @@ strong {
     font-weight: 750;
 }
 
-.navbar.float-bottom, .navbar.fixed-top, .btn.btn-summary, .card-header {
+.navbar.float-bottom, .navbar.fixed-top, .card-header {
     font-weight: 650;
     background-color: var(--bright-black);
 }
@@ -88,10 +88,6 @@ a:hover, .btn-link:hover {
 .dropdown-menu a.active:hover {
     background-color: white;
     color: var(--color-secondary-1-2);
-}
-
-.btn-summary {
-    background-color: var(--mod-black);
 }
 
 .card-metadata {
@@ -220,6 +216,12 @@ pre code, code {
     background-color: #c6c8ca;
 }
 
+.btn-summary {
+    font-weight: 650;
+    color: var(--bright-black);
+    background-color: var(--color-secondary-1-1);
+}
+
 .btn-primary-accessible, .list-group-item-primary-accessible {
     color: white;
     background-color: var(--color-primary-3);
@@ -291,4 +293,33 @@ pre code, code {
 .bg-warning-accessible {
     color: var(--color-primary-4);
     background-color: var(--color-complement-1);
+}
+
+.pagination {
+    font-weight: 550;
+    font-size: 1.2rem;
+}
+
+.page-link {
+    background-color: var(--bright-black);
+    border: 1px solid black;
+    color: var(--color-secondary-1-1);
+    padding: 0.7rem 1.1rem;
+}
+
+.page-item.active .page-link {
+    background-color: var(--color-primary-2);
+    border: 1px solid black;
+    color: var(--bright-black);
+}
+
+.page-link:hover {
+    background-color: var(--color-secondary-1-1);
+    border: 1px solid black;
+    color: black;
+}
+
+.page-item.disabled .page-link {
+    background-color: var(--bright-black);
+    border: 1px solid black;
 }

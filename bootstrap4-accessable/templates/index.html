@@ -21,34 +21,52 @@
         {% endfor %}
 {% endif %}
 
-        {% if articles_page and articles_paginator.num_pages > 1 %}
-        <div class="pagination">
-        <ul>
-                {% if articles_page.has_previous() %}
-                        {% set num = articles_page.previous_page_number() %}
-                        <li class="prev"><a href="{{ SITEURL }}/{{ page_name }}{{ num if num > 1 else '' }}.html">&larr; Previous</a></li>
-                {% else %}
-                        <li class="prev disabled"><a href="#">&larr; Previous</a></li>
-                {% endif %}
-                {% for num in range( 1, 1 + articles_paginator.num_pages ) %}
-                        <li class="{{ 'active' if num == articles_page.number else '' }}"><a href="{{ SITEURL }}/{{ page_name }}{{ num if num > 1 else '' }}.html">{{ num }}</a></li>
-                {% endfor %}
-                {% if articles_page.has_next() %}
-                        <li class="next"><a href="{{ SITEURL }}/{{ page_name }}{{ articles_page.next_page_number() }}.html">Next &rarr;</a></li>
-                {% else %}
-                        <li class="next disabled"><a href="#">&rarr; Next</a></li>
-                {% endif %}
-        </ul>
-        </div>
-
-{% else %}
-        {% if pages %}
-                <section id="content" class="body">
-                <h1>Pages</h1>
-                {% for page in pages %}
-                        <li><a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a></li>
-                {% endfor %}
-                </section>
+{% if articles_page and articles_paginator.num_pages > 1 %}
+<div aria-label="Page navigation" role="navigation">
+        <ul class="pagination justify-content-center">
+        {% if articles_page.has_previous() %}  
+        <li class="page-item" aria-label="Previous Page">
+        <a class="page-link" href="{{ SITEURL }}/{{ page_name }}{{ '' if articles_page.number == 2 else articles_page.number - 1 }}.html" aria-label="Previous">
+        {% else %}
+        <li class="page-item disabled">
+        <a class="page-link" href="#" tabindex="-1">
         {% endif %}
+        <span aria-hidden="true">&laquo;</span>
+        <span class="sr-only">Previous</span>
+        </a>
+        </li>
+        {% for num in range( 1, 1 + articles_paginator.num_pages ) %}
+                <li class="page-item {{ 'active' if num == articles_page.number else '' }}" aria-label="Page {{ num }}">
+                {% if num == articles_page.number %}
+                <span class="page-link">{{ num }}
+                <span class="sr-only">(current)</span>
+                </span>
+                {% else %}
+                <a class="page-link" href="{{ SITEURL }}/{{ page_name }}{{ num if num > 1 else '' }}.html">{{ num }}</a>
+                {% endif %}
+                </li>
+        {% endfor %}
+        {% if articles_page.has_next() %}
+        <li class="page-item" aria-label="Next Page">
+        <a class="page-link" href="{{ SITEURL }}/{{ page_name }}{{ articles_page.number + 1 }}.html" aria-label="Next">
+        {% else %}
+        <li class="page-item disabled">
+        <a class="page-link" href="#" tabindex="-1">
+        {% endif %}
+        <span aria-hidden="true">&raquo;</span>
+        <span class="sr-only">Next</span>
+        </a>
+        </li>
+        </ul>
+</div>
+{% else %}
+{% if pages %}
+        <section id="content" class="body">
+        <h1>Pages</h1>
+        {% for page in pages %}
+                <li><a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a></li>
+        {% endfor %}
+        </section>
+{% endif %}
 {% endif %}
 {% endblock content %}

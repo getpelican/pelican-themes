@@ -57,3 +57,9 @@ ul.clear-list {
 span.label {
     display: inline-block;
 }
+
+.page-item.disabled .page-link, .page-link {
+    background-color: #131313;
+    border: 1px solid black;
+}
+
