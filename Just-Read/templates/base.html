@@ -14,9 +14,7 @@
 	<meta name="author" content="{{ AUTHOR }}" />
 	<meta name="copyright" content="{{ AUTHOR }}" />
 	{% endif %}
-
 	<meta property="og:site_name" content="{{SITENAME}}" />
-
 	{% if GOOGLE_PLUS_PROFILE_URL %}
 	<link rel="author" href={{GOOGLE_PLUS_PROFILE_URL}} />
 	{% endif %}
@@ -24,9 +22,8 @@
 	<meta name="twitter:site" content="@{{TWITTER_USERNAME}}" />
 	<meta name="twitter:creator" content="@{{TWITTER_USERNAME}}" />
 	{% endif %}
-
-	{%if article %}
 	<meta name="twitter:card" content="summary" />
+	{%if article %}
 	<meta name="twitter:title" content="{{article.title}}" />
 	<meta name="date" content="{{article.date}}" />
 	<meta property="og:type" content="article" />
@@ -34,7 +31,7 @@
 	<meta property="og:published_time" content="{{article.date}}" />
 	<meta property="og:title" content="{{article.title}}" />
 	<meta property="og:url" content="{{SITEURL}}/{{ article.url }}" />
-	{% if  article.featured_image %}
+	{% if article.featured_image %}
 	<meta property="og:image" content="{{ article.featured_image }}" />
 	{% endif %}
 	{%if DESCRIPTION %}
@@ -47,8 +44,37 @@
 	{%if FACEBOOK_PROFILE_URL %}
 	<meta property="article:author" content="{{FACEBOOK_PROFILE_URL}}" />
 	{% endif %}
+	{% elif page %}
+	<meta name="twitter:title" content="{{page.title}}" />
+	<meta name="date" content="{{page.date}}" />
+	<meta property="og:type" content="website" />
+	<meta property="og:locale" content="{{page.lang}}" />
+	<meta property="og:published_time" content="{{page.date}}" />
+	<meta property="og:title" content="{{page.title}}" />
+	<meta property="og:url" content="{{SITEURL}}/{{ page.url }}" />
+	{% if page.featured_image %}
+	<meta property="og:image" content="{{ page.featured_image }}" />
 	{% endif %}
-
+	{%if DESCRIPTION %}
+	<meta property="og:description" content="{{DESCRIPTION}} " />
+	<meta name="description" content="{{DESCRIPTION}}" />
+	{%else %}
+	<meta property="og:description" content="{{page.summary|striptags}}" />
+	<meta name="description" content="{{page.summary|striptags}}" />
+	{% endif %}
+	{% else %}
+	<meta name="twitter:title" content="{{SITENAME}}" />
+	<meta property="og:type" content="website" />
+	{% if DEFAULT_LANG %}
+	<meta property="og:locale" content="{{DEFAULT_LANG}}" />
+	{% endif %}
+	<meta property="og:title" content="{{SITENAME}}" />
+	<meta property="og:url" content="{{SITEURL}}/{{ output_file }}" />
+	{%if DESCRIPTION %}
+	<meta property="og:description" content="{{DESCRIPTION}} " />
+	<meta name="description" content="{{DESCRIPTION}}" />
+	{% endif %}
+	{% endif %}
 	<meta name="HandheldFriendly" content="True" />
 	<meta name="MobileOptimized" content="320" />
 	<meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0" />
