@@ -2,7 +2,7 @@
 {% block content %}
 
 <ul class="circle">
-    {% for tag, articles in tags|sort %}
+    {% for tag, articles in tags %}
 	<li><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a></li>
 	<ul class="square">
 	{% for article in articles %}
