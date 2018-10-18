@@ -6,6 +6,9 @@
         <meta charset="utf-8" />
         <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" />
         <link href="{{ SITEURL }}/theme/static/css/style.css" rel="stylesheet" />
+	{% if FAVICON %}
+	<link rel="shortcut icon" href="{{ SITEURL }}/{{ FAVICON }}" type="image/x-icon" />
+	{% endif %}
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         {% if FEED_ALL_ATOM %}
         <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Full Atom Feed" />
