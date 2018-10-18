@@ -58,8 +58,13 @@ span.label {
     display: inline-block;
 }
 
-.page-item.disabled .page-link, .page-link {
+.list-group-item, .page-item.disabled .page-link, .page-link {
     background-color: #131313;
     border: 1px solid black;
 }
 
+pre {
+    color: #e83e8c;
+    background-color: #131313;
+    border: 1px solid black;
+}
