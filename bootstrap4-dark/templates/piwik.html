@@ -1,0 +1,36 @@
+{% if PIWIK_URL and PIWIK_SITE_ID %}
+  {% if PIWIK_SSL_URL %}
+  <script src="https://{{ PIWIK_SSL_URL }}/piwik.js"></script>
+  {% else %}
+  <script src="https://{{ PIWIK_URL }}/piwik.js"></script>
+  {% endif %}
+</script>
+<script>
+  {% if PIWIK_SSL_URL %}
+  var url = "https://{{ PIWIK_SSL_URL }}";
+  {% else %}
+  var url = "https://{{ PIWIK_URL }}";
+  {% endif %}
+
+  var _paq = _paq || [];
+  _paq.push(["trackPageView"]);
+  _paq.push(["enableLinkTracking"]);
+
+  function embedTrackingCode() {
+    _paq.push(["setTrackerUrl", url +"piwik.php"]);
+    _paq.push(["setSiteId", "{{ PIWIK_SITE_ID }}"]);
+
+    var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+    g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+}
+
+if (window.addEventListener) {
+    window.addEventListener("load", embedTrackingCode, false);
+} else if (window.attachEvent) {
+    window.attachEvent("onload",embedTrackingCode);
+} else {
+    embedTrackingCode();
+}
+</script>
+<noscript><p><img src="http://{{ PIWIK_URL }}/piwik.php?idsite={{ PIWIK_SITE_ID }}" style="border:0" alt="" /></p></noscript>
+{% endif %}

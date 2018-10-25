@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content_title %}{{ article.title }}{% endblock %}
+{% block content %}
+<section id="content">
+  <article>
+    <div class="container">
+      <div class="row">
+        <div class="card card-body card-metadata m-1">
+          <div class="my-3">
+            {% include "metadata.html" %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container my-5">
+      {{ article.content }}
+    </div>
+
+    {% include 'twitter.html' %}
+
+    {% if DISQUS_SITENAME %}
+    <div class="comments">
+    <h2>Comments !</h2>
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+               var disqus_identifier = "{{ article.url }}";
+               (function() {
+                    var dsq = document.createElement('script');
+                    dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = 'https://{{ DISQUS_SITENAME }}.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] ||
+                     document.getElementsByTagName('body')[0]).appendChild(dsq);
+              })();
+            </script>
+    </div>
+    {% endif %}
+  </article>
+</section>
+
+{% include "disqus_script.html" %}
+{% endblock %}
