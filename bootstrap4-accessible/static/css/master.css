@@ -1,0 +1,325 @@
+/* Paletton (base, hue, dist): #78286B 319 30  */
+
+/* As hex codes */
+
+:root {
+--color-primary-bright: #D2A8CB;
+--color-primary: #78286B; 	/* Main Primary color */
+--color-primary-1: #B478AA;
+--color-primary-2: #964B8A;
+--color-primary-3: #5A0F4E;
+--color-primary-4: #3C0032;
+
+--color-secondary-1-0: #9C344C;	/* Main Secondary color (1) */
+--color-secondary-1-1: #EA9CAE;
+--color-secondary-1-2: #C36278;
+--color-secondary-1-3: #75142A;
+--color-secondary-1-4: #4E0012;
+
+--color-secondary-2-0: #4E2C73;	/* Main Secondary color (2) */
+--color-secondary-2-1: #9177AC;
+--color-secondary-2-2: #6D4D90;
+--color-secondary-2-3: #341456;
+--color-secondary-2-4: #1E0439;
+
+--color-complement-0: #8CA336;	/* Main Complement color */
+--color-complement-1: #E3F4A3;
+--color-complement-2: #B6CB66;
+--color-complement-3: #647A14;
+--color-complement-4: #405100;
+
+--bright-black: #1E1E1E;
+--mod-black: #0D0D0D;
+
+--table-stripe-accessible: rgba(150,75,138,0.25)
+}
+
+body {
+    background-color: black;
+    color: var(--color-primary-2);
+    font-weight: 500;
+    font-size:1.1rem;
+}
+
+strong {
+    font-weight: 750;
+}
+
+.navbar.float-bottom, .navbar.fixed-top, .card-header {
+    font-weight: 650;
+    background-color: var(--bright-black);
+}
+
+.card {
+    background-color: var(--mod-black);
+}
+
+.card-accordion {
+    background-color: var(--mod-black);
+}
+
+a, .btn-link {
+    color: var(--color-secondary-1-1);
+}
+
+a:hover, .btn-link:hover {
+    color: var(--color-secondary-1-2);
+}
+
+.dropdown-menu {
+    background-color: var(--mod-black);
+    color: var(--color-primary-2);
+}
+
+.dropdown-menu a {
+    color: var(--color-secondary-1-1);
+}
+
+.dropdown-menu a:hover {
+    color: var(--color-secondary-1-2);
+
+}
+
+.dropdown-menu a.active {
+    background-color: var(--color-primary-4);
+    color: var(--color-primary-1);
+}
+
+.dropdown-menu a.active:hover {
+    background-color: white;
+    color: var(--color-secondary-1-2);
+}
+
+.card-metadata {
+    background-color: var(--bright-black);
+}
+
+.card-twitter {
+    background-color: var(--mod-black);
+    color: var(--mod-black);
+}
+
+.clear-list {
+    list-style-type: none;
+    list-style-position: outside;
+}
+
+.label {
+    display: inline-block;
+}
+
+pre code, code {
+    font-size: 100%;
+    color: var(--color-secondary-2-1);
+}
+
+.lead {
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color:var(--table-stripe-accessible);
+}
+
+.table td, .table th {
+    border-color: black;
+}
+
+.table thead th {
+    border-bottom:2px solid var(--color-primary-2);
+}
+
+.table-bordered {
+    border: 1px solid var(--color-primary-2);
+}
+
+.table-bordered td, .table-bordered th {
+    border: 1px solid var(--color-primary-2);
+}
+
+.img-thumbnail {
+    background-color: var(--mod-black);
+    border: 1px solid var(--color-primary-3);
+}
+
+.form {
+    background-color: var(--mod-black);
+}
+
+.btn-primary-accessible {
+    border-color: var(--color-primary-3);
+}
+
+.btn-secondary-accessible {
+    color: white;
+    background-color: #5a6268;
+    border-color: #545b62;
+}
+
+.btn-dark-accessible {
+    color: white;
+    background-color: #343a40;
+    border-color: #343a40;
+}
+
+.btn-light-accessible {
+    color: #212529;
+    background-color: #f8f9fa;
+    border-color: #f8f9fa;
+}
+
+.btn-link-accessible {
+    color: var(--color-primary-2);
+    background-color: var(--mod-black);
+    border-color: var(--mod-black);
+}
+
+.btn-warning-accessible {
+    border-color: var(--color-complement-1);
+}
+
+.btn-danger-accessible {
+    border-color: var(--color-secondary-1-3);
+}
+
+.btn-success-accessible {
+    border-color: var(--color-complement-4);
+}
+
+.btn-info-accessible {
+    border-color: var(--color-secondary-1-2);
+}
+
+.jumbotron-accessible {
+    background-color: var(--bright-black);
+    color: var(--color-primary-1);
+}
+
+.active, .list-group-item.active {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.list-group-item-secondary-accessible {
+    color: #383d41;
+    background-color: #d6d8db;
+}
+
+.list-group-item-light-accessible {
+    color: #818182;
+    background-color: #fdfdfe;
+}
+
+.list-group-item-dark-accessible {
+    color: #1b1e21;
+    background-color: #c6c8ca;
+}
+
+.btn-summary {
+    font-weight: 650;
+    color: var(--bright-black);
+    background-color: var(--color-secondary-1-1);
+}
+
+.btn-primary-accessible, .list-group-item-primary-accessible {
+    color: white;
+    background-color: var(--color-primary-3);
+}
+
+.btn-success-accessible, .list-group-item-success-accessible {
+    color:white;
+    background-color: var(--color-complement-4);
+}
+
+.btn-danger-accessible, .list-group-item-danger-accessible {
+    color:white;
+    background-color: var(--color-secondary-1-3);
+}
+
+.btn-warning-accessible, .list-group-item-warning-accessible {
+    background-color: var(--color-complement-1);
+}
+
+.btn-info-accessible, .list-group-item-info-accessible {
+    color:white;
+    background-color: var(--color-secondary-1-2);
+}
+
+.carousel-item.active {
+    background-color: transparent;
+}
+
+.carousel-caption-accessible {
+    color: var(--color-primary);
+}
+
+.carousel-indicators li {
+    background-color: var(--color-primary-1);
+}
+
+.carousel-indicators .active {
+	background-color: var(--color-primary);
+}
+
+.carousel-control-next-icon {
+    background-image: url("../images/chevron-right.svg");    
+}
+
+.carousel-control-prev-icon {
+    background-image: url("../images/chevron-left.svg");
+}
+
+.bg-accessible {
+    color: var(--color-primary-4);
+    background-color: var(--color-primary-1);
+}
+
+.bg-success-accessible {
+    color:white;
+    background-color: var(--color-complement-4);
+}
+
+.bg-danger-accessible {
+    color:white;
+    background-color: var(--color-secondary-1-3);
+}
+
+.bg-info-accessible {
+    color:white;
+    background-color: var(--color-secondary-1-2);
+}
+
+.bg-warning-accessible {
+    color: var(--color-primary-4);
+    background-color: var(--color-complement-1);
+}
+
+.pagination {
+    font-weight: 550;
+    font-size: 1.2rem;
+}
+
+.page-link {
+    background-color: var(--bright-black);
+    border: 1px solid black;
+    color: var(--color-secondary-1-1);
+    padding: 0.7rem 1.1rem;
+}
+
+.page-item.active .page-link {
+    background-color: var(--color-primary-2);
+    border: 1px solid black;
+    color: var(--bright-black);
+}
+
+.page-link:hover {
+    background-color: var(--color-secondary-1-1);
+    border: 1px solid black;
+    color: black;
+}
+
+.page-item.disabled .page-link {
+    background-color: var(--bright-black);
+    border: 1px solid black;
+}
