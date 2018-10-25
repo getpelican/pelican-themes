@@ -1,0 +1,9 @@
+{% if TWITTER_USERNAME %}
+<div class="container my-5">
+<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button mr-2"
+   data-show-count="true">Share</a>
+<a href="https://twitter.com/{{ TWITTER_USERNAME }}?ref_src=twsrc%5Etfw" class="twitter-follow-button mr-2" data-show-count="false">Follow @{{ TWITTER_USERNAME }}</a>
+<a href="https://twitter.com/intent/tweet?screen_name={{ TWITTER_USERNAME }}&ref_src=twsrc%5Etfw" class="twitter-mention-button mr-2" data-show-count="false">Tweet to @{{ TWITTER_USERNAME }}</a>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+{% endif %}

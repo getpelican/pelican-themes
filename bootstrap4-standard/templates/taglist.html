@@ -1,0 +1,8 @@
+{% if article.tags %}
+<br>
+<span class="label"> Tags</span>
+{% for tag in article.tags %}
+    <!-- TODO -->
+	<a class="px-2" href="{{ SITEURL }}/{{ tag.url }}"><i class="icon-tag"></i>{{ tag }}</a>
+{% endfor %}
+{% endif %}

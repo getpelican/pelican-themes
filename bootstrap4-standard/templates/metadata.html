@@ -1,0 +1,19 @@
+<span class="label">Date</span>
+<span class="published" title="{{ article.date.isoformat() }}">
+  <i class="icon-calendar"></i>{{ article.locale_date }},</span>
+{% if article.author %}
+<span class="label"> By</span>
+<a class="px-2" href="{{ SITEURL }}/{{ article.author.url }}">{{ article.author }}</a>
+{% endif %}
+<span class="label"> Category</span>
+<a class="px-2" href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>
+
+{% if PDF_PROCESSOR %}
+<span class="label">
+<a class="px-2" href="{{ SITEURL }}/pdf/{{ article.slug }}.pdf">PDF</a>
+</span>
+{% endif %}
+
+{% include 'taglist.html' %}
+{% include 'translations.html' %}
+
