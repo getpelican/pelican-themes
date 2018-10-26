@@ -1,0 +1,26 @@
+/* Paletton (base, hue, dist): #78286B 319 30  */
+
+/* As hex codes */
+
+:root {
+    --color-primary-bright: #D2A8CB;
+    --color-primary-vhigh: #B478AA;
+    --color-primary-high: #964B8A;
+    --color-primary: #78286B;
+    --color-primary-low: #5A0F4E;
+    --color-primary-vlow: #3C0032;
+    
+    --color-links-high: #EA9CAE;
+    --color-links: #C36278;
+    --color-links-low: #75142A;
+    
+    --color-code: #9177AC;
+    
+    --color-warning: #E3F4A3;
+    --color-success: #405100;
+    
+    --bright-black: #1E1E1E;
+    --mod-black: #0D0D0D;
+    
+    --table-stripe-accessible: rgba(150,75,138,0.25)
+    }

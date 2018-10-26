@@ -45,6 +45,43 @@ Other SIDEBAR variables allow respective lists of categories and tags
 to be shown there.
 
 
+Custom Color Scheme
+-------------------------
+
+The color scheme defaults to pink/scarlet on black, with purple-gray and yellow/brown for special cases (such as code tags and warnings) to provide contrast, while being highly visible and friendly to color-blind use cases.
+
+css variables are used to assign colors. The variables are:
+
+```
+--color-primary-bright
+--color-primary-vhigh
+--color-primary-high
+--color-primary
+--color-primary-low
+--color-primary-vlow
+
+--color-links-high
+--color-links
+--color-links-low
+
+--color-code
+
+--color-warning
+--color-success
+
+--bright-black
+--mod-black
+
+--table-stripe-accessible
+```
+
+You can load a different color scheme with the following setting:
+
+CUSTOM_CSS_COLORS = "path/to/file.css"
+
+Caution: this will *replace* the default color scheme.
+Any of the default variables above, not redefined, will have default values.
+
 
 Custom CSS and Javascript
 -------------------------

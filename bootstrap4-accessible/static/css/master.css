@@ -1,42 +1,7 @@
-/* Paletton (base, hue, dist): #78286B 319 30  */
-
-/* As hex codes */
-
-:root {
---color-primary-bright: #D2A8CB;
---color-primary: #78286B; 	/* Main Primary color */
---color-primary-1: #B478AA;
---color-primary-2: #964B8A;
---color-primary-3: #5A0F4E;
---color-primary-4: #3C0032;
-
---color-secondary-1-0: #9C344C;	/* Main Secondary color (1) */
---color-secondary-1-1: #EA9CAE;
---color-secondary-1-2: #C36278;
---color-secondary-1-3: #75142A;
---color-secondary-1-4: #4E0012;
-
---color-secondary-2-0: #4E2C73;	/* Main Secondary color (2) */
---color-secondary-2-1: #9177AC;
---color-secondary-2-2: #6D4D90;
---color-secondary-2-3: #341456;
---color-secondary-2-4: #1E0439;
-
---color-complement-0: #8CA336;	/* Main Complement color */
---color-complement-1: #E3F4A3;
---color-complement-2: #B6CB66;
---color-complement-3: #647A14;
---color-complement-4: #405100;
-
---bright-black: #1E1E1E;
---mod-black: #0D0D0D;
-
---table-stripe-accessible: rgba(150,75,138,0.25)
-}
 
 body {
     background-color: black;
-    color: var(--color-primary-2);
+    color: var(--color-primary-high);
     font-weight: 500;
     font-size:1.1rem;
 }
@@ -59,35 +24,35 @@ strong {
 }
 
 a, .btn-link {
-    color: var(--color-secondary-1-1);
+    color: var(--color-links-high);
 }
 
 a:hover, .btn-link:hover {
-    color: var(--color-secondary-1-2);
+    color: var(--color-links);
 }
 
 .dropdown-menu {
     background-color: var(--mod-black);
-    color: var(--color-primary-2);
+    color: var(--color-primary-high);
 }
 
 .dropdown-menu a {
-    color: var(--color-secondary-1-1);
+    color: var(--color-links-high);
 }
 
 .dropdown-menu a:hover {
-    color: var(--color-secondary-1-2);
+    color: var(--color-links);
 
 }
 
 .dropdown-menu a.active {
-    background-color: var(--color-primary-4);
-    color: var(--color-primary-1);
+    background-color: var(--color-primary-vlow);
+    color: var(--color-primary-vhigh);
 }
 
 .dropdown-menu a.active:hover {
     background-color: white;
-    color: var(--color-secondary-1-2);
+    color: var(--color-links);
 }
 
 .card-metadata {
@@ -110,7 +75,7 @@ a:hover, .btn-link:hover {
 
 pre code, code {
     font-size: 100%;
-    color: var(--color-secondary-2-1);
+    color: var(--color-code);
 }
 
 .lead {
@@ -127,20 +92,20 @@ pre code, code {
 }
 
 .table thead th {
-    border-bottom:2px solid var(--color-primary-2);
+    border-bottom:2px solid var(--color-primary-high);
 }
 
 .table-bordered {
-    border: 1px solid var(--color-primary-2);
+    border: 1px solid var(--color-primary-high);
 }
 
 .table-bordered td, .table-bordered th {
-    border: 1px solid var(--color-primary-2);
+    border: 1px solid var(--color-primary-high);
 }
 
 .img-thumbnail {
     background-color: var(--mod-black);
-    border: 1px solid var(--color-primary-3);
+    border: 1px solid var(--color-primary-low);
 }
 
 .form {
@@ -148,7 +113,7 @@ pre code, code {
 }
 
 .btn-primary-accessible {
-    border-color: var(--color-primary-3);
+    border-color: var(--color-primary-low);
 }
 
 .btn-secondary-accessible {
@@ -170,30 +135,30 @@ pre code, code {
 }
 
 .btn-link-accessible {
-    color: var(--color-primary-2);
+    color: var(--color-primary-high);
     background-color: var(--mod-black);
     border-color: var(--mod-black);
 }
 
 .btn-warning-accessible {
-    border-color: var(--color-complement-1);
+    border-color: var(--color-warning);
 }
 
 .btn-danger-accessible {
-    border-color: var(--color-secondary-1-3);
+    border-color: var(--color-links-low);
 }
 
 .btn-success-accessible {
-    border-color: var(--color-complement-4);
+    border-color: var(--color-success);
 }
 
 .btn-info-accessible {
-    border-color: var(--color-secondary-1-2);
+    border-color: var(--color-links);
 }
 
 .jumbotron-accessible {
     background-color: var(--bright-black);
-    color: var(--color-primary-1);
+    color: var(--color-primary-vhigh);
 }
 
 .active, .list-group-item.active {
@@ -219,31 +184,31 @@ pre code, code {
 .btn-summary {
     font-weight: 650;
     color: var(--bright-black);
-    background-color: var(--color-secondary-1-1);
+    background-color: var(--color-links-high);
 }
 
 .btn-primary-accessible, .list-group-item-primary-accessible {
     color: white;
-    background-color: var(--color-primary-3);
+    background-color: var(--color-primary-low);
 }
 
 .btn-success-accessible, .list-group-item-success-accessible {
     color:white;
-    background-color: var(--color-complement-4);
+    background-color: var(--color-success);
 }
 
 .btn-danger-accessible, .list-group-item-danger-accessible {
     color:white;
-    background-color: var(--color-secondary-1-3);
+    background-color: var(--color-links-low);
 }
 
 .btn-warning-accessible, .list-group-item-warning-accessible {
-    background-color: var(--color-complement-1);
+    background-color: var(--color-warning);
 }
 
 .btn-info-accessible, .list-group-item-info-accessible {
     color:white;
-    background-color: var(--color-secondary-1-2);
+    background-color: var(--color-links);
 }
 
 .carousel-item.active {
@@ -255,44 +220,36 @@ pre code, code {
 }
 
 .carousel-indicators li {
-    background-color: var(--color-primary-1);
+    background-color: var(--color-primary-vhigh);
 }
 
 .carousel-indicators .active {
 	background-color: var(--color-primary);
 }
 
-.carousel-control-next-icon {
-    background-image: url("../images/chevron-right.svg");    
-}
-
-.carousel-control-prev-icon {
-    background-image: url("../images/chevron-left.svg");
-}
-
 .bg-accessible {
-    color: var(--color-primary-4);
-    background-color: var(--color-primary-1);
+    color: var(--color-primary-vlow);
+    background-color: var(--color-primary-vhigh);
 }
 
 .bg-success-accessible {
     color:white;
-    background-color: var(--color-complement-4);
+    background-color: var(--color-success);
 }
 
 .bg-danger-accessible {
     color:white;
-    background-color: var(--color-secondary-1-3);
+    background-color: var(--color-links-low);
 }
 
 .bg-info-accessible {
     color:white;
-    background-color: var(--color-secondary-1-2);
+    background-color: var(--color-links);
 }
 
 .bg-warning-accessible {
-    color: var(--color-primary-4);
-    background-color: var(--color-complement-1);
+    color: var(--color-primary-vlow);
+    background-color: var(--color-warning);
 }
 
 .pagination {
@@ -303,18 +260,18 @@ pre code, code {
 .page-link {
     background-color: var(--bright-black);
     border: 1px solid black;
-    color: var(--color-secondary-1-1);
+    color: var(--color-links-high);
     padding: 0.7rem 1.1rem;
 }
 
 .page-item.active .page-link {
-    background-color: var(--color-primary-2);
+    background-color: var(--color-primary-high);
     border: 1px solid black;
     color: var(--bright-black);
 }
 
 .page-link:hover {
-    background-color: var(--color-secondary-1-1);
+    background-color: var(--color-links-high);
     border: 1px solid black;
     color: black;
 }
