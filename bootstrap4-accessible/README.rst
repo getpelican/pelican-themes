@@ -97,7 +97,6 @@ CUSTOM_JS = "path/to/file.js"
 Loads an additional Javascript file of your choosing. 
 
 
-
 Screenshot
 ----------
 
