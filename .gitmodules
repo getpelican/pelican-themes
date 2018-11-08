@@ -253,3 +253,6 @@
 [submodule "brutalist"]
 	path = brutalist
 	url = https://github.com/mamcmanus/brutalist.git
+[submodule "utterson"]
+	path = utterson
+	url = git@github.com:vinayak-mehta/utterson.git
