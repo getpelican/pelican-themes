@@ -1,5 +1,6 @@
 <div class="three columns">
 
+{% if DISPLAY_PAGES_ON_MENU or DISPLAY_CATEGORIES_ON_MENU or MENUITEMS %}
 <h4>Pages</h4>
 
  <ul>
@@ -18,6 +19,7 @@
     {% endif %}
   {% endif %}
   </ul>
+{% endif %}
 
 {% if categories and categories|length > 1 %}
 <h4>Categories</h4>
