@@ -1,3 +1,4 @@
+{% if GITHUB_URL %}
 <a href="{{ GITHUB_URL }}" class="github-corner" aria-label="View source on GitHub">
     <svg width="80" height="80" viewBox="0 0 250 250"
          style="fill:#8B8B7A; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
@@ -8,6 +9,7 @@
               fill="currentColor" class="octo-body"></path>
     </svg>
 </a>
+{% endif %}
 <style>.github-corner:hover .octo-arm {
     animation: octocat-wave 560ms ease-in-out
 }
