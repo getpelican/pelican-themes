@@ -1,0 +1,208 @@
+{% extends "base.html" %}
+
+{% block title %} {{ SITENAME.upper() }} | {{ article.title }}{% endblock %}
+
+
+{% block head %}
+  {{ super() }}
+
+  <link href="{{ SITEURL }}/{{ article.url }}" rel="canonical" />
+  {% for keyword in article.keywords %}
+    <meta name="keywords" content="{{ keyword }}" >
+  {% endfor %}
+
+  {% if description %}
+    <meta name="description" content="{{ description }}">
+  {% elif article.headline %}
+    <meta name="description" content="{{ article.headline }}">
+  {% elif article.summary %}
+    <meta name="description" content="{{ article.summary|striptags|truncate(200) }}">
+  {% endif %}
+
+  {% for author in article.authors %}
+    <meta name="author" content="{{ author }}">
+  {% endfor %}
+
+  {% for tag in article.tags %}
+    <meta name="tags" content="{{ tag }}">
+  {% endfor %}
+
+  {% include 'partials/og_article.html' %}
+  {% include 'partials/jsonld_article.html' %}
+{% endblock %}
+
+{% block header %}
+    <!-- Progressbar -->
+    <div class="progress-container">
+        <span class="progress-bar"></span>
+    </div>
+
+    <!-- Page Header -->
+        <nav id="navigation">
+          {% if SITE_LOGO %}
+            <span class="blog-logo">
+                <a href="{{ SITEURL }}/"><img src="{{SITE_LOGO}}" alt="Blog Logo" /></a>
+            </span>
+          {% else %}
+            <span id="home-button" class="nav-button">
+                <a class="home-button" href="{{ SITEURL }}/" title="Home"><i class="ic ic-arrow-left"></i> Home</a>
+            </span>
+          {% endif %}
+          <span id="menu-button" class="nav-button">
+            <a class="menu-button"><i class="ic ic-menu"></i> Menu</a>
+          </span>
+        </nav>
+
+{% endblock header %}
+
+{% block content %}
+
+    <!-- Post content -->
+    <main class="content" role="main">
+        <article class="post">
+        <div class="inner">
+            <section class="post-content">
+            <h2 class="post-title">{{ article.title }}</h2>
+    <header>
+       
+  
+	 {% if article.headline %}
+            <span class="blog-description">{{ article.headline }}</span>
+        {% endif %}
+        <span class="post-meta">
+	    <i class="fas fa-user"></i>
+            {% for author in article.authors %}
+                {% set author_name = author.name | title %}
+                {% if AUTHORS_BIO and author.name.lower() in AUTHORS_BIO %}
+                    {% set author_name = AUTHORS_BIO[author.name.lower()].name or author.name %}
+                {% endif %}
+                <a href="{{ SITEURL }}/{{ author.url }}">{{ author_name }}</a>
+            {% endfor %}
+            | <i class="far fa-calendar-alt"></i> <time datetime="{{ article.locale_date }}">{{ article.locale_date }}</time>
+        </span>
+        {% if article.modified %}
+            <span class="post-meta"> | Updated on {{ article.locale_modified }}</span>
+
+        {% endif %}
+
+    </header>
+	 {{article.content}}
+            </section>
+
+            <section class="post-info">
+                <div class="post-share">
+                    <a class="twitter" href="https://twitter.com/share?text={{ article.title }}&amp;url={{ SITEURL }}/{{ article.url }}" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="fab fa-twitter"></i><span class="hidden">Twitter</span>
+                    </a>
+                    <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u={{ SITEURL }}/{{ article.url }}" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <i class="fab fa-facebook-f"></i><span class="hidden">Facebook</span>
+                    </a>
+                    <a class="googleplus" href="https://plus.google.com/share?url={{ SITEURL }}/{{ article.url }}" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <i class="fab fa-google-plus-g"></i><span class="hidden">Google+</span>
+                    </a>
+                    <div class="clear"></div>
+                </div>
+
+                {% if article.tags %}
+                <aside class="post-tags">
+                    {% for tag in article.tags %}<a href="{{ SITEURL }}/{{ tag.url }}">{{ tag | escape }}</a>{% if not loop.last %}{% endif %}{% endfor %}
+                </aside>
+                {% endif %}
+
+                <div class="clear"></div>
+
+                {% for author in article.authors %}
+                {% if AUTHORS_BIO and author.name.lower() in AUTHORS_BIO %}
+                <aside class="post-author">
+                    {% set author_name = AUTHORS_BIO[author.name.lower()].name or author.name %}
+                    {% set author_avatar = AUTHORS_BIO[author.name.lower()].image %}
+                    {% if  author_avatar %}
+
+                        {% if author_avatar|lower|truncate(4, True, '') != "http" %}
+                            {% set author_avatar = SITEURL+"/"+author_avatar %}
+                        {% endif %}
+
+                        <figure class="post-author-avatar">
+                            <img src="{{author_avatar}}" alt="{{author_name}}" />
+                        </figure>
+                    {% endif %}
+                    <div class="post-author-bio">
+                        <h4 class="post-author-name"><a href="{{ SITEURL }}/{{author.url}}">{{author_name}}</a></h4>
+                        {% if AUTHORS_BIO[author.name.lower()].bio %}
+                            <p class="post-author-about">{{AUTHORS_BIO[author.name.lower()].bio}}</p>
+                        {% endif %}
+                        {% if AUTHORS_BIO[author.name.lower()].location %}
+                            <span class="post-author-location"><i class="ic ic-location"></i> {{AUTHORS_BIO[author.name.lower()].location}}</span>
+                        {% endif %}
+                        {% if AUTHORS_BIO[author.name.lower()].website %}
+                            <span class="post-author-website"><a href="{{AUTHORS_BIO[author.name.lower()].website}}"><i class="ic ic-link"></i> Website</a></span>
+                        {% endif %}
+                        <!-- Social linkes in alphabet order. -->
+                        {% if AUTHORS_BIO[author.name.lower()].facebook %}
+                            <span class="post-author-facebook"><a target="_blank" href="https://facebook.com/{{AUTHORS_BIO[author.name.lower()].facebook}}"><i class="fab fa-facebook-f"></i> Facebook</a></span>
+                        {% endif %}
+                        {% if AUTHORS_BIO[author.name.lower()].github %}
+                            <span class="post-author-github"><a target="_blank" href="https://github.com/{{AUTHORS_BIO[author.name.lower()].github}}"><i class="fab fa-github"></i> GitHub</a></span>
+                        {% endif %}
+                        {% if AUTHORS_BIO[author.name.lower()].linkedin %}
+                            <span class="post-author-linkedin"><a target="_blank" href="https://www.linkedin.com/in/{{AUTHORS_BIO[author.name.lower()].linkedin}}"><i class="fab fa-linkedin-in"></i> LinkedIn</a></span>
+                        {% endif %}
+                        {% if AUTHORS_BIO[author.name.lower()].twitter %}
+                            <span class="post-author-twitter"><a target="_blank" href="https://twitter.com/{{AUTHORS_BIO[author.name.lower()].twitter}}"><i class="fab fa-twitter"></i> Twitter</a></span>
+                        {% endif %}
+                    </div>
+                    <div class="clear"></div>
+                </aside>
+                {% endif %}
+                {% endfor %}
+
+                </section>
+
+                {% if DISQUS_SITENAME and SITEURL and article.status != "draft" %}
+                <script type="text/javascript">
+                    var disqus = '{{ DISQUS_SITENAME }}';
+                    var disqus_shortname = '{{ DISQUS_SITENAME }}';
+                    {% if article.disqus_identifier %}
+                    var disqus_identifier = '{{ article.disqus_identifier }}';
+                    {% else %}
+                    var disqus_identifier = '/{{ article.url }}';
+                    {% endif %}
+                    var disqus_url = '{{ SITEURL }}/{{ article.url }}';
+                </script>
+                <noscript>Make sure you have JavaScript enabled to view comments.</noscript>
+                <section class="post-comments">
+                    {% if article.disqus_identifier %}
+                        <a id="show-disqus" class="post-comments-activate" data-disqus-identifier="{{ article.disqus_identifier }}" >Show Comments</a>
+                    {% else %}
+                        <a id="show-disqus" class="post-comments-activate" data-disqus-identifier="/{{ article.url }}" >Show Comments</a>
+                    {% endif %}
+                    <div id="disqus_thread"></div>
+                </section>
+                {% endif %}
+
+                <aside class="post-nav">
+                    {% if article.next_article %}
+                    <a class="post-nav-next" href="{{ SITEURL }}/{{ article.next_article.url}}">
+                        <section class="post-nav-teaser">
+                            <i class="ic ic-arrow-left"></i>
+                                <h2 class="post-nav-title">{{ article.next_article.title }}</h2>
+                            <p class="post-nav-excerpt">{{ article.next_article.summary|striptags|truncate(90) }}</p>
+                        </section>
+                    </a>
+                    {% endif %}
+                    {% if article.prev_article %}
+                    <a class="post-nav-prev" href="{{ SITEURL }}/{{ article.prev_article.url}}">
+                        <section class="post-nav-teaser">
+                            <i class="ic ic-arrow-right"></i>
+                                <h2 class="post-nav-title">{{ article.prev_article.title }}</h2>
+                            <p class="post-nav-excerpt">{{ article.prev_article.summary|striptags|truncate(90) }}</p>
+                        </section>
+                    </a>
+                    {% endif %}
+                    <div class="clear"></div>
+                </aside>
+
+            </div>
+        </article>
+    </main>
+{% endblock content %}

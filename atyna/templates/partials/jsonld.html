@@ -1,0 +1,16 @@
+{# <!-- Choosing description --> #}
+{% if SITESUBTITLE %}
+    {% set description = SITESUBTITLE %}
+{% else %}
+    {% set description = 'Emmanuel Okwudike: Machine Learning, Deep Learning, Intelligent Systems, Web Developer, Tech Writer' %}
+{% endif %}
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Website",
+  "name": " {{ SITENAME }} ",
+  "url" : "{{ SITEURL }}/",
+  "image": "{{ default_cover }}",
+  "description": "{{ description }}"
+}
+</script>

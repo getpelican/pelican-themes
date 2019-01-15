@@ -1,0 +1,35 @@
+{# <!-- Choosing locale --> #}
+{% if OG_LOCALE %}
+  {% set default_locale = OG_LOCALE %}
+{% else %}
+  {% set default_locale = 'en_US' %}
+{% endif %}
+
+{# <!-- Choosing description --> #}
+{% if SITESUBTITLE %}
+    {% set description = SITESUBTITLE %}
+{% else %}
+    {% set description = 'ML. DL. & everything in between.' %}
+{% endif %}
+
+<!-- Open Graph -->
+{% for admin in FACEBOOK_ADMINS %}
+  <meta property="fb:admins" content="{{ admin }}" />
+{% endfor %}
+<meta property="og:site_name" content="{{ SITENAME }}"/>
+<meta property="og:type" content="blog"/>
+<meta property="og:title" content="{{ SITENAME }}"/>
+<meta property="og:description" content="{{ description }}"/>
+<meta property="og:locale" content="{{ default_locale }}"/>
+<meta property="og:url" content="{{ SITEURL }}/"/>
+<meta property="og:image" content="{{ default_cover }}">
+
+<!-- Twitter Card -->
+{% for name,link in SOCIAL if name.lower() in ['twitter'] %}
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@{{ link|replace('http://', 'https://')|replace('https://twitter.com/', '') }}">
+  <meta name="twitter:title" content="{{ SITENAME }}">
+  <meta name="twitter:description" content="{{ description}}">
+  <meta name="twitter:url" content="{{ SITEURL }}/">
+  <meta name="twitter:image:src" content="{{ default_cover }}">
+{% endfor %}

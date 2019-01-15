@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+
+{% block title %}{{ SITENAME }} | Articles by {{ author_name }}{% endblock %}
+
+<!-- To support both image in relative path and url  -->
+{% set author_name = author.name | title  %}
+{% if AUTHORS_BIO and author.name.lower() in AUTHORS_BIO %}
+  {% set author_avatar = AUTHORS_BIO[author.name.lower()].image %}
+  {% if author_avatar %}
+    {% if author_avatar|lower|truncate(4, True, '') == "http" %}
+      {% set selected_avatar = author_avatar %}
+    {% else %}
+      {% set selected_avatar = SITEURL+"/"+author_avatar %}
+    {% endif %}
+  {% endif %}
+
+  {% set author_cover = AUTHORS_BIO[author.name.lower()].cover %}
+  {% if author_cover %}
+    {% if author_cover|lower|truncate(4, True, '') == "http" %}
+      {% set selected_cover = author_cover %}
+    {% else %}
+      {% set selected_cover = SITEURL+"/"+author_cover %}
+    {% endif %}
+  {% endif %}
+
+  {% set author_name = AUTHORS_BIO[author.name.lower()].name or author.name %}
+{% elif HEADER_COVER %}
+  {% if HEADER_COVER|lower|truncate(4, True, '') == "http" %}
+    {% set selected_cover = HEADER_COVER %}
+  {% else %}
+    {% set selected_cover = SITEURL+"/"+HEADER_COVER %}
+  {% endif %}
+{% elif HEADER_COLOR %}
+  {% set selected_color = HEADER_COLOR %}
+{% endif %}
+
+{% block opengraph %}
+    {{ super() }}
+    <meta property="og:title" content="{{ SITENAME }} | Articles by {{ author }}">
+    <meta property="og:type" content="profile">
+    <meta property="profile:first_name" content="{{ author.name.split(' ')[0] }}">
+    <meta property="profile:last_name" content="{{ author.name.split(' ')[1:]|join(' ') }}">
+    <meta property="profile:username" content="{{ author.slug }}">
+{% endblock opengraph %}
+
+{% block header %}
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header id="blog-header" class="has-cover">
+      <div class="inner">
+        <nav id="navigation">
+          {% if SITE_LOGO %}
+            <span class="blog-logo">
+                <a href="{{ SITEURL }}/"><img src="{{SITE_LOGO}}" alt="Blog Logo" /></a>
+            </span>
+          {% else %}
+            <span id="home-button" class="nav-button">
+                <a class="home-button" href="{{ SITEURL }}/" title="Home"><i class="ic ic-arrow-left"></i> Home</a>
+            </span>
+          {% endif %}
+          <span id="menu-button" class="nav-button">
+            <a class="menu-button"><i class="ic ic-menu"></i> Menu</a>
+          </span>
+        </nav>
+        {% if selected_cover %}
+            <div class="blog-cover cover" style="background-image: url('{{ selected_cover }}')">
+        {% elif selected_color %}
+            <div class="blog-cover cover" style="background-color: {{ selected_color }}">
+        {% else %}
+            <div class="blog-cover cover" style="background-image: url('{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/post-bg.jpg')">
+        {% endif %}
+      </div>
+    </header>
+
+    {% if AUTHORS_BIO and author.name.lower() in AUTHORS_BIO %}
+    <section id="blog-author" class="has-cover" >
+        <div class="inner">
+            <aside class="post-author">
+                {% if selected_avatar %}
+                <figure class="post-author-avatar">
+                    <img src="{{selected_avatar}}" alt="{{author_name}}" />
+                </figure>
+                {% endif %}
+                <div class="post-author-bio">
+                    <h4 class="post-author-name"><a href="{{ SITEURL }}/{{author.url}}">{{author_name}}</a></h4>
+                    {% if AUTHORS_BIO[author.name.lower()].bio %}
+                        <p class="post-author-about">{{AUTHORS_BIO[author.name.lower()].bio}}</p>
+                    {% endif %}
+                    {% if AUTHORS_BIO[author.name.lower()].location %}
+                        <span class="post-author-location"><i class="ic ic-location"></i> {{AUTHORS_BIO[author.name.lower()].location}}</span>
+                    {% endif %}
+                    {% if AUTHORS_BIO[author.name.lower()].website %}
+                        <span class="post-author-website"><a href="{{AUTHORS_BIO[author.name.lower()].website}}"><i class="ic ic-link"></i> Website</a></span>
+                    {% endif %}
+                    <!-- Social linkes in alphabet order. -->
+                    {% if AUTHORS_BIO[author.name.lower()].facebook %}
+                        <span class="post-author-facebook"><a target="_blank" href="https://facebook.com/{{AUTHORS_BIO[author.name.lower()].facebook}}"><i class="ic ic-facebook"></i> Facebook</a></span>
+                    {% endif %}
+                    {% if AUTHORS_BIO[author.name.lower()].github %}
+                        <span class="post-author-github"><a target="_blank" href="https://github.com/{{AUTHORS_BIO[author.name.lower()].github}}"><i class="ic ic-link"></i> GitHub</a></span>
+                    {% endif %}
+                    {% if AUTHORS_BIO[author.name.lower()].linkedin %}
+                        <span class="post-author-linkedin"><a target="_blank" href="https://www.linkedin.com/in/{{AUTHORS_BIO[author.name.lower()].linkedin}}"><i class="ic ic-link"></i> LinkedIn</a></span>
+                    {% endif %}
+                    {% if AUTHORS_BIO[author.name.lower()].twitter %}
+                        <span class="post-author-twitter"><a target="_blank" href="https://twitter.com/{{AUTHORS_BIO[author.name.lower()].twitter}}"><i class="ic ic-twitter"></i> Twitter</a></span>
+                    {% endif %}
+                        <span class="post-author-stats"><i class="ic ic-posts"></i> {{ articles|count }} {% if articles|count > 1 %} posts {% else %} post {% endif %}</span>
+                </div>
+                <div class="clear"></div>
+            </aside>
+        </div>
+    </section>
+    {% endif %}
+
+{% endblock header %}
+
+{% block content %}
+
+<div id="index" class="container">
+  <main class="content" role="main">
+    {% include "partials/loop.html" %}
+  </main>
+</div>
+{% endblock content %}

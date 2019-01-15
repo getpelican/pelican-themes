@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="{{ DEFAULT_LANG }}">
+
+<head>
+
+
+  {% block head %}
+
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+  {% if GOOGLE_SITE_VERIFICATION %}
+  <meta name="google-site-verification" content="{{ GOOGLE_SITE_VERIFICATION }}">
+  {% endif %}
+
+  <title>{% block title %}Home | {{ SITENAME.upper() }}{% endblock title %}</title>
+
+  {% if SITE_DESCRIPTION %}
+  <meta name="description" content="{{ SITE_DESCRIPTION }}" />
+  {% endif %}
+
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="referrer" content="origin" />
+  <meta name="generator" content="Pelican" />
+  <link href="{{ SITEURL }}/" rel="canonical" />
+
+  <!-- Feed -->
+  {% for name,link in SOCIAL if name.lower() in ['rss', 'rss-square', 'feed'] %}
+      <link href="{{ link }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Full Atom Feed" />
+  {% else %}
+      {% if FEED_ALL_ATOM %}
+        <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Full Atom Feed" />
+      {% endif %}
+      {% if FEED_ALL_RSS %}
+          <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Full RSS Feed" />
+      {% endif %}
+      {% if FEED_ATOM %}
+          <link href="{{ FEED_DOMAIN }}/{{ FEED_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed" />
+      {% endif %}
+      {% if FEED_RSS %}
+          <link href="{{ FEED_DOMAIN }}/{{ FEED_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS Feed" />
+      {% endif %}
+      {% if CATEGORY_FEED_ATOM and category %}
+          <link href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_ATOM|format(slug=category.slug) }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Categories Atom Feed" />
+      {% endif %}
+      {% if CATEGORY_FEED_RSS and category %}
+          <link href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_RSS|format(slug=category.slug) }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Categories RSS Feed" />
+      {% endif %}
+      {% if TAG_FEED_ATOM and tag %}
+          <link href="{{ FEED_DOMAIN }}/{{ TAG_FEED_ATOM|format(slug=tag.slug) }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Tags Atom Feed" />
+      {% endif %}
+      {% if TAG_FEED_RSS and tag %}
+          <link href="{{ FEED_DOMAIN }}/{{ TAG_FEED_RSS|format(slug=tag.slug) }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Tags RSS Feed" />
+      {% endif %}
+  {% endfor %}
+
+  <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/style.css" type="text/css" rel="stylesheet" />
+
+  <!-- Code highlight color scheme -->
+  {% if COLOR_SCHEME_CSS %}
+      <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/code_blocks/{{ COLOR_SCHEME_CSS }}" rel="stylesheet">
+  {% else %}
+      <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/code_blocks/github.css" rel="stylesheet">
+  {% endif %}
+
+
+  <!--Font/Icons pack-->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+
+  {% if CSS_OVERRIDE %}
+    <!-- CSS specified by the user -->
+    {% for css in CSS_OVERRIDE %}
+
+      {% if css|lower|truncate(4, True, '') == "http" %}
+          {% set css = css %}
+      {% else %}
+          {% set css = SITEURL+"/"+css %}
+      {% endif %}
+
+    <link href="{{ css }}" type="text/css" rel="stylesheet" />
+    {% endfor %}
+  {% endif %}
+
+  <!-- Custom fonts -->
+  <link href='https://fonts.googleapis.com/css?family=Montserrat:400,300' rel='stylesheet' type='text/css' />
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css" />
+  
+
+</script>
+
+  
+  {% endblock head %}
+
+</head>
+<!--Body class -->
+<body class="home-template">
+
+  {% include 'partials/navigation.html' %}
+
+  {% block header %}{% endblock header %}
+
+  <section id="wrapper">
+    <a class="hidden-close"></a>
+      {% block content %}{% endblock content %}
+      <!-- Body class -->
+    <div id="body-class" style="display: none;" class="{{ body_class }}"></div>
+
+    <footer id="footer">
+      <div class="inner">
+        <section class="credits">
+          {% if SHOW_CREDITS|default(True) %}
+            {% if SHOW_CREDITS and SHOW_CREDITS.left %}
+              {% set left=SHOW_CREDITS.left %}
+            {% else %}
+              {% set left='Theme <a href="https://github.com/iameo/atyna" rel="nofollow">atyna</a>' %}
+            {% endif %}
+
+            {% if SHOW_CREDITS and SHOW_CREDITS.right %}
+              {% set right=SHOW_CREDITS.right %}
+            {% else %}
+              {% set right='Published with <a href="https://github.com/getpelican/pelican" rel="nofollow">Pelican</a>' %}
+            {% endif %}
+
+          <span class="credits-theme">{{left}}</span>
+          <span class="credits-software">{{right}}</span>
+          {% endif %}
+        </section>
+      </div>
+    </footer>
+  </section>
+
+  <script type="text/javascript" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/script.js"></script>
+
+  {% if JS_OVERRIDE %}
+    <!-- Script specified by the user -->
+    {% for js in JS_OVERRIDE %}
+      {% if js|lower|truncate(4, True, '') == "http" %}
+          {% set js = js %}
+      {% else %}
+          {% set js = SITEURL+"/"+js %}
+      {% endif %}
+    <script type="text/javascript"  src="{{ js }}"></script>
+    {% endfor %}
+  {% endif %}
+  {% include 'partials/analytics.js' %}
+  {% include 'partials/disqus.js' %}
+</body>
+</html>

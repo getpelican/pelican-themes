@@ -1,0 +1,35 @@
+
+    {% for article in articles_page.object_list %}
+        <article class="post">
+        <div class="inner">
+            <header class="post-header">
+                <h2 class="post-title"><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark">{{ article.title }}</a>
+                </h2>
+                <span class="post-meta">
+                    <i class="fas fa-user"></i>
+                    {% for author in article.authors %}
+                        {% set author_name = author.name | title %}
+                        {% if AUTHORS_BIO and author.name.lower() in AUTHORS_BIO %}
+                            {% set author_name = AUTHORS_BIO[author.name.lower()].name or author.name %}
+                        {% endif %}
+                        <a href="{{ SITEURL }}/{{ author.url }}">{{ author_name }}</a>
+                    {% endfor %}
+                     | <i class="far fa-calendar-alt"></i> <time datetime="{{ article.locale_date }}">{{ article.locale_date }}</time>
+                </span>
+                <div class="clear"></div>
+            </header>
+
+                <section class="post-excerpt">
+		 {{ article.content|truncate(350) }}
+		</section>
+		<div class="extras">
+			<div>
+          			<a href="{{ SITEURL }}/{{ article.url }}" class="continue_reading">Continue Reading</a>
+                	</div>
+        	</div>  
+            {% include 'partials/comments_count.html' %}
+            </div>
+        </article>
+    {% endfor %}
+
+    {% include "partials/pagination.html" %}

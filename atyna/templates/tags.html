@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}{{ SITENAME }} | Tags{% endblock %}
+
+{% block header %}
+
+    <!-- Page Header -->
+    <header id="blog-header">
+       <!--Nav-->
+        <nav id="navigation">
+          {% if SITE_LOGO %}
+            <span class="blog-logo">
+                <a href="{{ SITEURL }}/"><img src="{{SITE_LOGO}}" alt="Blog Logo" /></a>
+            </span>
+          {% else %}
+            <span id="home-button" class="nav-button">
+                <a class="home-button" href="{{ SITEURL }}/" title="Home"><i class="ic ic-arrow-left"></i> Home</a>
+            </span>
+          {% endif %}
+          <span id="menu-button" class="nav-button">
+            <a class="menu-button"><i class="ic ic-menu"></i> Menu</a>
+          </span>
+        </nav>
+    </header>
+{% endblock header %}
+
+{% block content %}
+  {% set max_count = (tags|map('last')|map('count')|max) or 1 %}
+  {% set steps = (TAG_CLOUD_STEPS|default(5, true)) - 1 %}
+  <article class="post">
+    <div class="inner tag-cloud">
+        <h1 class="post-title">{{ SITENAME }} - Tags</h1>
+
+      {% for tag, articles in tags|sort %}
+        {% set count = articles|count %}
+        <div class="tag tag-weight-{{ (count/(max_count/steps))|int + 1 }}">
+          <a href="{{ SITEURL }}/{{ tag.url }}" title="{{ count }} article(s) tagged '{{ tag }}'">{{ tag }}</a>
+        </div>
+      {% endfor %}
+    </div>
+  </article>
+{% endblock content %}

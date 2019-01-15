@@ -1,0 +1,41 @@
+{% extends "index.html" %}
+
+{% block title %}{{ page.title }}{% endblock title %}
+
+
+
+{% block header %}
+    <!-- Page Header -->
+    <header id="post-header">
+       <!--Nav-->
+        <nav id="navigation">
+          {% if SITE_LOGO %}
+            <span class="blog-logo">
+                <a href="{{ SITEURL }}/"><img src="{{SITE_LOGO}}" alt="Blog Logo" /></a>
+            </span>
+          {% else %}
+            <span id="home-button" class="nav-button">
+                <a class="home-button" href="{{ SITEURL }}/" title="Home"><i class="ic ic-arrow-left"></i> Home</a>
+            </span>
+          {% endif %}
+          <span id="menu-button" class="nav-button">
+            <a class="menu-button"><i class="ic ic-menu"></i> Menu</a>
+          </span>
+        </nav>
+    </header>
+{% endblock header %}
+
+{% block content %}
+  <!-- Post content -->
+  <main class="content" role="main">
+      <article class="post">
+      <div class="inner">
+          <section class="post-content">
+
+ <h1 class="post-title">{{ page.title }}</h1>
+              {{page.content}}
+          </section>
+      </div>
+      </article>
+  </main>
+{% endblock content %}

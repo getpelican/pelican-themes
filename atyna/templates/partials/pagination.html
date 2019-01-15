@@ -1,0 +1,14 @@
+{% if DEFAULT_PAGINATION %}
+<nav class="pagination" role="pagination">
+  <div class="inner">
+    {% if articles_page.has_previous() %}
+    <a class="pagination-next" href="{{ SITEURL }}/{{ articles_previous_page.url }}"><i class="ic ic-arrow-left"></i> <span class="pagination-label">Newer Posts</span></a>
+    {% endif %}
+    <span class="pagination-info">Page {{ articles_page.number }} of {{ articles_paginator.num_pages }}</span>
+    {% if articles_page.has_next() %}
+    <a class="pagination-prev" href="{{ SITEURL }}/{{ articles_next_page.url }}"><span class="pagination-label">Older Posts</span> <i class="ic ic-arrow-right"></i></a>
+    {% endif %}
+    <div class="clear"></div>
+  </div>
+</nav>
+{% endif %}

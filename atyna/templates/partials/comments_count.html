@@ -1,0 +1,9 @@
+{% if DISQUS_SITENAME %}
+<p>
+  {% if article.disqus_identifier %}
+  <a data-disqus-identifier="{{ article.disqus_identifier }}" href="{{ SITEURL }}/{{ article.url }}#disqus_thread">comments</a>
+  {% else %}
+  <a data-disqus-identifier="/{{ article.url }}" href="{{ SITEURL }}/{{ article.url }}#disqus_thread">comments</a>
+  {% endif %}
+</p>
+{% endif %}

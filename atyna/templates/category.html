@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}{{ SITENAME }} | Articles in the {{ category }} category{% endblock %}
+
+{% block header %}
+    <!-- Page Header -->
+    <header id="blog-header">
+        <nav id="navigation">
+          {% if SITE_LOGO %}
+            <span class="blog-logo">
+                <a href="{{ SITEURL }}/"><img src="{{SITE_LOGO}}" alt="Blog Logo" /></a>
+            </span>
+          {% else %}
+            <span id="home-button" class="nav-button">
+                <a class="home-button" href="{{ SITEURL }}/" title="Home"><i class="ic ic-arrow-left"></i> Home</a>
+            </span>
+          {% endif %}
+          <span id="menu-button" class="nav-button">
+            <a class="menu-button"><i class="ic ic-menu"></i> Menu</a>
+          </span>
+        </nav>
+       
+    </header>
+{% endblock header %}
+
+{% block content %}
+
+<div id="index" class="container">
+  <main class="content" role="main">
+      <span class="blog-description">Posts: {{ articles|count }}</span>
+      <h3 class="post-title">Category {{ category }}</h3>
+    {% include "partials/loop.html" %}
+  </main>
+</div>
+{% endblock content %}

@@ -1,0 +1,24 @@
+{# <!-- Choosing description --> #}
+{% if article.headline %}
+    {% set description = article.headline %}
+{% elif article.content %}
+    {% set description = article.content|striptags|truncate(140) %}
+{% endif %}
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "name": "{{ article.title|striptags }}",
+  "headline": "{{ article.title|striptags }}",
+  "datePublished": "{{ article.date }}",
+  "dateModified": "{{ article.modified }}",
+  "author": {
+    "@type": "Person",
+    "name": "{{ article.author.name }}",
+    "url": "{{ SITEURL }}/{{ article.author.url }}"
+  },
+  "image": "{{ default_cover }}",
+  "url": "{{ SITEURL }}/{{ article.url }}",
+  "description": "{{ description }}"
+}
+</script>

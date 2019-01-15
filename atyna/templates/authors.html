@@ -1,0 +1,67 @@
+{% extends "index.html" %}
+
+{% block title %}{{ SITENAME }} | Authors{% endblock title %}
+
+{% if HEADER_COVER %}
+  {% if HEADER_COVER|lower|truncate(4, True, '') == "http" %}
+    {% set selected_cover = HEADER_COVER %}
+  {% else %}
+    {% set selected_cover = SITEURL+"/"+HEADER_COVER %}
+  {% endif %}
+{% elif HEADER_COLOR %}
+  {% set selected_color = HEADER_COLOR %}
+{% endif %}
+
+
+{% block header %}
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header id="blog-header" class="has-cover">
+      <div class="inner">
+        <nav id="navigation">
+          {% if SITE_LOGO %}
+            <span class="blog-logo">
+                <a href="{{ SITEURL }}/"><img src="{{SITE_LOGO}}" alt="Blog Logo" /></a>
+            </span>
+          {% else %}
+            <span id="home-button" class="nav-button">
+                <a class="home-button" href="{{ SITEURL }}/" title="Home"><i class="ic ic-arrow-left"></i> Home</a>
+            </span>
+          {% endif %}
+          <span id="menu-button" class="nav-button">
+            <a class="menu-button"><i class="ic ic-menu"></i> Menu</a>
+          </span>
+        </nav>
+        <h1 class="post-title">{{ SITENAME }} - Authors</h1>
+        {% if selected_cover %}
+          <div class="blog-cover cover" style="background-image: url('{{ selected_cover }}')">
+        {% elif selected_color %}
+          <div class="blog-cover cover" style="background-color: {{ selected_color }}">
+        {% else %}
+          <div class="blog-cover cover" style="background-image: url('{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/post-bg.jpg')">
+        {% endif %}
+      </div>
+    </header>
+{% endblock header %}
+
+{% block content %}
+    {% for author, articles in authors|sort %}
+        {% set author_name = author.name | title  %}
+        {% if AUTHORS_BIO and author.name.lower() in AUTHORS_BIO %}
+            {% set author_name = AUTHORS_BIO[author.name.lower()].name or author.name %}
+        {% endif %}
+
+      <article class="post">
+        <div class="inner">
+            <a href="{{ SITEURL }}/{{ author.url }}" rel="bookmark">
+                <h2 class="post-title">
+                    {{ author_name }} ({{ articles|count }})
+                </h2>
+            </a>
+        </div>
+      </article>
+      {% if not loop.last %}
+      <hr>
+      {% endif %}
+    {% endfor %}
+{% endblock content %}

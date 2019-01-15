@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}{{ SITENAME }} | Archives{% endblock %}
+
+
+{% block header %}
+    <!-- Page Header -->
+    <header id="blog-header">
+        <nav id="navigation">
+          {% if SITE_LOGO %}
+            <span class="blog-logo">
+                <a href="{{ SITEURL }}/"><img src="{{SITE_LOGO}}" alt="Blog Logo" /></a>
+            </span>
+          {% else %}
+            <span id="home-button" class="nav-button">
+                <a class="home-button" href="{{ SITEURL }}/" title="Home"><i class="ic ic-arrow-left"></i> Home</a>
+            </span>
+          {% endif %}
+          <span id="menu-button" class="nav-button">
+            <a class="menu-button"><i class="ic ic-menu"></i> Menu</a>
+          </span>
+        </nav>
+    </header>
+{% endblock header %}
+
+{% block content %}
+  <article class="post">
+    <div class="inner">
+        <h1 class="post-title">{{ SITENAME }} - Archives</h1>
+      <dl>
+      {% for article in dates %}
+          <dt>{{ article.locale_date }}</dt>
+          <dd><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></dd>
+      {% endfor %}
+      </dl>
+    </div>
+  </article>
+{% endblock content %}

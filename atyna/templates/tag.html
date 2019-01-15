@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}{{ SITENAME }} | Tag {{ tag }}{% endblock %}
+
+
+{% block header %}
+  <!--Nav-->
+        <nav id="navigation">
+          {% if SITE_LOGO %}
+            <span class="blog-logo">
+                <a href="{{ SITEURL }}/"><img src="{{SITE_LOGO}}" alt="Blog Logo" /></a>
+            </span>
+          {% else %}
+            <span id="home-button" class="nav-button">
+                <a class="home-button" href="{{ SITEURL }}/" title="Home"><i class="ic ic-arrow-left"></i> Home</a>
+            </span>
+          {% endif %}
+          <span id="menu-button" class="nav-button">
+            <a class="menu-button"><i class="ic ic-menu"></i> Menu</a>
+          </span>
+        </nav>
+
+{% endblock header %}
+
+{% block content %}
+<header>
+<div id="index" class="container">
+    <main class="content" role="main">
+        <h5 class="post-title">Tag {{ tag }}</h5>
+        <span class="blog-description"><small>Posts: {{ articles|count }}</small></span>
+        <div class="clear"></div>
+      </header>
+
+      {% include "partials/loop.html" %}
+
+    </main>
+  </div>
+
+{% endblock content %}

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block head %}
+    {{ super() }}
+    {% include 'partials/og.html' %}
+    {% include 'partials/jsonld.html' %}
+{% endblock %}
+
+{% block header %}
+    <!-- Page Header -->
+    <header id="blog-header">
+        <nav id="navigation">
+          {% if SITE_LOGO %}
+          <span class="blog-logo">
+            <a href="{{ SITEURL }}/"><img src="{{SITE_LOGO}}" alt="Blog Logo" /></a>
+          </span>
+          {% endif %}
+          <span id="menu-button" class="nav-button">
+            <a class="menu-button"><i class="ic ic-menu"></i> Menu</a>
+          </span>
+        </nav>
+     
+        <h1 class="blog-name"><a href="{{ SITEURL }}/">{{ SITENAME }}</a></h1>
+        {% if SITESUBTITLE %}
+        <span class="blog-description">{{ SITESUBTITLE }}</span>
+        {% endif %}
+    </header>
+{% endblock header %}
+
+{% block content %}
+<div id="index" class="container">
+  <main class="content" role="main">
+    {% include "partials/loop.html" %}
+  </main>
+</div>
+{% endblock content %}
