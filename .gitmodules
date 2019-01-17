@@ -253,3 +253,6 @@
 [submodule "brutalist"]
 	path = brutalist
 	url = https://github.com/mamcmanus/brutalist.git
+[submodule "rtdThemeForPelican"]
+	path = rtdThemeForPelican
+	url = https://github.com/brianshen1990/rtdThemeForPelican
