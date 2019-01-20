@@ -94,15 +94,24 @@
               title="{{ SITENAME }} RSS Feed"/>
     {% endif %}
 
-    {% if tag and TAG_FEED_ATOM %}
-        <link href="{{ SITEURL }}/{{ TAG_FEED_ATOM|format(tag.slug) }}" type="application/atom+xml" rel="alternate"
+    {%- if tag and TAG_FEED_ATOM %}
+        {%- if '%s' not in TAG_FEED_ATOM %}
+            {%- set tag_feed_atom = TAG_FEED_ATOM.format(slug=tag.slug) %}
+        {%- else %}
+            {%- set tag_feed_atom = TAG_FEED_ATOM.format(tag.slug) %}
+        {%- endif %}
+        <link href="{{ SITEURL }}/{{ tag_feed_atom }}" type="application/atom+xml" rel="alternate"
               title="{{ SITENAME }} {{ tag }} ATOM Feed"/>
-    {% endif %}
-
-    {% if category and CATEGORY_FEED_ATOM %}
-        <link href="{{ SITEURL }}/{{ CATEGORY_FEED_ATOM|format(category.slug) }}" type="application/atom+xml" rel="alternate"
+    {%- endif %}
+    {%- if category and CATEGORY_FEED_ATOM %}
+        {%- if '%s' not in CATEGORY_FEED_ATOM %}
+            {%- set category_feed_atom = CATEGORY_FEED_ATOM.format(slug=category.slug) %}
+        {%- else %}
+            {%- set category_feed_atom = CATEGORY_FEED_ATOM.format(category.slug) %}
+        {%- endif %}
+        <link href="{{ SITEURL }}/{{ category_feed_atom }}" type="application/atom+xml" rel="alternate"
               title="{{ SITENAME }} {{ category }} ATOM Feed"/>
-    {% endif %}
+    {%- endif %}
 
 </head>
 <body>
