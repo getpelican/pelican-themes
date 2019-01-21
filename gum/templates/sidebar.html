@@ -1,32 +1,30 @@
 <div class="three columns">
 
-<h4>Pages</h4>
-
- <ul>
-  {% for title, link in MENUITEMS %}
-      <li><a href="{{ link }}">{{ title }}</a></li>
-  {% endfor %}
   {% if DISPLAY_PAGES_ON_MENU %}
-    {% for p in pages %}
-      <li{% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
-    {% endfor %}
-  {% else %}
-    {% if DISPLAY_CATEGORIES_ON_MENU %}
-      {% for cat, null in categories %}
-        <li{% if cat == category %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
-      {% endfor %}
-    {% endif %}
-  {% endif %}
-  </ul>
+  <h4>Pages</h4>
 
-{% if categories and categories|length > 1 %}
-<h4>Categories</h4>
-<ul class="blank">
-	{% for cat, null in categories %}
-		<li><a href="{{ SITEURL }}/{{ cat.url|e }}">{{ cat }}</a></li>
-	{% endfor %}
-</ul>
-{% endif %}
+  <ul>
+    {% for title, link in MENUITEMS %}
+    <li><a href="{{ link }}">{{ title }}</a></li>
+    {% endfor %}
+
+    {% for p in pages %}
+    <li {% if p==page %} class="active" {% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
+    {% endfor %}
+    {% else %}
+  </ul>
+  {% endif %}
+  
+  {% if DISPLAY_CATEGORIES_ON_MENU %}
+  {% if categories and categories|length > 1 %}
+  <h4>Categories</h4>
+  <ul class="blank">
+    {% for cat, null in categories %}
+    <li><a href="{{ SITEURL }}/{{ cat.url|e }}">{{ cat }}</a></li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+  {% endif %}
 
 
 {% if tag_cloud %}
