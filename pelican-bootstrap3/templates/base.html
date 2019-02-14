@@ -53,6 +53,11 @@
     {# Twitter Cards tags #}
     {% include 'includes/twitter_cards.html' %}
 
+    {# Flattr ID for the Flattr browser plug-in #}
+    {% if FLATTR_ID %}
+        <meta name="flattr:id" content="{{ FLATTR_ID }}">
+    {% endif %}
+
     <!-- Bootstrap -->
     {% if BOOTSTRAP_THEME %}
         <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/bootstrap.{{ BOOTSTRAP_THEME }}.min.css" type="text/css"/>
@@ -89,21 +94,30 @@
               title="{{ SITENAME }} RSS Feed"/>
     {% endif %}
 
-    {% if tag and TAG_FEED_ATOM %}
-        <link href="{{ SITEURL }}/{{ TAG_FEED_ATOM|format(tag.slug) }}" type="application/atom+xml" rel="alternate"
+    {%- if tag and TAG_FEED_ATOM %}
+        {%- if '%s' not in TAG_FEED_ATOM %}
+            {%- set tag_feed_atom = TAG_FEED_ATOM.format(slug=tag.slug) %}
+        {%- else %}
+            {%- set tag_feed_atom = TAG_FEED_ATOM.format(tag.slug) %}
+        {%- endif %}
+        <link href="{{ SITEURL }}/{{ tag_feed_atom }}" type="application/atom+xml" rel="alternate"
               title="{{ SITENAME }} {{ tag }} ATOM Feed"/>
-    {% endif %}
-
-    {% if category and CATEGORY_FEED_ATOM %}
-        <link href="{{ SITEURL }}/{{ CATEGORY_FEED_ATOM|format(category.slug) }}" type="application/atom+xml" rel="alternate"
+    {%- endif %}
+    {%- if category and CATEGORY_FEED_ATOM %}
+        {%- if '%s' not in CATEGORY_FEED_ATOM %}
+            {%- set category_feed_atom = CATEGORY_FEED_ATOM.format(slug=category.slug) %}
+        {%- else %}
+            {%- set category_feed_atom = CATEGORY_FEED_ATOM.format(category.slug) %}
+        {%- endif %}
+        <link href="{{ SITEURL }}/{{ category_feed_atom }}" type="application/atom+xml" rel="alternate"
               title="{{ SITENAME }} {{ category }} ATOM Feed"/>
-    {% endif %}
+    {%- endif %}
 
 </head>
 <body>
 
 <div class="navbar {% if BOOTSTRAP_NAVBAR_INVERSE %}navbar-inverse{% else %}navbar-default{% endif %} navbar-fixed-top" role="navigation">
-	<div class="container{% if BOOTSTRAP_FLUID %}-fluid{% endif %}">
+    <div class="container{% if BOOTSTRAP_FLUID %}-fluid{% endif %}">
         <div class="navbar-header">
             {% if MENUITEMS or (pages and DISPLAY_PAGES_ON_MENU) or (categories and DISPLAY_CATEGORIES_ON_MENU) %}
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -159,6 +173,7 @@
         <!-- /.navbar-collapse -->
     </div>
 </div> <!-- /.navbar -->
+
 <!-- Banner -->
 {% if BANNER and BANNER_ALL_PAGES %}
     {% include 'includes/banner.html' %}
@@ -166,32 +181,38 @@
     {% block banner %}{% endblock %}
 {% endif %}
 <!-- End Banner -->
+
+<!-- Content Container -->
+{% if PADDED_SINGLE_COLUMN_STYLE %}
+    {% set content_class='col-md-8 col-md-offset-2' %}
+{% elif not HIDE_SIDEBAR or ABOUT_ME or AVATAR %}
+    {% set content_class='col-sm-9' + (' col-sm-push-3' if SIDEBAR_ON_LEFT else '') %}
+    {% set sidebar_class='col-sm-3' + (' col-sm-pull-9' if SIDEBAR_ON_LEFT else '') %}
+{% else %}
+    {% set content_class='col-lg-12' %}
+{% endif %}
 <div class="container{% if BOOTSTRAP_FLUID %}-fluid{% endif %}">
     <div class="row">
-        {% if not HIDE_SIDEBAR or ABOUT_ME or AVATAR %}
-        <div class="col-sm-9{% if SIDEBAR_ON_LEFT %} col-sm-push-3{% endif %}">
-        {% else %}
-        <div class="col-lg-12">
-        {% endif %}
-        {% block breadcrumbs %}
-        {% endblock %}
-        {% block content %}
-        {% endblock %}
+        <div class="{{ content_class }}">
+            {% block breadcrumbs %}{% endblock %}
+            {% block content %}{% endblock %}
         </div>
-        {% if not HIDE_SIDEBAR or ABOUT_ME or AVATAR %}
-        <div class="col-sm-3{% if SIDEBAR_ON_LEFT %} col-sm-pull-9{% endif %}" id="sidebar">
+        {% if sidebar_class %}
+        <div class="{{ sidebar_class }}" id="sidebar">
             <aside>
-            {% if ABOUT_ME or AVATAR %}
-                {% include 'includes/aboutme.html' %}
-            {% endif %}
-            {% if not HIDE_SIDEBAR %}
-                {% include 'includes/sidebar.html' %}
-            {% endif %}
+                {% if ABOUT_ME or AVATAR %}
+                    {% include 'includes/aboutme.html' %}
+                {% endif %}
+                {% if not HIDE_SIDEBAR %}
+                    {% include 'includes/sidebar.html' %}
+                {% endif %}
             </aside>
         </div>
         {% endif %}
     </div>
 </div>
+<!-- End Content Container -->
+
 {% include 'includes/footer.html' %}
 
 <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/jquery.min.js"></script>
@@ -201,6 +222,10 @@
 
 <!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
 <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/respond.min.js"></script>
+
+{% if CUSTOM_JS %}
+    <script src="{{ SITEURL }}/{{ CUSTOM_JS }}"></script>
+{% endif %}
 
 {% if BANNER %}
     <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/bodypadding.js"></script>

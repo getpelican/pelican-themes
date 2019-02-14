@@ -72,7 +72,7 @@
 	url = https://github.com/porterjamesj/crowsfoot.git
 [submodule "elegant"]
 	path = elegant
-	url = https://github.com/talha131/pelican-elegant.git
+	url = https://github.com/Pelican-Elegant/elegant.git
 [submodule "niu-x2"]
 	path = niu-x2
 	url = https://github.com/wilbur-ma/niu-x2.git
@@ -237,4 +237,22 @@
 	url = https://github.com/dokelung/jojo.git
 [submodule "supersimple"]
 	path = supersimple
-	url = https://github.com/hlrossato/supersimple
+	url = https://github.com/hlrossato/supersimple.git
+[submodule "resume"]
+	path = resume
+	url = https://github.com/suheb/resume.git
+[submodule "taman"]
+	path = taman
+	url = https://github.com/karambir/taman.git
+[submodule "MinimalXY"]
+	path = MinimalXY
+	url = https://github.com/petrnohejl/MinimalXY.git
+[submodule "pelican-fh5co-marble"]
+	path = pelican-fh5co-marble
+	url = https://github.com/claudio-walser/pelican-fh5co-marble.git
+[submodule "grid-focus"]
+	path = grid-focus
+	url = https://github.com/oulenz/pelican-grid-focus.git
+[submodule "brutalist"]
+	path = brutalist
+	url = https://github.com/mamcmanus/brutalist.git

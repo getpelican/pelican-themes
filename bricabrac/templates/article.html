@@ -9,7 +9,7 @@
 {% if not HIDE_DATE %}<time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time>{% endif %}
 </header>
 <article>
-<div class="meta" style="text-align:right;">{% if article.translations %}{% for translation in article.translations %}{{ article.lang or DEFAULT_LANG }}&nbsp;|&nbsp;<a href="{{ SITEURL }}/{{ translation.url }}"><u>{{ translation.lang }}</u></a>{% endfor %}{% endif %}</div>
+<!--<div class="meta" style="text-align:right;">{% if article.translations %}{% for translation in article.translations %}{{ article.lang or DEFAULT_LANG }}&nbsp;|&nbsp;<a href="{{ SITEURL }}/{{ translation.url }}"><u>{{ translation.lang }}</u></a>{% endfor %}{% endif %}</div>-->
 {{ article.content }}
 </article>
 {% endblock %}

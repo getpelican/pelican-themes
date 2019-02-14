@@ -8,7 +8,7 @@ Gum is a clean and responsive theme for [Pelican](https://github.com/getpelican/
 
 ### Configuration
 
-* Edit your settings file to include the following if desired (any values left blank won't show up in the theme):
+* Edit your settings file to include the following, if desired (any values left blank won't show up in the theme):
 
 ```
 GITHUB_URL = ''
@@ -24,18 +24,39 @@ GOOGLE_ANALYTICS_ID = ''
 GOOGLE_ANALYTICS_SITENAME = ''
 ```
 
-Alternatively you can use [Piwik](http://piwik.org/) for analytics if you set the following settings, where the url has to be given without leading `http://` and trailing `/`.
+Alternatively you can use [Piwik](http://piwik.org/) for analytics if you set the following settings, where the URL has to be specified without the leading `https://` and trailing `/`.
 
 ```
 PIWIK_ID = ''
 PIWIK_URL = ''
 ```
 
-To use Juvia for comments, fill out the following values, again the url without leading `http://` and trailing `/`.
+To use Juvia for comments, fill out the following values, again without including the leading `https://` and trailing `/` in the URL.
 
 ```
 JUVIA_URL = ''
 JUVIA_ID = ''
+```
+
+To use Disqus, add the Disqus site name via the following variable.
+
+```
+DISQUS_SITENAME = ''
+```
+
+Other features include:
+
+```
+SITESUBTITLE = 'your site subtitle'
+```
+
+The following standard Pelican settings are honored:
+
+```
+DISPLAY_CATEGORIES_ON_MENU
+DISPLAY_PAGES_ON_MENU
+DEFAULT_LANG
+SOCIAL
 ```
 
 ### Screenshot ###
