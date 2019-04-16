@@ -72,7 +72,7 @@
 	url = https://github.com/porterjamesj/crowsfoot.git
 [submodule "elegant"]
 	path = elegant
-	url = git@github.com:Pelican-Elegant/elegant.git
+	url = https://github.com/Pelican-Elegant/elegant.git
 	branch = master
 [submodule "niu-x2"]
 	path = niu-x2
