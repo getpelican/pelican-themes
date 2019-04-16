@@ -73,6 +73,7 @@
 [submodule "elegant"]
 	path = elegant
 	url = https://github.com/Pelican-Elegant/elegant.git
+	branch = master
 [submodule "niu-x2"]
 	path = niu-x2
 	url = https://github.com/wilbur-ma/niu-x2.git
