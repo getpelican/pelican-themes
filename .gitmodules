@@ -254,3 +254,6 @@
 [submodule "brutalist"]
 	path = brutalist
 	url = https://github.com/mamcmanus/brutalist.git
+[submodule "bootstrap4you"]
+	path = bootstrap4you
+	url = https://github.com/heykarimoff/bootstrap4you.git
