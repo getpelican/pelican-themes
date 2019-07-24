@@ -12,12 +12,12 @@
                 {% if not DISQUS_NO_ID %}
                     var disqus_identifier = '{{ article.date|strftime('%Y-%m-') ~ article.slug if DISQUS_ID_PREFIX_SLUG else article.slug }}';
                 {% endif %}
-                var disqus_url = '{{ SITEURL }}/{{ article.url }}';
+                var disqus_url = 'https://benjlindsay.com/{{ article.url }}';
             {% elif page %}
                 {% if not DISQUS_NO_ID %}
                     var disqus_identifier = 'page-{{ page.slug }}';
                 {% endif %}
-                var disqus_url = '{{ SITEURL }}/{{ page.url }}';
+                var disqus_url = 'https://benjlindsay.com/{{ page.url }}';
             {% endif %}
 
             var disqus_config = function () {
