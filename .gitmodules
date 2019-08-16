@@ -254,3 +254,6 @@
 [submodule "brutalist"]
 	path = brutalist
 	url = https://github.com/mamcmanus/brutalist.git
+[submodule "sobre"]
+	path = sobre
+	url = https://github.com/LyesSaadi/sobre
