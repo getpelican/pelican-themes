@@ -254,3 +254,7 @@
 [submodule "brutalist"]
 	path = brutalist
 	url = https://github.com/mamcmanus/brutalist.git
+[submodule "editorial_pelican"]
+	path = editorial_pelican
+	url = https://github.com/awild82/editorial_pelican.git
+	branch = pelican-themes
