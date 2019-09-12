@@ -254,3 +254,6 @@
 [submodule "brutalist"]
 	path = brutalist
 	url = https://github.com/mamcmanus/brutalist.git
+[submodule "simples-cinza92"]
+	path = simples-cinza92
+	url = https://github.com/rpatriciocarvalho/simples-cinza92.git
