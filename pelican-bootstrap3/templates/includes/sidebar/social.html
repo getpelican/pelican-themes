@@ -11,10 +11,15 @@
       {% else %}
         {% set name_sanitized = s[0]|lower|replace('+','-plus')|replace(' ','-') %}
       {% endif %}
-      {% if name_sanitized in ['flickr', 'slideshare', 'instagram', 'spotify', 'stack-overflow', 'weibo', 'line-chart', 'home', 'user', 'users', 'envelope', 'envelope-o', 'stack-exchange', 'hacker-news', 'gitlab', 'vk'] %}
-        {% set iconattributes = '"fa fa-' ~ name_sanitized ~ ' fa-lg"' %}
+      {% if name_sanitized in ['flickr', 'slideshare', 'instagram', 'spotify', 'stack-overflow', 'weibo', 'twitter', 'stack-exchange', 'hacker-news', 'gitlab', 'vk', 'bitbucket', 'linkedin', 'youtube'] %}
+        {% set fa_prefix = 'fab' %}
       {% else %}
-        {% set iconattributes = '"fa fa-' ~ name_sanitized ~ '-square fa-lg"' %}
+        {% set fa_prefix = 'fas' %}
+      {% endif %}
+      {% if name_sanitized in ['flickr', 'slideshare', 'instagram', 'spotify', 'stack-overflow', 'weibo', 'line-chart', 'home', 'user', 'users', 'envelope', 'envelope-open', 'stack-exchange', 'hacker-news', 'gitlab', 'vk', 'bitbucket', 'linkedin', 'youtube'] %}
+        {% set iconattributes = '"' ~ fa_prefix ~ ' fa-' ~ name_sanitized ~ ' fa-lg"' %}
+      {% else %}
+        {% set iconattributes = '"' ~ fa_prefix ~ ' fa-' ~ name_sanitized ~ '-square fa-lg"' %}
       {% endif %}
     <li class="list-group-item"><a href="{{ s[1] }}"><i class={{ iconattributes }}></i> {{ s[0] }}</a></li>
     {% endfor %}

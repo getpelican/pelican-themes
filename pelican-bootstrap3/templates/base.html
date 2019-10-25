@@ -64,7 +64,7 @@
     {% else %}
         <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/bootstrap.min.css" type="text/css"/>
     {% endif %}
-    <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/font-awesome.min.css" rel="stylesheet">
+    <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/fontawesome-all.min.css" rel="stylesheet">
 
     <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/pygments/{{ PYGMENTS_STYLE|default('native') }}.css" rel="stylesheet">
     {% if 'tipue_search' in PLUGINS %}
@@ -166,7 +166,7 @@
               </li>
             {% endif %}
             {% if ARCHIVES_SAVE_AS %}
-              <li><a href="{{ SITEURL }}/{{ ARCHIVES_URL | default('archives.html') }}"><i class="fa fa-th-list"></i><span class="icon-label">{{ _('Archives') }}</span></a></li>
+              <li><a href="{{ SITEURL }}/{{ ARCHIVES_URL | default('archives.html') }}"><i class="fas fa-th-list"></i><span class="icon-label">{{ _('Archives') }}</span></a></li>
             {% endif %}
             </ul>
         </div>
