@@ -1,4 +1,7 @@
 <footer class="post-info">
+    {% if article.readtime %}
+    <span class="label label-success">{{article.readtime.minutes}} min. read</span>
+    {% endif %}
     <span class="label label-default">Date</span>
     <span class="published">
         <i class="fa fa-calendar"></i><time datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }}</time>
