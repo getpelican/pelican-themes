@@ -254,3 +254,7 @@
 [submodule "brutalist"]
 	path = brutalist
 	url = https://github.com/mamcmanus/brutalist.git
+[submodule "buruma"]
+	path = buruma
+	url = https://github.com/ivanhercaz/buruma.git
+	branch = pelican-themes
