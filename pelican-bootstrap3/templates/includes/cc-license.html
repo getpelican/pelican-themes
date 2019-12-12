@@ -35,25 +35,29 @@
                          br_after_icon=false,
                          attr_markup=false,
                          attr_props={}) %}
-  {% if cc_name %}
-    {% set cc_name = cc_name|lower|replace("cc-","") %}
-    {% set cc_title_suffix = cc_name|replace("by", "")|replace("-nc","-NonCommercial")|replace("-nd","-NoDerivatives")|replace("-sa","-ShareAlike") %}
-  {% else %}
-    {% set cc_name = "by" %}
-    {% set cc_title_suffix = "" %}
-    {% if (not commercial) or (commercial|lower == "no") %}
-      {% set cc_name = cc_name ~ "-nc" %}
-      {% set cc_title_suffix = "-NonCommercial" %}
-    {% endif %}
-    {% if derivatives|lower == "no" %}
-      {% set cc_name = cc_name ~ "-nd" %}
-      {% set cc_title_suffix = cc_title_suffix ~ "-NoDerivatives" %}
-    {% elif derivatives|lower == "sharealike" %}
-      {% set cc_name = cc_name ~ "-sa" %}
-      {% set cc_title_suffix = cc_title_suffix ~ "-ShareAlike" %}
-    {% endif %}
-  {% endif %}
-  {% set cc_title, cc_uri, cc_icon = ("Creative Commons AttributionCCSUFFIX 4.0 International License","https://creativecommons.org/licenses/CCNAME/4.0/","//i.creativecommons.org/l/CCNAME/4.0/80x15.png") %}
+	{% if cc_name|lower == "zero" or cc_name|lower == "cc0" or cc_name|lower == "cc-zero" %}
+		{% set cc_title, cc_uri, cc_icon = ("CC0 1.0 Universal (CC0 1.0) Public Domain Dedication", "https://creativecommons.org/publicdomain/zero/1.0/", "https://licensebuttons.net/p/zero/1.0/80x15.png") %}
+	{% else %}
+		{% if cc_name %}
+			{% set cc_name = cc_name|lower|replace("cc-","") %}
+			{% set cc_title_suffix = cc_name|replace("by", "")|replace("-nc","-NonCommercial")|replace("-nd","-NoDerivatives")|replace("-sa","-ShareAlike") %}
+		{% else %}
+			{% set cc_name = "by" %}
+			{% set cc_title_suffix = "" %}
+			{% if (not commercial) or (commercial|lower == "no") %}
+				{% set cc_name = cc_name ~ "-nc" %}
+				{% set cc_title_suffix = "-NonCommercial" %}
+			{% endif %}
+			{% if derivatives|lower == "no" %}
+				{% set cc_name = cc_name ~ "-nd" %}
+				{% set cc_title_suffix = cc_title_suffix ~ "-NoDerivatives" %}
+			{% elif derivatives|lower == "sharealike" %}
+				{% set cc_name = cc_name ~ "-sa" %}
+				{% set cc_title_suffix = cc_title_suffix ~ "-ShareAlike" %}
+			{% endif %}
+		{% endif %}
+		{% set cc_title, cc_uri, cc_icon = ("Creative Commons AttributionCCSUFFIX 4.0 International License","https://creativecommons.org/licenses/CCNAME/4.0/","//i.creativecommons.org/l/CCNAME/4.0/80x15.png") %}
+	{% endif %}
   <a rel="license" href="{{ cc_uri|replace('CCNAME',cc_name) }}deed.{{ attr_props['lang'] }}"><img alt="Creative Commons License" style="border-width:0" src="{{ cc_icon|replace('CCNAME',cc_name) }}" /></a>
   {% if br_after_img %}<br/>{% endif %}
   {% if attr_markup %}
