@@ -254,3 +254,6 @@
 [submodule "brutalist"]
 	path = brutalist
 	url = https://github.com/mamcmanus/brutalist.git
+[submodule "atyna"]
+	path = atyna
+	url = https://github.com/iameo/atyna.git
