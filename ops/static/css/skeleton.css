@@ -214,7 +214,7 @@ body {
     font-size: 1.5em; /* currently ems cause chrome bug misinterpreting rems on body element */
     /*line-height: 1.6;*/
     font-weight: 400;
-    font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Monaco", "Helvetica", "Arial", "PingFang SC", "Hiragino Sans GB", "Source Han Sans CN", "Roboto", "Microsoft Yahei", "sans-serif";
     color: #222;
 }
 
@@ -482,6 +482,7 @@ code {
     background: #F1F1F1;
     border: 1px solid #E1E1E1;
     border-radius: 4px;
+    color: #d71515;
 }
 
 pre > code {
@@ -494,7 +495,7 @@ pre > code {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 th,
 td {
-    padding: 12px 15px;
+    padding: 7px 15px;
     text-align: left;
     border-bottom: 1px solid #E1E1E1;
 }
@@ -532,7 +533,7 @@ p,
 ul,
 ol,
 form {
-    margin-bottom: 2.5rem;
+/*     margin-bottom: 2.5rem; */
 }
 
 /* Utilities

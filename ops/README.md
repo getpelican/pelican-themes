@@ -4,33 +4,7 @@ a pelican theme
 ## demo page
 1.[Christine Doig's blog](http://chdoig.github.io/) based on this blog theme
 
-2.[Kosmgco](https://blog.ooops.me)
-
-## Options
-
-支持百度统计,多说评论，社会化分享,社交插件图片
-
-```python
-# pelicanconf.py
-DUOSHUONAME = 'liyuan-t'
-
-BAIDUID = 'Your Baidu ID'
-
-# Social widget
-SOCIAL = (('weibo', 'http://weibo.com/liyuantgg'),
-          ('github', 'http://github.com/kosmgco'),
-          ('mail', 'mailto:i@ooops.me'),
-)
-
-JIATHIS = True
-```
-
-在markdown中添加
-```
-comment: true
-jiathis: true
-```
-
+2.[Ooops](http://blog.ooops.me)
 
 ## Screenshots
 
