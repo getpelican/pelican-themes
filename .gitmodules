@@ -254,3 +254,6 @@
 [submodule "brutalist"]
 	path = brutalist
 	url = https://github.com/mamcmanus/brutalist.git
+[submodule "chivke"]
+	path = chivke
+	url = https://github.com/chivke/pelican-chivke
