@@ -3,6 +3,10 @@ Susty Pelican
 This is a port of the Susty_ Wordpress theme to be used
 with the Pelican_ static site generator.
 
+Demo
+----
+A `live demo`_ is available.
+
 Screenshots
 -----------
 **Main page listing all posts:**
@@ -58,7 +62,7 @@ How to use
    ``pelicanconf.py``, for example::
 
         MENUITEMS = (
-            ('Home', '/'),
+            ('Home', 'https://vimalkvn.github.io/susty-pelican'),
             ('GitHub', 'https://github.com/vimalkvn/susty-pelican')
         )
 
@@ -75,5 +79,6 @@ GPL v3
 .. Links
 .. _Eva Icons: https://github.com/akveo/eva-icons
 .. _latest version: https://github.com/vimalkvn/susty-pelican/archive/master.zip
+.. _live demo: https://vimalkvn.github.io/susty-pelican
 .. _Pelican: https://github.com/getpelican/pelican
 .. _Susty: https://github.com/jacklenox/susty
