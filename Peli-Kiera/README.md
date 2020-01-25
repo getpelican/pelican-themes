@@ -1,28 +1,77 @@
 
-# Peli-Kiera 
+# Peli-Kiera
+> Tested for:
+> Pelican version 4.2.0
+> Python version 3.8.1 
+
 Peli-Kiera is a theme for the Pelican static site generator.
 Thanks to the [Hugo-Kiera](https://github.com/avianto/hugo-kiera) project for the inspiration.
 ### Demo
 Live-Demo at [https://aleylara.github.io/Peli-Kiera](https://aleylara.github.io/Peli-Kiera)
 ### Installation
-The theme can be installed by cloning the repo into your 
+[Pelican-Docs](https://docs.getpelican.com/en/stable/) will guide you through the initial installation.
+Once inside the project directory, Peli-Kiera theme can be installed by cloning the repo into your 
 themes path and pointing to it in your `pelicanconf.py`.
 ```bash  
 # Create a themes directory if it doesn't exists
-cd project-dir/themes
+cd project-dir
+pelican-quickstart
+mkdir themes
+cd themes
 git clone https://github.com/aleylara/Peli-Kiera
 
-# Path to your theme directory in pelicanconf.py
+# Add path to your theme directory in pelicanconf.py
 THEME = 'themes/Peli-Kiera'
 ```
 In order to get read times and links between articles, the theme requires [pelican-readtime](https://github.com/getpelican/pelican-plugins/tree/master/readtime) and [neighbors](https://github.com/getpelican/pelican-plugins/tree/master/neighbors) plugins.
 
 ```bash
-# Path to your plugins directory in pelicanconf.py
+cd project-dir/
+git clone https://github.com/getpelican/pelican-plugins
+
+# Add path to your plugins directory in pelicanconf.py
 PLUGIN_PATHS = ['pelican-plugins']
 PLUGINS = ['readtime', 'neighbors']
+
+# Go ahead create few articles and populate output
+pelican ./content
+# start the local server on http://localhost:8000/
+pelican --autoreload --listen
 ```
+
+Final project directory structure should look similiar to this.
+
+```bash
+(Pelican) ➜ project-dir tree
+│
+├── content
+│   ├── images
+│   │   ├── camera-2008479_640.png
+│   │   ├── camera-wide.png
+│   │   └── wide-wide.png
+│   ├── pages
+│   │   └── about.md
+│   └── Posts
+│       ├── article-one.md
+│       └── article-two.md
+├── Makefile
+├── output     
+├── pelicanconf.py
+├── pelican-plugins
+│   ├── neighbors
+│   │   
+│   └── readtime
+│       
+├── publishconf.py
+├── __pycache__
+│   
+├── tasks.py
+└── themes
+    └── Peli-Kiera
+```
+
 ### Settings
+Example `pelicanconf.py`
     
 ```python
 #!/usr/bin/env python
