@@ -1,0 +1,106 @@
+{% if DISPLAY_TAGS_ON_SIDEBAR is not defined %}
+    {% set DISPLAY_TAGS_ON_SIDEBAR = True %}
+{% endif %}
+
+<section class="well well-sm">
+    <ul class="list-group list-group-flush">
+        {% if SOCIAL %}
+            <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
+              <ul class="list-group" id="social">
+                {% for s in SOCIAL %}
+                    {% if s[2] %}
+                        {% set name_sanitized = s[2]|lower|replace('+','-plus')|replace(' ','-') %}
+                    {% else %}
+                        {% set name_sanitized = s[0]|lower|replace('+','-plus')|replace(' ','-') %}
+                    {% endif %}
+                    {% if name_sanitized in ['flickr', 'spotify', 'stack-overflow', 'weibo'] %}
+                        {% set iconattributes = '"fa fa-' ~ name_sanitized ~ ' fa-lg"' %}
+                    {% else %}
+                        {% set iconattributes = '"fa fa-' ~ name_sanitized ~ '-square fa-lg"' %}
+                    {% endif %}
+                <li class="list-group-item"><a href="{{ s[1] }}"><i class={{ iconattributes }}></i> {{ s[0] }}</a></li>
+                {% endfor %}
+              </ul>
+            </li>
+        {% endif %}
+
+        {% if DISPLAY_RECENT_POSTS_ON_SIDEBAR %}
+            {% if RECENT_POST_COUNT is not defined %}
+                {% set RECENT_POST_COUNT = 5 %}
+            {% endif %}
+            <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Recent Posts</span></h4>
+                <ul class="list-group" id="recentposts">
+                {% for article in articles[:RECENT_POST_COUNT] %}
+                    <li class="list-group-item">
+                        <a href="{{ SITEURL }}/{{ article.url }}">
+                            {{ article.title }}
+                        </a>
+                    </li>
+                {% endfor %}
+                </ul>
+            </li>
+        {% endif %}
+
+        {% if DISPLAY_CATEGORIES_ON_SIDEBAR %}
+            <li class="list-group-item"><a href="{{ SITEURL }}/{{ CATEGORIES_URL }}"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Categories</span></h4></a>
+                <ul class="list-group" id="categories">
+                {% for cat, null in categories %}
+                    <li class="list-group-item">
+                        <a href="{{ SITEURL }}/{{ cat.url }}">
+                            <i class="fa fa-folder-open fa-lg"></i> {{ cat }}
+                        </a>
+                    </li>
+                {% endfor %}
+                </ul>
+            </li>
+        {% endif %}
+
+        {% if 'tag_cloud' in PLUGINS and DISPLAY_TAGS_ON_SIDEBAR %}
+            {% if DISPLAY_TAGS_INLINE %}
+                {% set tags = tag_cloud | sort(attribute='0') %}
+            {% else %}
+                {% set tags = tag_cloud | sort(attribute='1') %}
+            {% endif %}
+            <li class="list-group-item"><a href="{{ SITEURL }}/{{ TAGS_URL }}"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+                <ul class="list-group {% if DISPLAY_TAGS_INLINE %}list-inline tagcloud{% endif %}" id="tags">
+                {% for tag in tags %}
+                    <li class="list-group-item tag-{{ tag.1 }}">
+                        <a href="{{ SITEURL }}/{{ tag.0.url }}">
+                            {{ tag.0 }}
+                        </a>
+                    </li>
+                {% endfor %}
+                </ul>
+            </li>
+        {% endif %}
+
+        {% if DISPLAY_SERIES_ON_SIDEBAR %}
+            {% if article %}
+                {% if article.series %}
+                    <li class="list-group-item"><h4><i class="fa fa-tags fa-list-ul"></i><span class="icon-label">Series</span></h4>
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                            {% if article.series.previous %}
+                                <h5></i> Previous article</h5>
+                                <a href="{{ SITEURL }}/{{ article.series.previous.url }}">{{ article.series.previous.title }}</a>
+                            {% endif %}
+                            </li>
+                            <li class="list-group-item">
+                            {% if article.series.next %}
+                                <h5>Next article</h5>
+                                <a href="{{ SITEURL }}/{{ article.series.next.url }}">{{ article.series.next.title }}</a>
+                            {% endif %}
+                            </li>
+                        </ul>
+                    </li>
+                {% endif%}
+            {% endif %}
+        {% endif %}
+
+        {% include 'includes/github.html' %}
+        {% include 'includes/twitter_timeline.html' %}
+        {% include 'includes/links.html' %}
+        {% include 'includes/sidebar-images.html' %}
+    </ul>
+</section>
+
