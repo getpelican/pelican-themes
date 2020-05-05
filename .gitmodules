@@ -258,3 +258,7 @@
 	path = buruma
 	url = https://github.com/ivanhercaz/buruma.git
 	branch = pelican-themes
+[submodule "architect-pelican"]
+	path = architect-pelican 
+	url = https://github.com/MattWThomas/architect-pelican.git
+	branch = pelican-themes
