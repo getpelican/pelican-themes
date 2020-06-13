@@ -1,0 +1,26 @@
+{% if DEFAULT_PAGINATION %}
+
+    <ul class="pagination">
+        {% if articles_page.has_previous() %}
+            <li><a href="{{ SITEURL }}/{{ page_name }}{{ '' }}.html"><span aria-hidden="true">&laquo;&laquo;</span></a>
+            </li>
+            <li><a href="{{ SITEURL }}/{{ articles_previous_page.url }}">&laquo;</a></li>
+        {% endif %}
+        {% for page in range(1, articles_paginator.num_pages + 1) %}
+            {% if page == 1 and page >= (articles_page.number - 3) and page <= (articles_page.number) + 3 %}
+                <li class="{{ 'active' if page == articles_page.number else '' }}"><a
+                        href="{{ SITEURL }}/{{ page_name }}{{ "" }}.html">{{ page }}</a></li>
+            {% elif page >= (articles_page.number - 3) and page <= (articles_page.number) + 3 %}
+                <li class="{{ 'active' if page == articles_page.number else '' }}"><a
+                        href="{{ SITEURL }}/{{ page_name }}{{ page }}.html">{{ page }}</a></li>
+            {% endif %}
+
+        {% endfor %}
+        {% if articles_page.has_next() %}
+            <li><a href="{{ SITEURL }}/{{ articles_next_page.url }}">&raquo;</a></li>
+            <li><a href="{{ SITEURL }}/{{ page_name }}{{ articles_paginator.num_pages }}.html"><span aria-hidden="true">&raquo;&raquo;</span></a>
+            </li>
+        {% endif %}
+    </ul>
+{% endif %}
+
