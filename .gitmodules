@@ -260,5 +260,4 @@
 	branch = pelican-themes
 [submodule "pelican-b-side"]
 	path = pelican-b-side
-	url = https://github.com/fluffactually/pelican-b-side.git
-	branch = pelican-themes
+	url = https://gitlab.com/jhauh/pelican_b_side.git
