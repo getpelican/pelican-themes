@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block html_lang %}{{ article.lang }}{% endblock %}
+{% block title %}{{ SITENAME }} - {{ article.title }}{% endblock %}
+{% block head %}
+{{ super() }}
+{% if article.description %}
+<meta name="description" content="{{ article.description }}" />
+{% endif %}
+{% for tag in article.tags %}
+<meta name="tags" content="{{ tag }}" />
+{% endfor %}
+{% endblock %}
+{% block content %}
+<main>
+    <article>
+        <h2>{{ article.title }}</h2>
+        {% import 'translations.html' as translations with context %}
+        {{ translations.translations_for(article) }}
+        <aside>
+            <ul>
+                <li>
+                    <time datetime="{{ article.date }}">{{ article.date|strftime('%b %d, %Y') }}</time>
+                </li>
+                {% if article.modified %}
+                <li>
+                    <time datetime="{{ article.modified }}">Modified
+                        on {{ article.modified|strftime('%b %d, %Y') }}</time>
+                </li>
+                {% endif %}
+                {% if article.readtime %}
+                <li>{{ article.readtime.minutes }} min read</li>
+                {% endif %}
+                {% if article.category %}
+                <li>
+                    Categories:
+                    <a href="{{ SITEURL }}/{{ article.category.url }}"><em>{{ article.category }}</em></a>
+                    {% endif %}
+                </li>
+                {% if article.tags %}
+                <li>
+                    Tags:
+                    {% for tag in article.tags %}
+                    <a href="{{ SITEURL }}/{{ tag.url }}"><em>#{{ tag }}</em></a>
+                    {% endfor %}
+                    {% endif %}
+                </li>
+            </ul>
+        </aside>
+        {{ article.content }}
+    </article>
+    <section class="post-nav">
+        <div id="left-page">
+            <div id="left-link">
+                {% if article.next_article %}
+                <div id="left-arrow"><i class="fa fa-chevron-circle-left"></i></div>
+                <a href="{{ SITEURL }}/{{ article.next_article.url }}"> {{ article.next_article.title }}</a>
+                {% else %}
+                <a href="{{ SITEURL }}/{{ article.next_article.url }}">{{ " " }}</a>
+                {% endif %}
+            </div>
+        </div>
+        <div id="right-page">
+            <div id="right-link">
+                {% if article.prev_article %}
+                <a href="{{ SITEURL }}/{{ article.prev_article.url }}">{{ article.prev_article.title }} </a>
+                <div id="right-arrow"><i class="fa fa-chevron-circle-right"></i></div>
+                {% else %}
+                <a href="{{ SITEURL }}/{{ article.prev_article.url }}">{{ " " }}</a>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+    <div>
+        {% include 'disqus_script.html' %}
+    </div>
+</main>
+{% endblock %}
