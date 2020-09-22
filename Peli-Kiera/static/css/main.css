@@ -99,7 +99,7 @@ time {
 #container main {
   flex: 1 0 0;
   line-height: 1.5;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 #container main section#home ul {
@@ -189,7 +189,7 @@ time {
 
 #container main article pre code,
 #container main section pre code {
-  font-size: 0.8em;
+  font-size: 1em;
 }
 
 #container main article p code,

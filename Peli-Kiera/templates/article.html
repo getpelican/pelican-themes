@@ -54,8 +54,6 @@
                 {% if article.next_article %}
                 <div id="left-arrow"><i class="fa fa-chevron-circle-left"></i></div>
                 <a href="{{ SITEURL }}/{{ article.next_article.url }}"> {{ article.next_article.title }}</a>
-                {% else %}
-                <a href="{{ SITEURL }}/{{ article.next_article.url }}">{{ " " }}</a>
                 {% endif %}
             </div>
         </div>
@@ -64,8 +62,6 @@
                 {% if article.prev_article %}
                 <a href="{{ SITEURL }}/{{ article.prev_article.url }}">{{ article.prev_article.title }} </a>
                 <div id="right-arrow"><i class="fa fa-chevron-circle-right"></i></div>
-                {% else %}
-                <a href="{{ SITEURL }}/{{ article.prev_article.url }}">{{ " " }}</a>
                 {% endif %}
             </div>
         </div>
