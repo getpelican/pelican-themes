@@ -264,3 +264,6 @@
 [submodule "pelican-b-side"]
 	path = pelican-b-side
 	url = https://gitlab.com/jhauh/pelican_b_side.git
+[submodule "stirring"]
+	path = stirring
+	url = https://github.com/hansliu/pelican-stirring.git
