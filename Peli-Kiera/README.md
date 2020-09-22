@@ -1,8 +1,6 @@
 
 # Peli-Kiera
-> Tested for:
-> Pelican version 4.2.0
-> Python version 3.8.1 
+> Tested for Pelican 4.5 and Python 3.8 
 
 Peli-Kiera is a theme for the Pelican static site generator.
 Thanks to the [Hugo-Kiera](https://github.com/avianto/hugo-kiera) project for the inspiration.
@@ -152,8 +150,6 @@ Minimum image width of 600px is recommended. Images scale accordingly on smaller
 ![Screenshot1](screenshot-1.png "Screenshot Desktop")
 ![Screenshot2](screenshot-2.png "Screenshot Mobile")
 ![Screenshot3](screenshot-3.png "Screenshot Mobile")
-
-You can leave feedback or say thanks [here &#128077;](https://saythanks.io/to/aleylara)
 
 ### License
 [MIT License](https://github.com/avianto/hugo-kiera/blob/master/LICENSE.md)
