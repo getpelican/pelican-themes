@@ -254,6 +254,9 @@
 [submodule "brutalist"]
 	path = brutalist
 	url = https://github.com/mamcmanus/brutalist.git
+[submodule "simplify-theme"]
+	path = simplify-theme
+	url = https://github.com/vuquangtrong/simplify-theme.git
 [submodule "buruma"]
 	path = buruma
 	url = https://github.com/ivanhercaz/buruma.git
@@ -262,3 +265,9 @@
 	path = architect-pelican 
 	url = https://github.com/MattWThomas/architect-pelican.git
 	branch = pelican-themes
+[submodule "pelican-b-side"]
+	path = pelican-b-side
+	url = https://gitlab.com/jhauh/pelican_b_side.git
+[submodule "stirring"]
+	path = stirring
+	url = https://github.com/hansliu/pelican-stirring.git
