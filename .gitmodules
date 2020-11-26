@@ -86,9 +86,6 @@
 [submodule "jesuislibre"]
 	path = jesuislibre
 	url = https://github.com/badele/pelican-theme-jesuislibre.git
-[submodule "blueidea"]
-	path = blueidea
-	url = https://github.com/blueicefield/pelican-blueidea.git
 [submodule "sora"]
 	path = sora
 	url = https://github.com/if1live/pelican-sora.git
