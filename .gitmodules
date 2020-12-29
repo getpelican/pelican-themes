@@ -264,3 +264,6 @@
 [submodule "stirring"]
 	path = stirring
 	url = https://github.com/hansliu/pelican-stirring.git
+[submodule "Essent10"]
+	path = Essent10
+	url = git@github.com:Penaz91/Essent10.git
