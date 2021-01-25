@@ -263,7 +263,7 @@
 	branch = pelican-themes
 [submodule "architect-pelican"]
 	path = architect-pelican 
-	url = https://github.com/MattWThomas/architect-pelican.git
+	url = https://github.com/mwt/architect-pelican.git
 	branch = pelican-themes
 [submodule "pelican-b-side"]
 	path = pelican-b-side
