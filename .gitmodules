@@ -264,3 +264,6 @@
 [submodule "stirring"]
 	path = stirring
 	url = https://github.com/hansliu/pelican-stirring.git
+[submodule "darksome"]
+	path = darksome
+	url = https://github.com/devidwolf/pelican-theme-darksome
