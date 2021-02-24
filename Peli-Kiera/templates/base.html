@@ -6,9 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css"/>
-        <link rel="stylesheet"
-              href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.css"/>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda"/>
         <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/{{ CSS_FILE }}"/>
         {% if FEED_ALL_ATOM %}
@@ -31,7 +30,7 @@
         {% if SOCIAL or FEED_ALL_ATOM or FEED_ALL_RSS %}
             <ul class="social-media">
                 {% for name, link in SOCIAL %}
-                    <li><a href="{{ link }}"><i class="fa fa-{{ name }} fa-lg" aria-hidden="true"></i></a></li>
+                    <li><a href="{{ link }}"><i class="fab fa-{{ name }} fa-lg" aria-hidden="true"></i></a></li>
                 {% endfor %}
                 {% if FEED_ALL_ATOM %}
                     <li><a href="{{ FEED_DOMAIN }}/
