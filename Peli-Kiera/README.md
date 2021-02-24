@@ -1,6 +1,5 @@
 
 # Peli-Kiera
-> Tested for Pelican 4.5 and Python 3.8 
 
 Peli-Kiera is a theme for the Pelican static site generator.
 Thanks to the [Hugo-Kiera](https://github.com/avianto/hugo-kiera) project for the inspiration.
@@ -77,11 +76,12 @@ Example `pelicanconf.py`
 from __future__ import unicode_literals
 
 AUTHOR = 'Author'
+COPYRIGHT = '2019'
 SITENAME = 'Site-Name'
 SITEURL = ''
 SITESUBTITLE = Site Subtitle'
 PATH = 'content'
-TIMEZONE = '###########/#######'
+TIMEZONE = 'America/New_York'
 DEFAULT_LANG = 'en'
 
 THEME = 'themes/Peli-Kiera'
