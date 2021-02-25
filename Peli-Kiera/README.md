@@ -36,8 +36,8 @@ A sample article header.
 Title: Simple is better than complex 
 Date: 2018-11-14
 Tags: python, jupyter, library
-Description: 
-Category: 
+Description: The Zen of Python
+Category: Python
 
 ### Introduction
 
@@ -58,7 +58,7 @@ Final project directory structure should look similiar to this.
 │                                  
 ├── Makefile
 ├── content/
-│   ├── Blog Posts/
+│   ├── Python/
 │   │   ├── article-one.md
 │   │   ├── article-two.md
 │   │   └── article-three.md   

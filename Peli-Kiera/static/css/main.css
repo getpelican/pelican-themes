@@ -90,6 +90,7 @@ time {
 
 #container nav ul li {
   display: flex;
+  flex-direction: column-reverse;
   margin-left: 1em;
   align-items: end;
 }
