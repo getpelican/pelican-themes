@@ -24,14 +24,29 @@ In order to get read times and links between articles, the theme requires [pelic
 
 ```bash
 cd project-dir/
+# Please note the plugins repo is quite large and you only need the two.
 git clone https://github.com/getpelican/pelican-plugins
 
 # Add path to your plugins directory in pelicanconf.py
 PLUGIN_PATHS = ['pelican-plugins']
 PLUGINS = ['readtime', 'neighbors']
+```
+A sample article header.
+```html
+Title: Simple is better than complex 
+Date: 2018-11-14
+Tags: python, jupyter, library
+Description: 
+Category: 
 
-# Go ahead create few articles and populate output
-pelican ./content
+### Introduction
+
+This is a standard paragraph. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+``` 
+Go ahead and create few articles in respective directories.
+```bash
+# Generate articles and populate output
+pelican content -o output -s pelicanconf.py
 # start the local server on http://localhost:8000/
 pelican --autoreload --listen
 ```
@@ -40,31 +55,39 @@ Final project directory structure should look similiar to this.
 
 ```bash
 (Pelican) ➜ project-dir tree
-│
-├── content
-│   ├── images
-│   │   ├── camera-2008479_640.png
-│   │   ├── camera-wide.png
-│   │   └── wide-wide.png
-│   ├── pages
-│   │   └── about.md
-│   └── Posts
-│       ├── article-one.md
-│       └── article-two.md
+│                                  
 ├── Makefile
-├── output     
+├── content/
+│   ├── Blog Posts/
+│   │   ├── article-one.md
+│   │   ├── article-two.md
+│   │   └── article-three.md   
+│   ├── Research/
+│   │   ├── article-one.md
+│   │   ├── article-two.md
+│   │   └── article-three.md
+│   ├── images/
+│   │   ├── camera-2008479_640.png
+│   │   ├── camera-wide.png
+│   │   └── wide-wide.png
+│   └── pages/
+│       └── about.md
+├── output/ 
+│ 
 ├── pelicanconf.py
-├── pelican-plugins
+├── pelican-plugins/
 │   ├── neighbors
-│   │   
+│   │   ├── Readme.rst
+│   │   ├── __init__.py
+│   │   └── neighbors.py
 │   └── readtime
-│       
+│       ├── README.md
+│       ├── __init__.py
+│       └── readtime.py     
 ├── publishconf.py
-├── __pycache__
-│   
 ├── tasks.py
 └── themes
-    └── Peli-Kiera
+    └── Peli-Kiera/
 ```
 
 ### Settings
@@ -78,17 +101,18 @@ from __future__ import unicode_literals
 AUTHOR = 'Author'
 COPYRIGHT = '2019'
 SITENAME = 'Site-Name'
-SITEURL = ''
-SITESUBTITLE = Site Subtitle'
+SITEURL = 'https://my-pelican-blog-address.io'
+SITESUBTITLE = 'Site Subtitle'
 PATH = 'content'
 TIMEZONE = 'America/New_York'
 DEFAULT_LANG = 'en'
 
 THEME = 'themes/Peli-Kiera'
-PLUGIN_PATHS = ['plugins']
+PLUGIN_PATHS = ['pelican-plugins']
 PLUGINS = ['readtime', 'neighbors']
 STATIC_PATHS = ['images']
-SUMMARY_MAX_LENGTH = 60
+# Article summary length on main index page
+SUMMARY_MAX_LENGTH = 100
 DEFAULT_PAGINATION = 10
 GITHUB_URL = 'https://github.com/'
 
@@ -133,7 +157,7 @@ The pagination is presented with the current page and 3 neighboring pages on eit
       
 Images can be moved on page by adding the tag `#float-right`, `#float-left`, `#mid` and `#full` in your markdown.
 
-```markdown
+```bash
 ![Title]({static}/images/my_image-600x400.png#float-right "")
 ``` 
   
