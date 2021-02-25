@@ -13,7 +13,7 @@
 {% block content %}
 <main>
     <article>
-        <h2>{{ article.title }}</h2>
+        <h1>{{ article.title }}</h1>
         {% import 'translations.html' as translations with context %}
         {{ translations.translations_for(article) }}
         <aside>

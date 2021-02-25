@@ -5,7 +5,7 @@
     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
     })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-    ga('create', '{{GOOGLE_ANALYTICS}}', '{{GA_COOKIE_DOMAIN if GA_COOKIE_DOMAIN else 'auto'}}');
+    ga('create', '{{GOOGLE_ANALYTICS}}', '{{GA_COOKIE_DOMAIN if GA_COOKIE_DOMAIN else "auto"}}');
     ga('send', 'pageview');
     </script>
 {% endif %}
@@ -21,25 +21,6 @@
         t.src = '//secure.gaug.es/track.js';
         var s = document.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(t, s);
-    })();
-    </script>
-{% endif %}
-{% if PIWIK_URL and PIWIK_SITE_ID %}
-    <script type="text/javascript">
-    {% if PIWIK_SSL_URL %}
-        var pkBaseURL = "{{ PIWIK_SSL_URL }}";
-    {% else %}
-        var pkBaseURL = "{{ PIWIK_URL }}";
-    {% endif %}
-    var _paq = _paq || [];
-    _paq.push(["trackPageView"]);
-    _paq.push(["enableLinkTracking"]);
-    (function() {
-        var u=(("https:" == document.location.protocol) ? "https" : "http")+"://"+pkBaseURL+"/";
-        _paq.push(["setTrackerUrl", u+"piwik.php"]);
-        _paq.push(["setSiteId", "{{ PIWIK_SITE_ID }}"]);
-        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
-        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
     })();
     </script>
 {% endif %}
