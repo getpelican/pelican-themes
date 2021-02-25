@@ -89,11 +89,17 @@ time {
 }
 
 #container nav ul li {
+  display: flex;
   margin-left: 1em;
+  align-items: end;
+}
+#container nav ul li a {
+  line-height: 1.4em;
 }
 
 #container nav ul li a.active {
-  border-bottom: 0.5em solid #666666;
+  border-bottom: 0.2em solid #666666;
+  line-height: 1.4em;
 }
 
 #container main {
