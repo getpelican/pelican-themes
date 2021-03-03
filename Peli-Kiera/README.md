@@ -32,7 +32,7 @@ PLUGIN_PATHS = ['pelican-plugins']
 PLUGINS = ['readtime', 'neighbors']
 ```
 A sample article header.
-```html
+```text
 Title: Simple is better than complex 
 Date: 2018-11-14
 Tags: python, jupyter, library
@@ -101,7 +101,7 @@ from __future__ import unicode_literals
 AUTHOR = 'Author'
 COPYRIGHT = '2019'
 SITENAME = 'Site-Name'
-SITEURL = 'https://my-pelican-blog-address.io'
+SITEURL = 'https://www.example.com'
 SITESUBTITLE = 'Site Subtitle'
 PATH = 'content'
 TIMEZONE = 'America/New_York'
@@ -157,15 +157,15 @@ The pagination is presented with the current page and 3 neighboring pages on eit
       
 Images can be moved on page by adding the tag `#float-right`, `#float-left`, `#mid` and `#full` in your markdown.
 
-```bash
-![Title]({static}/images/my_image-600x400.png#float-right "")
+```markdown
+![Title]({static}/images/my_image-600x400.png#float-right "camera icon")
 ``` 
   
 Similarly, the placement can also be applied to html directly by wrapping images in a `<figure class="placement">` tag.
 
 ```html
 <figure class="float-left">
-    <img src="path-to/images/my_image-600x400.png" alt="">
+    <img src="path-to/images/my_image-600x400.png" alt="camera icon">
 </figure>
 ``` 
 Minimum image width of 600px is recommended. Images scale accordingly on smaller screens.
