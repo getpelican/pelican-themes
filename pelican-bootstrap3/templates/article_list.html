@@ -2,19 +2,40 @@
 {% block content %}
     {% if articles %}
         {% for article in (articles_page.object_list if articles_page else articles) %}
-            <article>
-                <h2><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h2>
-                {% if DISPLAY_ARTICLE_INFO_ON_INDEX %}
-                    <div class="well well-sm">
-                        {% include "includes/article_info.html" %}
+            {% if article.pin %}
+                <article>
+                    <h2><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h2>
+                    {% if DISPLAY_ARTICLE_INFO_ON_INDEX %}
+                        <div class="well well-sm">
+                            {% include "includes/article_info.html" %}
+                        </div>
+                    {% endif %}
+                    <div class="summary">{{ article.summary }}
+                        {% include 'includes/comment_count.html' %}
+                        <a class="btn btn-default btn-xs" href="{{ SITEURL }}/{{ article.url }}">{{ _('more') }} ...</a>
                     </div>
-                {% endif %}
-                <div class="summary">{{ article.summary }}
-                    {% include 'includes/comment_count.html' %}
-                    <a class="btn btn-default btn-xs" href="{{ SITEURL }}/{{ article.url }}">{{ _('more') }} ...</a>
-                </div>
-            </article>
-            <hr/>
+                </article>
+                <hr/>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+    {% if articles %}
+        {% for article in (articles_page.object_list if articles_page else articles) %}
+            {% if not article.pin %}
+                <article>
+                    <h2><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h2>
+                    {% if DISPLAY_ARTICLE_INFO_ON_INDEX %}
+                        <div class="well well-sm">
+                            {% include "includes/article_info.html" %}
+                        </div>
+                    {% endif %}
+                    <div class="summary">{{ article.summary }}
+                        {% include 'includes/comment_count.html' %}
+                        <a class="btn btn-default btn-xs" href="{{ SITEURL }}/{{ article.url }}">{{ _('more') }} ...</a>
+                    </div>
+                </article>
+                <hr/>
+            {% endif %}
         {% endfor %}
     {% endif %}
 
