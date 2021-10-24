@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+    <main>
+        <section id="home">
+            <ul>
+                {% for article in articles_page.object_list %}
+                    <li>
+                        <h1><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark"
+                               title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h1>
+                        <aside>
+                            <ul>
+                                <li>
+                                    <time datetime="{{ article.date }}">{{ article.date|strftime('%b %d, %Y') }}</time>
+                                </li>
+                                {% if article.readtime %}
+                                    <li>
+                                        {{ article.readtime.minutes }} min read
+                                    </li>
+                                {% endif %}
+                            </ul>
+                        </aside>
+                        <p>
+                            {{ article.summary }}
+                            <a href="{{ SITEURL }}/{{ article.url }}"><em>Read more...</em></a>
+                        </p>
+                    </li>
+                {% endfor %}
+            </ul>
+            {% if articles_page.has_other_pages() %}
+                {% include 'pagination.html' %}
+            {% endif %}
+        </section>
+    </main>
+{% endblock content %}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="{% block html_lang %}{{ DEFAULT_LANG }}{% endblock html_lang %}">
+<head>
+    {% block head %}
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda"/>
+        <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/{{ CSS_FILE }}"/>
+        {% if FEED_ALL_ATOM %}
+            <link href="{{ FEED_DOMAIN }}/
+                    {% if FEED_ALL_ATOM_URL %}{{ FEED_ALL_ATOM_URL }}{% else %}{{ FEED_ALL_ATOM }}{% endif %}"
+                  type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed"/>
+        {% endif %}
+        {% if FEED_ALL_RSS %}
+            <link href="{{ FEED_DOMAIN }}/
+                    {% if FEED_ALL_RSS_URL %}{{ FEED_ALL_RSS_URL }}{% else %}{{ FEED_ALL_RSS }}{% endif %}"
+                  type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS Feed"/>
+        {% endif %}
+    {% endblock head %}
+</head>
+<body>
+{% include 'github.html' %}
+<div id="container">
+    <header>
+        <h1><a href="{{ SITEURL }}/">{{ SITENAME }}</a></h1>
+        {% if SOCIAL or FEED_ALL_ATOM or FEED_ALL_RSS %}
+            <ul class="social-media">
+                {% for name, link in SOCIAL %}
+                    <li><a href="{{ link }}"><i class="fab fa-{{ name }} fa-lg" aria-hidden="true"></i></a></li>
+                {% endfor %}
+                {% if FEED_ALL_ATOM %}
+                    <li><a href="{{ FEED_DOMAIN }}/
+                            {% if FEED_ALL_ATOM_URL %}{{ FEED_ALL_ATOM_URL }}{% else %}{{ FEED_ALL_ATOM }}{% endif %}"
+                           type="application/atom+xml" rel="alternate"><i class="fa fa-rss fa-lg"
+                                                                          aria-hidden="true"></i></a></li>
+                {% endif %}
+                {% if FEED_ALL_RSS %}
+                    <li><a href="{{ FEED_DOMAIN }}/
+                            {% if FEED_ALL_RSS_URL %}{{ FEED_ALL_RSS_URL }}{% else %}{{ FEED_ALL_RSS }}{% endif %}"
+                           type="application/rss+xml" rel="alternate"><i class="fa fa-rss fa-lg" aria-hidden="true"></i></a>
+                    </li>
+                {% endif %}
+            </ul>
+        {% endif %}
+        <p><em>{{ SITESUBTITLE }}</em></p>
+    </header>
+    <nav>
+        <ul>
+            {% for title, link in MENUITEMS %}
+                <li><a href="{{ link }}">{{ title }}</a></li>
+            {% endfor %}
+            {% if DISPLAY_CATEGORIES_ON_MENU %}
+                {% for cat, null in categories %}
+                    <li><a {% if cat==category %}
+                        class="active" {% endif %}href="{{ SITEURL }}/{{ cat.url }}"> {{ cat }} </a></li>
+                {% endfor %}
+            {% endif %}
+            {% if DISPLAY_PAGES_ON_MENU %}
+                {% for p in pages %}
+                    <li><a {% if p==page %} class="active" {% endif %}href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a>
+                    </li>
+                {% endfor %}
+            {% endif %}
+        </ul>
+    </nav>
+    {% block content %}
+    {% endblock %}
+    <footer>
+        <h6>
+            Rendered by <a href="http://getpelican.com/">Pelican</a> &nbsp;&bull;&nbsp; Theme by <a
+                href="https://github.com/aleylara/Peli-Kiera">Peli-Kiera</a> &nbsp;&bull;&nbsp; Copyright
+                &copy{% if COPYRIGHT %}{{ COPYRIGHT }} {% endif %}
+                {% if AUTHOR %} &nbsp;&#8209;&nbsp; {{ AUTHOR }} {% endif %}
+        </h6>
+    </footer>
+</div>
+{% include 'analytics.html' %}
+</body>
+</html>
+

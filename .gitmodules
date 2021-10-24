@@ -57,7 +57,7 @@
 	url = https://github.com/erfaan/pelican-theme-irfan.git
 [submodule "svbhack"]
 	path = svbhack
-	url = https://github.com/giulivo/pelican-svbhack.git
+	url = https://github.com/gfidente/pelican-svbhack.git
 [submodule "html5-dopetrope"]
 	path = html5-dopetrope
 	url = https://github.com/PierrePaul/html5-dopetrope.git
@@ -86,9 +86,6 @@
 [submodule "jesuislibre"]
 	path = jesuislibre
 	url = https://github.com/badele/pelican-theme-jesuislibre.git
-[submodule "blueidea"]
-	path = blueidea
-	url = https://github.com/blueicefield/pelican-blueidea.git
 [submodule "sora"]
 	path = sora
 	url = https://github.com/if1live/pelican-sora.git
@@ -230,9 +227,6 @@
 [submodule "bulrush"]
 	path = bulrush
 	url = https://github.com/textbook/bulrush.git
-[submodule "minimalX"]
-	path = minimalX
-	url = https://github.com/art1fa/minimalX.git
 [submodule "jojo"]
 	path = jojo
 	url = https://github.com/dokelung/jojo.git
@@ -254,3 +248,16 @@
 [submodule "brutalist"]
 	path = brutalist
 	url = https://github.com/mamcmanus/brutalist.git
+[submodule "simplify-theme"]
+	path = simplify-theme
+	url = https://github.com/vuquangtrong/simplify-theme.git
+[submodule "buruma"]
+	path = buruma
+	url = https://github.com/ivanhercaz/buruma.git
+	branch = pelican-themes
+[submodule "pelican-b-side"]
+	path = pelican-b-side
+	url = https://gitlab.com/jhauh/pelican_b_side.git
+[submodule "stirring"]
+	path = stirring
+	url = https://github.com/hansliu/pelican-stirring.git

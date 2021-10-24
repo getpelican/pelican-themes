@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}{{ SITENAME }} - Authors{% endblock %}
+
+{% block content %}
+    <main>
+        <section id="list">
+            <h2>Authors</h2>
+            <ul>
+                {% for author, articles in authors|sort %}
+                    {% if author == "" %}
+                        <li><a href="#">Anonymous</a>({{ articles|count }})</li>
+                        {% else %}
+                        <li><a href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a>({{ articles|count }})</li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </section>
+    </main>
+{% endblock %}
