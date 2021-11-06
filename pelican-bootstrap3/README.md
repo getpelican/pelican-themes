@@ -389,14 +389,19 @@ The footer will display a copyright message using the AUTHOR variable and the ye
 
 ### Sidebar Images
 
-Include a series of images in the sidebar, with an optional header:
+Include a series of _optionally linked_ images in the sidebar, with an optional
+header.
 
+```
 SIDEBAR_IMAGES_HEADER = 'My Images'
-SIDEBAR_IMAGES = ["/path/to/image1.png", "/path/to/image2.png"]
+SIDEBAR_IMAGES = (
+    ('/path/to/image1.png', 'https://link1'),
+    ('/path/to/image2.png', 'https://link2'),
+    ('/path/to/image2.png', ''),
+)
+```
 
-Originally developed for including certification marks in your sidebar. E.g.,
-
-http://dmark.github.io
+Originally developed for including certification marks in your sidebar.
 
 ### Translations
 
