@@ -258,3 +258,6 @@
 [submodule "stirring"]
 	path = stirring
 	url = https://github.com/hansliu/pelican-stirring.git
+[submodule "astrochelys"]
+	path = astrochelys
+	url = https://github.com/out-of-cheese-error/astrochelys.git
