@@ -1,0 +1,27 @@
+{% if article.metadata.static_comments %}
+
+<section id="comments" class="body">
+<div class="accordion" id="AccordionComments">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="CommentHeading">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#CommentsList" aria-expanded="true" aria-controls="CommentsList">
+        {{ 'Show/Hide Comments'|gettext(DEFAULT_LANG) }}
+      </button>
+    </h2>
+    <div id="CommentsList" class="accordion-collapse collapse hide" aria-labelledby="CommentHeading" data-bs-parent="#AccordionComments">
+      <div class="accordion-body">
+        {{ article.metadata.static_comments }}
+        <hr>
+           <h3>{{ 'You can leave a comment filling this form!'|gettext(DEFAULT_LANG) }}</h3>
+           {% include 'comments_form.html' %}
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+   {% else %}
+        <section id="comments" class="body">
+           <h3>{{ 'Would you like to be the first to leave a comment? I will be happy!'|gettext(DEFAULT_LANG) }}</h3>
+           {% include 'comments_form.html' %}
+        </section>
+{% endif %}

@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block title %}{{ SITENAME }} - {{ 'Auto Interviste'|gettext(DEFAULT_LANG) }}{% endblock %}
+
+{% block header %}
+    <!-- Page Header -->
+    {% if HEADER_COVER %}
+        <header class="intro-header" style="background-image: url('{{ SITEURL }}/{{ HEADER_COVER }}')">
+    {% elif HEADER_COLOR %}
+        <header class="intro-header" style="background-color: {{ HEADER_COLOR }}">
+    {% else %}
+        <header class="intro-header" style="background-image: url('{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/home-bg.jpg')">
+    {% endif %}
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>{{ 'Auto Interviste'|gettext(DEFAULT_LANG) }}</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+{% endblock header %}
+
+{% block content %}
+<div class="accordion" id="accordionArchive">
+  {% for year, year_group in dates|groupby('date.year')|reverse %}
+  <div class="card">
+    <div class="card-header" id="heading{{ (year_group|first()).date.strftime('%Y') }}">
+      <h2 class="mb-0">
+        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse{{ (year_group|first()).date.strftime('%Y') }}" aria-expanded="true" aria-controls="collapse{{ (year_group|first()).date.strftime('%Y') }}">
+          {{ (year_group|first()).date.strftime('%Y') }}
+        </button>
+      </h2>
+    </div>
+
+    <div id="collapse{{ (year_group|first()).date.strftime('%Y') }}" class="collapse" aria-labelledby="heading{{ (year_group|first()).date.strftime('%Y') }}" data-parent="#accordionArchive">
+      <div class="card-body">
+        {% for month, mounts_group in year_group|groupby('date.month')|reverse %}
+            <li>{{ (mounts_group|first()).date.strftime('%B') }}
+               <ul>
+                  {% for day, days_group in mounts_group|groupby('date.day')|reverse %}
+                  <li>{{ (days_group|first()).date.strftime('%d') }}
+                     <ul>
+                        {% for article in days_group %}
+                        <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
+                        {% endfor %}
+                     </ul>
+                  </li>
+                  {% endfor %}
+               </ul>
+            </li>
+       {% endfor %}
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock content %}
+
+
+
+<ul class="list-group list-group-flush">
+  <li class="list-group-item">An item</li>
+  <li class="list-group-item">A second item</li>
+  <li class="list-group-item">A third item</li>
+  <li class="list-group-item">A fourth item</li>
+  <li class="list-group-item">And a fifth one</li>
+</ul>

@@ -1,0 +1,24 @@
+<hr class="medium text-dark"></hr>
+<form action="/theme/php/send-message.php" method="post">
+   <div class="mb-3">
+      <label>Name</label>
+      <input required type="text" class="form-control form-control-lg" id="name" name="name" placeholder="Enter here your name" />
+      <div class="form-text">Mandatory</div>
+   </div>
+   <div class="mb-3">
+      <label>Email</label>
+      <input required type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" class="form-control form-control-lg" id="email" name="email" placeholder="Enter here your email"/>
+      <div class="form-text">Mandatory</div>
+   </div>
+   <div class="mb-3">
+      <label>Subject</label>
+      <input type="text" class="form-control form-control-lg" id="subject" name="subject" placeholder="Enter a short but clear subject"/>
+      <div class="form-text">Optional</div>
+   </div>
+   <div class="mb-3">
+      <label>Message</label>
+      <textarea required class="form-control form-control-lg" id="message" name="message" style="height: 100px" placeholder="Enter here your message"/></textarea>
+      <div class="form-text">Mandatory</div>
+   </div>
+   <button type="submit" class="btn btn-outline-primary">Submit</button>
+</form>

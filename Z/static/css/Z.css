@@ -1,0 +1,78 @@
+/*
+ * Z Pelican theme v2.0 (https://github.com/mpaglia0/Z)
+ * Copyright 2021 Maurizio Paglia
+ * Licensed under GNU General Public License v3.0
+ */
+
+blockquote::before {
+display: inline-block;
+content: "";
+width: 70px;
+height: 70px;
+background-image: url("quote.png");
+background-repeat: no-repeat;
+background-size: 100%;
+}
+
+/* Helpers */
+.margin-top-10 {padding-top:10px;}
+.margin-top-15 {padding-top:15px;}
+.margin-top-20 {padding-top:20px;}
+
+blockquote {
+  font-style: italic;
+  color: #5d5c5c;
+}
+
+hr.small {
+  max-width: 100px;
+  margin: 15px auto;
+  border-width: 4px;
+  color: #fff;
+}
+
+hr.medium {
+   max-width: 350px;
+   margin: 15px auto;
+   border-width: 2px;
+   color: #fff;
+}
+
+.intro-header {
+  background: no-repeat;
+  background-attachment: scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  margin-bottom: 50px;
+}
+.intro-header .site-heading,
+.intro-header .post-heading,
+.intro-header .page-heading {
+  padding: 100px 0 50px;
+}
+
+.section-heading {
+  font-size: 2.2rem;
+  margin-top: 60px;
+  font-weight: 700;
+}
+
+footer {
+  padding: 50px 0 65px;
+}
+footer .list-inline {
+  margin: 0;
+  padding: 0;
+}
+footer .copyright {
+  font-size: 0.875rem;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.article-summary {
+  padding-top:10px;
+  padding-bottom: 10px;
+}
