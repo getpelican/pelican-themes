@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}{{ SITENAME }} - {{ 'Archives'|gettext(DEFAULT_LANG) }}{% endblock %}
+
+{% block header %}
+    <!-- Page Header -->
+    {% if HEADER_COVER %}
+        <header class="intro-header" style="background-image: url('{{ SITEURL }}/{{ HEADER_COVER }}')">
+    {% elif HEADER_COLOR %}
+        <header class="intro-header" style="background-color: {{ HEADER_COLOR }}">
+    {% else %}
+        <header class="intro-header" style="background-image: url('{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/home-bg.jpg')">
+    {% endif %}
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading text-center text-light">
+                        <h1 class="display-1">{{ 'Archives for dates'|gettext(DEFAULT_LANG) }}</h1>
+                        <hr class="medium"></hr>
+                        <h2 class="display-3">{{ SITENAME }}</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+{% endblock header %}
+
+{% block content %}
+<div class="accordion accordion-flush" id="accordionArchive">
+  {% for year, year_group in dates|groupby('date.year')|reverse %}
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="flush-heading{{ (year_group|first()).date.strftime('%Y') }}">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse{{ (year_group|first()).date.strftime('%Y') }}" aria-expanded="false" aria-controls="flush-collapse{{ (year_group|first()).date.strftime('%Y') }}">
+         <i class="bi bi-calendar3"> - {{ 'Year'|gettext(DEFAULT_LANG) }} {{ (year_group|first()).date.strftime('%Y') }}</i>
+        </button>
+      </h2>
+        <div id="flush-collapse{{ (year_group|first()).date.strftime('%Y') }}" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">
+          {% for month, mounts_group in year_group|groupby('date.month')|reverse %}
+          <li>{{ (mounts_group|first()).date.strftime('%B') }}
+               <ul>
+                  {% for day, days_group in mounts_group|groupby('date.day')|reverse %}
+                  <li>{{ (days_group|first()).date.strftime('%d') }}
+                     <ul>
+                        {% for article in days_group %}
+                        <li><a href="{{ SITEURL }}/{{ article.url }}" class="text-decoration-none">{{ article.title }}</a></li>
+                        {% endfor %}
+                     </ul>
+                  </li>
+                  {% endfor %}
+               </ul>
+            </li>
+          {% endfor %}
+          </div>
+          </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock content %}

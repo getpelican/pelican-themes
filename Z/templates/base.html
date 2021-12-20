@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="{{ DEFAULT_LANG }}">
+
+<head>
+    {% block head %}
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Bootstrap Icons Support -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+
+        <!-- Compiled and minified Bootstrap CSS -->
+        {% assets filters="sass,cssmin", output="css/bootstrapz.min.css", "src-import/custom.scss" %}
+        <link href="{{ SITEURL }}/{{ ASSET_URL }}" rel="stylesheet">
+        {% endassets %}
+
+        <!-- Code highlight color scheme -->
+        {% if COLOR_SCHEME_CSS %}
+            <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/code_blocks/{{ COLOR_SCHEME_CSS }}" rel="stylesheet">
+        {% else %}
+            <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/code_blocks/darkly.css" rel="stylesheet">
+        {% endif %}
+
+        {% if CSS_OVERRIDE %}
+            <!-- CSS specified by the user -->
+            <link href="{{ SITEURL }}/{{ CSS_OVERRIDE }}" rel="stylesheet">
+        {% endif %}
+
+
+        {% if GOOGLE_SITE_VERIFICATION %}
+            <meta name="google-site-verification" content="{{ GOOGLE_SITE_VERIFICATION }}">
+        {% endif %}
+        {% if BING_SITE_VERIFICATION %}
+            <meta name="bing-site-verification" content="{{ BING_SITE_VERIFICATION }}">
+        {% endif %}
+
+        <title>{% block title %}{{ SITENAME }}{% if SITESUBTITLE and SHOW_SITESUBTITLE_IN_HTML %} - {{ SITESUBTITLE }}{% endif %}{% endblock title %}</title>
+
+    {% for name,link in SOCIAL if name in ['rss', 'rss-square'] %}
+        <link href="{{ link }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Full Atom Feed" />
+    {% else %}
+        {% if FEED_ALL_ATOM %}
+            <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Full Atom Feed" />
+        {% endif %}
+        {% if FEED_ALL_RSS %}
+            <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Full RSS Feed" />
+        {% endif %}
+        {% if FEED_ATOM %}
+            <link href="{{ FEED_DOMAIN }}/{{ FEED_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed" />
+        {% endif %}
+        {% if FEED_RSS %}__
+            <link href="{{ FEED_DOMAIN }}/{{ FEED_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS Feed" />
+        {% endif %}
+        {% if CATEGORY_FEED_ATOM and category %}
+            <link href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_ATOM|format(slug=category.slug) }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Categories Atom Feed" />
+        {% endif %}
+        {% if CATEGORY_FEED_RSS and category %}
+            <link href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_RSS|format(slug=category.slug) }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Categories RSS Feed" />
+        {% endif %}
+        {% if TAG_FEED_ATOM and tag %}
+            <link href="{{ FEED_DOMAIN }}/{{ TAG_FEED_ATOM|format(slug=tag.slug) }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Tags Atom Feed" />
+        {% endif %}
+        {% if TAG_FEED_RSS and tag %}
+            <link href="{{ FEED_DOMAIN }}/{{ TAG_FEED_RSS|format(slug=tag.slug) }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Tags RSS Feed" />
+        {% endif %}
+    {% endfor %}
+
+    {% endblock head %}
+
+	{% block opengraph %}
+            {% for admin in FACEBOOK_ADMINS %}
+                <meta property="fb:admins" content="{{ admin }}" >
+            {% endfor %}
+            {% for LOC in LOCALE %}
+                <meta property="og:locale" content="{{ LOC }}">
+            {% endfor %}
+		<meta property="og:site_name" content="{{ SITENAME }}">
+	{% endblock opengraph %}
+    {% block twitter_card %}
+        {% for name,link in SOCIAL if name in ['twitter'] %}
+            <meta name="twitter:card" content="summary_large_image">
+            <meta name="twitter:site" content="@{{ link|replace('http://', 'https://')|replace('https://twitter.com/', '') }}">
+            <meta name="twitter:title" content="{{ SITENAME }}">
+            <meta name="twitter:description" content="{{ SITESUBTITLE|default('View the blog.') }}">
+            {% if HEADER_COVER %}
+                <meta name="twitter:image" content="{{ SITEURL }}/{{ HEADER_COVER }}">
+            {% else %}
+                <meta name="twitter:image" content="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/post-bg.jpg">
+            {% endif %}
+        {% endfor %}
+    {% endblock twitter_card %}
+    {% if FAVICON %}
+    <link rel="icon" href="/{{FAVICON}}">
+    {% endif %}
+        {% include 'analytics.html' %}
+</head>
+
+{% if page %}
+<body class="page-{{ page.slug }}">
+{% elif article %}
+<body class="article-{{ article.slug }}">
+{% elif category %}
+<body class="category-{{ category.slug }}">
+{% elif tag %}
+<body class="tag-{{ tag.slug }}">
+{% endif %}
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+          {% if SITELOGO %}
+            <a class="navbar-brand" href="{{ SITEURL }}"><img src="{{ SITELOGO }}" class="d-inline-block align-text-top" alt="Site logo">{{ SITENAME }}</a>
+         {% else %}
+            <a class="navbar-brand" href="{{ SITEURL }}/">{{ SITENAME }}</a>
+         {% endif %}
+         <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#NavbarCollapse" aria-controls="NavbarCollapse" aria-expanded="false" aria-label="{{ 'Toggle navigation'|gettext(DEFAULT_LANG) }}">
+            <span class="navbar-toggler-icon"></span>
+         </button>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="NavbarCollapse">
+         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            {% for title, link in MENUITEMS %}
+               <li class="nav-item"><a class="nav-link" href="{{ link }}">{{ title }}</a></li>
+            {% endfor %}
+            {% if DISPLAY_PAGES_ON_MENU %}
+               {% for p in pages %}
+                  <li{% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
+               {% endfor %}
+            {% else %}
+               {% if DISPLAY_CATEGORIES_ON_MENU %}
+                  {% for cat, null in categories %}
+                      <li{% if cat == category %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
+                  {% endfor %}
+               {% endif %}
+            {% endif %}
+         </ul>
+            {% block searchtop %}
+            <form class="d-flex" id="searchform" action="{{ SITEURL }}/search.html" onsubmit="return validateForm(this.elements['q'].value);">
+               <div class="input-group">
+                  <div class="input-group-text"><i class="bi bi-search"></i></div>
+               <input type="text" class="form-control mr-sm-2" name="q" id="tipue_search_input" placeholder="{{ 'search'|gettext(DEFAULT_LANG) }}">
+               </div>
+            </form>
+
+            {% endblock searchtop %}
+      </div>
+            <!-- /.navbar-collapse -->
+            </div>
+    </nav>
+
+  {% block header %}{% endblock header %}
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                {% block content %}{% endblock content %}
+            </div>
+        </div>
+    </div>
+    <!-- Code for display the home page -->
+{% block landing %}{% endblock landing %}
+
+    <!-- Footer -->
+    <footer class="margin-top-20">
+        <div class="container-fluid" style="background-color:{{ HEADER_COLOR }}; padding-top:20px; padding-bottom:20px">
+            <div class="row" style="justify-content: space-around">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center">
+                    {% if SOCIAL %}
+                        {% for name,link in SOCIAL %}
+                            <li class="list-inline-item">
+                                <a href="{{ link }}">
+                                    <span>
+                                        <i class="bi bi-{{ name|lower }}" style="font-size: 2rem"></i>
+                                    </span>
+                                </a>
+                            </li>
+                        {% endfor %}
+                    {% endif %}
+                    </ul>
+                    {% if FOOTER_INCLUDE %}
+                        {% include FOOTER_INCLUDE %}
+                    {% else %}
+                        {% include 'footer.html' %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </footer>
+
+<!-- Load Popper from CDN -->
+<!-- Popper is needed ONLY if you use Dropdowns, Tooltips and/or Popovers
+<!--<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script> -->
+
+<!-- Bootstrap Bundle JavaScripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+
+
+    {% if not DISABLE_CUSTOM_THEME_JAVASCRIPT %}
+        <!-- Custom Theme JavaScript -->
+        {% assets filters="rjsmin", output="js/your_own_javascript.min.js", "js/your_own_javascript.js" %}
+        <script src="{{ SITEURL }}/{{ ASSET_URL }}"></script>
+        {% endassets %}
+    {% endif %}
+
+        <script>
+        function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+
+    <!-- Back-To-Top button -->
+    {% if BACKTOTOP_BTN %}
+
+
+
+    {% endif %}
+
+</body>
+
+</html>

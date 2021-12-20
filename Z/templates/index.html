@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block header %}
+
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    {% if HEADER_COVER %}
+        <header class="intro-header" style="background-image: url('{{ SITEURL }}/{{ HEADER_COVER }}')">
+    {% elif HEADER_COLOR %}
+        <header class="intro-header" style="background-color: {{ HEADER_COLOR }}">
+    {% else %}
+        <header class="intro-header" style="background-image: url('{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/home-bg.jpg')">
+    {% endif %}
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="page-heading">
+                        <h1 class="display-1">{{ SITENAME }}</h1>
+                        {% if SITESUBTITLE %}
+                            <hr class="small">
+                            <span class="subheading">{{ SITESUBTITLE }}</span>
+                        {% endif %}
+                        {% if SOCIAL and SHOW_SOCIAL_ON_INDEX_PAGE_HEADER %}
+                            <ul class="list-inline text-center">
+                            {% for name,link in SOCIAL %}
+                                <li class="list-inline-item">
+                                    <a href="{{ link }}">
+                                        <span>
+                                            <i class="bi bi-{{ name|lower }}"></i>
+                                        </span>
+                                    </a>
+                                </li>
+                            {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </div>
+                </div>
+            </div><hr class="medium"><br>
+        </div>
+    </header>
+
+{% endblock header %}
+
+{% block content %}
+
+   {% for article in articles_page.object_list %}
+        <div class="post-preview margin-top-20">
+            <a href="{{ SITEURL }}/{{ article.url }}" class="text-decoration-none" rel="bookmark" title="{{ 'Permalink to'|gettext(DEFAULT_LANG) }} {{ article.title|striptags }}">
+                <h2 class="post-title display-4">{{ article.title }}</h2>
+            </a>
+            {% if SHOW_FULL_ARTICLE %}
+               {{ article.content }}
+            {% else %}
+                <div class="article-summary">
+                  {% if article.has_summary %}
+                     {{ article.summary }}
+                  {% elif article.summary %}
+                     {{ article.summary }}
+                  {% endif %}
+                </div>
+            {% endif %}
+            <p class="post-meta"><i class="bi bi-journal-check"> {{ 'Posted by'|gettext(DEFAULT_LANG) }}</i>
+                {% if SINGLE_AUTHOR_SAVE_AS %}
+                <a href="{{ SITEURL }}/{{ SINGLE_AUTHOR_SAVE_AS }}" class="text-decoration-none">{{ AUTHOR }}</a>
+                {% else %}
+                {% for author in article.authors %}
+                    <a href="{{ SITEURL }}/{{ author.url }}" class="text-decoration-none">{{ author }}</a>
+                {% endfor %}
+                {% endif %}
+                 {{ 'on'|gettext(DEFAULT_LANG) }} {{ article.locale_date }}
+            </p>
+       </div>
+       <hr class="medium"><br>
+    {% endfor %}
+
+    {% include "pagination.html" %}
+
+{% endblock content %}

@@ -1,0 +1,19 @@
+{% if DEFAULT_PAGINATION and articles_paginator.num_pages > 1 %}
+    <hr>
+    <!-- Pager -->
+    <ul class="pager" style="list-style: none;">
+        <li class="next">
+            {% if articles_page.has_next() %}
+                <a class="btn btn-outline-primary" href="{{ SITEURL }}/{{ articles_next_page.url }}"><i class="bi-arrow-left"></i> {{ 'Older Posts'|gettext(DEFAULT_LANG) }}</a>
+            {% endif %}
+            {% if articles_page.has_previous() %}
+                <a class="btn btn-outline-primary" href="{{ SITEURL }}/{{ articles_previous_page.url }}">{{ 'Newest Posts'|gettext(DEFAULT_LANG) }} <i class="bi-arrow-right"></i></a>
+            {% endif %}
+         </li>
+    </ul>
+    {{ 'Page'|gettext(DEFAULT_LANG) }} {{ articles_page.number }} / {{ articles_paginator.num_pages }}
+    <hr>
+{% endif %}
+
+
+

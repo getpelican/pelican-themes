@@ -1,0 +1,6 @@
+pelican==4.7
+pillow
+typogrify
+bs4
+pelican-webassets
+pelican-neighbors

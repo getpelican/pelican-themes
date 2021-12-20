@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}{{ 'Search results'|gettext(DEFAULT_LANG) }}{% endblock title %}
+
+{% block header %}
+
+    <!-- Page Header -->
+    {% if HEADER_COVER %}
+        <header class="intro-header" style="background-image: url('{{ SITEURL }}/{{ HEADER_COVER }}')">
+    {% elif HEADER_COLOR %}
+        <header class="intro-header" style="background-color: {{ HEADER_COLOR }}">
+    {% else %}
+        <header class="intro-header" style="background-image: url('{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/home-bg.jpg')">
+    {% endif %}
+        <div class="container">
+            <div class="row margin-top-20">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading text-center text-light">
+                        <h1 class="display-1">{{ 'Search results'|gettext(DEFAULT_LANG) }}</h1>
+                        <hr class="medium"></hr>
+                        <h2 class="display-3">{{ SITENAME }}</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+{% endblock header %}
+
+{% block content %}
+
+ <div class="row-fluid">
+    <header id="lunr-search-result-heading" class="page-header span10 offset2"></header>
+</div>
+
+<div class="row-fluid">
+    <div class="span8 offset2">
+        <div id="lunr-search-result" ></div>
+    </div>
+</div>
+
+{% block script %}
+
+     <script src="{{ SITEURL }}/tipuesearch_content.js"></script>
+     <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/lunr/lunr.js"></script>
+     <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/lunr/lunr.stemmer.support.js"></script>
+     <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/lunr/lunr.it.js"></script>
+     <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/lunr-search-result.js"></script>
+
+{% endblock script %}
+
+{% endblock content %}
