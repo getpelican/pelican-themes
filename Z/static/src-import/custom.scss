@@ -1,0 +1,145 @@
+// Custom.scss
+// Include here only the Bootstrap parts you actually need in order to make build process faster and obtain a slim final CSS file
+
+// Include functions first (so you can manipulate colors, SVGs, calc, etc)
+@import "../bootstrap/scss/functions"
+
+// Include any default variable overrides here
+// general
+$primary: #ff6600 //primary color will give the entire website your custom footprint
+$dark: #242323 //this color match the dark areas color of Z theme
+$body-color: #484848 //body text color
+$font-size-base: 1.125rem //base font size (18px)
+//navbar
+$navbar-dark-color: #fff //text color of menus
+$navbar-dark-hover-color: #ff6600 //hover text color of menus
+$navbar-dark-active-color: #ff6600 //text color of sitename
+//forms
+$input-bg: #ececec //background color of normal fields
+$input-focus-bg: #fae7c0 //background color of activated fields
+
+@import "../bootstrap/scss/variables"
+//@import "../bootstrap/scss/maps"
+@import "../bootstrap/scss/mixins"
+@import "../bootstrap/scss/utilities"
+
+// Include any optional Bootstrap CSS as needed
+@import "../bootstrap/scss/root"
+@import "../bootstrap/scss/reboot"
+@import "../bootstrap/scss/type"
+@import "../bootstrap/scss/images"
+@import "../bootstrap/scss/containers"
+@import "../bootstrap/scss/grid"
+//@import "../bootstrap/scss/tables"
+@import "../bootstrap/scss/forms"
+@import "../bootstrap/scss/buttons"
+@import "../bootstrap/scss/transitions"
+//@import "../bootstrap/scss/dropdown"
+//@import "../bootstrap/scss/button-group"
+@import "../bootstrap/scss/nav"
+@import "../bootstrap/scss/navbar"
+@import "../bootstrap/scss/card"
+@import "../bootstrap/scss/accordion"
+//@import "../bootstrap/scss/breadcrumb"
+@import "../bootstrap/scss/pagination"
+//@import "../bootstrap/scss/badge"
+@import "../bootstrap/scss/alert"
+//@import "../bootstrap/scss/progress"
+//@import "../bootstrap/scss/list-group"
+//@import "../bootstrap/scss/close"
+//@import "../bootstrap/scss/toasts"
+//@import "../bootstrap/scss/modal"
+//@import "../bootstrap/scss/tooltip"
+//@import "../bootstrap/scss/popover"
+//@import "../bootstrap/scss/carousel"
+//@import "../bootstrap/scss/spinners"
+//@import "../bootstrap/scss/offcanvas"
+//@import "../bootstrap/scss/placeholders"
+
+// Include helpers
+//@import "../bootstrap/scss/helpers"
+
+// Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
+@import "../bootstrap/scss/utilities/api"
+
+// Add additional custom code here
+// Helpers
+.margin-top-10
+  padding-top: 10px
+
+.margin-top-15
+  padding-top: 15px
+
+.margin-top-20
+  padding-top: 20px
+
+.margin-bottom-10
+  padding-bottom: 10px
+
+.margin-bottom-15
+  padding-bottom: 15px
+
+.margin-bottom-20
+  padding-bottom: 20px
+
+hr
+  &.small
+    max-width: 100px
+    margin: 15px auto
+    border-width: 4px
+    color: #fff
+
+  &.medium
+    max-width: 350px
+    margin: 15px auto
+    border-width: 2px
+    color: #fff
+
+blockquote
+  &::before
+    display: inline-block
+    float: left
+    margin-right: 20px
+    content: ""
+    width: 50px
+    height: 50px
+    background-image: url("quote.png")
+    background-repeat: no-repeat
+    background-size: 100%
+
+  font-style: italic
+  color: #5d5c5c
+
+
+
+.intro-header
+  background: no-repeat
+  background-attachment: scroll
+  -webkit-background-size: cover
+  background-size: cover
+  -o-background-size: cover
+
+  .site-heading, .post-heading, .page-heading
+    padding: 70px 0 50px
+
+.section-heading
+  font-size: 2.2rem
+  margin-top: 60px
+  font-weight: 700
+
+footer .copyright
+  font-size: 0.875rem
+  text-align: center
+  margin-bottom: 0
+
+.article-summary, .post-preview
+  padding-top: 10px
+  padding-bottom: 10px
+
+p.caption
+  font-size: 0.8rem
+  font-style: italic
+
+.btn-outline-primary:hover
+  color: #fff
+  text-decoration: none
