@@ -1,0 +1,11 @@
+{% from 'includes/sidebar/macros.jinja' import title %}
+
+{% if SIDE_SUMMARY %}
+<font class="list-group-item">
+    {% if SIDE_SUMMARY_TITLE %}
+        <a href="{{ SITEURL }}/{{ SIDE_SUMMARY_URL }}"><h4>{{
+                title(_(SIDE_SUMMARY_TITLE), DISABLE_SIDEBAR_TITLE_ICONS, icon=SIDE_SUMMARY_ICON) }}</h4></a>
+    {% endif %}
+    <font class="summary_text">{{ SIDE_SUMMARY }}</font>
+</font>
+{% endif %}
