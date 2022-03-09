@@ -72,21 +72,42 @@
 
                 
 
-                <!-- Recent Posts -->
+                <!-- Contact -->
+                    <section class="box recent-posts">
+                    {% if SOCIAL %}
+                        <section class="box recent-posts">
+                            <header>
+                                <h2>Contact Me</h2>
+                            </header>
+                            <ul class="social-media">
+                                {% for name, link in SOCIAL %}
+                                    <li><a class="icon fa-{{ name }}" href="{{ link }}">{{ name }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </section>
+                    {% endif %}
+                        
+                <!-- Keep in touch -->
+                    {% if FEED_ALL_ATOM or FEED_ALL_RSS %}
                     <section class="box recent-posts">
                         <header>
-                            <h2>Contact Me</h2>
+                            <h2>Keep in touch</h2>
                         </header>
-                        <ul>
-                            <li><a class="icon fa-envelope" href="#"> eMail</a></li>
-                            <li><a class="icon fa-twitter" href="#"> Twitter</a></li>
-                            <li><a class="icon fa-facebook" href="#"> Facebook</a></li>
-                            <li><a class="icon fa-github" href="#"> Github</a></li>
-                            
+                        <ul class="social-media">
+                            {% if FEED_ALL_ATOM %}
+                                <li><a href="{{ FEED_DOMAIN }}/{% if FEED_ALL_ATOM_URL %}{{ FEED_ALL_ATOM_URL }}{% else %}{{ FEED_ALL_ATOM }}{% endif %}"
+                                       type="application/atom+xml" rel="alternate"><i class="fa fa-rss fa-lg"
+                                                                                      aria-hidden="true"></i></a></li>
+                            {% endif %}
+                            {% if FEED_ALL_RSS %}
+                                <li><a href="{{ FEED_DOMAIN }}/
+                                        {% if FEED_ALL_RSS_URL %}{{ FEED_ALL_RSS_URL }}{% else %}{{ FEED_ALL_RSS }}{% endif %}"
+                                       type="application/rss+xml" rel="alternate"><i class="fa fa-rss fa-lg" aria-hidden="true"></i></a>
+                                </li>
+                            {% endif %}
                         </ul>
                     </section>
-
-
+                    {% endif %}
 
                 <!-- Copyright -->
                     <ul id="copyright">
