@@ -80,8 +80,8 @@
                                 <h2>Contact Me</h2>
                             </header>
                             <ul class="social-media">
-                                {% for name, link in SOCIAL %}
-                                    <li><a class="icon fa-{{ name }}" href="{{ link }}">{{ name }}</a></li>
+                                {% for name, link, text in SOCIAL %}
+                                    <li><a class="icon fa-{{ name }}" href="{{ link }}">&nbsp{{ text }}</a></li>
                                 {% endfor %}
                             </ul>
                         </section>
