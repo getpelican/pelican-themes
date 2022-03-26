@@ -1,0 +1,13 @@
+<footer class="post-info">
+
+
+        {% if article.authors %}
+                By {% for author in article.authors %}
+                        <a class="url fn" href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a>
+                {% endfor %}
+        {% endif %}
+ In <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>.</p>
+{% include 'taglist.html' %}
+{% import 'translations.html' as translations with context %}
+{{ translations.translations_for(article) }}
+</footer><!-- /.post-info -->

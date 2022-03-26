@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block content_title %}{% endblock %}
+{% block content %}
+ <div class="row">
+{% if articles %}
+    {% for article in articles_page.object_list %}
+
+        {# First item #}
+        {% if loop.first and not articles_page.has_previous() %}
+            <aside id="featured" class="body col-md-12 p-3">
+		 <img class="img-fluid" width="100%" alt="{{ article.title }}" src="{{ article.cover }}"/>
+                <article>
+                    <h1 class="entry-title"><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h1>
+                    {% include 'article_infos.html' %}{{ article.content }}{% include 'comments.html' %}
+                </article>
+            </aside><!-- /#featured -->
+            {% if loop.length > 1 %}
+                <section id="content" class="body row">
+                  
+                  
+            {% endif %}
+        {# other items #}
+        {% else %}
+               
+         <article class="col-md-4 p-3">
+		 <img class="img-fluid" alt="{{ article.title }}" src="{{ article.cover }}"/>
+                <header class="card-title p-1">
+                    <h1><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark"
+                           title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h1>
+                </header>
+                <div class="card-content p-1">
+                {% include 'article_infos.html' %}
+                {{ article.summary }}
+                <a class="readmore" href="{{ SITEURL }}/{{ article.url }}">read more</a>
+                {% include 'comments.html' %}
+                </div><!-- /.entry-content -->
+            </article>
+        {% endif %}
+        {% if loop.last %}
+            {% if loop.length > 1 or articles_page.has_other_pages() %}
+             
+                {% if articles_page.has_other_pages() %}
+                    {% include 'pagination.html' %}
+                {% endif %}
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+{% else %}
+
+
+<section id="content" class="body">
+    {% if pages %}
+    <h2>Pages</h2>
+    <ul>
+    {% for page in pages %}
+        <li><a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a></li>
+    {% endfor %}
+    </ul>
+    {% else %}
+    <p>This site currently has no content.</p>
+    {% endif %}
+</section>
+{% endif %}
+			</div>
+{% endblock content %}
