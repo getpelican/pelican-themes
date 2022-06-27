@@ -258,3 +258,6 @@
 [submodule "Papyrus"]
 	path = Papyrus
 	url = https://github.com/aleylara/Papyrus
+[submodule "blue-penguin-dark"]
+	path = blue-penguin-dark
+	url = https://github.com/tcarwash/blue-penguin-dark.git
