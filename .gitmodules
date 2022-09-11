@@ -261,3 +261,6 @@
 [submodule "blue-penguin-dark"]
 	path = blue-penguin-dark
 	url = https://github.com/tcarwash/blue-penguin-dark.git
+[submodule "Piccolo"]
+	path = piccolo
+	url = https://github.com/iamjameswalters/piccolo.git
