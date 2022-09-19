@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}{{ page.title }} - {{ SITENAME }}{% endblock %}
+{% block title %}{{ page.title | striptags }} - {{ SITENAME }}{% endblock %}
 {% block html_lang %}{{ page.lang }}{% endblock %}
 {% block meta %}
     {% if page.author %}

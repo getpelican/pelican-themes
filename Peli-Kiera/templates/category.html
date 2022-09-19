@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}{{ SITENAME }} - Archives{% endblock %}
+
+{% block content %}
+    <main>
+        <section id="list">
+            <h2>{{ category }}</h2>
+            <ul>
+                {% set new = namespace(p=0) %}
+                {% for article in articles_page.object_list %}
+                    {% set period = article.date | strftime('%Y') %}
+                    {% if period != new.p %}
+                        <h3>{{ period }}</h3>
+                        <li>
+                            <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
+                            <time>{{ article.date|strftime('%b %Y') }}</time>
+                        </li>
+                        {% set new.p = article.date | strftime('%Y') %}
+                    {% elif period == new.p %}
+                        <li>
+                            <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
+                            <time>{{ article.date|strftime('%b %Y') }}</time>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </section>
+        {% if articles_page.has_other_pages() %}
+            {% include 'pagination.html' %}
+        {% endif %}
+    </main>
+{% endblock %}
+
