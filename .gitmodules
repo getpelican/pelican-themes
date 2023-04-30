@@ -143,9 +143,6 @@
 [submodule "alchemy"]
 	path = alchemy
 	url = https://github.com/nairobilug/pelican-alchemy.git
-[submodule "Nuja"]
-	path = Nuja
-	url = https://github.com/allenskd/Nuja.git
 [submodule "pjport"]
 	path = pjport
 	url = https://github.com/xm3ron/pjport.git
