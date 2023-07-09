@@ -48,7 +48,10 @@ Other features include:
 
 ```
 SITESUBTITLE = 'your site subtitle'
+
+CUSTOM_CSS = 'path to some optional css overrides file'
 ```
+
 
 The following standard Pelican settings are honored:
 
