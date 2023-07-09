@@ -44,15 +44,31 @@ To use Disqus, add the Disqus site name via the following variable.
 DISQUS_SITENAME = ''
 ```
 
-
 To add content or markup to the footer of every page: Add an `extra_footer.html` file to
 a directory in your `THEME_TEMPLATES_OVERRIDES` path. It is empty by default.
+
+To add extra CSS, for example to override styles without forking the Gum theme,
+you may specify either or both of these settings:
+
+```
+CUSTOM_CSS_FILES = ['list of paths to additional css static files']
+CUSTOM_CSS_URLS = ['list of URLs of additional remote css to load']
+```
+
+To add extra Javascript to the theme, you may specify either or both of these settings:
+
+```
+CUSTOM_JS_FILES = ['list of paths to additional JavaScript static files']
+CUSTOM_JS_URLS = ['list of URLs of additional JavaScript to load']
+
+```
 
 Other features include:
 
 ```
 SITESUBTITLE = 'your site subtitle'
 ```
+
 
 The following standard Pelican settings are honored:
 
