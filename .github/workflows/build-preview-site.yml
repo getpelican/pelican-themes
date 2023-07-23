@@ -53,6 +53,17 @@ jobs:
       - name: Generate output
         run: python build-theme-previews.py
 
+      # Rsync to server hosting pelicanthemes.com
+      - name: Install SSH key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          known_hosts: unnecessary
+      - name: Adding known hosts
+        run: ssh-keyscan -p 22 -H pelicanthemes.com  >> ~/.ssh/known_hosts
+      - name: Deploy with rsync
+        run: rsync -avz ./_output/ deploy@pelicanthemes.com:~/roles/caddy/sites/pelicanthemes.com/
+
       # Deploy to Github Pages
       - name: Setup Pages
         uses: actions/configure-pages@v2
