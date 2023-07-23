@@ -15,3 +15,8 @@ Thumbs.db
 *~
 .swp
 .*.swp
+
+# Preview artifacts #
+#####################
+_pelican
+_output

@@ -1,0 +1,76 @@
+name: Build pelican-themes preview site
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "master" ]
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+          submodules: recursive
+      - name: Checkout pelican
+        uses: actions/checkout@v3
+        with:
+          repository: getpelican/pelican
+          path: _pelican
+          fetch-depth: 1
+      - name: Setup python-3.10
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+      - name: Cache Playwright browsers
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/ms-playwright/
+          key: ${{ runner.os }}-browsers
+      - name: Install pelican and shot-scraper
+        run: pip install pelican[markdown] shot-scraper
+      - name: Setup shot-scraper
+        run: shot-scraper install
+      - name: Generate output
+        run: python build-theme-previews.py
+
+      # Rsync to server hosting pelicanthemes.com
+      - name: Install SSH key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          known_hosts: unnecessary
+      - name: Adding known hosts
+        run: ssh-keyscan -p 22 -H pelicanthemes.com  >> ~/.ssh/known_hosts
+      - name: Deploy with rsync
+        run: rsync -avz ./_output/ deploy@pelicanthemes.com:~/roles/caddy/sites/pelicanthemes.com/
+
+      # Deploy to Github Pages
+      - name: Setup Pages
+        uses: actions/configure-pages@v2
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: '_output'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
