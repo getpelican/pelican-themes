@@ -173,6 +173,7 @@ def build_theme_previews(theme_root, samples_root, output_root, screenshot_root)
 
 
 def i18n_workaround(theme_path):
+    """Installing the i18n extension is tricky and outside of scope."""
     for subdir, dirs, files in os.walk(theme_path):
         for template_file in files:
             if template_file.endswith(".html"):
@@ -187,7 +188,7 @@ def i18n_workaround(theme_path):
 
 
 def read_mystery_encoding(full_path):
-    # Some themes like to demonstrate their support of alternative encodings.
+    """Some themes demonstrate support of alternative encodings."""
     encodings = ["utf8", "iso-8859-1"]
     for encoding in encodings:
         try:
@@ -201,6 +202,7 @@ def read_mystery_encoding(full_path):
 
 
 def attempt_build(output_path, samples_root, theme, theme_path):
+    """Return None on success. Otherwise a relevant string."""
     try:
         process = subprocess.run([
             "pelican",
@@ -215,6 +217,7 @@ def attempt_build(output_path, samples_root, theme, theme_path):
         ],
             check=True, capture_output=True, universal_newlines=True)
     except subprocess.CalledProcessError as exc:
+        # Return an empty string on error, in the unlikely event stdout is None.
         return exc.stdout or ""
 
 
