@@ -142,11 +142,11 @@ def build_theme_previews(theme_root, samples_root, output_root, screenshot_root)
             theme_path = os.path.join(theme_path, theme)
         output_path = os.path.join(output_root, theme)
         problem = attempt_build(output_path, samples_root, theme, theme_path)
-        if problem and "'_' is undefined" in problem:
+        if problem is not None and "'_' is undefined" in problem:
             i18n_workaround(theme_path)
             problem = attempt_build(
                 output_path, samples_root, theme, theme_path)
-        if problem:
+        if problem is not None:
             logger.error(
                 f"[red]failed to generate     : {theme}[/]",
                 extra={"markup": True})
@@ -215,7 +215,7 @@ def attempt_build(output_path, samples_root, theme, theme_path):
         ],
             check=True, capture_output=True, universal_newlines=True)
     except subprocess.CalledProcessError as exc:
-        return exc.stdout
+        return exc.stdout or ""
 
 
 def write_index_files(output_root, success, fail):
