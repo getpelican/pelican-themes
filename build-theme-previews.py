@@ -1,5 +1,6 @@
 import argparse
 import logging
+import re
 import subprocess
 import os
 
@@ -140,28 +141,24 @@ def build_theme_previews(theme_root, samples_root, output_root, screenshot_root)
             # actual theme is in a subfolder
             theme_path = os.path.join(theme_path, theme)
         output_path = os.path.join(output_root, theme)
-        try:
-            process = subprocess.run([
-                "pelican",
-                os.path.join(samples_root, "content"),
-                "--settings", os.path.join(samples_root, "pelican.conf.py"),
-                "--extra-settings", f"SITENAME=\"{theme} preview\"",
-                "--relative-urls",
-                "--theme-path", theme_path,
-                "--output", output_path,
-                "--ignore-cache",
-                "--delete-output-directory"
-            ],
-            check=True, capture_output=True, universal_newlines=True)
-        except subprocess.CalledProcessError as exc:
-            logger.error(f"[red]failed to generate     : {theme}[/]", extra={"markup": True})
-            fail[theme] = exc.stdout
+        problem = attempt_build(output_path, samples_root, theme, theme_path)
+        if problem and "'_' is undefined" in problem:
+            i18n_workaround(theme_path)
+            problem = attempt_build(
+                output_path, samples_root, theme, theme_path)
+        if problem:
+            logger.error(
+                f"[red]failed to generate     : {theme}[/]",
+                extra={"markup": True})
+            fail[theme] = problem
             continue
         success[theme] = output_path
         screenshot_path = os.path.join(screenshot_root, f"{theme}.png")
         screenshot_processes.append(
-            subprocess.Popen(
-                ["shot-scraper", f"http://localhost:8000/{theme}", "-o", screenshot_path, "-w", "1280", "-h", "780", "--wait", "1000"],
+            subprocess.Popen([
+                "shot-scraper", f"http://localhost:8000/{theme}",
+                "-o", screenshot_path, "-w", "1280", "-h", "780",
+                "--wait", "1000"],
                 stdout=subprocess.PIPE, stderr=subprocess.PIPE
             )
         )
@@ -173,6 +170,51 @@ def build_theme_previews(theme_root, samples_root, output_root, screenshot_root)
         process.wait()
     server.terminate()
     return success, fail
+
+
+def i18n_workaround(theme_path):
+    for subdir, dirs, files in os.walk(theme_path):
+        for template_file in files:
+            if template_file.endswith(".html"):
+                full_path = os.path.join(subdir, template_file)
+                monoglot_template = ""
+                lines = read_mystery_encoding(full_path)
+                for line in lines:
+                    n_line = re.sub(r'_\(([^)]+)\)', r'\1', line)
+                    monoglot_template += n_line
+                with open(full_path, "w") as f:
+                    f.write(monoglot_template)
+
+
+def read_mystery_encoding(full_path):
+    # Some themes like to demonstrate their support of alternative encodings.
+    encodings = ["utf8", "iso-8859-1"]
+    for encoding in encodings:
+        try:
+            with open(full_path, encoding=encoding) as f:
+                lines = f.readlines()
+        except UnicodeDecodeError as ude:
+            if encoding == encodings[-1]:
+                raise
+    return lines
+
+
+def attempt_build(output_path, samples_root, theme, theme_path):
+    try:
+        process = subprocess.run([
+            "pelican",
+            os.path.join(samples_root, "content"),
+            "--settings", os.path.join(samples_root, "pelican.conf.py"),
+            "--extra-settings", f"SITENAME=\"{theme} preview\"",
+            "--relative-urls",
+            "--theme-path", theme_path,
+            "--output", output_path,
+            "--ignore-cache",
+            "--delete-output-directory"
+        ],
+            check=True, capture_output=True, universal_newlines=True)
+    except subprocess.CalledProcessError as exc:
+        return exc.stdout
 
 
 def write_index_files(output_root, success, fail):
