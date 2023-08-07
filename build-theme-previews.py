@@ -193,6 +193,7 @@ def read_mystery_encoding(full_path):
         try:
             with open(full_path, encoding=encoding) as f:
                 lines = f.readlines()
+            return lines
         except UnicodeDecodeError as ude:
             if encoding == encodings[-1]:
                 raise
