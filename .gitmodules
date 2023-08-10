@@ -258,3 +258,6 @@
 [submodule "blue-penguin-dark"]
 	path = blue-penguin-dark
 	url = https://github.com/tcarwash/blue-penguin-dark.git
+[submodule "pelican-tufte"]
+	path = pelican-tufte
+	url = https://github.com/jAniceto/pelican-tufte.git
