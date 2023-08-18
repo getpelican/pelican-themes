@@ -143,9 +143,6 @@
 [submodule "alchemy"]
 	path = alchemy
 	url = https://github.com/nairobilug/pelican-alchemy.git
-[submodule "Nuja"]
-	path = Nuja
-	url = https://github.com/allenskd/Nuja.git
 [submodule "pjport"]
 	path = pjport
 	url = https://github.com/xm3ron/pjport.git
@@ -261,6 +258,9 @@
 [submodule "blue-penguin-dark"]
 	path = blue-penguin-dark
 	url = https://github.com/tcarwash/blue-penguin-dark.git
+[submodule "pelican-haerwu-theme"]
+	path = pelican-haerwu-theme
+	url = https://github.com/hrw/pelican-haerwu-theme.git
 [submodule "Piccolo"]
 	path = piccolo
 	url = https://github.com/iamjameswalters/piccolo.git

@@ -7,13 +7,11 @@ I reserve the right to refuse websites if they're not unique enough for my taste
 If your website is listed here, but you don't want it to be, let me know and I'll remove it.
 
 
-[DandyDev.net](http://dandydev.net) by [DandyDev](https://github.com/DandyDev) (Main author of pelican-bootstrap3) - Basic pelican-bootstrap3 setup using the _Simplex_ Bootswatch theme.
+[DandyDev.net](http://dandydev.net) by [DandyDev](https://github.com/DandyDev) (Main author of pelican-bootstrap3) - No trace of this theme found (2023).
 
 [Mind Bending](http://mindbending.org/en) by [magnunleno](https://github.com/magnunleno) - Heavily customized design based on pelican-bootstrap3 with lots of stuff added. Some of that stuff was neatly contributed back to pelican-boostrap3.
 
 [Beneath Data](http://beneathdata.com) by [tylerhartley](https://github.com/tylerhartley) - Customized pelican-boostrap3 to include a homepage banner, a footer containing the "About Me" and other social content, plus other small UI tweaks.
-
-[toumorokoshi](http://toumorokoshi.github.io/) by [toumorokoshi](https://github.com/toumorokoshi) - Clean version of pelican-bootstrap3 with a nice profile area added in.
 
 [Christine Doig](http://chdoig.github.io/) by [chdoig](https://github.com/chdoig) - Barely recognizable anymore as pelican-boostrap3, but it is in fact [based on this theme](http://chdoig.github.io/create-pelican-blog.html). The Twitter widget has been contributed back to pelican-bootstrap3
 
@@ -23,19 +21,9 @@ If your website is listed here, but you don't want it to be, let me know and I'l
 
 [Camerata Musica](https://colinbrislawn.github.io/CamerataMusica/) by [Colin Brislawn](https://www.github.com/colinbrislawn) - Showcases past and present seasons for a performance arts group.
 
-[The official ncf website](http://www.ncf.io/) by [Normation](https://github.com/Normation)
-
 [Lappland. Inside Out.](http://lappland.io/) by [hlapp](https://github.com/hlapp)
 
 [Kev009.com](http://kev009.com/wp/) by [kev009](https://github.com/kev009)
-
-[dave_tucker:blog](http://dtucker.co.uk/) by [dave-tucker](https://github.com/dave-tucker)
-
-[Dopey's Corner](http://dopey.io/)
-
-[Toni Mueller](http://www.tonimueller.org/) by [muellert](https://github.com/muellert)
-
-[Caffeinated Engineering](https://caffeinatedengineering.github.io/) by [mattyjones](https://github.com/mattyjones)
 
 [Ryan Gregory James](http://csc.ucdavis.edu/~rgjames/) by [Autoplectic](https://github.com/Autoplectic)
 
@@ -47,14 +35,4 @@ If your website is listed here, but you don't want it to be, let me know and I'l
 
 [Bryce Boe](http://bryceboe.com/) by [bboe](https://github.com/bboe)
 
-[Crashdump.io blog](http://blog.crashdump.io/)
-
-[Landscape.io blog](https://blog.landscape.io/)
-
-[For The Science - a blog about scientific programming](http://forthescience.org/blog/)
-
 [Podsnap](http://blog.podsnap.com/)
-
-[The Digital Cat](http://lgiordani.com/) by [lgiordani](https://github.com/lgiordani)
-
-[droun.in](https://droun.in/) by [Pedro H.](https://github.com/digitalrounin) - Uses the `PADDED_SINGLE_COLUMN_STYLE` setting with a modified [Bootstrap/Bootswatch configuration](https://github.com/digitalrounin/bootswatch/tree/drounin/drounin) and [custom CSS](https://droun.in/css/custom.css).
