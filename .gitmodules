@@ -261,3 +261,6 @@
 [submodule "pelican-haerwu-theme"]
 	path = pelican-haerwu-theme
 	url = https://github.com/hrw/pelican-haerwu-theme.git
+[submodule "Piccolo"]
+	path = piccolo
+	url = https://github.com/iamjameswalters/piccolo.git
