@@ -16,6 +16,42 @@ logging.basicConfig(
 )
 logger = logging.getLogger()
 
+
+PELICANCONF_PATCH = """
+
+class i18n(object):
+    # looks for translations in
+    # {LOCALE_DIR}/{LANGUAGE}/LC_MESSAGES/{DOMAIN}.mo
+    # if not present, falls back to default
+
+    DOMAIN = 'messages'
+    LOCALE_DIR = 'does-not-matter/translations'
+    LANGUAGES = ['de']
+    NEWSTYLE = True
+
+    __name__ = 'i18n'
+
+    def register(self):
+        from pelican import signals
+        signals.generator_init.connect(self.install_translator)
+
+    def install_translator(self, generator):
+        import gettext
+        try:
+            translator = gettext.translation(
+                self.DOMAIN,
+                self.LOCALE_DIR,
+                self.LANGUAGES)
+        except (OSError, IOError):
+            translator = gettext.NullTranslations()
+        generator.env.install_gettext_translations(translator, self.NEWSTYLE)
+
+
+JINJA_ENVIRONMENT = {'extensions': ['jinja2.ext.i18n']}
+PLUGINS = [i18n(), 'webassets']
+"""
+
+
 HTML_HEADER = """\
 <!DOCTYPE html>
 <html>
@@ -134,6 +170,11 @@ def build_theme_previews(theme_root, samples_root, output_root, screenshot_root)
     success = {}
     screenshot_processes = []
 
+    modified_settings_path = os.path.join(output_root, "pelicanconf.py")
+    with open(os.path.join(samples_root, 'pelican.conf.py')) as infile:
+        with open(modified_settings_path, 'w') as outfile:
+            outfile.write(infile.read() + PELICANCONF_PATCH)
+
     for theme in sorted(themes, key=lambda x: x.lower()):
         theme_path = os.path.join(theme_root, theme)
         if os.path.exists(os.path.join(theme_path, theme, "templates")):
@@ -144,13 +185,13 @@ def build_theme_previews(theme_root, samples_root, output_root, screenshot_root)
             process = subprocess.run([
                 "pelican",
                 os.path.join(samples_root, "content"),
-                "--settings", os.path.join(samples_root, "pelican.conf.py"),
+                "--settings", modified_settings_path,
                 "--extra-settings", f"SITENAME=\"{theme} preview\"",
                 "--relative-urls",
                 "--theme-path", theme_path,
                 "--output", output_path,
                 "--ignore-cache",
-                "--delete-output-directory"
+                "--delete-output-directory",
             ],
             check=True, capture_output=True, universal_newlines=True)
         except subprocess.CalledProcessError as exc:
@@ -172,6 +213,7 @@ def build_theme_previews(theme_root, samples_root, output_root, screenshot_root)
     for process in screenshot_processes:
         process.wait()
     server.terminate()
+    os.remove(modified_settings_path)
     return success, fail
 
 
