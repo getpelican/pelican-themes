@@ -46,8 +46,8 @@ jobs:
         with:
           path: ~/.cache/ms-playwright/
           key: ${{ runner.os }}-browsers
-      - name: Install pelican and shot-scraper
-        run: pip install pelican[markdown] shot-scraper
+      - name: Install pelican, plugins and shot-scraper
+        run: pip install pelican[markdown] pelican-webassets cssmin shot-scraper
       - name: Setup shot-scraper
         run: shot-scraper install
       - name: Generate output
