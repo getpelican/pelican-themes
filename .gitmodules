@@ -264,3 +264,6 @@
 [submodule "Piccolo"]
 	path = piccolo
 	url = https://github.com/iamjameswalters/piccolo.git
+[submodule "html5up-hyperspace"]
+	path = html5up-hyperspace
+	url = https://github.com/trinora/pelican-theme-html5up-hyperspace.git
