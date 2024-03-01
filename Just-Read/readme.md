@@ -1,6 +1,6 @@
 # Just Read
 
-"Just Read" is a theme for [Pelican](http://alexis.notmyidea.org/pelican/). The fluid-width layout is based based on the Golden Grid System by [Joni Korpi](http://jonikorpi.com/).
+"Just Read" is a theme for [Pelican](http://getpelican.com/). The fluid-width layout is based based on the Golden Grid System by [Joni Korpi](http://jonikorpi.com/).
 
 ## Worth mentioning files
 
