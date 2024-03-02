@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}{{ SITENAME }} - Menu{% endblock %}
+
+{% block menu %}
+<a id="susty-back-link" href="{{ SITEURL }}" rel="home">&#x2716;<span class="screen-reader-text">Close menu</span></a>
+<script>
+					var susty_home_url = '{{ SITEURL }}';
+					if ( 0 === document.referrer.indexOf( susty_home_url ) ) {
+						document.getElementById( 'susty-back-link' ).href = document.referrer;
+					}
+
+
+</script>
+{% endblock %}
+{% block content %}
+<h1>Menu</h1>
+<nav id="site-navigation" class="main-navigation">
+    <div class="menu-main-navigation-container">
+        <ul id="primary-menu" class="menu">
+            {% for name, link in MENUITEMS %}
+            <li class="menu-item">
+                <a href="{{ link }}">{{ name}}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</nav>
+
+{% endblock %}
