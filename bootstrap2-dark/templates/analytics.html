@@ -9,3 +9,7 @@ try {
 pageTracker._trackPageview();
 } catch(err) {}</script>
 {% endif %}
+
+{% if ANALYTICS %}
+{{ ANALYTICS }}
+{% endif %}
