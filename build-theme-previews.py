@@ -59,7 +59,7 @@ HTML_HEADER = """\
 <style>
 
 h1 {
-  margin 20px auto;
+  margin: 20px auto;
   text-align: center;
 }
 
@@ -130,6 +130,41 @@ HTML_FOOTER = """\
 Successfully built <a href="index.html" class="success">{success} themes</a><br/>
 Failed to build <a href="failed.html" class="fail">{fail} themes</a>
 </footer>
+</body>
+</html>
+"""
+
+HTML_404 = """\
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<style>
+h1 {
+  margin: 20px auto;
+  text-align: center;
+}
+p {text-align: center;}
+h3 {text-align: center;}
+a {color: black;}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+</style>
+<body>
+
+<h1>Not Found</h1>
+<h3>What you're looking for isn't here. <br> It may have moved, or something unfortunate may have befallen it.</h3>
+
+<p>Double-check the URL and try again, or <a href="https://www.pelicanthemes.com">head home</a>.</p>
+
+<img src="pelican.png" alt="sad pelican" class="center">
+
 </body>
 </html>
 """
@@ -235,6 +270,17 @@ def write_index_files(output_root, success, fail):
     logger.info(f"failed {len(fail)} themes")
 
 
+def write_404_file(output_root):
+    logger.info("generating 404 file...")
+    with open(os.path.join(output_root, "404.html"), "w") as outfile:
+        outfile.write(HTML_404)
+    
+    pelican_pic_path = os.path.join(output_root, "pelican.png")
+    subprocess.call(["cp", "pelican.png", pelican_pic_path])
+
+    logger.info("wrote 404 file")
+
+
 def parse_args(argv=None):
     parser = argparse.ArgumentParser()
     parser.add_argument(
@@ -273,6 +319,7 @@ def main(argv=None):
     theme_root, samples_root, output_root, screenshot_root = setup_folders(args)
     success, fail = build_theme_previews(theme_root, samples_root, output_root, screenshot_root)
     write_index_files(output_root, success, fail)
+    write_404_file(output_root)
 
 
 if __name__ == "__main__":
