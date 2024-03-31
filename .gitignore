@@ -20,3 +20,6 @@ Thumbs.db
 #####################
 _pelican
 _output
+
+# environment
+env/
