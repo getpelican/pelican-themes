@@ -44,6 +44,10 @@ To use Disqus, add the Disqus site name via the following variable.
 DISQUS_SITENAME = ''
 ```
 
+
+To add content or markup to the footer of every page: Add an `extra_footer.html` file to
+a directory in your `THEME_TEMPLATES_OVERRIDES` path. It is empty by default.
+
 Other features include:
 
 ```
