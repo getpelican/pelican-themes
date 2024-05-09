@@ -37,6 +37,17 @@
         <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/gumby.css" />
         <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/style.css" />
         <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/pygment.css" />
+        {% if CUSTOM_CSS_FILES %}
+          {% for item in CUSTOM_CSS_FILES %}
+            <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/{{ item }}" />
+          {% endfor %}
+        {% endif %}
+
+        {% if CUSTOM_CSS_URLS %}
+          {% for item in CUSTOM_CSS_URLS %}
+            <link rel="stylesheet" type="text/css" href="{{ item }}" />
+          {% endfor %}
+        {% endif %}
 
         <script src="{{ SITEURL }}/theme/js/libs/modernizr-2.6.2.min.js"></script>
 
@@ -68,6 +79,17 @@
                  })();
             </script>
             <noscript><p><img src="http://{{ PIWIK_URL }}/piwik.php?idsite={{ PIWIK_ID }}" style="border:0;" alt="" /></p></noscript>
+          {% endif %}
+
+          {% if CUSTOM_JS_FILES %}
+            {% for item in CUSTOM_JS_FILES %}
+              <script src="{{ SITEURL }}/{{ item }}"></script>
+            {% endfor %}
+          {% endif %}
+          {% if CUSTOM_JS_URLS %}
+            {% for item in CUSTOM_JS_URLS %}
+              <script src="{{ item }}"></script>
+            {% endfor %}
           {% endif %}
 
         {% endblock head %}
