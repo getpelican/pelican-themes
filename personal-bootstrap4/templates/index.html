@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    {% block content_title %}
+    {% endblock %}
+
+    {% for article in articles_page.object_list %}
+    <p>
+        <div class="card bg-light">
+            <div class="card-header">
+                <span class="lead">
+                    <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a>
+                </span>
+                <span class="float-right">
+                    {% for tag in article.tags %}
+                    <a href="{{ SITEURL }}/{{ tag.url }}" class="badge badge-success">{{ tag }}</a>
+                    {% endfor %}
+                    <span class="badge badge-info" datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }} </span>
+                </span>
+            </div>
+            <div class="card-body">
+                <p class="card-text">{{ article.summary }}</p>
+            </div>
+        </div>
+    </p>
+
+    {% endfor %}
+
+    {% if articles_page and articles_paginator.num_pages > 1 %}
+    <div >
+        <ul class="pagination">
+            {% if articles_page.has_previous() %}
+            {% set num = articles_page.previous_page_number() %}
+            <li class="page-item"><a href="{{ SITEURL }}/{{ page_name }}{{ num if num > 1 else '' }}.html" class="page-link" aria-label="Previous">&laquo;</a></li>
+            {% else %}
+            <li class="page-item disabled"><a href="#" class="page-link" aria-label="Previous">&laquo;</a></li>
+            {% endif %}
+            {% for num in range( 1, 1 + articles_paginator.num_pages ) %}
+            <li class="page-item {{ 'active' if num == articles_page.number else '' }}"><a href="{{ SITEURL }}/{{ page_name }}{{ num if num > 1 else '' }}.html" class="page-link">{{ num }}</a></li>
+            {% endfor %}
+            {% if articles_page.has_next() %}
+            <li class="page-item"><a href="{{ SITEURL }}/{{ page_name }}{{ articles_page.next_page_number() }}.html" class="page-link" aria-label="Next">&raquo;</a></li>
+            {% else %}
+            <li class="page-item disabled"><a href="#" class="page-link" aria-label="Next">&raquo;</a></li>
+            {% endif %}
+        </ul>
+    </div>
+    {% endif %}
+
+{% endblock content %}
