@@ -152,9 +152,6 @@
 [submodule "Flex"]
 	path = Flex
 	url = https://github.com/alexandrevicenzi/Flex.git
-[submodule "Casper2Pelican"]
-	path = Casper2Pelican
-	url = https://github.com/abr4xas/Casper2Pelican.git
 [submodule "octopress"]
 	path = octopress
 	url = https://github.com/MrSenko/pelican-octopress-theme
