@@ -51,3 +51,19 @@ that any edits you make are made to the copy stored in
 ``~/pelican-themes/theme-name``. Any changes made to
 files stored in your site's ``output`` directory will be deleted the next
 time you generate your site.
+
+Generating Theme Previews
+#########################
+
+Generating theme previews happens automatically via a GitHub Actions workflow,
+after which those previews are published to https://pelicanthemes.com.
+If you want to generate previews locally on your workstation, clone the Pelican
+repository (for example, to `~/projects/pelican/`), clone this repository
+somewhere, change to the root directory of that clone, and follow these steps:
+
+.. code-block:: sh
+
+	python -m pip install pelican[markdown] shot-scraper
+        mkdir _pelican
+        cp -r ~/projects/pelican/samples _pelican/
+        python build-theme-previews.py
