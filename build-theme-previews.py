@@ -162,7 +162,7 @@ a {color: black;}
 
 <p>Double-check the URL and try again, or <a href="https://www.pelicanthemes.com">head home</a>.</p>
 
-<img src="pelican.png" alt="sad pelican" class="center">
+<img src="pelican-sad.png" alt="sad pelican" class="center">
 
 </body>
 </html>
@@ -270,14 +270,14 @@ def write_index_files(output_root, success, fail):
 
 
 def write_404_file(output_root):
-    logger.info("generating 404 file...")
+    logger.info("generating 404 page file...")
     with open(os.path.join(output_root, "404.html"), "w") as outfile:
         outfile.write(HTML_404)
-    
-    pelican_pic_path = os.path.join(output_root, "pelican.png")
-    subprocess.call(["cp", "pelican.png", pelican_pic_path])
 
-    logger.info("wrote 404 file")
+    pelican_pic_path = os.path.join(output_root, "pelican-sad.png")
+    subprocess.call(["cp", "pelican-sad.png", pelican_pic_path])
+
+    logger.info("wrote 404 page file")
 
 
 def parse_args(argv=None):
