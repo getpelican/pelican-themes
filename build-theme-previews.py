@@ -138,7 +138,7 @@ HTML_404 = """\
 <!DOCTYPE html>
 <html>
 <head>
-<title>Page Title</title>
+<title>Not Found</title>
 </head>
 <style>
 h1 {
@@ -154,12 +154,11 @@ a {color: black;}
   margin-right: auto;
   width: 50%;
 }
-
 </style>
 <body>
 
 <h1>Not Found</h1>
-<h3>What you're looking for isn't here. <br> It may have moved, or something unfortunate may have befallen it.</h3>
+<h3>What you’re looking for isn’t here. <br> It may have moved, or something unfortunate may have befallen it.</h3>
 
 <p>Double-check the URL and try again, or <a href="https://www.pelicanthemes.com">head home</a>.</p>
 
