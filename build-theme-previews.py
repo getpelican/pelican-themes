@@ -160,7 +160,7 @@ a {color: black;}
 <h1>Not Found</h1>
 <h3>What you’re looking for isn’t here. <br> It may have moved, or something unfortunate may have befallen it.</h3>
 
-<p>Double-check the URL and try again, or <a href="https://www.pelicanthemes.com">head home</a>.</p>
+<p>Double-check the URL and try again, or <a href="https://pelicanthemes.com">head home</a>.</p>
 
 <img src="pelican-sad.png" alt="sad pelican" class="center">
 
