@@ -218,6 +218,9 @@
 [submodule "jojo"]
 	path = jojo
 	url = https://github.com/dokelung/jojo.git
+[submodule "supersimple"]
+	path = supersimple
+	url = https://github.com/hlrossato/supersimple.git
 [submodule "resume"]
 	path = resume
 	url = https://github.com/suheb/resume.git
