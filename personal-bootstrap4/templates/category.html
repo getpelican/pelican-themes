@@ -1,0 +1,7 @@
+{% extends "index.html" %}
+
+{% block title %} {{ category|striptags }} - {{ SITENAME }} {% endblock %}
+
+{% block content_title %}
+<h3>Articles in the <span class="badge badge-dark">{{ category }}</span> category</h3>
+{% endblock %}

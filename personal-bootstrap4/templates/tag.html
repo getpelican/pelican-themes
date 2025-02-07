@@ -1,0 +1,9 @@
+{% extends "index.html" %}
+
+{% block title %} {{ tag|striptags }} - {{ SITENAME }} {% endblock %}
+
+{% block content_title %}
+<div class="container">
+    <h3>Articles with the <span class="badge badge-success"><i class="fa fa-tag"></i> {{ tag }}</span> tag</h3>
+</div>
+{% endblock %}

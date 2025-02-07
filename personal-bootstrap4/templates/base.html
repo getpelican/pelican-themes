@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="author" content="{{ AUTHOR }}">
+        <link rel="icon" href="{{ SITEURL }}/theme/img/favicon.png">
+        <title>{% block title %} {{ SITENAME }} {% endblock title %}</title>
+        <!-- Bootstrap core CSS -->
+        <link href="{{ SITEURL }}/theme/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Custom styles for this template -->
+        <link href="{{ SITEURL }}/theme/css/fixes.css" rel="stylesheet">
+        <!-- Font awesome -->
+        <link href="{{ SITEURL }}/theme/css/font-awesome.min.css" rel="stylesheet">
+        <!-- Pygment -->
+        <link href="{{ SITEURL }}/theme/css/pygments.css" rel="stylesheet">
+    </head>
+
+    <body>
+
+        <!-- NAVBAR -->
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="{{ SITEURL }}">{{ SITENAME_HTML }}</a> {{ SITESUBTITLE }}
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+
+                    <!-- CATEGORIES -->
+                    {% if DISPLAY_CATEGORIES_ON_MENU %}
+                        {% for cat, null in categories %}
+                        <li {% if cat == category %} class="nav-item active"{% endif %}>
+                        <a class="nav-link" href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a>
+                        </li>
+                        {% endfor %}
+                    {% endif %}
+
+                    <!-- PAGES -->
+                    {% if DISPLAY_PAGES_ON_MENU %}
+                        {% for p in pages %}
+                        <li{% if p == page %} class="nav-item active"{% endif %}>
+                            <a class="nav-link" href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a>
+                        </li>
+                        {% endfor %}
+                    {% endif %}
+
+                    <!-- TAGS LINK -->
+                    {% if DISPLAY_TAG_LINK_ON_MENU %}
+                        <li class="nav-item">
+                        <a class="nav-link" href="{{ SITEURL }}/tags.html">tags</a>
+                        </li>
+                    {% endif %}
+
+                </ul>
+            </div>
+            <span class="navbar-nav">
+                <a href="{{ LINKEDIN_URL }}" class="nav-link" target="_blank"><i class="fa fa-linkedin-square fa-lg" aria-hidden="true"></i> {{ AUTHOR }}</a>
+            </span>
+        </div>
+        </nav>
+
+        <!-- MAIN BLOCK -->
+        <div class="container" id="content">
+        {% block content %}
+        {% endblock %}
+        </div>
+
+        <!-- FOOTER -->
+        <div class="container" id="footer">
+        <p class="small">
+            {{CC}} {{ CREDITS }}
+            <span class="float-right"><a href="#top">back on top <i class="fa fa-arrow-circle-up"></i></a></span>
+        </p>
+        </div>
+
+        <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="{{ SITEURL }}/theme/js/jquery.min.js"></script>
+        <script src="{{ SITEURL }}/theme/js/bootstrap.bundle.min.js"></script>
+
+    </body>
+</html>
+
