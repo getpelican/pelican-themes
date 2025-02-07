@@ -155,6 +155,19 @@ the Bootstrap3 [Pagination
 component](http://getbootstrap.com/components/#pagination), but you can
 optionally use the Boostrap3 _Pager_ by setting `USE_PAGER` to `True`.
 
+Pelican-Bootstrap3 also have improved pagination.
+
+For enable this feature:
+- Set the flag `PAGINATION_BOOTSTRAP3_IMPROVED` to `True`
+- Add improved pagination theme plugin `PLUGIN_PATHS = (..., os.path.join(THEME, 'plugins'),)`
+- Activate improved pagination plugin `PLUGINS = (..., 'pagination',)`
+
+Available improved pagination options
+
+`PAGINATION_BOOTSTRAP3_IMPROVED`: `True` enable or `False` disable this feature
+`PAGINATION_BOOTSTRAP3_PAGES_TO_SHOW`: Number of pages in total, default value `11`
+`PAGINATION_BOOTSTRAP3_CSS_CLASSES`: Any extra CSS classes that should be added to the pagination `ul` element
+
 ### Bootstrap fluid layout
 
 If you'd like to use the fluid container layout from Bootstrap, set the flag
