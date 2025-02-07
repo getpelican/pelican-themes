@@ -1,0 +1,9 @@
+{% if SIDEBAR_IMAGES %}
+    <li class="list-group-item">
+        <ul class="list-group" id="links">
+        {% for image in SIDEBAR_IMAGES %}
+            <img width="100%" class="img-thumbnail" src="{{ image }}"/>
+        {% endfor %}
+        </ul>
+    </li>
+{% endif %}
