@@ -16,7 +16,7 @@
       {% else %}
         {% set iconattributes = '"fa fa-' ~ name_sanitized ~ '-square fa-lg"' %}
       {% endif %}
-    <li class="list-group-item"><a href="{{ s[1] }}"><i class={{ iconattributes }}></i> {{ s[0] }}</a></li>
+    <li class="list-group-item"><i class={{ iconattributes }}></i> <a href="{{ s[1] }}">{{ s[0] }}</a></li>
     {% endfor %}
   </ul>
 </li>
