@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<article class="page type-page status-publish hentry">
+{% block content_title %}
+<header>
+  <h1>Recent posts</h1>
+</header>  
+{% endblock %}
+<div>
+<ul>
+  {% for article in articles_page.object_list %}
+  <li>
+    <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a>
+  </li>
+{% endfor %}
+</ul><!-- /#posts-list -->
+</div>
+{% if articles_page.has_other_pages() %}
+    {% include 'pagination.html' %}
+{% endif %}
+</article>
+{% endblock content %}
