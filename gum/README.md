@@ -51,8 +51,8 @@ To add extra CSS, for example to override styles without forking the Gum theme,
 you may specify either or both of these settings:
 
 ```
-CUSTOM_CSS_FILES = ['list of paths to additional css static files']
-CUSTOM_CSS_URLS = ['list of URLs of additional remote css to load']
+CUSTOM_CSS_FILES = ['list of paths to additional CSS static files']
+CUSTOM_CSS_URLS = ['list of URLs of additional remote CSS to load']
 ```
 
 To add extra Javascript to the theme, you may specify either or both of these settings:
