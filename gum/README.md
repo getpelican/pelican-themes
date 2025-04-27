@@ -60,7 +60,6 @@ To add extra Javascript to the theme, you may specify either or both of these se
 ```
 CUSTOM_JS_FILES = ['list of paths to additional JavaScript static files']
 CUSTOM_JS_URLS = ['list of URLs of additional JavaScript to load']
-
 ```
 
 Other features include:
