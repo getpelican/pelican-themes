@@ -68,7 +68,6 @@ Other features include:
 SITESUBTITLE = 'your site subtitle'
 ```
 
-
 The following standard Pelican settings are honored:
 
 ```
