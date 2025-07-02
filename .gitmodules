@@ -264,3 +264,6 @@
 [submodule "Piccolo"]
 	path = piccolo
 	url = https://github.com/iamjameswalters/piccolo.git
+[submodule "pelican-bulma"]
+	path = pelican-bulma
+	url = git@github.com:Saphyel/pelican-bulma.git
