@@ -264,3 +264,6 @@
 [submodule "Piccolo"]
 	path = piccolo
 	url = https://github.com/iamjameswalters/piccolo.git
+[submodule "WhatsTheScoop"]
+	path = WhatsTheScoop
+	url = git@github.com:SarahRogue81/WhatsTheScoop.git
