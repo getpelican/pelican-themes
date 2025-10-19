@@ -267,3 +267,6 @@
 [submodule "Piccolo"]
 	path = piccolo
 	url = https://github.com/iamjameswalters/piccolo.git
+[submodule "telosuli"]
+	path = telosuli
+	url = https://github.com/oldherl/telosuli
