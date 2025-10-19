@@ -34,6 +34,9 @@
 [submodule "lannisport"]
 	path = lannisport
 	url = https://github.com/siovene/lannisport.git
+[submodule "Editorial"]
+	path = Editorial
+	url = https://gitlab.com/Mimoza/editorial.git
 [submodule "fresh"]
 	path = fresh
 	url = https://github.com/jsliang/pelican-fresh.git
