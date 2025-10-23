@@ -20,7 +20,7 @@ directory ``~/pelican-themes``, but yours could be different. Clone the
 
 .. code-block:: sh
 
-	git clone --recursive https://github.com/getpelican/pelican-themes ~/pelican-themes
+	git clone --jobs 8 --recursive https://github.com/getpelican/pelican-themes ~/pelican-themes
 
 Now you should have your ``pelican-themes`` repository stored at
 ``~/pelican-themes/``.
