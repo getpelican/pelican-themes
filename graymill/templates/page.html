@@ -1,8 +1,15 @@
 {% extends "base.html" %}
+{% block head %}
+{{ super() }}
+<!-- Canonical URL -->
+<link rel="canonical" href="{{ SITEURL }}/{{ page.url }}">
+{% endblock head %}
 {% block title %}{{ page.title }}{% endblock %}
 {% block content %}
 {% if PDF_PROCESSOR %}
     <a href="{{ SITEURL }}/pdf/{{ page.slug }}.pdf">Download the PDF file</a>
 {% endif %}
+<div class="static-page-urls">
 {{ page.content }}
+</div>
 {% endblock %}

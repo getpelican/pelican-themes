@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 {% block head %}
 {{ super() }}
+{% if TWITTER_USERNAME %}
 <meta name="twitter:creator" content="{{ TWITTER_USERNAME }}">
+{% endif %}
 <meta name="twitter:url" content="{{ SITEURL }}/tags.html">
 <meta name="twitter:title" content="{{ SITENAME }} || Tags">
 <meta name="twitter:description" content="{{ SITENAME }} || Tags in this website">
@@ -9,13 +11,15 @@
 <!-- Facebook Meta Data -->
 <meta property="og:title" content="{{ SITENAME }} || Tags" />
 <meta property="og:description" content="{{ SITENAME }} || Tags" />
+{% if AVATAR %}
 <meta property="og:image" content="{{ AVATAR }}" />
+{% endif %}
 {% endblock head %}
 {% block content %}
 <h2>Tags</h2>
 <ol>
 {% for tag, articles in tags %}
-    <li><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</li>
+    <li><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a></li>
 {% endfor %}
 </ol>
 {% endblock %}

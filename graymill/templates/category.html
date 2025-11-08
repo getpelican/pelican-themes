@@ -1,15 +1,21 @@
 {% extends "index.html" %}
 {% block head %}
     {{ super() }}
+    {% if TWITTER_USERNAME %}
     <meta name="twitter:creator" content="{{ TWITTER_USERNAME }}">
+    {% endif %}
     <meta name="twitter:url" content="{{ SITEURL }}/{{ category.url }}">
     <meta name="twitter:title" content="{{ SITENAME }} || {{ category }}">
-    <meta name="twitter:description" content="Articles in {{ category }}">
+    <meta name="twitter:description" content="Articles in {{ category }}">{% if CATEGORY_FEED_ATOM %}
+    <link href="{{ SITEURL }}/{{ CATEGORY_FEED_ATOM|format(slug=category.slug) }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} - {{ category }} Category Feed" />
+    {% endif %}
 
     <!-- Facebook Meta Data -->
     <meta property="og:title" content="{{ SITENAME }} || {{ category }}"/>
     <meta property="og:description" content="Articles in {{ category }}"/>
+    {% if AVATAR %}
     <meta property="og:image" content="{{ AVATAR }}"/>
+    {% endif %}
 {% endblock head %}
 {% block title %}{{ SITENAME }} - {{ category }}{% endblock %}
 {% block heading %}

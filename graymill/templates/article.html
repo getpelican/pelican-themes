@@ -1,24 +1,102 @@
 {% extends "base.html" %}
 {% block head %}
 {{ super() }}
+<!-- Override generic description with article-specific summary -->
+<meta name="description" content="{{ article.summary|striptags|truncate(160) }}">
+
+<!-- Prevent indexing of draft articles -->
+{% if article.status == 'draft' %}
+<meta name="robots" content="noindex, nofollow">
+{% endif %}
+
+<!-- Canonical URL -->
+<link rel="canonical" href="{{ SITEURL }}/{{ article.url }}">
+
+<meta name="twitter:card" content="summary_large_image">
+{% if TWITTER_USERNAME %}
 <meta name="twitter:creator" content="{{ TWITTER_USERNAME }}">
+{% endif %}
 <meta name="twitter:url" content="{{ SITEURL }}/{{ article.url }}">
 <meta name="twitter:title" content="{{ SITENAME }} ~ {{ article.title }}">
 <meta name="twitter:description" content="{{ article.summary|striptags|escape }}">
+{% if article.image %}
+<meta name="twitter:image" content="{{ SITEURL }}/{{ article.image }}">
+{% elif SITE_IMAGE %}
+<meta name="twitter:image" content="{{ SITEURL }}/{{ SITE_IMAGE }}">
+{% endif %}
 
 <!-- Facebook Meta Data -->
+<meta property="og:type" content="article" />
 <meta property="og:title" content="{{ SITENAME }} ~ {{ article.title }}" />
 <meta property="og:description" content="{{ article.summary|striptags|escape  }}" />
-<meta property="og:image" content="" />
+<meta property="og:url" content="{{ SITEURL }}/{{ article.url }}" />
+{% if article.image %}
+<meta property="og:image" content="{{ SITEURL }}/{{ article.image }}" />
+{% elif SITE_IMAGE %}
+<meta property="og:image" content="{{ SITEURL }}/{{ SITE_IMAGE }}" />
+{% endif %}
+<meta property="article:published_time" content="{{ article.date.isoformat() }}" />
+{% if article.modified %}
+<meta property="article:modified_time" content="{{ article.modified.isoformat() }}" />
+{% endif %}
+{% if article.authors %}
+{% for author in article.authors %}
+<meta property="article:author" content="{{ author }}" />
+{% endfor %}
+{% else %}
+<meta property="article:author" content="{{ article.author }}" />
+{% endif %}
+
+<!-- Structured Data (JSON-LD) for SEO -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": {{ article.title|tojson }},
+  "datePublished": "{{ article.date.isoformat() }}",
+  {% if article.modified %}"dateModified": "{{ article.modified.isoformat() }}",{% endif %}
+  "author": {
+    "@type": "Person",
+    "name": {% if article.authors %}{{ article.authors[0]|string|tojson }}{% else %}{{ article.author|string|tojson }}{% endif %}
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": {{ SITENAME|tojson }}
+  },
+  "description": {{ article.summary|striptags|tojson }},
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ SITEURL }}/{{ article.url }}"
+  }{% if article.image or SITE_IMAGE %},
+  "image": "{{ SITEURL }}/{% if article.image %}{{ article.image }}{% else %}{{ SITE_IMAGE }}{% endif %}"{% endif %}
+}
+</script>
 {% endblock head %}
 {% block title %}{{ article.title }}{% endblock %}
 {% block content %}
+{% if article.status == 'draft' %}
+<div style="background: #fff3cd; border-left: 4px solid #ffc107; padding: 15px; margin-bottom: 20px;">
+    <strong>⚠ DRAFT:</strong> This article has not been published yet.
+</div>
+{% endif %}
+
 <h2>
     <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title }}">{{ article.title }}</a>
 </h2>
 
 <div>
-    <b>By: </b><a href="{{ SITEURL }}/{{ article.author.url }}">{{ article.author }}</a><b>    On: </b>{{ article.locale_date }}<br />
+    <b>By: </b>
+    {% if article.authors %}
+        {% for author in article.authors %}
+            <a href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a>{% if not loop.last %}, {% endif %}
+        {% endfor %}
+    {% else %}
+        <a href="{{ SITEURL }}/{{ article.author.url }}">{{ article.author }}</a>
+    {% endif %}
+    <b>    On: </b>{{ article.locale_date }}
+    {% if article.modified %}
+        <b> | Updated: </b>{{ article.locale_modified }}
+    {% endif %}<br />
     <b>In: </b><a href="{{ SITEURL }}/{{ article.category.url }}" rel="bookmark" title="Permalink to {{ article.category|striptags }}">{{ article.category }}</a><br />
     <em><b>Tags: </b>
         {% if article.tags %}
@@ -27,26 +105,33 @@
             {% endfor %}
         {% endif %}
     </em>
+    {% if article.translations %}
+        <br /><b>Translations: </b>
+        {% include 'translations.html' %}
+    {% endif %}
     <hr>
 </div>
 
 <div>
-    <mainarticle>
+    <article>
     {{ article.content }}
-    </mainarticle>
+    </article>
 </div>
 <hr>
-        
+
+
+{% if SPREAD_THE_WORD %}
 <div>
         <i>If you found the article helpful, please share or cite the article, and spread the word:</i>
-            <p style="margin-top: 2%;">
-                <span><a target="_blank" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=700');return false;" title="Twitter" href="https://twitter.com/share?url={{ SITEURL }}/{{ article.url }}&text={{ article.title }}&via={{TWITTER_USERNAME}}"><img class="social-icons-a" src="{{ SITEURL }}/theme/images/icons/twitter.png"></a></span>
-                <span><a target="_blank" title="Facebook" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=700');return false;" href="https://www.facebook.com/sharer.php?u={{ SITEURL }}/{{article.url}}&t={{ article.title }}"><img class="social-icons-a" src="{{ SITEURL }}/theme/images/icons/facebook.png"></a></span>
-
-                <a  target="_blank" title="Linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url={{ SITEURL }}/{{ article.url }}&title={{ article.title }}" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;"><img class="social-icons-a" src="{{ SITEURL }}/theme/images/icons/linkedin.png"></a>
+            <p class="share-buttons">
+                <span><a target="_blank" rel="nofollow noopener noreferrer" title="Share on Twitter" href="https://twitter.com/share?url={{ (SITEURL ~ '/' ~ article.url)|urlencode }}&text={{ article.title|urlencode }}{% if TWITTER_USERNAME %}&via={{ TWITTER_USERNAME }}{% endif %}"><img class="social-icons-a" src="{{ SITEURL }}/theme/images/icons-svg/twitter.svg" alt="Share on Twitter" loading="lazy" decoding="async"></a></span>
+                <span><a target="_blank" rel="nofollow noopener noreferrer" title="Share on Facebook" href="https://www.facebook.com/sharer.php?u={{ (SITEURL ~ '/' ~ article.url)|urlencode }}&t={{ article.title|urlencode }}"><img class="social-icons-a" src="{{ SITEURL }}/theme/images/icons-svg/facebook.svg" alt="Share on Facebook" loading="lazy" decoding="async"></a></span>
+                <span><a target="_blank" rel="nofollow noopener noreferrer" title="Share on LinkedIn" href="https://www.linkedin.com/shareArticle?mini=true&url={{ (SITEURL ~ '/' ~ article.url)|urlencode }}&title={{ article.title|urlencode }}"><img class="social-icons-a" src="{{ SITEURL }}/theme/images/icons-svg/linkedin.svg" alt="Share on LinkedIn" loading="lazy" decoding="async"></a></span>
             </p>
 </div>
 <hr>
+{% endif %}
+
 {% if AUTHOREMAIL %}
     <p><i>For any feedback or corrections, please write in to: </i><b> {{ AUTHOREMAIL }} </b></p>
 {% else  %}

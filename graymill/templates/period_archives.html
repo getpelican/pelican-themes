@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block head %}
+{{ super() }}
+{% if TWITTER_USERNAME %}
+<meta name="twitter:creator" content="{{ TWITTER_USERNAME }}">
+{% endif %}
+<meta name="twitter:url" content="{{ SITEURL }}/{{ period_url }}">
+<meta name="twitter:title" content="{{ SITENAME }} || Archives for {{ period | reverse | join(' ') }}">
+<meta name="twitter:description" content="{{ SITENAME }} || Articles from {{ period | reverse | join(' ') }}">
+
+<!-- Facebook Meta Data -->
+<meta property="og:title" content="{{ SITENAME }} || Archives for {{ period | reverse | join(' ') }}" />
+<meta property="og:description" content="{{ SITENAME }} || Articles from {{ period | reverse | join(' ') }}" />
+{% if AVATAR %}
+<meta property="og:image" content="{{ AVATAR }}" />
+{% endif %}
+{% endblock head %}
+{% block content %}
+<h2>Archives for {{ period | reverse | join(' ') }}</h2>
+    {% for article in dates %}
+    <div class="row">
+        <div class="column column-25">
+            {{ article.locale_date }}
+        </div>
+
+        <div class="column column-75">
+            <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
+        </div>
+    </div>
+    {% endfor %}
+{% endblock %}

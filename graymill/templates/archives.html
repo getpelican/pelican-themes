@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 {% block head %}
 {{ super() }}
+{% if TWITTER_USERNAME %}
 <meta name="twitter:creator" content="{{ TWITTER_USERNAME }}">
+{% endif %}
 <meta name="twitter:url" content="{{ SITEURL }}/archives.html">
 <meta name="twitter:title" content="{{ SITENAME }} || Archives">
 <meta name="twitter:description" content="{{ SITENAME }} || Archives for this website">
@@ -9,7 +11,9 @@
 <!-- Facebook Meta Data -->
 <meta property="og:title" content="{{ SITENAME }} || Archives" />
 <meta property="og:description" content="{{ SITENAME }} || Archives for this website" />
+{% if AVATAR %}
 <meta property="og:image" content="{{ AVATAR }}" />
+{% endif %}
 {% endblock head %}
 {% block content %}
 <h2>Archives</h2>
