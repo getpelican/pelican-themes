@@ -1,55 +1,77 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*- #
+# -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-# Basic information
-AUTHOR = u'author'
-AUTHOREMAIL = 'myemail [at] mydomain [dot] tld'
-SITENAME = u'siteName'
-SITEURL = 'http://muchbits.com'
+# Basic site information
+AUTHOR = 'Your Name'
+SITENAME = 'Your Site Name'
+SITEURL = 'http://localhost:8000'
+SITEDESCRIPTION = 'Your site tagline'
 
 PATH = 'content'
+TIMEZONE = 'America/New_York'
+DEFAULT_LANG = 'en'
 
-TIMEZONE = 'Asia/Kolkata'
+# Theme
+THEME = 'graymill'
 
-DEFAULT_LANG = u'en'
-THEME = 'themes/graymill'
+# Optional theme settings
+SITE_IMAGE = 'images/share-image.jpg'  # 1200x630px for social sharing
+FAVICON = 'images/favicon.png'
+AVATAR = 'images/avatar.jpg'
+AUTHOR_DESCRIPTION = 'Brief bio about the author'
+AUTHOREMAIL = 'your.email@example.com'
 
-# Social widgets
-SOCIAL = (('twitter', 'https://twitter.com/'),
-          ('linkedin', 'https://www.linkedin.com/'),
-          ('github', 'https://github.com/'),
-          ('facebook', 'https://facebook.com/'),
-         )
+# Social links (displayed in footer)
+# Available icons: twitter, facebook, github, linkedin, mail, rss
+SOCIAL = (
+    ('twitter', 'https://twitter.com/yourusername'),
+    ('github', 'https://github.com/yourusername'),
+    ('linkedin', 'https://www.linkedin.com/in/yourusername'),
+    ('mail', 'mailto:your.email@example.com'),
+)
 
-DEFAULT_PAGINATION = 8
+# Blogroll
+LINKS = (
+    ('Python.org', 'https://python.org/'),
+    ('Pelican', 'https://getpelican.com/'),
+)
 
-SITEDESCRIPTION = 'my custom tagline/description'
+# Twitter username for Twitter Card metadata
+TWITTER_USERNAME = '@yourusername'
 
-# For post-summaries
-DISPLAY_SUMMARY = True
+# Show social share buttons on articles
+SPREAD_THE_WORD = True
 
-# To display static pages like About, Contact etc.
+# Google Analytics 4
+# Format: G-XXXXXXXXXX (not the old UA-XXXXXXXXX)
+GOOGLE_ANALYTICS = 'G-XXXXXXXXXX'
+
+# Pelican settings
 DISPLAY_PAGES_ON_MENU = True
+DISPLAY_CATEGORIES_ON_MENU = True
 
-MENUITEMS = (('Home', SITEURL),
-            )
-
-# Feed generation is usually not desired when developing
-FEED_ALL_RSS = False
-FEED_ALL_ATOM = False
-FEED_ALL_ATOM = None
-CATEGORY_FEED_ATOM = None
+# Feed settings
+FEED_ALL_ATOM = 'feeds/all.atom.xml'
+CATEGORY_FEED_ATOM = 'feeds/{slug}.atom.xml'
 TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
-# Favicon (path relative to './content/')
-FAVICON = 'images/favicon.png'
+# URL settings
+ARTICLE_URL = '{slug}.html'
+ARTICLE_SAVE_AS = '{slug}.html'
+PAGE_URL = '{slug}.html'
+PAGE_SAVE_AS = '{slug}.html'
+CATEGORY_URL = 'category/{slug}.html'
+CATEGORY_SAVE_AS = 'category/{slug}.html'
+TAG_URL = 'tag/{slug}.html'
+TAG_SAVE_AS = 'tag/{slug}.html'
+AUTHOR_URL = 'author/{slug}.html'
+AUTHOR_SAVE_AS = 'author/{slug}.html'
 
-# To include custom static files like htaccess, robots, PDF files etc. (path relative to './content/')
-STATIC_PATHS = ['images', 'extras']
-EXTRA_PATH_METADATA = {
-    'extras/.htaccess': {'path': '.htaccess'},
-    'extras/robots.txt': {'path': 'robots.txt'},
-}
+# Pagination
+DEFAULT_PAGINATION = 10
+
+# Development settings
+RELATIVE_URLS = True

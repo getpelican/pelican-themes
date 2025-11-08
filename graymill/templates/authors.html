@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block head %}
+{{ super() }}
+{% if TWITTER_USERNAME %}
+<meta name="twitter:creator" content="{{ TWITTER_USERNAME }}">
+{% endif %}
+<meta name="twitter:url" content="{{ SITEURL }}/authors.html">
+<meta name="twitter:title" content="{{ SITENAME }} || Authors">
+<meta name="twitter:description" content="{{ SITENAME }} || Authors in this website">
+
+<!-- Facebook Meta Data -->
+<meta property="og:title" content="{{ SITENAME }} || Authors" />
+<meta property="og:description" content="{{ SITENAME }} || Authors in this website" />
+{% if AVATAR %}
+<meta property="og:image" content="{{ AVATAR }}" />
+{% endif %}
+{% endblock head %}
+{% block content %}
+<h2>Authors</h2>
+<ol>
+{% for author, articles in authors %}
+	<li><a href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a></li>
+{% endfor %}
+</ol>
+{% endblock %}

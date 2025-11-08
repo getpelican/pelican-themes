@@ -1,15 +1,24 @@
 {% extends "base.html" %}
 {% block head %}
 {{ super() }}
+  <!-- Canonical URL (only for first page) -->
+  {% if not articles_page or articles_page.number == 1 %}
+  <link rel="canonical" href="{{ SITEURL }}/">
+  {% endif %}
+
+  {% if TWITTER_USERNAME %}
   <meta name="twitter:creator" content="{{ TWITTER_USERNAME }}">
+  {% endif %}
   <meta name="twitter:url" content="{{ SITEURL }}">
   <meta name="twitter:title" content="{{ SITENAME }}">
-  <meta name="twitter:description" content="{{ SITEDESCRIPTION }}">
+  <meta name="twitter:description" content="{{ SITEDESCRIPTION|default('') }}">
 
   <!-- Facebook Meta Data -->
   <meta property="og:title" content="{{ SITENAME }}" />
-  <meta property="og:description" content="{{ SITEDESCRIPTION }}" />
-  <meta property="og:image" content="" />
+  <meta property="og:description" content="{{ SITEDESCRIPTION|default('') }}" />
+  {% if SITE_IMAGE %}
+  <meta property="og:image" content="{{ SITEURL }}/{{ SITE_IMAGE }}" />
+  {% endif %}
 {% endblock head %}
 {% block content_title %}{% endblock %}
 {% block content %}

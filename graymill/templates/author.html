@@ -1,15 +1,21 @@
 {% extends "index.html" %}
 {% block head %}
     {{ super() }}
+    {% if TWITTER_USERNAME %}
     <meta name="twitter:creator" content="{{ TWITTER_USERNAME }}">
+    {% endif %}
     <meta name="twitter:url" content="{{ SITEURL }}/{{ author.url }}">
     <meta name="twitter:title" content="{{ SITENAME }} ~ {{ author }}">
-    <meta name="twitter:description" content="All articles by {{ author }}">
+    <meta name="twitter:description" content="All articles by {{ author }}">{% if AUTHOR_FEED_ATOM %}
+    <link href="{{ SITEURL }}/{{ AUTHOR_FEED_ATOM|format(slug=author.slug) }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} - {{ author }} Author Feed" />
+    {% endif %}
 
     <!-- Facebook Meta Data -->
     <meta property="og:title" content="{{ SITENAME }} ~ {{ author }}"/>
     <meta property="og:description" content="All articles by {{ author }}"/>
+    {% if AVATAR %}
     <meta property="og:image" content="{{ AVATAR }}"/>
+    {% endif %}
 {% endblock head %}
 {% block title %}{{ SITENAME }} - {{ author }}{% endblock %}
 {% block heading %}
