@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+{% if USE_OPEN_GRAPH is not defined %}
+    {% set USE_OPEN_GRAPH = True %}
+{% endif %}
+<html lang="{% block html_lang %}{{ DEFAULT_LANG }}{% endblock %}"{% if USE_OPEN_GRAPH %} prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml"{% endif %}>
+
+<head>
+	<!-- ****** faviconit.com favicons ****** -->
+	<link rel="shortcut icon" href="/favicon.ico">
+	<link rel="icon" sizes="16x16 32x32 64x64" href="/favicon.ico">
+	<link rel="icon" type="image/png" sizes="196x196" href="/favicon-192.png">
+	<link rel="icon" type="image/png" sizes="160x160" href="/favicon-160.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png">
+	<link rel="icon" type="image/png" sizes="64x64" href="/favicon-64.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+	<link rel="apple-touch-icon" href="/favicon-57.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/favicon-114.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/favicon-72.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/favicon-144.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="/favicon-60.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/favicon-120.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="/favicon-76.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/favicon-152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+	<meta name="msapplication-TileColor" content="#FFFFFF">
+	<meta name="msapplication-TileImage" content="/favicon-144.png">
+	<meta name="msapplication-config" content="/browserconfig.xml">
+	<!-- ****** faviconit.com favicons ****** -->
+    <title>{% block title %}{{ SITENAME }}{% endblock %}</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% if 'liquid_tags.notebook' in PLUGINS %}
+        {% include 'includes/liquid_tags_nb_header.html' %}
+    {% endif %}
+
+    {# Favicons are a touchy subject. For reasoning for the following code, see: http://stackoverflow.com/a/23851464/872397 #}
+    {% if FAVICON %}
+    <link href="{{ SITEURL }}/{{ FAVICON }}" rel="icon">
+    {% endif %}
+    {% if FAVICON_IE %}
+    <!--[if IE]><link rel="shortcut icon" href="{{ SITEURL }}/{{ FAVICON_IE }}"><![endif]-->
+    {% endif %}
+    {% if TOUCHICON %}
+    <link rel="apple-touch-icon" href="{{ SITEURL }}/{{ TOUCHICON }}">
+    {% endif %}
+
+    {% block canonical_rel %}{% endblock %}
+
+    {% block meta %}
+        <meta name="author" content="{{ AUTHOR }}" />
+    {% endblock %}
+
+    {# Open Graph tags #}
+    {% if USE_OPEN_GRAPH %}
+    {% block opengraph %}
+    <!-- Open Graph tags -->
+        {% if OPEN_GRAPH_FB_APP_ID %}
+            <meta property="fb:app_id" content="{{ OPEN_GRAPH_FB_APP_ID }}"/>
+        {% endif %}
+        <meta property="og:site_name" content="{{ SITENAME }}" />
+        <meta property="og:type" content="website"/>
+        <meta property="og:title" content="{{ SITENAME }}"/>
+        <meta property="og:url" content="{{ SITEURL }}"/>
+        <meta property="og:description" content="{{ SITENAME }}"/>
+        {% if OPEN_GRAPH_IMAGE %}
+            <meta property="og:image"
+                  content="{{ SITEURL }}/{{ OPEN_GRAPH_IMAGE }}"/>
+        {% endif %}
+    {% endblock %}
+    {% endif %}
+
+    {# Twitter Cards tags #}
+    {% include 'includes/twitter_cards.html' %}
+
+    <!-- Bootstrap -->
+    {% if BOOTSTRAP_THEME %}
+        <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/bootstrap.{{ BOOTSTRAP_THEME }}.min.css" type="text/css"/>
+    {% else %}
+        <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/bootstrap.min.css" type="text/css"/>
+    {% endif %}
+    <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/pygments/{{ PYGMENTS_STYLE|default('native') }}.css" rel="stylesheet">
+    {% if 'tipue_search' in PLUGINS %}
+    <link href="{{ SITEURL}}/{{ THEME_STATIC_DIR }}/tipuesearch/tipuesearch.css" rel="stylesheet">
+    {% endif %}
+    {% if DOCUTIL_CSS %}
+        <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/html4css1.css" rel="stylesheet">
+    {% endif %}
+    {% if TYPOGRIFY %}
+        <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/typogrify.css" rel="stylesheet">
+    {% endif %}
+    <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/style.css" type="text/css"/>
+    {% if CUSTOM_CSS %}
+        <link href="{{ SITEURL }}/{{ CUSTOM_CSS }}" rel="stylesheet">
+    {% endif %}
+    {% if SHARIFF %}
+        <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/shariff/shariff.min.css" rel="stylesheet">
+    {% endif %}
+
+    {% if FEED_ALL_ATOM %}
+        <link href="{{ SITEURL }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate"
+              title="{{ SITENAME }} ATOM Feed"/>
+    {% endif %}
+
+    {% if FEED_ALL_RSS %}
+        <link href="{{ SITEURL }}/{{ FEED_ALL_RSS }}" type="application/rss+xml" rel="alternate"
+              title="{{ SITENAME }} RSS Feed"/>
+    {% endif %}
+
+    {% if tag and TAG_FEED_ATOM %}
+        <link href="{{ SITEURL }}/{{ TAG_FEED_ATOM|format(tag.slug) }}" type="application/atom+xml" rel="alternate"
+              title="{{ SITENAME }} {{ tag }} ATOM Feed"/>
+    {% endif %}
+
+    {% if category and CATEGORY_FEED_ATOM %}
+        <link href="{{ SITEURL }}/{{ CATEGORY_FEED_ATOM|format(category.slug) }}" type="application/atom+xml" rel="alternate"
+              title="{{ SITENAME }} {{ category }} ATOM Feed"/>
+    {% endif %}
+
+    <style>
+a.greyback:link {color:#0000dd; background-color:#f7f7f7;}
+a.greyback:visited {color:#0000ff; background-color:#f7f7f7;}
+a.greyback:hover {color:#ffcc00; background-color:#f7f7f7;}
+    </style>
+
+</head>
+<body>
+
+<!-- removed navbar -->
+
+<!-- Banner -->
+{% if BANNER and BANNER_ALL_PAGES %}
+    {% include 'includes/banner.html' %}
+{% elif BANNER and not BANNER_ALL_PAGES %}
+    {% block banner %}{% endblock %}
+{% endif %}
+<!-- End Banner -->
+<div class="container{% if BOOTSTRAP_FLUID %}-fluid{% endif %}">
+    <div class="row">
+        <div class="col-md-3">
+        </div>
+        <div class="col-md-6">
+            <center><h1>NATHAN HARRINGTON</h1></center>
+        </div>
+        <div class="col-md-3">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <BR>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <hr>
+        </div>
+        <div class="col-md-2">
+            <center>
+            <a class="greyback" href="/pages/about.html">ABOUT</a>
+            </center>
+        </div>
+        <div class="col-md-2">
+            <center>
+            <a class="greyback" href="/pages/standing-invitation.html">STANDING INVITATION</a>
+            </center>
+        </div>
+        <div class="col-md-4">
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+        </div>
+        <div class="col-md-6">
+            {% block breadcrumbs %}
+            {% endblock %}
+            {% block content %}
+            {% endblock %}
+            </div>
+        <div class="col-md-3">
+        </div>
+    </div>
+</div>
+
+<script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/respond.min.js"></script>
+
+{% if BANNER %}
+    <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/bodypadding.js"></script>
+{% endif %}
+{% include 'includes/github-js.html' %}
+{% include 'includes/disqus_script.html' %}
+{% include 'includes/ga.html' %}
+{% include 'includes/piwik.html' %}
+
+{% block scripts %}{% endblock %}
+</body>
+</html>
