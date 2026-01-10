@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 {% block title %}{{ article.title }}{% endblock %}
 {% block content %}
-<section id="content">
+<section class="content-section">
         <article>
                 <header>
                         <h1>
-                                <a href="{{ pagename }}"
+                                <a href="{{ SITEURL }}/{{ article.url }}"
                                         rel="bookmark"
                                         title="Permalink to {{ article.title }}">
                                         {{ article.title}}
