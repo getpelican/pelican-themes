@@ -46,9 +46,9 @@
     <link rel="apple-touch-icon" sizes="72x72" href="{{ SITEURL }}/theme/images/apple-touch-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="114x114" href="{{ SITEURL }}/theme/images/apple-touch-icon-114x114.png">
 
-    <link href="{{ SITEURL }}/{{ FEED }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} ATOM Feed" />
+    <link href="{{ SITEURL }}/{{ FEED }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} ATOM Feed">
     {% if FEED_RSS %}
-    <link href="{{ SITEURL }}/{{ FEED_RSS }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} RSS Feed" />
+    <link href="{{ SITEURL }}/{{ FEED_RSS }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} RSS Feed">
     {% endif %}
 
   </head>
@@ -83,9 +83,7 @@
                   </li>
               {% endfor %}
 
-                          <ul class="nav pull-right">
-                                <li><a href="{{ SITEURL }}/archives.html"><i class="icon-th-list"></i>Archives</a></li>
-                          </ul>
+                          <li class="pull-right"><a href="{{ SITEURL }}/archives.html"><i class="icon-th-list"></i>Archives</a></li>
 
             </ul>
             <!--<p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>-->
@@ -111,12 +109,12 @@
 
       <footer>
         <address id="about">
-                Proudly powered by <a href="http://pelican.notmyidea.org/">Pelican <i class="icon-external-link"></i></a>,
-                                which takes great advantage of <a href="http://python.org">Python <i class="icon-external-link"></i></a>.
+                Proudly powered by <a href="https://getpelican.com/">Pelican <i class="icon-external-link"></i></a>,
+                                which takes great advantage of <a href="https://www.python.org">Python <i class="icon-external-link"></i></a>.
         </address><!-- /#about -->
 
-        <p>The theme is based on <a href="http://twitter.github.com/bootstrap/">Bootstrap from Twitter <i class="icon-external-link"></i></a>,
-                   and <a href="http://fortawesome.github.com/Font-Awesome/">Font-Awesome <i class="icon-external-link"></i></a>, thanks!</p>
+        <p>The theme is based on <a href="https://getbootstrap.com/">Bootstrap <i class="icon-external-link"></i></a>,
+                   and <a href="https://fontawesome.com/">Font-Awesome <i class="icon-external-link"></i></a>, thanks!</p>
       </footer>
 
     </div><!--/.fluid-container-->
