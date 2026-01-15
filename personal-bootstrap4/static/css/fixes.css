@@ -1,0 +1,20 @@
+/* Show it is fixed to the top */
+body {
+    /* min-height: 25rem; */
+    padding-top: 4.5rem;
+}
+
+/* tweak for links */
+a:link, a:visited, a:hover, a:active {
+    text-decoration: none;
+}
+
+/* tweak for tags page */
+.btn {
+    margin-bottom: 10px;
+}
+
+/* tweak names of pages */
+.page-title::first-letter {
+    text-transform: capitalize;
+}
