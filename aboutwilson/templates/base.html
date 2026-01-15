@@ -68,7 +68,9 @@
 						<h4>Categories</h4>
 						<ul class="list-unstyled my-list-style">
 							{% for cat, art in categories %}
-							<li><a href="{{SITEURL}}/category/{{cat | replace(" ", "-") | lower }}.html">{{cat}} ({{art | count}})</a></li>
+							<!-- <li><a href="{{SITEURL}}/category/{{cat | replace(" ", "-") | lower }}.html">{{cat}} ({{art | count}})</a></li> -->
+							<!-- fix the bug that chinese name categories can not be parse to url -->
+							<li><a href="{{ SITEURL }}/{{ cat.url }}">{{cat}} ({{ art | count}})</a></li>
 							{% endfor %}
 						</ul>
 					</div>
