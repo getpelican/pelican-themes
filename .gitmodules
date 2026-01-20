@@ -270,3 +270,6 @@
 [submodule "WhatsTheScoop"]
 	path = WhatsTheScoop
 	url = git@github.com:SarahRogue81/WhatsTheScoop.git
+[submodule "pelican-twenty-fifteen-theme"]
+	path = pelican-twenty-fifteen-theme
+	url = https://github.com/LayoutsHub/pelican-twenty-fifteen-theme
